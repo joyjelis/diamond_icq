@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * @author Magneto Team
+ * @copyright Copyright (c) 2021 Magneto (https://www.magnetoitsolutions.com)
+ * @package Magneto_CurrencyChangeTab
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <module name="Magneto_CurrencyChangeTab" setup_version="1.0.0" >
+    </module>
+</config>

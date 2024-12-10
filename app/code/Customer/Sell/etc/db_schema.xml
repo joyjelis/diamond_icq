@@ -1,0 +1,129 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+	<table name="customer_sell" resource="default" engine="innodb" comment="Customer Diamond Sell Table">
+		<column xsi:type="int" name="sell_id" padding="11" unsigned="false" nullable="false" identity="true" comment=""/>
+		<constraint referenceId="PRIMARY" xsi:type="primary">
+			<column name="sell_id"/>
+		</constraint>
+		<column name="pick_date" nullable="true" xsi:type="datetime" />
+		<column xsi:type="varchar" name="booking_appintment_id" nullable="true" length="255" comment="Booking Appointment ID" />
+		<column xsi:type="varchar" name="booking_appintment_url_slug" nullable="true" length="255" comment="Booking Appointment Url" />
+		<column length="255" name="imagetype" nullable="true" xsi:type="varchar"/>
+		<column length="255" name="quote" nullable="true" xsi:type="varchar"/>
+		<column name="trade" nullable="true" xsi:type="boolean"/>
+		<column name="certificate" nullable="true" xsi:type="boolean"/>
+		<column identity="false" name="certificate_name" nullable="true" xsi:type="int" disabled="true" />
+		<column length="255" name="certificate_image" nullable="true" xsi:type="varchar" disabled="true"/>
+		<column xsi:type="smallint" name="store_id" padding="5" unsigned="true" nullable="true" identity="false" comment="Store ID"/>
+		<column xsi:type="varchar" name="pick_up_address_id" nullable="true" length="255" comment="Pickup Address ID" disabled="true" />
+		<column xsi:type="varchar" name="return_shipping_address_id" nullable="true" length="255" comment="Return Shipping Address ID" disabled="true" />
+		<column length="255" name="email" nullable="true" xsi:type="varchar"/>
+		<column length="255" name="mobile" nullable="true" xsi:type="varchar"/>
+		<column name="image" nullable="true" xsi:type="longtext"/>
+		<column length="255" name="name" nullable="true" xsi:type="varchar"/>
+		<column length="255" name="color" nullable="true" xsi:type="varchar"/>
+		<column length="255" name="clarity" nullable="true" xsi:type="varchar"/>
+		<column length="255" name="carat" nullable="true" xsi:type="varchar"/>
+		<column length="255" name="cut" nullable="true" xsi:type="varchar"/>
+		<column length="255" name="polish" nullable="true" xsi:type="varchar"/>
+		<column length="255" name="symmetry" nullable="true" xsi:type="varchar"/>
+		<column length="255" name="fluorescence" nullable="true" xsi:type="varchar"/>
+		<column length="255" name="lab" nullable="true" xsi:type="varchar"/>
+		<column length="255" name="is_certify" nullable="true" xsi:type="varchar"/>
+		<column length="255" name="qualityofprice" nullable="true" xsi:type="varchar" disabled="true" />
+		<column length="255" name="certificate_no" nullable="true" xsi:type="varchar"/>
+		<column length="255" name="price" nullable="true" xsi:type="varchar"/>
+		<column name="accept_offer" nullable="true" xsi:type="boolean" disabled="true"/>
+		<column length="255" name="bank_name" nullable="true" xsi:type="varchar"/>
+		<column length="255" name="account_name" nullable="true" xsi:type="varchar"/>
+		<column length="255" name="account_no" nullable="true" xsi:type="varchar"/>
+		<column length="255" name="country" nullable="true" xsi:type="varchar"/>
+		<column length="255" name="swift_code" nullable="true" xsi:type="varchar"/>
+
+		<column length="255" name="landmark" nullable="true" xsi:type="varchar"/>
+		<column length="255" name="postcode" nullable="true" xsi:type="varchar"/>
+		<column length="255" name="pickup_country" nullable="true" xsi:type="varchar"/>
+		<column length="255" name="city" nullable="true" xsi:type="varchar"/>
+		<column length="255" name="street" nullable="true" xsi:type="varchar"/>
+
+		
+
+		<column xsi:type="smallint" name="trade_for" padding="3" unsigned="true" nullable="true" comment="Trade For" disabled="true" />
+		<column length="255" name="trade_type" nullable="true" xsi:type="varchar"/>
+		<column name="item_arrived" nullable="true" xsi:type="boolean"/>
+		<column length="255" name="ship_by" nullable="true" xsi:type="varchar"/>
+		<column length="255" name="item_inspected" nullable="true" xsi:type="varchar"/>
+		<column length="255" name="process_by" nullable="true" xsi:type="varchar"/>
+		<column name="inspection_pass" nullable="true" xsi:type="boolean"/>
+		<column length="255" name="pay_shipping" nullable="true" xsi:type="varchar"/>
+		<column length="255" name="transaction" nullable="true" xsi:type="varchar"/>
+		<column length="255" name="accept_transaction" nullable="true" xsi:type="varchar" disabled="true" />
+		<column name="schedule_date" nullable="true" xsi:type="datetime"/>
+		<column  name="schedule_accept" nullable="true" xsi:type="boolean"/>
+		<column  name="reconsider_price" nullable="true" xsi:type="boolean" disabled="true" />
+		<column length="255" name="offer_price" nullable="true" xsi:type="varchar"/>
+		<column  name="offer_consignemnt" nullable="true" xsi:type="boolean" disabled="true" />
+		<column length="255" name="number_of_items" nullable="true" xsi:type="varchar" disabled="true" />
+		<column length="255" name="jewellery_type" nullable="true" xsi:type="varchar"/>
+		<column name="description" nullable="true" xsi:type="text"/>
+		<column name="certificate_remark" nullable="true" xsi:type="text"/>
+		<column length="255" name="customer_id" nullable="true" xsi:type="varchar"/>
+		<column  name="internal" nullable="true" xsi:type="text"/>
+		<column length="255" name="tracking" nullable="true" xsi:type="varchar"/>
+		<column length="255" name="transaction_customer" nullable="true" xsi:type="varchar"/>
+		<column  name="reason" nullable="true" xsi:type="text"/>
+		<column length="255" name="customer_country" nullable="true" xsi:type="varchar"/>
+		<column name="status" nullable="true" xsi:type="boolean" default="1" />
+		<column name="created_at" nullable="false" xsi:type="datetime" default="CURRENT_TIMESTAMP" on_update="false"/>
+		<column name="updated_at" nullable="true" xsi:type="datetime" default="CURRENT_TIMESTAMP" on_update="true"/>
+	</table>
+	<table name="sell_quote_history" resource="default" engine="innodb" comment="sell_quote_history">
+		<column xsi:type="int" name="sell_history_id" padding="11" unsigned="false" nullable="false" identity="true" comment="History ID"/>
+		<column xsi:type="int" name="sell_id" padding="11" unsigned="false" nullable="false" comment="Sell ID"/>
+		<constraint referenceId="PRIMARY" xsi:type="primary">
+			<column name="sell_history_id"/>
+		</constraint>
+		<column name="status" nullable="true" xsi:type="boolean" default="1" comment="Status" />
+		<column name="remarks" nullable="true" xsi:type="text" comment="Remarks" />
+		<column name="created_at" nullable="false" xsi:type="datetime" default="CURRENT_TIMESTAMP" on_update="false"/>
+	</table>
+	<table name="sell_sequence_profile" resource="default" engine="innodb" comment="sell_sequence_profile">
+		<column xsi:type="int" name="profile_id" padding="10" unsigned="true" nullable="false" identity="true"
+			comment="ID"/>
+			<column xsi:type="varchar" name="prefix" nullable="true" length="32" comment="Prefix"/>
+			<column xsi:type="int" name="start_value" padding="10" unsigned="true" nullable="false"
+				default="1" comment="Start value for sequence"/>
+				<column xsi:type="int" name="step" padding="10" unsigned="true" nullable="false" identity="false" default="1"
+					comment="Step for sequence"/>
+					<constraint xsi:type="primary" referenceId="PRIMARY">
+						<column name="profile_id"/>
+					</constraint>
+					<constraint xsi:type="unique" referenceId="SELL_SEQUENCE_PROFILE_PREFIX">
+						<column name="prefix"/>
+					</constraint>
+				</table>
+				<table name="sequence_sell_q" resource="default" engine="innodb" comment="sequence_sell_q">
+					<column xsi:type="int" name="sequence_value" padding="11" unsigned="false" nullable="false" identity="true"/>
+					<constraint xsi:type="primary" referenceId="PRIMARY">
+						<column name="sequence_value"/>
+					</constraint>
+				</table>
+				<table name="sequence_sell_p" resource="default" engine="innodb" comment="sequence_sell_p">
+					<column xsi:type="int" name="sequence_value" padding="11" unsigned="false" nullable="false" identity="true"/>
+					<constraint xsi:type="primary" referenceId="PRIMARY">
+						<column name="sequence_value"/>
+					</constraint>
+				</table>
+				<table name="sequence_sell_t" resource="default" engine="innodb" comment="sequence_sell_t">
+					<column xsi:type="int" name="sequence_value" padding="11" unsigned="false" nullable="false" identity="true"/>
+					<constraint xsi:type="primary" referenceId="PRIMARY">
+						<column name="sequence_value"/>
+					</constraint>
+				</table>
+				<table name="sequence_sell_c" resource="default" engine="innodb" comment="sequence_sell_c">
+					<column xsi:type="int" name="sequence_value" padding="11" unsigned="false" nullable="false" identity="true"/>
+					<constraint xsi:type="primary" referenceId="PRIMARY">
+						<column name="sequence_value"/>
+					</constraint>
+				</table>
+			</schema>

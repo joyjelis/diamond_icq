@@ -1,0 +1,37 @@
+<?php
+/**
+* Copyright © Magento, Inc. All rights reserved.
+* See COPYING.txt for license details.
+*/
+
+// @codingStandardsIgnoreFile
+?>
+<?php
+/** @var $block \Magento\Framework\View\Element\Template */
+/** @var $helper \Magento\Search\Helper\Data */
+$helper = $this->helper(\Magento\Search\Helper\Data::class);
+?>
+
+<div class="block block-content search-drop">
+  <form class="form minisearch" name="searchform" id="search_mini_form_res" action="<?= /* @escapeNotVerified */ $helper->getResultUrl() ?>" method="get" > 
+        <div class="field search">
+            <div class="control">
+                
+                <div id="search_res" >
+                    <input id="search1" data-mage-init='{"quickSearch":{"formSelector":"#search_mini_form_res", "url":"<?= /* @escapeNotVerified */ $helper->getSuggestUrl()?>", "destinationSelector":"#search_autocomplete"}}' type="text" name="<?= /* @escapeNotVerified */ $helper->getQueryParamName() ?>" value="<?= /* @escapeNotVerified */ $helper->getEscapedQueryText() ?>" placeholder="<?= /* @escapeNotVerified */ __('Search') ?>" class="input-text search-input" maxlength="<?= /* @escapeNotVerified */ $helper->getMaxQueryLength() ?>" role="combobox" aria-haspopup="false" aria-autocomplete="both" autocomplete="off" />
+                    <div id="search_autocomplete" class="search-autocomplete"></div>
+                    <?= $block->getChildHtml() ?>
+                    
+
+                </div>
+            </div>
+          
+        </div>
+        <div id="actions-cls" class="actions">
+            <button type="submit" id="search-btn" title="<?= $block->escapeHtml(__('Search')) ?>" class="action search"></button>
+        </div>
+
+        
+   </form>
+</div>
+

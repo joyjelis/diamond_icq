@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <link src="Magneto_FreeEngraving::css/engrave.css"/>
+        <link src="Magneto_FreeEngraving::css/engrave-fonts.css"/>
+        <script src="Magneto_FreeEngraving::js/mymodal-component.js"/>
+    </head>
+    <body>
+         <referenceContainer name="content">
+              <block class="Gemfind\Ringbuilder\Block\Diamond\Completering" name="product.info.freeengraving" as="productInfoFreeEngraving" template="Magneto_FreeEngraving::cart/engraving_ringbuilder.phtml" after="alert.urls">
+                <arguments>
+                    <argument name="current_steps" xsi:type="string">ringcompletes</argument>
+                    <argument name="view_model" xsi:type="object">Magneto\FreeEngraving\ViewModel\RingBuilderEngravingHelper</argument>
+                </arguments>
+              </block>   
+        </referenceContainer>
+    </body>    
+</page>

@@ -1,0 +1,1524 @@
+<?php  $setting = $block->getProduct();
+// Currency Changes
+$priceHelper = $this->helper('Magneto\RingBuilder\ViewModel\PriceHelper');
+?>
+<?php if (sizeof($setting['ringData']) > 0) {
+    $settingid = $setting['ringData']['settingId'];
+    $hasvideo = $type = 0;
+    if (isset($setting['ringData']['videoURL']) && $setting['ringData']['videoURL'] != '') {
+        $headers = $block->is_404($setting['ringData']['videoURL']);
+        if (!$headers) {
+            $hasvideo = 1;
+            if (strpos($setting['ringData']['videoURL'], '.mp4') !== false) {
+                $type = 1;
+            } else {
+                $type = 2;
+            }
+        }
+    } else {
+        $hasvideo = 0;
+    }
+    ?>
+    <?php if (isset($setting['ringData']['mainImageURL'])) {
+        $imgurl = $setting['ringData']['mainImageURL'];
+    }
+    ?>
+<div class="loading-mask gemfind-loading-mask" id="gemfind-loading-mask" style="display: none;">
+   <div class="loader gemfind-loader">
+      <p>Please wait...</p>
+   </div>
+</div>
+<div class="main-ringbuilder-banner">
+    <?php echo $block->getLayout()->createBlock(\Magento\Cms\Block\Block::class)->setBlockId('ring-builder-main-banner-setting')->toHtml();?>
+</div>
+<div id="search-rings" class="flow-tabs">
+   <div class="tab-section">
+      <!-- <ul class="tab-ul">
+         <?php /*if($block->checkDiamondCookie()) { ?>
+         <li class="tab-li"><div><a href="<?php echo $block->getUrl('ringbuilder/diamond'); ?>"><span class="tab-title"><?php echo __('Choose Your'); ?><strong><?php echo __('Diamond'); ?></strong></span><i class="diamond-icon tab-icon"></i></a></div></li>
+         <?php } else { ?>
+         <li class="tab-li active"><div><a href="<?php echo $block->getUrl('ringbuilder/settings'); ?>"><span class="tab-title"><?php echo __('Choose Your'); ?><strong><?php echo __('Setting'); ?></strong></span><i class="ring-icon tab-icon"></i></a></div></li>
+         <?php } ?>
+         <?php if(!$block->checkDiamondCookie()) { ?>
+         <li class="tab-li"><div><a href="<?php echo $block->getUrl('ringbuilder/diamond'); ?>"><span class="tab-title"><?php echo __('Choose Your'); ?><strong><?php echo __('Diamond'); ?></strong></span><i class="diamond-icon tab-icon"></i></a></div></li>
+         <?php } else { ?>
+         <li class="tab-li active"><div><a href="<?php echo $block->getUrl('ringbuilder/settings'); ?>"><span class="tab-title"><?php echo __('Choose Your'); ?><strong><?php echo __('Setting'); ?></strong></span><i class="ring-icon tab-icon"></i></a></div></li>
+         <?php } ?>
+         <li class="tab-li"><div><a href="javascript:;"><span class="tab-title"><?php echo __('Review'); ?><strong><?php echo __('Complete Ring');*/ ?></strong></span><i class="finalring-icon tab-icon"></i></a></div></li>
+      </ul> -->
+      <?php
+        $settingcoockieval = [];
+        $labsettings = false;
+        if ($block->getIslabsetting()) {
+            $settingcoockieval = $block->getIslabsetting();
+            if ($settingcoockieval == 'labsettings') {
+                $labsettings = true;
+            } else {
+                $labsettings = false;
+            }
+        } else {
+            $labsettings = false;
+        }  ?>
+      <ul class="tab-ul">
+         <?php if ($labsettings) { ?>
+            <li class="tab-li active"><div><a href="<?php echo $block->getUrl('ringbuilder/settings').'type/labsettings'; ?>"><span class="tab-title"><p class="desktop"><?php echo __('1'); ?></p><p class="responsive"><img src="<?php echo $this->getViewFileUrl('images/Group562.svg'); ?>" alt="flow-tabs"></p><?php echo __('Choose Setting'); ?></span>
+               <div class="img"><img src="<?php echo $this->getViewFileUrl('images/setting.png'); ?>" alt="choose-setting"></div>
+            </a></div></li>
+         <?php } else { ?>
+            <li class="tab-li active"><div><a href="<?php echo $block->getUrl('ringbuilder/settings'); ?>"><span class="tab-title"><p class="desktop"><?php echo __('1'); ?></p><p class="responsive"><img src="<?php echo $this->getViewFileUrl('images/Group562.svg'); ?>" alt="flow-tabs"></p><?php echo __('Choose Setting'); ?></span>
+               <div class="img"> <img src="<?php echo $this->getViewFileUrl('images/setting.png'); ?>" alt="choose-diamond"></div>
+            </a></div></li>
+         <?php } ?>
+         <li class="tab-li"><div><a href="<?php echo $block->getUrl('ringbuilder/diamond'); ?>"><span class="tab-title"><p><?php echo __('2'); ?></p><?php echo __('Choose Diamond'); ?></span>
+           <div class="img"> <img src="<?php echo $this->getViewFileUrl('images/choosediamond.png'); ?>" alt="choose-diamond"></div>
+        </a></div></li>
+        <li class="tab-li"><div><a href="javascript:;" style="cursor: default;"><span class="tab-title"><p><?php echo __('3'); ?></p><?php echo __('Complete Ring'); ?></span>
+         <div class="img"><img src="<?php echo $this->getViewFileUrl('images/cring.png'); ?>" alt="completed-ring"></div>
+      </a></div></li>
+   </ul>
+</div>
+<div class="tab-content">
+   <div class="d-container container">
+      <div class="d-row back-container">
+         <a class="action back" href="<?php echo $this->getUrl('ringbuilder/settings') ?>">&lt; <?= __('Return to Search Results'); ?></a>
+      </div>
+      <div class="d-row">
+         <div class="diamonds-preview no-padding" id="test">
+            <div class="diamond-info">
+               <div class="diamond-image">
+                  <div class="top-icons">
+                     <span class="zoom-icon" id="zoom_me">
+                        <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                        width="22px" height="22px">
+                        <path fill-rule="evenodd"  fill="rgb(148, 148, 148)"
+                        d="M22.001,20.308 C22.001,20.775 21.835,21.174 21.505,21.505 C21.174,21.835 20.775,22.001 20.308,22.001 C19.832,22.001 19.436,21.833 19.118,21.498 L14.583,16.976 C13.006,18.069 11.247,18.616 9.308,18.616 C8.047,18.616 6.842,18.371 5.691,17.882 C4.541,17.393 3.549,16.732 2.716,15.899 C1.883,15.066 1.222,14.074 0.733,12.924 C0.244,11.773 -0.001,10.568 -0.001,9.308 C-0.001,8.047 0.244,6.842 0.733,5.692 C1.222,4.541 1.883,3.550 2.716,2.717 C3.549,1.884 4.541,1.222 5.691,0.733 C6.842,0.244 8.047,-0.001 9.308,-0.001 C10.568,-0.001 11.774,0.244 12.924,0.733 C14.075,1.222 15.066,1.884 15.899,2.717 C16.732,3.550 17.393,4.541 17.882,5.692 C18.371,6.842 18.616,8.047 18.616,9.308 C18.616,11.247 18.070,13.006 16.977,14.583 L21.511,19.119 C21.838,19.445 22.001,19.841 22.001,20.308 ZM13.493,5.123 C12.333,3.964 10.938,3.384 9.308,3.384 C7.677,3.384 6.282,3.964 5.123,5.123 C3.964,6.282 3.384,7.677 3.384,9.308 C3.384,10.938 3.964,12.333 5.123,13.492 C6.282,14.651 7.677,15.231 9.308,15.231 C10.938,15.231 12.333,14.652 13.493,13.492 C14.652,12.333 15.231,10.938 15.231,9.308 C15.231,7.677 14.652,6.282 13.493,5.123 ZM13.116,10.154 L10.154,10.154 L10.154,13.116 C10.154,13.230 10.112,13.330 10.028,13.413 C9.945,13.497 9.846,13.539 9.731,13.539 L8.885,13.539 C8.770,13.539 8.671,13.497 8.587,13.413 C8.504,13.330 8.462,13.230 8.462,13.116 L8.462,10.154 L5.500,10.154 C5.385,10.154 5.286,10.112 5.202,10.028 C5.119,9.944 5.077,9.845 5.077,9.731 L5.077,8.884 C5.077,8.770 5.119,8.671 5.202,8.587 C5.286,8.503 5.385,8.461 5.500,8.461 L8.462,8.461 L8.462,5.500 C8.462,5.385 8.504,5.286 8.587,5.202 C8.671,5.118 8.770,5.077 8.885,5.077 L9.731,5.077 C9.846,5.077 9.945,5.118 10.028,5.202 C10.112,5.286 10.154,5.385 10.154,5.500 L10.154,8.461 L13.116,8.461 C13.231,8.461 13.330,8.503 13.414,8.587 C13.497,8.671 13.539,8.770 13.539,8.884 L13.539,9.731 C13.539,9.845 13.497,9.944 13.414,10.028 C13.330,10.112 13.231,10.154 13.116,10.154 Z"/>
+                     </svg>
+                  </span>
+                  <?php if ($hasvideo) { ?>
+                     <span class="videoicon" onclick="Videorun(event);">
+                        <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                        width="24px" height="21px">
+                        <path fill-rule="evenodd"  fill="rgb(148, 148, 148)"
+                        d="M23.224,21.000 C22.545,21.000 18.182,16.957 18.182,16.425 L18.182,11.128 C18.182,10.596 22.448,6.553 23.224,6.553 C24.000,6.553 24.000,7.275 24.000,7.275 L24.000,20.278 C24.000,20.278 23.903,21.000 23.224,21.000 ZM16.291,19.917 L1.164,19.917 C0.521,19.917 -0.000,19.550 -0.000,19.098 L-0.000,8.455 C-0.000,8.003 0.521,7.636 1.164,7.636 L16.291,7.636 C16.934,7.636 17.454,8.003 17.454,8.455 L17.454,19.098 C17.454,19.550 16.934,19.917 16.291,19.917 ZM12.364,7.223 C10.355,7.223 8.727,5.606 8.727,3.612 C8.727,1.617 10.355,-0.000 12.364,-0.000 C14.372,-0.000 16.000,1.617 16.000,3.612 C16.000,5.606 14.372,7.223 12.364,7.223 ZM4.364,7.223 C2.757,7.223 1.454,5.930 1.454,4.334 C1.454,2.738 2.757,1.444 4.364,1.444 C5.970,1.444 7.273,2.738 7.273,4.334 C7.273,5.930 5.970,7.223 4.364,7.223 Z"/>
+                     </svg>
+                  </span>
+               <?php } ?>
+            </div>
+            <div id="ringimg"></div>
+            <div class="diamondvideo" id="ringvideo" <?php if (!$hasvideo) { ?> style="display: none;" <?php } ?>>
+               <?php if ($type == 1) { ?>
+                  <video width="" height="" autoplay loop muted poster="" preload="none"  >
+                     <source src="<?php echo $setting['ringData']['videoURL']; ?>" type="video/mp4">
+                     </video>
+                  <?php } elseif ($type == 2) { ?>
+                     <iframe src="<?php echo $setting['ringData']['videoURL']; ?>" id="iframevideo" scrolling="no"></iframe>
+                  <?php } else {
+                      echo __('No Video');
+                  } ?>
+               </div>
+               <div class="magentoGallerywidget" id="magentoGallerywidget">
+               </div>
+               <div class="sku-ring"><?php echo __('SKU#') ?><span><?php echo $setting['ringData']['styleNumber'] ?></span></div>
+            </div>
+         </div>
+      </div>
+
+      <div class="ring-details no-padding ring-request-form">
+         <div class="ring-data" id="ring-data">
+            <div class="ring-specification-title">
+               <div class="mainsec-name">
+                  <h2><?php echo ucfirst(strtolower($setting['ringData']['settingName'])); ?></h2>
+               </div>
+               <h4 class="ring-spec-header">
+                  <a href="javascript:;" id="spcfctn" onclick="CallSpecification();">
+                     <div class="img"> <img src="<?php echo $this->getViewFileUrl('images/bx_bx-edit.svg'); ?>" alt="choose-diamond"></div>
+                     <span class="diamond_spec" onclick="CallSpecification();"><?php echo __('Ring Specification'); ?></span>
+                  </a>
+               </h4>
+            </div>
+            <div class="diamond-content-data" id="ring-content-data">
+               <div class="diamond-desc">
+                  <p><?php  echo $setting['ringData']['description'] ?></p>
+               </div>
+               <div class="form-field diamonds-info">
+                  <div class="title-main">
+                     <div class="title">
+                        <?php echo __('Customize Your Ring'); ?>
+                     </div>
+                     <div class="img">
+                      <img src="<?php echo $this->getViewFileUrl('images/edit-settings.svg'); ?>" alt="ring-edit">
+                   </div>
+                </div>
+                <div class="intro-field" id="ring-filter">
+                  <?php
+                    if (sizeof($setting['ringData']['configurableProduct']) > 0) { ?>
+                        <?php
+                        $sidestonearray = [];
+                        foreach ($setting['ringData']['configurableProduct'] as $value) {
+                            $value = (array) $value;
+                            $metalarray[] = $value['metalType'];
+                            if ($value['sideStoneQuality']) {
+                                $sidestonearray[] = $value['sideStoneQuality'];
+                            }
+                            $centerstonesizearray[] = $value['centerStoneSize'];
+                            $sidestn = strtolower(str_replace(' ', '', str_replace('|', '-', $value['sideStoneQuality'])));
+                            $centerstnsize = strtolower(str_replace(' ', '', $value['centerStoneSize']));
+                            $mtltyp = strtolower(str_replace(' ', '-', $value['metalType']));
+                            ?>
+                       <?php } ?>
+                        <?php if (sizeof(array_unique($metalarray)) >= 1) {
+                            $metaltypedata = $block->getMetaltype($setting['ringData']['metalType'], $setting['ringData']['configurableProduct']);
+                            ?>
+                        <div class="accordion">
+                           <div class="metal-type prdctdrpdwn" data-role="trigger">
+                              <div class="img"> <img src="<?php echo $this->getViewFileUrl('images/Ellipse15.svg'); ?>" alt="metal-type"></div>
+                              <span class="title"><?php echo __('Metal Type'); ?></span>
+                              <select class="metaltyp-drpdwn" name="metal_type" id="metal_type" onchange="changemetal(this)">
+                                 <?php sort($metaltypedata); foreach ($metaltypedata as $singlemetaltype) { ?>
+                                    <option <?php if ($singlemetaltype['metaltype'] == $setting['ringData']['metalType']) { ?> value="<?php echo $setting['ringData']['settingId']; ?>" <?php } else { ?> value="<?php echo $singlemetaltype['gfid']; ?>" <?php } ?> data-id="<?php echo strtolower(str_replace(' ', '-', $singlemetaltype['metaltype'].'-metaltype-'.$setting['ringData']['settingName'])); ?>" <?php if ($singlemetaltype['metaltype'] == $setting['ringData']['metalType']) { echo 'selected="selected"';} ?>><?php echo $singlemetaltype['metaltype']; ?></option>
+                                 <?php } ?>
+                              </select>
+                              <div class="rightactive">
+                                <div class="content" id="metalcustomoptionactive"></div>
+                             </div>
+                          </div>
+                       </div>
+                       <div class="panel">
+                        <div class="filter swatches metaltype" id="metalcustomoption" >
+                           <div class="main">
+                              <?php sort($metaltypedata); foreach ($metaltypedata as $singlemetaltype) {
+                                    $atributes = explode(" ", $singlemetaltype['metaltype']);
+                                    ?>
+                                 <div class="one <?php echo strpos($singlemetaltype['metaltype'], 'Rose') ? "rose": "";?><?php echo strpos($singlemetaltype['metaltype'], 'Yellow') ? "yellow": "";?>">
+                                    <?php if (isset($atributes[0])) { ?>
+                                        <?php if (strlen($atributes[0])>3) { ?>
+                                          <div class="option" data-value="<?= $singlemetaltype['gfid'] ?>" data-name="<?= $singlemetaltype['metaltype'] ?>"><?= strtoupper(substr($atributes[0], 0, 2)); ?></div>
+                                          <label><?= __($atributes[0]) ?></label>
+                                       <?php } else { ?>
+                                          <div class="option" data-value="<?= $singlemetaltype['gfid'] ?>" data-name="<?= $singlemetaltype['metaltype'] ?>"><?= $atributes[0] ?></div>
+                                       <?php } ?>
+                                    <?php } ?>
+                                    <?php if (isset($atributes[1]) && isset($atributes[2])) { ?>
+                                       <label><?= __($atributes[1]. " " .$atributes[2]) ?></label>
+                                    <?php } ?>
+                                 </div>
+                              <?php } ?>
+                           </div>
+                        </div>
+                     </div>
+                  <?php } ?>
+
+                        <?php if (sizeof(array_unique($sidestonearray)) >= 1) {
+                            $sidestonedata = $block->getSidestone($setting['ringData']['metalType'], $setting['ringData']['configurableProduct']);
+                            foreach ($sidestonedata as $key => $value) {
+                                $finalsidestonedata[] = $block->getSidestonefinal($key, $sidestonedata);
+                            }
+                            ?>
+                     <div data-role="collapsible" class="accordion">
+                        <div class="ring-size prdctdrpdwn">
+                          <div class="img"> <img src="<?php echo $this->getViewFileUrl('images/emojione-monotone_diamond-with-a-dot.svg'); ?>" alt="monotone_diamond-type"></div>
+                          <span class="title"><?php echo __('Side Stone Quality'); ?></span>
+                          <select class="stonequality-drpdwn" name="stonequality" id="stonequality" onchange="changequality(this)">
+                            <?php foreach ($finalsidestonedata as $singlesideStoneQuality) {
+                                if (isset($setting['ringData']['sideStoneQuality'][0])) {
+                                    $currentsettingsidestoneqty = $setting['ringData']['sideStoneQuality'][0];
+                                } else {
+                                    $currentsettingsidestoneqty = '';
+                                }
+                                ?>
+                              <option value="<?php echo $singlesideStoneQuality['gfInventoryId'] ?>" <?php if ($singlesideStoneQuality['sideStoneQuality'] == $currentsettingsidestoneqty) { echo 'selected="selected"';} ?>><?php echo $singlesideStoneQuality['sideStoneQuality']; ?></option>
+                           <?php } ?>
+                        </select>
+                        <div class="rightactive">
+                          <div class="content" id="stonecustomoptionactive"></div>
+                       </div>
+
+                    </div>
+                 </div>
+                 <div class="panel">
+                  <div class="filter swatches sidestone" id="stonecustomoption">
+                    <div class="main">
+                            <?php foreach ($finalsidestonedata as $singlesideStoneQuality) { ?>
+                        <div class="one"><div class="option" data-value="<?= $singlesideStoneQuality['gfInventoryId'] ?>" data-name="<?= $singlesideStoneQuality['sideStoneQuality'] ?>"><?= $singlesideStoneQuality['sideStoneQuality'] ?></div></div>
+                     <?php } ?>
+                  </div>
+               </div>
+            </div>
+         <?php }  ?>
+         <div class="accordion">
+                        <?php if (sizeof(array_unique($centerstonesizearray)) >= 1 && sizeof(array_unique($sidestonearray)) < 1) {
+                            $centarstonedata = $block->getCenterstone($setting['ringData']['metalType'], null, $setting['ringData']['configurableProduct']);
+                            ?>
+               <div class="ring-size prdctdrpdwn">
+                 <div class="img"> <img src="<?php echo $this->getViewFileUrl('images/central-stone.svg'); ?>" alt="central-stone"></div>
+                 <span class="title"><?php echo __('Center Stone Size'); ?></span>
+                 <select class="centerstonesize-drpdwn" name="centerstonesize" id="centerstonesize" onchange="changecenterstone(this)">
+                            <?php
+                            $previousValue = [];
+                            foreach ($centarstonedata as $centkey => $singlecenterstonesizearray) {
+                                $previousValue[] = $singlecenterstonesizearray['centerStoneSize'];
+                                   /* if($centkey == 0){
+                                       $tempvar = $singlecenterstonesizearray['centerStoneSize'];
+                                       $optionval = "0 - ".$tempvar;
+                                    }else{
+                                       $tempvar = $previousValue[$centkey - 1] + 0.01;
+                                       if($tempvar < $singlecenterstonesizearray['centerStoneSize']){
+                                          $optionval = $tempvar . " - ". $singlecenterstonesizearray['centerStoneSize'];
+                                       }
+                                    }*/
+                                ?>
+                                    <?php  /*foreach ($centarstonedata as $singlecenterstonesizearray) {*/ ?>
+                                       <option value="<?php echo $singlecenterstonesizearray['gfInventoryId'] ?>" <?php if ($singlecenterstonesizearray['gfInventoryId'] == $setting['ringData']['settingId']) { echo 'selected="selected"';} ?>><?php echo $singlecenterstonesizearray['centerStoneSize']; ?></option>
+                                    <?php } ?>
+                                 </select>
+                                 <div class="rightactive">
+                                   <div class="content" id="centerstonecustomoptionactive"></div>
+                                </div>
+                             </div>
+                          <?php } elseif (sizeof(array_unique($centerstonesizearray)) >= 1 && sizeof(array_unique($sidestonearray)) >= 1) {
+                            $centarstonedata = $block->getCenterstone($setting['ringData']['metalType'], str_replace('"]', '', str_replace('["', '', $setting['ringData']['sideStoneQuality'])), $setting['ringData']['configurableProduct']); ?>
+                           <div class="ring-size prdctdrpdwn">
+                             <div class="img"> <img src="<?php echo $this->getViewFileUrl('images/central-stone.svg'); ?>" alt="central-stone"></div>
+                             <span class="title"><?php echo __('Center Stone Size'); ?></span>
+                             <select class="centerstonesize-drpdwn" name="centerstonesize" id="centerstonesize" onchange="changecenterstone(this)">
+                              <?php
+                                $previousValue = [];
+                                foreach ($centarstonedata as $centkey => $singlecenterstonesizearray) {
+                                    $previousValue[] = $singlecenterstonesizearray['centerStoneSize'];
+                                    /*if($centkey == 0){
+                                       $tempvar = $singlecenterstonesizearray['centerStoneSize'];
+                                       $optionval = "0 - ".$tempvar;
+                                    }else{
+                                       $tempvar = $previousValue[$centkey - 1] + 0.01;
+                                       if($tempvar < $singlecenterstonesizearray['centerStoneSize']){
+                                          $optionval = $tempvar . " - ". $singlecenterstonesizearray['centerStoneSize'];
+                                       }
+                                    }*/
+                                    ?>
+                                    <option value="<?php echo $singlecenterstonesizearray['gfInventoryId'] ?>" <?php if ($singlecenterstonesizearray['gfInventoryId'] == $setting['ringData']['settingId']) { echo 'selected="selected"';} ?>><?php echo $singlecenterstonesizearray['centerStoneSize']; ?></option>
+                                   <?php } ?>
+                              </select>
+                              <div class="rightactive">
+                                <div class="content" id="centerstonecustomoptionactive">14 K</div>
+                             </div>
+                          </div>
+                       <?php } ?>
+                    </div>
+                    <div class="panel">
+                     <div class="filter swatches sidestone" id="centerstonecustomoption">
+                       <div class="main">
+                          <?php foreach ($centarstonedata as $centkey => $singlecenterstonesizearray) { ?>
+                           <div class="one"><div class="option" data-value="<?= $singlecenterstonesizearray['gfInventoryId'] ?>" data-name="<?= $singlecenterstonesizearray['centerStoneSize']; ?>"><?= $singlecenterstonesizearray['centerStoneSize'] ?></div></div>
+                        <?php } ?>
+                     </div>
+                  </div>
+               </div>
+              <?php } ?>
+            <?php if ($setting['ringData']['ringSizeType'] == '' || $setting['ringData']['ringSizeType'] == 'American') { ?>
+                <?php if (sizeof($setting['ringData']['ringSize']) > 0) { ?>
+                  <div class="accordion">
+                     <div class="ring-size prdctdrpdwn">
+                        <div class="img"> <img src="<?php echo $this->getViewFileUrl('images/rings.svg'); ?>" alt="ring"></div>
+                        <span class="title"><?php echo __('Ring Size (HK)'); ?></span>
+                        <select class="ringsize-drpdwn" name="ring_size" id="ring_size" onchange="updatesize();">
+                           <option value="">select one</option>
+                           <?php foreach (array_unique($setting['ringData']['ringSize']) as $singlevalue) { ?>
+                              <option value="<?php echo $singlevalue; ?>"><?php echo $singlevalue; ?></option>
+                           <?php } ?>
+                        </select>
+                        <div class="rightactive">
+                          <div class="content" id="ringsizecustomoptionactive"></div>
+                       </div>
+                    </div>
+                 </div>
+                 <div class="panel">
+                    <div class="filter swatches ring_size" id="ringsizecustomoption">
+                      <div class="main">
+                       <?php foreach (array_unique($setting['ringData']['ringSize']) as $singlevalue) { ?>
+                          <div class="one"><div class="option" data-value="<?= $singlevalue; ?>" data-name="<?= $singlevalue ?>"><?= $singlevalue ?></div></div>
+                       <?php } ?>
+                    </div>
+                 </div>
+              </div>
+           <?php } ?>
+        <?php } else {?>
+                <?php if (sizeof($setting['ringData']['ringSize']) > 0) { ?>
+            <div class="accordion">
+               <div class="ring-size prdctdrpdwn">
+                  <div class="img"> <img src="<?php echo $this->getViewFileUrl('images/rings.svg'); ?>" alt="ring"></div>
+                  <span class="title"><?php echo __('Ring Size (HK)'); ?></span>
+                  <select class="ringsize-drpdwn" name="ring_size" id="ring_size" onchange="updatesize();">
+                     <?php foreach (array_unique($setting['ringData']['ringSize']) as $singlevalue) { ?>
+                        <option value="<?php echo $singlevalue; ?>" <?php if ($singlevalue == 7) { echo 'selected="selected"';} ?>><?php echo $singlevalue; ?></option>
+                     <?php } ?>
+                  </select>
+                  <div class="rightactive">
+                    <div class="content" id="ringsizecustomoptionactive"></div>
+                 </div>
+              </div>
+           </div>
+           <div class="panel">
+              <div class="filter swatches ring_size" id="ringsizecustomoption">
+                <div class="main">
+                    <?php foreach (array_unique($setting['ringData']['ringSize']) as $singlevalue) { ?>
+                    <div class="one"><div class="option" data-value="<?= $singlevalue; ?>" data-name="<?= $singlevalue ?>"><?= $singlevalue ?></div></div>
+                 <?php } ?>
+              </div>
+           </div>
+        </div>
+     <?php } ?>
+  <?php } ?>
+</div>
+<p class="imagenote"><span><?php echo __('NOTE'); ?>:</span><?php echo __('All metal color images may not be available.'); ?></p>
+<div class="product-controler">
+   <ul>
+      <?php if ($block->isHintEnabled() == 1): ?>
+         <li><a href="javascript:;" class="showForm" onclick="CallShowform(event);" data-target="drop-hint-main"><?php echo __('Drop A Hint');?></a></li>
+      <?php endif; ?>
+      <?php if ($block->isScheduleViewingEnabled() == 1): ?>
+         <li><a href="javascript:;" class="showForm" onclick="CallShowform(event);" data-target="schedule-view-main"><?php echo __('Schedule Viewing');?></a></li>
+      <?php endif; ?>
+
+      <?php if ($block->isEmailtoFriendEnabled() == 1): ?>
+         <li><a href="javascript:;" class="showForm" onclick="CallShowform(event);" data-target="email-friend-main"><?php echo __('E-Mail A Friend');?></a></li>
+      <?php endif; ?>
+      <?php if ($block->isMoreInfoEnabled() == 1): ?>
+         <li><a href="javascript:;" class="showForm" onclick="CallShowform(event);" data-target="req-info-main"><?php echo __('Request More Info');?></a></li>
+      <?php endif; ?>
+
+   </ul>
+</div>
+    <?php if ($block->getDiamondCookieData()) {
+        $diamondsetting = $block->getDiamondCookieData();
+        if ($diamondsetting->carat > $setting['ringData']['centerStoneMaxCarat'] || $diamondsetting->carat < $setting['ringData']['centerStoneMinCarat']) { ?>
+      <div><p style="color: red;"><?php echo _('This ring will not properly fit with selected diamond.'); ?></p></div>
+     <?php } } ?>
+     <div class="ring-size-error" style="color: red;display: none;"><?php echo __('Please select your ring size.'); ?></div>
+   <div class="diamond-action">
+      <?php if ($setting['ringData']['showPrice']) { ?>
+         <span><?= $priceHelper->convertToBaseCurrency($setting['ringData']['cost']) ?></span>
+      <?php } else { ?>
+         <span><?php echo __('Call For Price'); ?></span>
+      <?php } ?>
+      <form action="<?php echo $block->getSubmitUrl($setting['ringData']['settingId']); ?>" method="post" id="product_addtocart_form">
+         <input type="hidden" name="ringsizesettingonly" id="ringsizesettingonly" value="7" />
+         <?php if ($setting['ringData']['showPrice'] && $setting['ringData']['rbEcommerce'] && $setting['ringData']['showBuySettingOnly']) { ?>
+            <div class="box-tocart">
+               <button type="submit" title="Buy Setting Only" class="addtocart tocart" id="product_addtocart_button"><?php echo __('Buy Setting Only')?></button>
+            </div>
+         <?php } ?>
+      </form>
+      <form action="<?php echo $block->getAddDiamondUrl($setting['ringData']['settingId']); ?>" method="post" id="add_diamondtoring_form">
+         <input type="hidden" name="ringsizewithdia" id="ringsizewithdia" value="7" />
+         <input type="hidden" name="ringmaxcarat" id="ringmaxcarat" value="<?php echo $setting['ringData']['centerStoneMaxCarat'] ?>" />
+         <input type="hidden" name="ringmincarat" id="ringmincarat" value="<?php echo $setting['ringData']['centerStoneMinCarat'] ?>" />
+         <input type="hidden" name="centerStoneFit" id="centerStoneFit" value="<?php echo $setting['ringData']['centerStoneFit'] ?>" />
+         <input type="hidden" name="ringfiltermode" name="ringfiltermode" value="<?php echo $labsettings; ?>" />
+         <div class="box-tocart">
+            <?php if ($block->checkDiamondCookie()) { ?>
+               <button type="submit" title="Complete Your Ring" class="addtocart tocart" id="add_diamondtoring_button"><?php echo __('Complete Your Ring')?></button>
+            <?php } else { ?>
+               <button type="submit" title="Add Your Diamond" class="addtocart tocart" id="add_diamondtoring_button"><?php echo __('Add Your Diamond')?></button>
+            <?php } ?>
+         </div>
+      </form>
+   </div>
+    <?php
+    if ($setting['ringData']['metalType']) {
+        $metaltype = strtolower(str_replace(' ', '-', $setting['ringData']['metalType'])).'-metaltype-';
+    } else {
+        $metaltype = '';
+    }
+    $name = strtolower(str_replace(' ', '-', $setting['ringData']['settingName']));
+    $sku = '-sku-'.str_replace(' ', '-', $setting['ringData']['settingId']);
+    $ringurl = $metaltype.$name.$sku;
+    ?>
+  <ul class="list-inline social-share">
+      <div id="fb-root"></div>
+      <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v9.0" nonce="rmlivbf3"></script>
+      <script async src="https://assets.pinterest.com/js/pinit_main.js?0.6285343628670037"></script>
+      <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+      <li class="share_pinterest">
+            <div class="pinterest-share-button" data-href="<?= $block->escapeHtmlAttr($ringurl); ?>" data-layout="button" data-size="small">
+               <a target="_blank" href="http://pinterest.com/pin/create/button/?media=<?= $block->escapeHtmlAttr($imgurl); ?>&url=<?= $block->escapeHtmlAttr($ringurl); ?>" class="pinterest-xfbml-parse-ignore">Share</a>
+            </div>
+      </li>
+      <li class="share_twitter">
+            <div class="twitter-share-button" data-href="<?= $block->escapeHtmlAttr($ringurl); ?>" data-layout="button" data-size="small">
+               <a target="_blank" href="https://twitter.com/intent/tweet?text=<?= $block->escapeHtmlAttr($ringurl); ?>" class="twitter-hashtag-button" data-show-count="false">Share</a>
+            </div>
+      </li>
+      <li class="share_fb">
+            <div class="fb-share-button" data-href="<?= $block->escapeHtmlAttr($ringurl); ?>" data-layout="button" data-size="small">
+               <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<?= $block->escapeHtmlAttr($ringurl); ?>" class="fb-xfbml-parse-ignore">Share</a>
+            </div>
+      </li>
+   </ul>
+</div>
+</div>
+<div class="diamond-forms">
+    <?php if ($block->isHintEnabled() == 1): ?>
+      <div class="form-main no-padding diamond-request-form" id="drop-hint-main">
+         <div class="requested-form">
+            <h2><?php echo __('Drop A Hint');?></h2>
+            <p><?php echo __('Because you deserve this.');?></p>
+         </div>
+         <div class="note" style="display: none;"></div>
+         <form method="post" enctype="multipart/form-data"
+         data-hasrequired="<?php /* @escapeNotVerified */ echo __('* Required Fields') ?>"
+         data-mage-init='{"validation":{}}'  class="form-drop-hint" id="form-drop-hint">
+         <input name="ringurl" type="hidden" value="<?php echo $block->getUrl('ringbuilder/settings/view').'path/'.$ringurl; ?>">
+         <input name="settingid" type="hidden" value="<?php echo $setting['ringData']['settingId']; ?>">
+         <div class="form-field">
+            <div class="field placeholder1">
+               <input name="name" id="drophint_name" onfocus="focusFunction(this)" onfocusout="focusoutFunction(this)" type="text" class="" data-validate="{required:true}" required>
+                <label class="floating-label1 label"><?php echo __('Your Name');?></label>
+
+          </div>
+            <div class="field placeholder1">
+               <input name="email" id="drophint_email" onfocus="focusFunction(this)" onfocusout="focusoutFunction(this)" type="text" class="" data-validate="{required:true, 'validate-email':true}" required>
+               <label class="floating-label1 label"><?php echo __('Your E-mail');?></label>
+            </div>
+            <div class="field placeholder1">
+               <input name="recipient_name" id="drophint_rec_name" onfocus="focusFunction(this)" onfocusout="focusoutFunction(this)" type="text" class="" data-validate="{required:true}" required>
+               <label class="floating-label1 label"><?php echo __('Hint Recipient\'s Name');?></label>
+           </div>
+            <div class="field placeholder1">
+               <input name="recipient_email" id="drophint_rec_email" onfocus="focusFunction(this)" onfocusout="focusoutFunction(this)" type="text" class="" data-validate="{required:true, 'validate-email':true}" required>
+               <label class="floating-label1 label"><?php echo __('Hint Recipient\'s E-mail');?></label>
+           </div>
+           <div class="field placeholder1">
+               <input name="gift_reason" id="gift_reason" onfocus="focusFunction(this)" onfocusout="focusoutFunction(this)" type="text" class="" data-validate="{required:true}" required>
+               <label class="floating-label1 label"><?php echo __('Reason For This Gift');?></label>
+            </div>
+            <div class="field placeholder1">
+               <input name="hint_message" id="drophint_message"  type="text" class="" data-validate="{required:true}" required>
+                 <label class="floating-label1 label"><?php echo __('Add A Personal Message Here ...'); ?></label>
+            </div>
+
+               <div class="has-datepicker--icon field placeholder1">
+                  <input name="gift_deadline"
+                  class="floatingLabelObserver"
+                   id="gift_deadline" autocomplete="false" readonly title="Gift Deadline" value="" type="text" data-validate="{required:true}" required>
+                   <label class="floating-label1 label" for="gift_deadline"><?php echo __('Gift Deadline'); ?></label>
+               </div>
+
+            <div class="prefrence-action">
+               <div class=" prefrence-action action">
+                  <button type="button" onclick="formSubmit(event,'<?php /* @escapeNotVerified */ echo $block->getFormAction(); ?>','form-drop-hint')" title="Submit" class="preference-btn">
+                     <span><?php echo __('Drop Hint');?></span>
+                  </button>
+                   <button type="button" data-target="drop-hint-main" onclick="Closeform(event);" class="cancel preference-btn btn-cencel"><span><?php echo __('Cancel');?></span></button>
+               </div>
+            </div>
+         </div>
+      </form>
+   </div>
+<?php endif; ?>
+    <?php if ($block->isEmailtoFriendEnabled() == 1): ?>
+   <div class="form-main no-padding diamond-request-form" id="email-friend-main">
+      <div class="requested-form">
+         <h2><?php echo __('E-Mail A Friend');?></h2>
+      </div>
+      <div class="note" style="display: none;"></div>
+      <form method="post" enctype="multipart/form-data"
+      data-hasrequired="<?php /* @escapeNotVerified */ echo __('* Required Fields') ?>"
+      data-mage-init='{"validation":{}}'  class="form-email-friend" id="form-email-friend">
+      <input name="ringurl" type="hidden" value="<?php echo $block->getUrl('ringbuilder/settings/view').'path/'.$ringurl; ?>">
+      <input name="settingid" type="hidden" value="<?php echo $setting['ringData']['settingId']; ?>">
+      <div class="form-field">
+        <div class="field placeholder1">
+            <input id="email_frnd_name" name="name" onfocus="focusFunction(this)" onfocusout="focusoutFunction(this)"  type="text" class="" data-validate="{required:true}"required>
+            <label class="floating-label1 label" for="email_frnd_name"><?php echo __('Your Name');?></label>
+         </div>
+         <div class="field placeholder1">
+            <input name="email" type="text"  onfocus="focusFunction(this)" onfocusout="focusoutFunction(this)" placeholder=""  id="email_frnd_email" class="" data-validate="{required:true, 'validate-email':true}" required>
+            <label class="floating-label1 label" for="email_frnd_email"><?php echo __('Your E-mail');?></label>
+         </div>
+         <div class="field placeholder1">
+            <input name="friend_name" type="text" onfocus="focusFunction(this)" onfocusout="focusoutFunction(this)" placeholder="" id="email_frnd_fname" class="" data-validate="{required:true}" required>
+             <label class="floating-label1 label" for="email_frnd_fname"><?php echo __("Your Friend's Name");?></label>
+         </div>
+         <div class="field placeholder1">
+            <input name="friend_email" type="text" onfocus="focusFunction(this)" onfocusout="focusoutFunction(this)" placeholder=""  id="email_frnd_femail" class="" data-validate="{required:true, 'validate-email':true}" required>
+           <label class="floating-label1 label"><?php echo __("Your Friend's E-mail");?></label>
+         </div>
+         <div class="field placeholder1">
+             <input name="message" type="text"  id="email_frnd_message" class="" data-validate="{required:true}" required>
+            <label class="floating-label1 label"><?php echo __("Add A Personal Message Here ...");?></label>
+         </div>
+         <div class="prefrence-action">
+            <div class=" prefrence-action action">
+
+               <button type="button" onclick="formSubmit(event,'<?php /* @escapeNotVerified */ echo $block->getEmailFrndFormAction(); ?>','form-email-friend')" title="Submit" class="preference-btn">
+                  <span><?php echo __('Send To Friend');?></span>
+               </button>
+                <button type="button" data-target="email-friend-main" onclick="Closeform(event);" class="cancel preference-btn btn-cencel"><span><?php echo __('Cancel');?></span></button>
+            </div>
+         </div>
+      </div>
+   </form>
+</div>
+    <?php endif; ?>
+    <?php if ($block->isMoreInfoEnabled() == 1): ?>
+   <div class="form-main no-padding diamond-request-form" id="req-info-main">
+      <div class="requested-form">
+         <h2><?php echo __('Request More Information');?></h2>
+         <p><?php echo __('Our specialists will contact you.');?></p>
+      </div>
+      <div class="note" style="display: none;"></div>
+      <form method="post" enctype="multipart/form-data"
+      data-hasrequired="<?php /* @escapeNotVerified */ echo __('* Required Fields') ?>"
+      data-mage-init='{"validation":{}}'  class="form-request-info" id="form-request-info">
+      <input name="ringurl" type="hidden" value="<?php echo $block->getUrl('ringbuilder/settings/view').'path/'.$ringurl; ?>">
+      <input name="settingid" type="hidden" value="<?php echo $setting['ringData']['settingId']; ?>">
+      <div class="form-field">
+        <div class="field placeholder1">
+
+            <input name="name" type="text" onfocus="focusFunction(this)" onfocusout="focusoutFunction(this)" id="reqinfo_name" class="" data-validate="{required:true}" required>
+            <label class="floating-label1"><?php echo __('Your Name');?></label>
+           </div>
+          <div class="field placeholder1">
+         <input name="email" type="text" onfocus="focusFunction(this)" onfocusout="focusoutFunction(this)" id="reqinfo_email" placeholder=""  class="" data-validate="{required:true, 'validate-email':true}" required>
+
+         <label class="floating-label1"><?php echo __('Your E-mail Address');?></label>
+
+        </div>
+        <div class="field placeholder1">
+
+      <input name="phone" type="tel" onfocus="focusFunction(this)" onfocusout="focusoutFunction(this)" id="reqinfo_phone"  data-validate="{required:true}" class="init_tel" required>
+                    <label class="floating-label1 ring-phone"><?php echo __('Your Phone Number');?></label>
+      </div>
+
+      <div class="field placeholder1">
+
+         <input name="hint_message" type="text"  id="reqinfo_message" class="" data-validate="{required:true}" required>
+      <label class="floating-label1"><?php echo __('Add A Personal Message Here ...');?></label>
+      </div>
+          <div class="prefrence-area field placeholder1">
+
+                              <p><?php echo __('Contact Preference:');?></p>
+
+                              <ul>
+
+                                 <li>
+
+                                    <input type="radio" data-validate="{'validate-one-required-by-name':true}" class="radio required-entry"  name="contact_pref" value="By Email">
+
+                                    <label><?php echo __('By Email');?></label>
+
+                                 </li>
+
+                                 <li>
+
+                                    <input type="radio" data-validate="{'validate-one-required-by-name':true}" class="radio required-entry"  name="contact_pref" value="By Phone">
+
+                                    <label><?php echo __('By Phone');?></label>
+
+                                 </li>
+
+                              </ul>
+                           </div>
+            <div class="prefrence-action">
+               <div class=" prefrence-action action">
+
+                  <button type="button" onclick="formSubmit(event,'<?php /* @escapeNotVerified */ echo $block->getReqInfoFormAction(); ?>','form-request-info')" title="Submit" class="preference-btn">
+                     <span><?php echo __('Request');?></span>
+                  </button>
+                   <button type="button" data-target="req-info-main" onclick="Closeform(event);" class="cancel preference-btn btn-cencel">
+                     <span><?php echo __('Cancel');?></span>
+                  </button>
+               </div>
+            </div>
+
+      </div>
+   </form>
+</div>
+    <?php endif; ?>
+    <?php if ($block->isScheduleViewingEnabled() == 1): ?>
+   <div class="form-main no-padding diamond-request-form" id="schedule-view-main">
+      <div class="requested-form">
+         <h2><?php echo __('Schedule A Viewing');?></h2>
+         <p><?php echo __('See This Item & More In Our Store');?></p>
+      </div>
+      <div class="note" style="display: none;"></div>
+      <form method="post" enctype="multipart/form-data"
+      data-hasrequired="<?php /* @escapeNotVerified */ echo __('* Required Fields') ?>"
+      data-mage-init='{"validation":{}}'  class="form-schedule-view" id="form-schedule-view">
+      <input name="ringurl" type="hidden" value="<?php echo $block->getUrl('ringbuilder/settings/view').'path/'.$ringurl; ?>">
+      <input name="settingid" type="hidden" value="<?php echo $setting['ringData']['settingId']; ?>">
+      <div class="form-field">
+         <div class="field placeholder1">
+         <input name="name" type="text" onfocus="focusFunction(this)" onfocusout="focusoutFunction(this)" id="schview_name" placeholder=""  class="" data-validate="{required:true}" required>
+         <label class="floating-label1 label"><?php echo __('Your Name');?></label>
+         </div>
+
+         <div class="field placeholder1">
+         <input name="email" type="text" onfocus="focusFunction(this)" onfocusout="focusoutFunction(this)" id="schview_email" placeholder=""  class="" data-validate="{required:true, 'validate-email':true}" required>
+          <label class="floating-label1 label"><?php echo __('Your E-mail Address');?></label>
+         </div>
+
+            <div class="field placeholder1">
+            <input name="phone" type="tel" onfocus="focusFunction(this)" onfocusout="focusoutFunction(this)" id="schview_phone" data-validate="{required:true}" class="init_tel" required>
+            <label class="floating-label1 ring-phone"><?php echo __('Your Phone Number');?></label>
+
+         </div>
+          <div class="field placeholder1">
+            <input name="hint_message" type="text" id="schview_message" class="" data-validate="{required:true}" required>
+            <label class="floating-label1"><?php echo __('Add A Personal Message Here ...'); ?></label>
+         </div>
+       <div class="field placeholder1">
+            <select data-validate="{required:true}" name="location"  placeholder=""  id="schview_loc">
+               <option value=""><?php echo __('--Location--'); ?></option>
+               <?php $retailerInfo = (array) $setting['ringData']['retailerInfo'];
+                   $addressList = (array) $setting['ringData']['addressList'];
+                ?>
+               <?php foreach ($addressList as $value) { $value = (array) $value; ?>
+                  <option data-locationid="<?php echo $value['locationID']; ?>" value="<?php echo $value['locationName']; ?>"><?php echo $value['locationName']; ?></option>
+               <?php } ?>
+            </select>
+        </div>
+         <div class="has-datepicker--icon field placeholder1">
+                                 <input name="avail_date"
+                                 class="floatingLabelObserver"
+                                  id="avail_date" readonly autocomplete="false"  title="When are you available?" value="" type="text" data-validate="{required:true}">
+                                  <label class="floating-label1"><?php echo __('When are you available?'); ?></label>
+                              </div>
+             <?php
+                    $timingListArr = (array)$setting['ringData']['timingList'];
+                if (empty($timingListArr)) {
+                    ?>
+                     <label class="timing_not_avail" style="display:none;">Slots not available on selected date</label>
+                     <?php
+                } else {
+                    $timingDays = $dayStatusArr = [];
+                    foreach ($timingListArr as $key => $timingList) {
+                        $timingDays[0] = [
+                           "sundayStart" => $timingList->sundayStart,
+                           "sundayEnd" => $timingList->sundayEnd
+                        ];
+                        $timingDays[1] = [
+                           "mondayStart" => $timingList->mondayStart,
+                           "mondayEnd" => $timingList->mondayEnd
+                        ];
+                        $timingDays[2] = [
+                           "tuesdayStart" => $timingList->tuesdayStart,
+                           "tuesdayEnd" => $timingList->tuesdayEnd
+                        ];
+                        $timingDays[3] = [
+                           "wednesdayStart" => $timingList->wednesdayStart,
+                           "wednesdayEnd" => $timingList->wednesdayEnd
+                        ];
+                        $timingDays[4] = [
+                           "thursdayStart" => $timingList->thursdayStart,
+                           "thursdayEnd" => $timingList->thursdayEnd
+                        ];
+                        $timingDays[5] = [
+                           "fridayStart" => $timingList->fridayStart,
+                           "fridayEnd" => $timingList->fridayEnd
+                        ];
+                        $timingDays[6] = [
+                           "saturdayStart" => $timingList->saturdayStart,
+                           "saturdayEnd" => $timingList->saturdayEnd
+                        ];
+                        if ($timingList->storeClosedSun == "Yes") {
+                            $dayStatusArr[0] = 0;
+                        }
+                        if ($timingList->storeClosedMon == "Yes") {
+                            $dayStatusArr[1] = 1;
+                        }
+                        if ($timingList->storeClosedTue == "Yes") {
+                            $dayStatusArr[2] = 2;
+                        }
+                        if ($timingList->storeClosedWed == "Yes") {
+                            $dayStatusArr[3] = 3;
+                        }
+                        if ($timingList->storeClosedThu == "Yes") {
+                            $dayStatusArr[4] = 4;
+                        }
+                        if ($timingList->storeClosedFri == "Yes") {
+                            $dayStatusArr[5] = 5;
+                        }
+                        if ($timingList->storeClosedSat == "Yes") {
+                            $dayStatusArr[6] = 6;
+                        }
+
+                        ?>
+                        <span class="timing_days" data-location="<?php echo $timingList->locationID;?>" style="display:none;"><?php echo json_encode($timingDays);?></span>
+                        <?php
+                        foreach ($dayStatusArr as $key => $value) {
+                            ?>
+                           <span style="display:none;" class="day_status_arr"><?php echo $value;?></span>
+                            <?php
+                        }
+                    }
+                    ?>
+                     <label>
+                      <select id="appnt_time" class=""  placeholder=""  name="appnt_time" style="display:none;"></select>
+                   </label>
+                    <?php
+                    ?>
+                <?php } ?>
+                <div class="prefrence-action">
+                  <div class=" prefrence-action action">
+
+                     <button type="button" onclick="formSubmit(event,'<?php /* @escapeNotVerified */ echo $block->getScheViewFormAction(); ?>','form-schedule-view')" title="Submit" class="preference-btn">
+                        <span><?php echo __('Request');?></span>
+                     </button>
+                      <button type="button" data-target="schedule-view-main" onclick="Closeform(event);" class="cancel preference-btn btn-cencel"><span><?php echo __('Cancel');?></span></button>
+                  </div>
+               </div>
+            </div>
+         </form>
+      </div>
+       <?php endif; ?>
+</div>
+</div>
+<div class="diamond-specification cls-for-hide" id="ring-specification">
+   <div class="specification-info">
+      <div class="specification-title">
+         <h2><?php echo __('Setting Details'); ?></h2>
+         <h4>
+            <a href="javascript:;" id="dmnddtl" onclick="CallDiamondDetail();">
+               <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+               viewBox="0 0 52 52" width="20px" height="20px" style="enable-background:new 0 0 52 52;display: inline;vertical-align: text-bottom; fill:#828282 !important;" xml:space="preserve">
+               <g>
+                  <path d="M26,0C11.664,0,0,11.663,0,26s11.664,26,26,26s26-11.663,26-26S40.336,0,26,0z M26,50C12.767,50,2,39.233,2,26
+                  S12.767,2,26,2s24,10.767,24,24S39.233,50,26,50z"/>
+                  <path d="M35.707,16.293c-0.391-0.391-1.023-0.391-1.414,0L26,24.586l-8.293-8.293c-0.391-0.391-1.023-0.391-1.414,0
+                  s-0.391,1.023,0,1.414L24.586,26l-8.293,8.293c-0.391,0.391-0.391,1.023,0,1.414C16.488,35.902,16.744,36,17,36
+                  s0.512-0.098,0.707-0.293L26,27.414l8.293,8.293C34.488,35.902,34.744,36,35,36s0.512-0.098,0.707-0.293
+                  c0.391-0.391,0.391-1.023,0-1.414L27.414,26l8.293-8.293C36.098,17.316,36.098,16.684,35.707,16.293z"/>
+               </g>
+            </svg>
+         </a>
+      </h4>
+   </div>
+   <ul>
+      <?php if (isset($setting['ringData']['styleNumber'])) { ?>
+         <li>
+            <div class="diamonds-details-title">
+               <p><?php echo __('Setting Number') ?></p>
+            </div>
+            <div class="diamonds-info">
+               <p><?php echo $setting['ringData']['styleNumber'] ?></p>
+            </div>
+         </li>
+      <?php } ?>
+      <?php if (isset($setting['ringData']['cost'])) { ?>
+         <li>
+            <div class="diamonds-details-title">
+               <p><?php echo __('Price') ?></p>
+            </div>
+            <?php if ($setting['ringData']['showPrice']) { ?>
+               <div class="diamonds-info">
+                  <p><?= $priceHelper->convertToBaseCurrency($setting['ringData']['cost']) ?></p>
+               </div>
+            <?php } else { ?>
+               <div class="diamonds-info">
+                  <p><?php echo __('Call For Price'); ?></p>
+               </div>
+            <?php } ?>
+         </li>
+      <?php } ?>
+      <?php if (isset($setting['ringData']['metalType'])) { ?>
+         <li>
+            <div class="diamonds-details-title">
+               <p><?php echo __('Metal Type') ?></p>
+            </div>
+            <div class="diamonds-info">
+               <p><?php echo $setting['ringData']['metalType'] ?></p>
+            </div>
+         </li>
+      <?php } ?>
+   </ul>
+</div>
+    <?php  if (isset($setting['ringData']['sideDiamondDetail1'])) { ?>
+   <div class="specification-info">
+      <div class="specification-title">
+         <h2><?php echo __('Side Diamond Details') ?></h2>
+      </div>
+      <ul>
+             <?php $v = 1; foreach ($setting['ringData']['sideDiamondDetail1'] as $singlesideDiamondDetail1) {  ?>
+                    <?php if ($singlesideDiamondDetail1->noOfDiamonds != '') { ?>
+               <li>
+                  <div class="diamonds-details-title">
+                     <p><?php echo __('Number of Diamonds '.$v) ?></p>
+                  </div>
+                  <div class="diamonds-info">
+                     <p><?php echo $singlesideDiamondDetail1->noOfDiamonds ?></p>
+                  </div>
+               </li>
+            <?php } ?>
+                 <?php if ($singlesideDiamondDetail1->diamondShape != '') { ?>
+                     <li>
+                         <div class="diamonds-details-title">
+                             <p><?php echo __('Diamond Shape '.$v) ?></p>
+                         </div>
+                         <div class="diamonds-info">
+                             <p><?php echo $singlesideDiamondDetail1->diamondShape ?></p>
+                         </div>
+                     </li>
+                 <?php } ?>
+                 <?php if ($singlesideDiamondDetail1->settingType != '') { ?>
+                     <li>
+                         <div class="diamonds-details-title">
+                             <p><?php echo __('Diamond Setting Type '.$v) ?></p>
+                         </div>
+                         <div class="diamonds-info">
+                             <p><?php echo $singlesideDiamondDetail1->settingType ?></p>
+                         </div>
+                     </li>
+                 <?php } ?>
+                    <?php if ($singlesideDiamondDetail1->diamondCut != '') { ?>
+               <li>
+                  <div class="diamonds-details-title">
+                     <p><?php echo __('Cut '.$v) ?></p>
+                  </div>
+                  <div class="diamonds-info">
+                     <p><?php echo $singlesideDiamondDetail1->diamondCut; ?></p>
+                  </div>
+               </li>
+            <?php } ?>
+                    <?php if ($singlesideDiamondDetail1->minimumCaratWeight != '') { ?>
+               <li>
+                  <div class="diamonds-details-title">
+                     <p><?php echo __('Minimum Carat Weight(ct.tw.) '.$v) ?></p>
+                  </div>
+                  <div class="diamonds-info">
+                     <p><?php echo $singlesideDiamondDetail1->minimumCaratWeight; ?></p>
+                  </div>
+               </li>
+            <?php } ?>
+                    <?php if ($singlesideDiamondDetail1->minimumColor != '') { ?>
+               <li>
+                  <div class="diamonds-details-title">
+                     <p><?php echo __('Minimum Color '.$v) ?></p>
+                  </div>
+                  <div class="diamonds-info">
+                     <p><?php echo $singlesideDiamondDetail1->minimumColor ?></p>
+                  </div>
+               </li>
+            <?php } ?>
+                    <?php if ($singlesideDiamondDetail1->minimumClarity != '') { ?>
+               <li>
+                  <div class="diamonds-details-title">
+                     <p><?php echo __('Minimum Clarity '.$v) ?></p>
+                  </div>
+                  <div class="diamonds-info">
+                     <p><?php echo $singlesideDiamondDetail1->minimumClarity ?></p>
+                  </div>
+               </li>
+            <?php } ?>
+                    <?php if ($singlesideDiamondDetail1->diamondQuality != '') { ?>
+               <li>
+                  <div class="diamonds-details-title">
+                     <p><?php echo __('Diamond Quality '.$v) ?></p>
+                  </div>
+                  <div class="diamonds-info">
+                     <p><?php echo $singlesideDiamondDetail1->diamondQuality ?></p>
+                  </div>
+               </li>
+            <?php } ?>
+            <?php $v++; } ?>
+         </ul>
+      </div>
+       <?php } if ($setting['ringData']['centerStoneFit'] != "") { ?>
+      <div class="specification-info canbesetwith">
+         <div class="specification-title">
+            <h2><?php echo __('Can Be Set With') ?></h2>
+         </div>
+         <ul>
+            <?php    $centerstone = explode(',', $setting['ringData']['centerStoneFit']); ?>
+            <?php foreach ($centerstone as $centerstonesingle) { ?>
+               <li>
+                  <div class="diamonds-details-title">
+                     <p><?php echo $centerstonesingle; ?></p>
+                  </div>
+                  <div class="diamonds-info">
+                     <p><?php echo $setting['ringData']['centerStoneMinCarat'].'-'.$setting['ringData']['centerStoneMaxCarat'] ?></p>
+                  </div>
+               </li>
+            <?php } ?>
+         </ul>
+      </div>
+   <?php } ?>
+</div>
+</div>
+</div>
+    <?php if ($setting['ringData']['internalUselink'] != 'No') { ?>
+   <div class="d-row">
+          <?php $dealerInfoarray = (array) $setting['ringData']['retailerInfo']; ?>
+      <div class="internaluse">
+             <?php echo __('Internal use Only:'); ?> <a href="javascript:;" id="internaluselink" class="internaluselink" title="<?php echo __('Dealer Info'); ?>"><?php echo __('Click Here'); ?></a> <?php echo __('for Dealer Info.'); ?>
+         <div class="auth-section" id="auth-section" style="display: none;">
+            <div class="msg" id="msg"></div>
+            <form class="internaluseform" id="internaluseform" method="post">
+               <input type="password" name="password" value="" placeholder="<?php echo __('Enter Your Gemfind Password'); ?>">
+               <button type="button" onclick="internaluselink()" title="Submit" class="preference-btn">
+                  <span><?php echo __('Submit'); ?></span>
+               </button>
+            </form>
+         </div>
+         <div class="dealer-info-section" id="dealer-info-section" style="display: none;">
+            <table>
+               <tr>
+                  <td><?php echo __('Dealer Name:'); ?></td>
+                  <td><?php echo ($dealerInfoarray['retailerName'])?$dealerInfoarray['retailerName']:'-'; ?></td>
+               </tr>
+               <tr>
+                  <td><?php echo __('Dealer Company:'); ?></td>
+                  <td><?php echo ($dealerInfoarray['retailerCompany'])?$dealerInfoarray['retailerCompany']:'-'; ?></td>
+               </tr>
+               <tr>
+                  <td><?php echo __('Dealer City/State:'); ?></td>
+                  <td><?php echo ($dealerInfoarray['retailerCity'])?$dealerInfoarray['retailerCity']:''; ?>/<?php echo ($dealerInfoarray['retailerState'])?$dealerInfoarray['retailerState']:''; ?></td>
+               </tr>
+               <tr>
+                  <td><?php echo __('Dealer Contact No.:'); ?></td>
+                  <td><?php echo ($dealerInfoarray['retailerContactNo'])?$dealerInfoarray['retailerContactNo']:'-'; ?></td>
+               </tr>
+               <tr>
+                  <td><?php echo __('Dealer Email:'); ?></td>
+                  <td><?php echo ($dealerInfoarray['retailerEmail'])?$dealerInfoarray['retailerEmail']:'-'; ?></td>
+               </tr>
+               <tr>
+                  <td><?php echo __('Dealer Lot number of the item:'); ?></td>
+                  <td><?php echo ($dealerInfoarray['retailerLotNo'])?$dealerInfoarray['retailerLotNo']:'-'; ?></td>
+               </tr>
+               <tr>
+                  <td><?php echo __('Dealer Stock number of the item:'); ?></td>
+                  <td><?php echo ($dealerInfoarray['retailerStockNo'])?$dealerInfoarray['retailerStockNo']:'-'; ?></td>
+               </tr>
+               <tr>
+                  <td><?php echo __('Wholesale Price:'); ?></td>
+                  <td><?php
+                    if ($dealerInfoarray['wholesalePrice']) {
+                        if ($setting['ringData']['currencyFrom'] !="USD") { echo $setting['ringData']['currencyFrom'];
+                            $cusymbol = $setting['ringData']['currencySymbol'];
+                        } else { $cusymbol = '$';}
+                        echo $cusymbol.$dealerInfoarray['wholesalePrice'];
+                    } else {
+                        echo '-'; } ?></td>
+
+                  </tr>
+                  <tr>
+                     <td><?php echo __('Third Party:'); ?></td>
+                     <td><?php echo ($dealerInfoarray['thirdParty'])?$dealerInfoarray['thirdParty']:'-'; ?></td>
+                  </tr>
+                  <tr>
+                     <td><?php echo __('Diamond Id:'); ?></td>
+                     <td><?php echo ($dealerInfoarray['diamondID'])?$dealerInfoarray['diamondID']:'-'; ?></td>
+                  </tr>
+                  <tr>
+                     <td><?php echo __('Seller Name:'); ?></td>
+                     <td><?php echo ($dealerInfoarray['sellerName'])?$dealerInfoarray['sellerName']:'-'; ?></td>
+                  </tr>
+                  <tr>
+                     <td><?php echo __('Seller Address:'); ?></td>
+                     <td><?php echo ($dealerInfoarray['sellerAddress'])?$dealerInfoarray['sellerAddress']:'-'; ?></td>
+                  </tr>
+                  <tr>
+                     <td><?php echo __('Dealer Fax:'); ?></td>
+                     <td><?php echo ($dealerInfoarray['retailerFax'])?$dealerInfoarray['retailerFax']:'-'; ?></td>
+                  </tr>
+                  <tr>
+                     <td><?php echo __('Dealer Address:'); ?></td>
+                     <td><?php echo ($dealerInfoarray['retailerAddress'])?$dealerInfoarray['retailerAddress']:'-'; ?></td>
+                  </tr>
+               </table>
+            </div>
+         </div>
+      </div>
+       <?php } ?>
+</div>
+</div>
+</div>
+<script>
+    <?php
+
+    $dtime = new DateTime("now");
+    $dtime->setTimezone(new DateTimeZone('Asia/Hong_Kong'));
+
+    ?>
+
+    var serverDate = '<?= $dtime->format('Y-m-d'); ?>';
+    var serverHTime = '<?= $dtime->format('H'); ?>';
+    var minSDate = <?= $dtime->format('H') > 19 ? 1 : 0; ?>;
+    var minuteSDate = '<?= $dtime->format('i'); ?>';
+   require([
+     "jquery"
+     ], function ($) {
+      $('div.diamention img').each(function() {
+         var src = $(this).attr("data-src");
+         var id = $(this).attr("id");
+         imageExists1(src, id, function(exists) {
+            if(exists){
+               $('#'+id).attr('src',src);
+            } else {
+               $('#'+id).attr('src','<?php echo $this->getViewFileUrl('Gemfind_Ringbuilder::images/no-image.jpg') ?>');
+            }
+         });
+      });
+      function imageExists1(url, id, callback) {
+        var img = new Image();
+        img.onload = function() { callback(true); };
+        img.onerror = function() { callback(false); };
+        img.src = url;
+     }
+  });
+   require(['jquery','Magento_Ui/js/modal/modal'], function($,modal) {
+      var options1 = {
+       type: 'popup',
+       responsive: true,
+       innerScroll: true,
+       modalClass: 'internalusemodel'
+    };
+    var options2 = {
+       type: 'popup',
+       responsive: true,
+       innerScroll: true,
+       title: 'Vendor Infromation',
+       modalClass: 'dealerinfopopup'
+    };
+if($('#auth-section').length){
+     var popup = modal(options1, $('#auth-section'));
+    }
+    if($('#dealer-info-section').length){
+     var popup = modal(options2, $('#dealer-info-section'));
+    }
+    //  $("#internaluselink").on('click',function(){
+    //    $('#msg').html('');
+    //    $('#internaluseform input').val('');
+    //    $("#auth-section").modal("openModal");
+    // });
+ });
+   function internaluselink(){
+      require([
+         "jquery",
+         'Magento_Ui/js/modal/modal'
+         ], function ($) {
+            $.ajax({
+              url: '<?php echo $block->getBaseurl() ?>'+"ringbuilder/diamond/authenticate",
+              data: $('#internaluseform').serialize(),
+              type: 'POST',
+              dataType: 'json',
+              cache: true,
+              beforeSend: function(settings) {
+                $('.loading-mask.gemfind-loading-mask').css('display', 'block');
+             },
+             success: function(response) {
+               if(response.output.status == 1){
+                  $('#msg').html('<span class="success">'+response.output.msg+'</span>');
+                  $("#auth-section").modal("closeModal");
+                  $("#dealer-info-section").modal("openModal");
+               } else {
+                  $('#msg').html('<span class="error">'+response.output.msg+'</span>');
+               }
+               $('.loading-mask.gemfind-loading-mask').css('display', 'none');
+            }
+         });
+         });
+   }
+   require([
+     "jquery",
+     'fancybox'
+     ], function ($) {
+        $(document).ready(function () {
+          $("#zoom_me").click(function() {
+            $('.fotorama__active').click();
+         });
+          var centerStone = $("#centerstonesize :selected").text();
+          $('.canbesetwith .diamonds-info > p').html(centerStone);
+          var caratRange = $("#centerstonesize :selected").text();
+          var caratRangeArray = caratRange.split('-');
+          var ringmaxcarat = caratRangeArray[1];
+          var ringmincarat = caratRangeArray[0];
+          $('#ringmincarat').val($.trim(ringmincarat));
+          $('#ringmaxcarat').val($.trim(ringmaxcarat));
+       });
+        $(window).on('beforeunload', function() { $("video").css('visibility', 'hidden'); });
+     });
+   require([
+     'jquery',
+     "mage/calendar"
+     ], function($) {
+      function appoitmentTime(start,stop) {
+        times='';   stopAMPM=stop;  interval=30;
+        start=start.split(":");
+        starth=parseInt(start[0]);
+        startm=((parseInt(start[1])) ? parseInt(start[1]) : '0');
+        stop=stop.split(":");
+        stopAMPM = stopAMPM.slice(-2);
+        stoph=((stopAMPM.trim()==="PM" && (stop[0]!="12" && stop[0]!="12 PM")) ? (+parseInt(stop[0].replace(":", "")) + (+12)) : parseInt(stop[0]));
+        stopm=((parseInt(stop[1])) ? parseInt(stop[1]) : '0');
+        size= stoph>starth ? stoph-starth+1 : starth-stoph+1
+        hours=[...Array(size).keys()].map(i => i + starth);
+        option='';
+        for (hour in hours) {
+          for (min = startm; min < 60; min += interval)  {
+            startm=0
+            if ((hours.slice(-1)[0] === hours[hour]) && (min > stopm)) {
+              break;
+           }
+           if (hours[hour] > 11 && hours[hour] !== 24 ) {
+              times=('0' + (hours[hour]%12 === 0 ? '12': hours[hour]%12)).slice(-2) + ':' + ('0' + min).slice(-2) + " " + 'PM';
+           } else {
+              times=('0' +  (hours[hour]%12 === 0 ? '12': hours[hour]%12)).slice(-2) + ':' + ('0' + min).slice(-2) + " " + 'AM';
+           }
+              try {
+                  if (
+                      typeof serverDate === "undefined" ||
+                      typeof serverHTime === "undefined"
+                  ) {
+                      option +=
+                          "<option value='" +
+                          times +
+                          "'>" +
+                          times +
+                          "</option>";
+                  } else {
+                      if (cDate === serverDate) {
+                          if (
+                              parseInt(serverHTime) + 1 <=
+                              parseInt(hours[hour])
+                          ) {
+                              //check minutes here
+                              if (
+                                  parseInt(serverHTime) + 1 ===
+                                  parseInt(hours[hour]) &&
+                                  parseInt(minuteSDate) >=
+                                  parseInt(("0" + min).slice(-2))
+                              ) {
+                                  //do nothing
+                              } else {
+                                  option +=
+                                      "<option value='" +
+                                      times +
+                                      "'>" +
+                                      times +
+                                      "</option>";
+                              }
+                          }
+                      } else {
+                          option +=
+                              "<option value='" +
+                              times +
+                              "'>" +
+                              times +
+                              "</option>";
+                      }
+                  }
+              } catch (e) {
+
+              }
+        }
+     }
+     return option;
+  }
+  jQuery('#avail_date').datepicker(
+  {
+     minDate: 0,
+     onSelect: function(dateText) {
+       var curDate = jQuery(this).datepicker('getDate');
+       var dayName = jQuery.datepicker.formatDate('DD', curDate);
+       if(jQuery(".timing_days").length){
+         var timingDays = jQuery.parseJSON(jQuery(".timing_days.active").html());
+         var dayId;
+         if(dayName == "Sunday")
+         {
+           dayId = 0;
+        }
+        else if(dayName == "Monday")
+        {
+           dayId = 1;
+        }
+        else if(dayName == "Tuesday")
+        {
+           dayId = 2;
+        }
+        else if(dayName == "Wednesday")
+        {
+           dayId = 3;
+        }
+        else if(dayName == "Thursday")
+        {
+           dayId = 4;
+        }
+        else if(dayName == "Friday")
+        {
+           dayId = 5;
+        }
+        else
+        {
+           dayId = 6;
+        }
+        jQuery.each(timingDays, function( index, value ) {
+           if(dayId == index)
+           {
+             var key = Object.keys(value);
+             if(index == 0) {
+               option = appoitmentTime(value.sundayStart,value.sundayEnd);
+            }
+            else if(index == 1) {
+               option = appoitmentTime(value.mondayStart,value.mondayEnd);
+            }
+            else if(index == 2) {
+               option = appoitmentTime(value.tuesdayStart,value.tuesdayEnd);
+            }
+            else if(index == 3) {
+               option = appoitmentTime(value.wednesdayStart,value.wednesdayEnd);
+            }
+            else if(index == 4) {
+               option = appoitmentTime(value.thursdayStart,value.thursdayEnd);
+            }
+            else if(index == 5) {
+               option = appoitmentTime(value.fridayStart,value.fridayEnd);
+            }
+            else if(index == 6) {
+               option = appoitmentTime(value.saturdayStart,value.saturdayEnd);
+            }
+            jQuery("#appnt_time").html(option);
+         }
+      });
+        jQuery("#appnt_time").show();
+     }
+     else
+     {
+      jQuery(".timing_not_avail").show();
+      jQuery(".book-slots").prop("disabled", true);
+   }
+
+},
+beforeShowDay: function(d) {
+ var day = d.getDay();
+ var closeDay = [];
+ var myarray = [];
+ var timingDays = jQuery.parseJSON(jQuery(".timing_days.active").html());
+ jQuery.each(timingDays, function( index, value ) {
+  var key = Object.keys(value);
+  if(index == 0) {
+    if(value.sundayStart == '' || value.sundayEnd == ''){
+       closeDay.push(index);
+    }
+ }
+ else if(index == 1) {
+    if(value.mondayStart == '' || value.mondayEnd == ''){
+      closeDay.push(index);
+   }
+}
+else if(index == 2) {
+ if(value.tuesdayStart == '' || value.tuesdayEnd == ''){
+   closeDay.push(index);
+}
+}
+else if(index == 3) {
+ if(value.wednesdayStart == '' || value.wednesdayEnd == ''){
+   closeDay.push(index);
+}
+}
+else if(index == 4) {
+ if(value.thursdayStart == '' || value.thursdayEnd == ''){
+   closeDay.push(index);
+}
+}
+else if(index == 5) {
+ if(value.fridayStart == '' || value.fridayEnd == ''){
+   closeDay.push(index);
+}
+}
+else if(index == 6) {
+ if(value.saturdayStart == '' || value.saturdayEnd == ''){
+   closeDay.push(index);
+}
+}
+});
+ jQuery(".day_status_arr").each(function() {
+   myarray.push(jQuery(this).html());
+   closeDay.push(parseInt(jQuery(this).html()));
+});
+ if(jQuery.inArray(day, closeDay) != -1) {
+   return [ false, "closed", "Closed on Monday" ];
+                        //return [ true, "", "" ];
+                     } else {
+                        return [ true, "", "" ];
+                     }
+                  }
+               });
+  jQuery("#schview_loc").on('change', function (e) {
+   $locationid = jQuery(this).find(':selected').attr("data-locationid");
+   if(jQuery('#avail_date').val() != "")
+   {
+    jQuery('#avail_date').datepicker('setDate', null);
+ }
+ jQuery(".timing_days").removeClass("active");
+ jQuery(".timing_days").each(function( index ) {
+  if(jQuery( this ).attr("data-location") == $locationid)
+  {
+   jQuery(this).addClass("active");
+   return false;
+}
+});
+});
+});
+</script>
+<style>
+.list-inline.social-share::before {
+  content: "";
+  display: block;
+  clear: both;
+  padding: 0;
+}
+ul.list-inline.social-share {
+  padding: 11px 0 0;
+  overflow: hidden;
+  float: none;
+  width: 100%;
+}
+ul.list-inline.social-share li {
+  list-style: none;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0;
+  padding-right: 5px;
+}
+ul.list-inline.social-share li span {
+  position: relative;
+  opacity: 1;
+  padding: 0;
+}
+ul.list-inline.social-share li a {
+  height: 19px;
+  font-size: 11px !important;
+  line-height: 20px !important;
+  background-size: 13px 18px !important;
+}
+.list-inline.social-share li{height: 20px;}
+.list-inline.social-share li.like_fb iframe {
+  left: -9px;
+}
+</style>
+<?php } else { echo __('Something went wrong, please try after some time!'); } ?>
+<div id="popup-modal">
+  <div class="note" style="display: none;"></div>
+</div>
+<?php
+$poweredvalues = $block->getGemfindEnabledPoweredBy();
+if ($poweredvalues) {
+    ?>
+   <span style="float: right;"><?php echo __('Powered By '); ?><a target="_blank" href="http://www.gemfind.com"><?php echo __('GemFind'); ?></a></span>
+<?php } ?>
+<input type="hidden" name="gemfind_rb_version" value="2.3" />
+<style>
+</style>
+<script>
+   var acc = document.getElementsByClassName("accordion");
+   var i;
+   for (i = 0; i < acc.length; i++) {
+     acc[i].addEventListener("click", function() {
+       this.classList.toggle("active");
+       var panel = this.nextElementSibling;
+       if (panel.style.display === "block") {
+         panel.style.display = "none";
+      } else {
+         panel.style.display = "block";
+      }
+   });
+  }
+</script>
+<script>
+   require ([
+     'jquery',
+     'mage/gallery/gallery'
+     ], function ($, gallery) {
+        $(function () {
+         domObserver = require('Magento_Ui/js/lib/view/utils/dom-observer');
+         $(document).ready(function(){
+            domObserver.get('.fotorama__nav-wrap.fotorama__nav-wrap--horizontal', function(elem){
+            var customCheckbox_Yes_radio = setInterval(function(){
+              if($('#magentoGallerywidget .fotorama__nav-wrap.fotorama__nav-wrap--horizontal').length){
+               var thumbs = $(elem).detach();
+               $('.diamond-image').after(thumbs);
+            }
+         }, 150);
+         });
+           domObserver.get('.fotorama__thumb', function(elem){
+             $(elem).click(function(){
+               $('.fotorama__stage').show();
+               $('#ringvideo').hide();
+            });
+          });
+           domObserver.get('.fotorama-item', function(elem){
+            var item = $(document).find('.fotorama-item');
+            item.on('fotorama:fullscreenexit',function () {
+               domObserver.get('.fotorama__nav-wrap.fotorama__nav-wrap--horizontal', function(elem){
+                  var thumbs = $(elem).detach();
+                  $('.diamond-image').after(thumbs);
+               });
+               domObserver.get('.fotorama__thumb', function(elem){
+                 $(elem).click(function(){
+                   $('.fotorama__stage').show();
+                   $('#ringvideo').hide();
+                });
+              });
+            });
+         });
+        });
+         $('.magentoGallerywidget').each(function (index, element) {
+            gallery({
+               "data": <?= $priceHelper->getGalleryImages($setting['ringData']['mainImageURL'], $setting['ringData']['extraImage']) ?>,
+               "options": {
+                "nav": "thumbs",
+                "loop": true,
+                "keyboard": true,
+                "arrows": false,
+                "allowfullscreen": true,
+                "showCaption": true,
+                "width":232,
+                "thumbwidth": 80,
+                "thumbheight": 80,
+                "height": 232,
+                "transition": "slide",
+                "navarrows": true,
+                "navtype": "thumbs",
+                "navdir": "horizontal"
+             },
+             "fullscreen": {
+                "nav": "dots",
+                "loop": true,
+                "navdir": "horizontal",
+                "navarrows": true,
+                "navtype": "thumbs",
+                "arrows": true,
+                "showCaption": true,
+                "transition": "slide"
+             }
+          }, element);
+         });
+      });
+     });
+ </script>
+
+<script>
+   require ([
+      'jquery'
+      ], function ($) {
+         $(function () {
+            $("#add_diamondtoring_button").on("click", function() {
+               var error = false;
+               var ring_size =  $("#ring_size").val();
+               if (!ring_size) {
+                  error = true;
+                  $(".ring-size-error").show();
+               } else {
+                  $(".ring-size-error").hide();
+               }
+               return !error;
+            });
+         });
+     })
+</script>

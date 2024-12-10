@@ -1,0 +1,1 @@
+var config = {waitSeconds: 0};

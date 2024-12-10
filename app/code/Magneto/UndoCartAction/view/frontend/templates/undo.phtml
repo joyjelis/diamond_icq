@@ -1,0 +1,26 @@
+<?php if($block->getTimeout() > 0): ?>
+<?php $timeout = $block->getTimeout() + 2 ?>
+<style>
+	.checkout-cart-index #diamond-cartundo .hideafterload .restoreaction .progressBar:after{
+		animation-duration: <?= $timeout.'s'; ?> !important ;
+	}
+</style>
+<?php endif; ?>
+<div class="field ship_address required" id="diamond-cartundo" data-bind="scope:'diamondcartundo'">
+	<!-- ko template: getTemplate() --><!-- /ko -->
+	<script type="text/x-magento-init">
+		{
+			"#diamond-cartundo": {
+				"Magento_Ui/js/core/app": {
+					"components": {
+						"diamondcartundo": {
+							"component": "Magneto_UndoCartAction/js/undo",
+							"template" : "Magneto_UndoCartAction/undo",
+							"undodata": "<?php echo base64_encode($block->getConfig()); ?>"
+						}
+					}
+				}
+			}
+		}
+	</script>
+</div>

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Magneto Team
+ * @copyright Copyright (c) 2021 Magneto (https://www.magnetoitsolutions.com)
+ * @package UndoCartAction
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="columns.top">
+            <block class="Magneto\UndoCartAction\Block\UndoItem" before="page.main.title" name="undo.items" template="Magneto_UndoCartAction::undo.phtml" ifconfig="undocart_action/general/enabled" />
+        </referenceContainer>
+    </body>
+</page>

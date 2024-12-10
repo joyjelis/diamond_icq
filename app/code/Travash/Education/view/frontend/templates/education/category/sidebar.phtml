@@ -1,0 +1,39 @@
+<?php $cat = $this->getRequest()->getParam("cat"); ?>
+<?php
+if ($cat){
+    $catInfo = $this->getCategoryById($cat);
+    if($catInfo->getParentCatId() > 0){
+        $cat = $catInfo->getParentCatId();
+    }
+}
+$educationCategories = $this->getEducationOnlyParentCategory(); ?>
+<?php $pageUrl = $this->getPageUrl(); ?>
+<div id="education-sidebar">
+    <h1 class="title">
+        <?php echo __('Education'); ?>
+    </h1>
+    <ul class="main-cat-list">
+        <?php foreach ($educationCategories as $categoryId => $categoryData): ?>
+            <?php $categoryUrl = $categoryData->getUrlKey(); ?>
+            <?php $categoryName = $categoryData->getName(); ?>
+            <li class="cat-item cat-item-<?php echo $categoryId; ?> <?php echo ($categoryId == $cat) ? 'active' : ''; ?>">
+                <?php
+                if (!empty($categoryUrl)): ?>
+                    <a href="<?php echo $block->getCategoryUrl(
+                        $categoryUrl
+                                ); ?>">
+                        <?php echo $categoryName; ?>
+                    </a>
+                <?php else: ?>
+                    <a href="<?php echo $this->getUrl() .
+                        $pageUrl .
+                        "/category/categorylist/cat/" .
+                        $categoryId; ?>">
+                        <?php echo $categoryName; ?>
+                    </a>
+                <?php endif; ?>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+</div>
+

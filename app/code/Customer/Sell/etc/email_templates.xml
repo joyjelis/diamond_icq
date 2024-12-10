@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+
+	<template id="sell_item_email_general_sell_item_not_qualify" label="Sell Item Not Qualify" file="sell_item_not_qualify.html" type="html" module="Customer_Sell" area="frontend"/>
+	
+	<template id="sell_item_email_general_sell_item_qualify" label="Sell Item Qualify" file="sell_item_qualify.html" type="html" module="Customer_Sell" area="frontend"/>
+	
+	<template id="sell_item_email_general_sell_item_qualify_secound_valuation" label="Sell Item Qualify Secound Valuation" file="sell_item_qualify_secound_valuation.html" type="html" module="Customer_Sell" area="frontend"/>
+	
+	<template id="sell_item_email_general_sell_item_not_passed_inspection" label="Sell Item Not Passed Inspection" file="sell_item_not_passed_inspection.html" type="html" module="Customer_Sell" area="frontend"/>
+	
+	<template id="sell_item_email_general_sell_item_paid_to_customer" label="Diamond ICQ paid customer for trade in" file="sell_item_paid_to_customer.html" type="html" module="Customer_Sell" area="frontend"/>
+	
+	<template id="sell_item_email_general_sell_item_consignment" label="Diamond ICQ Consignment" file="sell_item_consignment.html" type="html" module="Customer_Sell" area="frontend"/>
+	
+	<template id="sell_item_email_general_sell_item_email" label="Diamond ICQ Email" file="sell_item_email.html" type="html" module="Customer_Sell" area="frontend"/>
+	
+	<template id="sell_item_email_general_sell_item_email_appoinement_accept" label="Diamond ICQ Email Appointment Accept" file="sell_item_email_appoinement_accept.html" type="html" module="Customer_Sell" area="frontend"/>
+	
+	<template id="sell_item_email_general_sell_item_email_appoinement_not_accept" label="Diamond ICQ Email Appointment not accept" file="sell_item_email_appoinement_not_accept.html" type="html" module="Customer_Sell" area="frontend"/>
+	
+	<template id="sell_item_email_general_sell_item_email_appoinement_admin" label="Diamond ICQ Email appoint admin" file="sell_item_email_appoinement_admin.html" type="html" module="Customer_Sell" area="frontend"/>
+	
+	<template id="sell_item_email_general_sell_item_email_admin" label="Diamond ICQ Email Notifiction" file="sell_item_email_admin.html" type="html" module="Customer_Sell" area="frontend"/>
+	
+	<template id="sell_item_email_general_return_shipping_items" label="Request for return shipping" file="return_shipping_items.html" type="html" module="Customer_Sell" area="frontend"/>
+	
+
+	<template id="sell_item_email_general_pick_request_init" label="Pick Request recived" file="pick_request_init.html" type="html" module="Customer_Sell" area="frontend"/>
+	
+	<template id="sell_item_email_general_pick_request_generated" label="Pick Request Generated" file="pick_request_generated.html" type="html" module="Customer_Sell" area="frontend"/>
+	
+</config>

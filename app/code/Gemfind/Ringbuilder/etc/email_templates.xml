@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd"> 
+
+	<template id="gemfindringbuilder_email_ringdrop_hint_email_template_receiver" label=" Ring: Someone Wants To Drop You A Hint (Receiver Copy)" file="ringhint_email_template_receiver.html" type="html" module="Gemfind_Ringbuilder" area="frontend"/>
+
+	<template id="gemfindringbuilder_email_ringdrop_hint_email_template_retailer" label=" Ring: Someone Wants To Drop You A Hint (Retailer Copy)" file="ringhint_email_template_retailer.html" type="html" module="Gemfind_Ringbuilder" area="frontend"/>
+
+	<template id="gemfindringbuilder_email_ringdrop_hint_email_template_sender" label=" Ring: Someone Wants To Drop You A Hint (Sender Copy)" file="ringhint_email_template_sender.html" type="html" module="Gemfind_Ringbuilder" area="frontend"/>
+
+	<template id="gemfindringbuilder_email_ringrequest_info_email_template_admin" label=" Ring: Request For More Info (Retailer Copy)" file="ringinfo_email_template_admin.html" type="html" module="Gemfind_Ringbuilder" area="frontend"/>
+
+	<template id="gemfindringbuilder_email_ringrequest_info_email_template_sender" label=" Ring: Request For More Info (Sender Copy)" file="ringinfo_email_template_sender.html" type="html" module="Gemfind_Ringbuilder" area="frontend"/>
+
+	<template id="gemfindringbuilder_email_ringemail_friend_email_template_receiver" label=" Ring: A Friend Wants To Share With You (Receiver Copy)" file="ringemail_friend_email_template_receiver.html" type="html" module="Gemfind_Ringbuilder" area="frontend"/>
+
+	<template id="gemfindringbuilder_email_ringemail_friend_email_template_admin" label=" Ring: A Friend Wants To Share With You (Retailer Copy)" file="ringemail_friend_email_template_admin.html" type="html" module="Gemfind_Ringbuilder" area="frontend"/>
+
+	<template id="gemfindringbuilder_email_ringemail_friend_email_template_sender" label=" Ring: A Friend Wants To Share With You (Sender Copy)" file="ringemail_friend_email_template_sender.html" type="html" module="Gemfind_Ringbuilder" area="frontend"/>
+
+	<template id="gemfindringbuilder_email_ringschedule_view_email_template_admin" label=" Ring: Request To Schedule A Viewing" file="ringschedule_view_email_template_admin.html" type="html" module="Gemfind_Ringbuilder" area="frontend"/>
+	<template id="gemfindringbuilder_email_ringschedule_view_email_template_customer" label=" Ring: Request To Schedule A Viewing" file="ringschedule_view_email_template_customer.html" type="html" module="Gemfind_Ringbuilder" area="frontend"/>
+
+
+
+	<template id="gemfindringbuilder_email_drop_hint_email_template_receiver" label="Diamond: Someone Wants To Drop You A Hint (Receiver Copy)" file="hint_email_template_receiver.html" type="html" module="Gemfind_Ringbuilder" area="frontend"/>
+
+	<template id="gemfindringbuilder_email_drop_hint_email_template_retailer" label="Diamond: Someone Wants To Drop You A Hint (Retailer Copy)" file="hint_email_template_retailer.html" type="html" module="Gemfind_Ringbuilder" area="frontend"/>
+
+	<template id="gemfindringbuilder_email_drop_hint_email_template_sender" label="Diamond: Someone Wants To Drop You A Hint (Sender Copy)" file="hint_email_template_sender.html" type="html" module="Gemfind_Ringbuilder" area="frontend"/>
+
+	<template id="gemfindringbuilder_email_request_info_email_template_admin" label="Diamond: Request For More Info (Retailer Copy)" file="info_email_template_admin.html" type="html" module="Gemfind_Ringbuilder" area="frontend"/>
+
+	<template id="gemfindringbuilder_email_request_info_email_template_sender" label="Diamond: Request For More Info (Sender Copy)" file="info_email_template_sender.html" type="html" module="Gemfind_Ringbuilder" area="frontend"/>
+
+	<template id="gemfindringbuilder_email_email_friend_email_template_receiver" label="Diamond: A Friend Wants To Share With You (Receiver Copy)" file="email_friend_email_template_receiver.html" type="html" module="Gemfind_Ringbuilder" area="frontend"/>
+
+	<template id="gemfindringbuilder_email_email_friend_email_template_admin" label="Diamond: A Friend Wants To Share With You (Retailer Copy)" file="email_friend_email_template_admin.html" type="html" module="Gemfind_Ringbuilder" area="frontend"/>
+
+	<template id="gemfindringbuilder_email_email_friend_email_template_sender" label="Diamond: A Friend Wants To Share With You (Sender Copy)" file="email_friend_email_template_sender.html" type="html" module="Gemfind_Ringbuilder" area="frontend"/>
+
+	<template id="gemfindringbuilder_email_schedule_view_email_template_admin" label="Diamond: Request To Schedule A Viewing" file="schedule_view_email_template_admin.html" type="html" module="Gemfind_Ringbuilder" area="frontend"/>
+
+</config>

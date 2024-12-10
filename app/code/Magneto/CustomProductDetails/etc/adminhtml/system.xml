@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * @author Magneto Team
+ * @copyright Copyright (c) 2021 Magneto (https://www.magnetoitsolutions.com)
+ * @package Magneto_CustomProductDetails
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+  <system>
+    <section id="custom_utils" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1"
+       showInStore="1">
+       <class>separator-top</class>
+       <label>Custom Jewellery Product Details</label>
+       <tab>mistab</tab>
+       <resource>Magneto_CustomProductDetails::display_settings</resource>
+       <group id="general" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1"
+        showInStore="1">
+        <label>Configuration</label>
+        <field id="order_by_time" translate="label comment" type="text" sortOrder="20"  showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+           <label>Order By Time</label>
+           <comment>Purpose of this field to mention the Maximum time before customer can order</comment>
+        </field>
+        <field id="shipping_via" translate="label comment" type="text" sortOrder="20"  showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+           <label>Shipping Via</label>
+           <comment>Purpose of this field to Show the Shipping Method on Product Details Page</comment>
+        </field>
+        
+        <field id="dicq_pendant" translate="label comment" type="multiselect" sortOrder="30"  showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+           <label>Pendant AttributeSet Attribute Groups</label>
+           <comment>Please Select Multiple Attribute Groups to Show in Frontend Product Details Page</comment>
+           <source_model>Magneto\CustomProductDetails\Model\Config\Source\DicqPendantAttributeGroups</source_model>
+       </field>
+    
+       <field id="dicq_bracelet" translate="label comment" type="multiselect" sortOrder="30"  showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+           <label>Bracelet AttributeSet Attribute Groups</label>
+           <comment>Please Select Multiple Attribute Groups to Show in Frontend Product Details Page</comment>
+           <source_model>Magneto\CustomProductDetails\Model\Config\Source\DicqBraceletAttributeGroups</source_model>
+       </field>
+    
+       <field id="dicq_earrings" translate="label comment" type="multiselect" sortOrder="30"  showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+           <label>Ear Rings AttributeSet Attribute Groups</label>
+           <comment>Please Select Multiple Attribute Groups to Show in Frontend Product Details Page</comment>
+           <source_model>Magneto\CustomProductDetails\Model\Config\Source\DicqEarRingsAttributeGroups</source_model>
+       </field>
+    
+       <field id="dicq_engagement_ring" translate="label comment" type="multiselect" sortOrder="30"  showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+           <label>Engagement Rings AttributeSet Attribute Groups</label>
+           <comment>Please Select Multiple Attribute Groups to Show in Frontend Product Details Page</comment>
+           <source_model>Magneto\CustomProductDetails\Model\Config\Source\DicqEngagementRingAttributeGroups</source_model>
+       </field>
+    
+
+       <field id="dicq_necklace" translate="label comment" type="multiselect" sortOrder="30"  showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+           <label>Necklace AttributeSet Attribute Groups</label>
+           <comment>Please Select Multiple Attribute Groups to Show in Frontend Product Details Page</comment>
+           <source_model>Magneto\CustomProductDetails\Model\Config\Source\DicqNecklaceAttributeGroups</source_model>
+       </field>
+    
+     </group>
+  </section>
+</system>
+</config>

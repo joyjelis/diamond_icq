@@ -1,0 +1,196 @@
+<?php
+/**
+ * FME Extensions
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the fmeextensions.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.fmeextensions.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category  FME Calalog
+ * @author    FME extensions <support@fmeextensions.com
+>
+ * @package   FME_ProductSorting
+ * @copyright Copyright (c) 2021 FME (http://fmeextensions.com/
+)
+ * @license   https://fmeextensions.com/LICENSE.txt
+ */
+?>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+<style>
+  #sortable { list-style-type: none; margin: 0; padding: 0; width: 60%; }
+  #sortable li { margin: 0 5px 5px 5px; padding: 5px; font-size: 1.2em; height: 1.5em; }
+  #sortable li { height: 1.5em; line-height: 1.2em; }
+  .ui-state-highlight { height: 1.5em; line-height: 1.2em; }
+  #amsorting-sort-order {
+    margin-top: 2.2rem;
+}
+.ui-sortable {
+    margin-bottom: 15px;
+}
+#amsorting-sort-order tr td.item-position {
+    padding: 1rem;
+    max-width: 87px;
+}
+#amsorting-sort-order tr td, #amsorting-sort-order tr th {
+    background: #efefef;
+    border-bottom: 1px solid #fff;
+}
+#amsorting-sort-order tr td .draggable, #amsorting-sort-order tr th .draggable {
+    color: #adadad;
+}
+
+</style>
+<script>
+    require([
+        'jquery',
+        'collapsable'
+        ], function ($) {
+
+        setTimeout(function(){
+
+            $('#amsorting-sort-order').sortable({
+                axis: 'y',
+                handle: '.item-position',
+                items: 'tr',
+                tolerance: 'pointer'
+            });
+
+        }, 6000);
+
+    });
+</script>
+
+<script>
+    require(['jquery'], function($) {
+      $( function() {
+
+        setTimeout(function(){
+
+            $( "#sortable" ).sortable({
+
+              placeholder: "ui-state-highlight"
+          });
+            $( "#sortable" ).disableSelection();
+
+        }, 6000);
+
+    } );
+      $(document).ready(function(){
+          $("p").click(function(){
+            var t=$('#li2').index();
+
+        });
+      });
+  });
+</script>
+<?php
+$sortOrderIcon = array(
+    "best_seller"=>"Best-Seller.png",
+    "top_rated"=>"Top-Rated.png",
+    "saving"=>"Biggest-Saving.png",
+    "price"=>"price.png",
+    "most_viewed"=>"Most-Viewed.png",
+    "review_count"=>"Review-Count.png",
+    "wished"=>"Now-in-Whishlist.png",
+    "name"=>"Product-Name.png ",
+    "position"=>"position.png",
+    "created_at"=>"New-Arrival.png",
+    "stockquantity"=>"Stock-quatity.png",
+    "low-to-high"=>"Price-L-To-H.png",
+    "high-to-low"=>"Price-H-To-L.png"
+);
+$sortOrder = array(
+    "best_seller"=>"Best Seller",
+    "top_rated"=>"Top Rated",
+    "name"=>"Product Name",
+    "saving"=>"Biggest Saving",
+    "price"=>"Price",
+    "high-to-low"=>"Price: high to low",
+    "most_viewed"=>"Most Viewed",
+    "review_count"=>"Reviews Count",
+    "wished"=>"Now in Wishlists",
+    "position"=>"Position",
+    "low-to-high"=>"Price: low to high",
+    "stockquantity"=>"Stock Quantity",
+    "created_at"=>"New Arrival"
+);
+$helpers = $this->helper('FME\ProductSorting\Helper\Data');
+$sortOrderString=$helpers->getGeneralConfig('sort_order');
+$sortOrderArray = explode(",", $sortOrderString);
+
+if ($sortOrderString != null) :
+    ?>
+  <table class="amsorting-sort-order ui-sortable" id="amsorting-sort-order">
+    <tbody>
+        <?php foreach ($sortOrderArray as $rows) :
+            $fieldId=null;
+            $icon=null;?>
+            <tr>
+                <th>
+                </th>
+                <td class="item-position">
+                 
+                    <?php
+                    foreach ($sortOrder as $key => $value) {
+                        if ($value == $rows) {
+                            $fieldId=$key;
+                        }
+                    }
+
+                    foreach ($sortOrderIcon as $keys => $values) {
+                        if ($keys == $fieldId) {
+                            $icon=$values;
+                        }
+                    }?>
+                    
+                    
+                    <div class="draggable"></div>
+                    <input type="hidden" name="groups[general][fields][sort_order][value][<?php echo $fieldId;?>]" value="<?php echo $rows;?>">
+                </td>
+                <td class="item-position"><img src='<?php echo $this->getViewFileUrl('FME_ProductSorting::icon/' . $icon); ?>' alt="image-icon" width="23" height="23"></td>
+                <td class="item-position"><?php echo $rows; ?></td>
+                <td class="item-position"></td>
+                <th style="min-width: 69px; visibility: hidden;"></th>
+            </tr>
+        <?php endforeach;?>
+    </tbody>
+</table>
+<?php else :?>
+    <table class="amsorting-sort-order ui-sortable" id="amsorting-sort-order">
+        <tbody>
+            <?php foreach ($sortOrder as $key => $value) :
+                $fieldId=null;
+                $icon=null;
+                foreach ($sortOrderIcon as $keys => $values) {
+                    if ($keys == $key) {
+                        $icon=$values;
+                    }
+                }?>
+                <tr>
+                    <th>
+                    </th>
+                    <td class="item-position">
+                        <div class="draggable-handle"></div>
+                        
+                        <div class="draggable"></div>
+                        <input type="hidden" name="groups[general][fields][sort_order][value][<?php echo $key;?>]" value="<?php echo $value;?>">
+                    </td>
+                    <td class="item-position"><img src='<?php echo $this->getViewFileUrl('FME_ProductSorting::icon/' . $icon); ?>' alt="image-icon" width="23" height="23">
+                    </td>
+                    <td class="item-position"><?php echo $value;?>  </td>
+                    <td class="item-position"></td>
+
+                    <th style="min-width : 69px; visibility : hidden;"></th>
+                </tr>
+            <?php endforeach;?>
+        </tbody>
+    </table>
+<?php endif;?>

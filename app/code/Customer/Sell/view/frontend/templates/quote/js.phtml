@@ -1,0 +1,85 @@
+<div id="booking_appointment_layer" class="calendar-layer"></div>
+<script>
+	window.customersellconfig = <?= $block->getJsConfig(); ?>
+</script>
+<script>
+	require(['jquery'], function($) {
+		jQuery(document).ready(function () {
+			function buildUrl(url, parameters) {
+				var qs = "";
+				for (var key in parameters) {
+					var value = parameters[key];
+					qs += encodeURIComponent(key) + "=" + encodeURIComponent(value) + "&";
+				}
+				if (qs.length > 0) {
+					qs = qs.substring(0, qs.length - 1);
+					url = url + "?" + qs;
+				}
+				return url;
+			}
+			$('.whatsapp a').on('click',function(){
+				try {
+					gtag('event', 'conversion', { 'send_to': 'AW-415829097/fe69CIzh28ADEOmYpMYB' });
+				} catch (error) {
+					console.log(error);	
+				}
+			});
+
+			$('.make_an_appointment').on('click',function(){
+				try {
+					var calendarLayer = document.querySelector("#booking_appointment_layer");
+					var node = document.createElement("iframe");
+					var xButton = document.createElement("span");
+					var overlay = document.createElement("div");
+					xButton.classList.add("x-btn");
+					overlay.classList.add("overlay");
+
+					var url = window.customersellconfig.koalendar.public_url;
+					if (url) {
+						var fname = window.customersellconfig.customer.fname;
+						var lname = window.customersellconfig.customer.lname;
+						var email = window.customersellconfig.customer.email;
+						var fullname = "";
+						if (fname != null && lname != null ){
+							fullname = fname.concat(" ",lname);
+						}
+
+						if(email == null){
+							email = "";
+						}
+
+						var parameters = {
+							'name': fullname,
+							'email':email
+						};
+
+						node.setAttribute("src", buildUrl(url, parameters));
+						calendarLayer.classList.add("opened-layer");
+						calendarLayer.appendChild(node);
+						calendarLayer.appendChild(xButton);
+						calendarLayer.appendChild(overlay);
+					}
+
+					document.querySelector(".x-btn").addEventListener("click", () => {
+						calendarLayer.classList.remove("opened-layer");
+						calendarLayer.innerHTML = " ";
+					});
+
+					document.querySelector(".overlay").addEventListener("click", () => {
+						calendarLayer.classList.remove("opened-layer");
+						calendarLayer.innerHTML = " ";
+					});
+
+					ga('send', 'event', 'DiamondICQ', 'Make an appointment', '');
+					gtag('event', 'conversion', { 'send_to': 'AW-415829097/SNlRCJ3jj8EDEOmYpMYB' });
+					fbq('trackCustom', 'DiamondICQ - Make an appointment');
+
+					return false;
+				} catch (error) {
+					console.log(error);
+					
+				}
+			});
+		});
+	});
+</script>

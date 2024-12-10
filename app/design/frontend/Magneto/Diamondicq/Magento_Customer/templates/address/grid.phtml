@@ -1,0 +1,78 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var \Magento\Customer\Block\Address\Grid $block */
+$customerAddressView = $block->getData('customer_address');
+?>
+
+<div class="block block-addresses-list">
+    <div class="block-title block-additional-addresses-title" id="my-block-additional-addresses-title">
+        <strong><?= $block->escapeHtml(__('Additional Address Entries')) ?></strong>
+    </div>
+    <div class="actions-toolbar">
+        <div class="primary">
+            <button type="button" role="add-address" title="<?= $block->escapeHtmlAttr(__('Add New Address')) ?>" class="action primary add"><span><?= $block->escapeHtml(__('Add New Address')) ?></span></button>
+        </div>
+        <div class="secondary">
+            <a class="action back" href="<?= $block->escapeUrl($block->getUrl('customer/account')) ?>"><span><?= $block->escapeHtml(__('Back')) ?></span></a>
+        </div>
+    </div>
+    <div class="block-content block-additional-addresses-content">
+        <?php if ($_pAddsses = $block->getAdditionalAddresses()): ?>
+
+            <?php foreach ($_pAddsses as $address): ?>
+                <div class="box-additional-addresses">
+                    <strong class="box-additional-addresses-title">
+                        <span><?= $block->escapeHtml($address->getFirstname().' '.$address->getLastname()) ?></span>
+                    </strong>
+                    <div class="box-additional-addresses-content">
+                        <address>
+                            <?php
+                                $street = $address->getStreet();
+                            if (is_array($street)) {
+                                $street = implode('<br>', $street);
+                                echo $street;
+                            }
+                                echo '<br>';
+                                echo $block->escapeHtml(__($address->getCity()));
+                                echo '<br>';
+                                echo $block->escapeHtml($block->getCountryByCode($address->getCountryId()));
+                                echo '<br>';
+                                echo $block->escapeHtml($address->getRegion()->getRegion());
+                                echo '<br>';
+                                echo $block->escapeHtml($address->getPostcode());
+                                echo '<br>';
+                                echo $block->escapeHtml($address->getTelephone());
+                            ?>
+                        </address>
+                    </div>
+                    <div class="box-actions box-additional-addresses-actions">
+                        <a class="action edit" href="<?= $block->escapeUrl($block->getUrl('customer/address/edit', ['id' => $address->getId()])) ?>"><span><?= $block->escapeHtml(__('Edit')) ?></span></a>
+                        <a class="action delete" href="#" role="delete-address" data-address="<?= $block->escapeHtmlAttr($address->getId()) ?>"><span><?= $block->escapeHtml(__('Delete')) ?></span></a>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <p class="empty"><?= $block->escapeHtml(__('You have no other address entries in your address book.')) ?></p>
+        <?php endif ?>
+    </div>
+    <?php if ($block->getChildHtml('pager')): ?>
+        <div class="customer-addresses-toolbar toolbar bottom pagination-addresses"><?= $block->getChildHtml('pager') ?></div>
+    <?php endif ?>
+</div>
+
+<script type="text/x-magento-init">
+    {
+        ".page-main": {
+            "address": {
+                "deleteAddress": ".box-additional-addresses-actions a[role='delete-address']",
+                "deleteUrlPrefix": "<?= $block->escapeJs($block->escapeUrl($block->getDeleteUrl())) ?>id/",
+                "addAddress": "button[role='add-address']",
+                "addAddressLocation": "<?= $block->escapeJs($block->escapeUrl($block->getAddAddressUrl())) ?>"
+            }
+        }
+    }
+</script>

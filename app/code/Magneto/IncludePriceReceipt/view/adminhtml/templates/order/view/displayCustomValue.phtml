@@ -1,0 +1,9 @@
+<?php $includePriceInReceipt = $block->getIncludePriceReceipt() ? "Yes" : "No"; ?>
+<section class="admin__page-section">
+	<div class="admin__page-section-title">
+		<span class="title"><?php echo __('Include Price in Receipt') ?></span>
+	</div>
+	<div class="admin__page-section-content">
+		<?php echo __($includePriceInReceipt); ?>
+	</div>
+</section>

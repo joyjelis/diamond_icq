@@ -1,0 +1,391 @@
+<?php
+// Currency Changes
+$priceHelper = $this->helper('Magneto\RingBuilder\ViewModel\PriceHelper');
+
+$loadfilter = $block->getRingFilters();
+$diamondsettingcoockiedata = $block->getDiamondCookieData();
+$shapeArray  = [];
+$ringcollection = '';
+
+if ($block->getSaveRingFilterCookieData()) {
+    $savedfilter = json_decode($block->getSaveRingFilterCookieData());
+} elseif ($block->getSaveRingFilterBackCookieData()) {
+    $savedfilter = json_decode($block->getSaveRingFilterBackCookieData());
+} else {
+    $savedfilter = "";
+}
+if (isset($savedfilter)) {
+    if (isset($savedfilter->shapeList)) {
+        $shapeArray = explode(',', $savedfilter->shapeList);
+    }
+    if (isset($savedfilter->ringcollection)) {
+        $ringcollection = strtolower(str_replace(' ', '', $savedfilter->ringcollection));
+    }
+}
+
+if (isset($diamondsettingcoockiedata->centerstone)) {
+    $shapeArray = explode(',', $diamondsettingcoockiedata->centerstone);
+}
+
+if ($block->getRingshapedefaultfilter()) {
+    $ringcollection = $block->getRingshapedefaultfilter();
+}
+
+echo $this->getLayout()
+->createBlock("Gemfind\Ringbuilder\Block\Settings\Ringfilter")
+->setTemplate("Gemfind_Ringbuilder::settings/mobile/filter.phtml")
+->setData('mobileloadfilterdata', $loadfilter)->toHtml();
+?>
+
+    <div class="filter-details">
+    <?php if (isset($loadfilter['collections'][0])) { ?>
+      <div class="shape-container">
+
+         <input name="currentpage" id="currentpage" type="hidden" value="<?=isset($savedfilter->currentPage) ? $savedfilter->currentPage : '1'?>">
+
+         <input name="itemperpage" id="itemperpage" type="hidden" value="<?=isset($savedfilter->itemperpage) ? $savedfilter->itemperpage : $block->getResultsPerPage(); ?>">
+
+         <input name="settingid" id="settingid" type="hidden" value="<?=isset($savedfilter->SID) ? $savedfilter->SID : ''?>">
+
+         <input name="viewmode" id="viewmode" type="hidden" value="<?=isset($savedfilter->viewmode) ? $savedfilter->viewmode : 'gridmodewidecol'?>">
+
+         <input name="orderby" id="orderby" type="hidden" value="<?=isset($savedfilter->orderBy) ? $savedfilter->orderBy : 'cost-l-h'?>">
+         <?php if (isset($diamondsettingcoockiedata->carat)) { ?>
+            <input name="caratvalue" id="caratvalue" type="hidden" value="<?php echo $diamondsettingcoockiedata->carat; ?>">
+        <?php } ?>
+        <div class="color-filter shape-bg" id="collections-section">
+        <h4><?php echo __('Ring Style'); ?> <span class="show-filter-info kendana">*</span></h4>
+         <ul>
+           <?php $collectionsOptions = (array) $loadfilter['collections'];?>
+
+           <?php foreach ($collectionsOptions as $options): ?>
+
+             <li class="<?=strtolower(str_replace(' ', '', $options->collectionName)) ?> <?=($options == end($collectionsOptions)) ? 'last' : ''?> <?php if ($ringcollection) { if ($ringcollection ==
+                    strtolower(str_replace(' ', '', $options->collectionName))) { echo "selected active";} } ?>" title="<?=$options->collectionName ?>" id="<?=strtolower(str_replace(' ', '', $options->collectionName)) ?>">
+
+                <div class="collection-type">
+
+                   <img src="<?=$options->collectionImage?>" title="<?=$options->collectionName?>" alt="<?=$options->collectionName?>" height="64" width="64" />
+
+                   <input type="radio" class="input-assumpte" id="ring_collection_<?=strtolower($options->collectionName)?>" name="ring_collection" value="<?=$options->collectionName?>" <?php if ($ringcollection) { if ($ringcollection == strtolower(str_replace(' ', '', $options->collectionName))) { echo "checked='checked'";} } ?>/>
+
+               </div>
+
+               <label for="ring_collection_<?=$options->collectionName?>"><?= __($options->collectionName)?></label>
+
+           </li>
+
+       <?php endforeach; ?>
+
+   </ul>
+
+</div>
+
+</div>
+<?php } ?>
+
+<div class="shape-container shapepricefiltersection">
+<?php if (isset($loadfilter['shapes'][0])) { ?>
+  <div class="filter-main filter-alignment-right">
+
+   <div class="filter-for-shape shape-bg">
+
+    <h4><?php echo __('Shape'); ?> <span class="show-filter-info kendana" id="shape" ><img src="<?php echo $this->getViewFileUrl('Gemfind_Ringbuilder::images/kendana-info-brown.png'); ?>" /></span></h4>
+
+    <ul id="shapeul">
+
+       <?php $shapeOptions = (array) $loadfilter['shapes'];
+
+        ?>
+
+       <?php foreach ($shapeOptions as $options): ?>
+
+         <li class="<?=strtolower($options->shapeName) ?> <?=($options == end($shapeOptions)) ? 'last' : ''?>" title="<?=$options->shapeName ?>" id="<?=strtolower(str_replace(' ', '', $options->shapeName)) ?>">
+
+          <div class="shape-type <?=(in_array($options->shapeName, $shapeArray)) ? 'selected active' : ''?>">
+
+           <input type="checkbox" class="input-assumpte" id="ring_shape_<?=strtolower($options->shapeName)?>" name="ring_shape" value="<?=$options->shapeName?>" <?=(in_array($options->shapeName, $shapeArray)) ? 'checked="checked"' : ''?>/>
+
+       </div>
+
+       <label for="ring_shape_<?=$options->shapeName?>"><?= __($options->shapeName)?></label>
+
+   </li>
+
+<?php endforeach; ?>      
+
+</ul>
+
+</div>
+
+</div>
+<?php } ?>
+<div class="filter-main filter-alignment-left">
+  <?php if (isset($loadfilter['metalType'][0])) { ?>
+  <div class="color-filter clarity-filter shape-bg metaltypeli">
+
+      <h4><?php echo __('Metal'); ?> <span class="show-filter-info kendana" id="metal" ><img src="<?php echo $this->getViewFileUrl('Gemfind_Ringbuilder::images/kendana-info-brown.png'); ?>" /></span></h4>
+
+      <ul>
+
+        <?php $metalTypeOptions = (array) $loadfilter['metalType'];
+
+        $metalTypeOptions = [
+            '0' => ['metalType'=>'14K White Gold'],
+            '1' => ['metalType'=>'14K Yellow Gold'],
+            '2' => ['metalType'=>'14K Rose Gold'],
+            '3' => ['metalType'=>'18K White Gold'],
+            '4' => ['metalType'=>'18K Yellow Gold'],
+            '5' => ['metalType'=>'18K Rose Gold'],
+            '6' => ['metalType'=>'Platinum'],
+        ];
+        
+        foreach ($metalTypeOptions as $metalTypevalue) {
+
+            $metalTypevalue = (array) $metalTypevalue; ?>
+
+            <li class="<?php if (isset($savedfilter->ringmetalList)) { if ($savedfilter->ringmetalList == $metalTypevalue['metalType']) { echo "selected active";} } ?>"><input type="radio" class="input-assumpte" id="ring_metal_<?=strtolower(str_replace(' ', '', $metalTypevalue['metalType']))?>" name="ring_metal" value="<?=$metalTypevalue['metalType']?>" <?php if (isset($savedfilter->ringmetalList)) { if ($savedfilter->ringmetalList == $metalTypevalue['metalType']) { echo "checked='checked'";} } ?>/>
+
+                <?php if ($metalTypevalue['metalType'] == 'Platinum') {
+                    echo "<span class='metallabel platinum'>";
+                    echo __('PT');
+                    echo "</span>";
+                    echo __("Platinum");
+
+                }
+
+                if ($metalTypevalue['metalType'] == '18K Rose Gold') {
+                    echo "<span class='metallabel rosegold'>";
+                    echo __('18K');
+                    echo "</span>";
+                    echo __("Rose Gold");
+
+                }
+
+                if ($metalTypevalue['metalType'] == '18K Yellow Gold') {
+                    echo "<span class='metallabel yellowgold'>";
+                    echo __('18K');
+                    echo "</span>";
+                    echo __("Yellow Gold");
+
+                }
+
+                if ($metalTypevalue['metalType'] == '14K Rose Gold') {
+                    echo "<span class='metallabel rosegold'>";
+                    echo __('14K');
+                    echo "</span>";
+                    echo __("Rose Gold");
+
+                }
+
+                if ($metalTypevalue['metalType'] == '14K White Gold') {
+                    echo "<span class='metallabel whitegold'>";
+                    echo __('14K');
+                    echo "</span>";
+                    echo __("White Gold");
+
+                }
+
+                if ($metalTypevalue['metalType'] == '14K Yellow Gold') {
+                    echo "<span class='metallabel yellowgold'>";
+                    echo __('14K');
+                    echo "</span>";
+                    echo __("Yellow Gold");
+
+                }
+
+                if ($metalTypevalue['metalType'] == '18K White Gold') {
+                     echo "<span class='metallabel whitegold'>";
+                    echo __('18K');
+                    echo "</span>";
+                    echo __("White Gold");
+
+                }
+
+                ?>
+
+          </li>
+
+      <?php } ?>
+
+  </ul>
+
+</div>
+<?php } ?>
+<?php if (isset($loadfilter['priceRange'][0])) { ?>
+<div class="filter-main filter-alignment-left price-filter" >
+
+   <div class="filter-for-shape shape-bg">
+
+    <h4 class="title"><?= /* @escapeNotVerified */ __('Price') ?></h4>
+
+    <div class="slider_wrapper">
+
+      <?php $pricerange = (array) $loadfilter['priceRange'][0]; ?>
+
+      <?php $price_from = isset($savedfilter->PriceMin) ? $savedfilter->PriceMin : $priceHelper->convertToBaseCurrency($pricerange['minPrice'], 0) ?>
+
+      <?php $price_to = isset($savedfilter->PriceMax) ? $savedfilter->PriceMax : $priceHelper->convertToBaseCurrency($pricerange['maxPrice'], 0) ?>
+
+      <div id="noui_price_slider_rb" class="price-main ui-slider" data-min="<?= $priceHelper->convertToBaseCurrency($pricerange['minPrice'], 0) ?>" data-max="<?= $priceHelper->convertToBaseCurrency($pricerange['maxPrice'], 0) ?>"> 
+        <div class="price-left">
+          <input class="ui-slider-val slider-left" id="rb_min_price" type="text" inputmode="numeric" pattern="[-+]?[0-9]*[.,]?[0-9]+" data-type="min" name="price[from]" value="<?php echo str_replace(',', '', $price_from); ?>">          
+      </div>
+      <div class="to-div"><?php echo __('to'); ?></div>
+      <div class="price-right">
+          <input class="ui-slider-val slider-right" id="rb_max_price" type="text" inputmode="numeric" pattern="[-+]?[0-9]*[.,]?[0-9]+" data-type="max" name="price[to]" value="<?php echo str_replace(',', '', $price_to); ?>" >
+      </div>
+  </div>
+</div>
+</div>
+</div>
+<?php } ?>
+</div>
+</div>    
+</div>
+
+<script>
+      require(['jquery', 'Magento_Ui/js/modal/modal'], function($, modal){
+       $(document).on("click",".show-filter-info-nav", function() {
+        showfilterinfo($(this).parents('li').attr('id'));
+    });
+       $(document).on("click",".show-filter-info", function() {
+        showfilterinfo($(this).attr('id'));
+    });
+
+
+       var options = {
+        type: 'popup',
+        responsive: true,
+        innerScroll: true,
+        title: '',
+        modalClass: 'rb-popup'       
+    };
+
+    var popup = modal(options, $('#popup-modal'));
+
+    var filtertype = '';
+
+    function showfilterinfo(filtertype)
+    {
+      var options = {
+        type: 'popup',
+        responsive: true,
+        innerScroll: true,
+        title: '',
+        modalClass: 'rb-popup'       
+    };
+    var info_html = '';
+    var baseurl = 'https://diamondicq-new.magneto.co.in/'
+    var shopname = 'Our site';
+    
+    if (typeof filtertype !== 'undefined' && (filtertype == 'navstandard' || filtertype == 'natural_diamonds' || filtertype == 'mined'))
+    {
+     options.title = "<?= __('Mined') ?>";
+     info_html = 'Formed over billions of years, natural diamonds are mined from the earth. Diamonds are the hardest mineral on earth, which makes them an ideal material for daily wear over a lifetime. Our natural diamonds are conflict-free and GIA certified.';
+ }
+ if (typeof filtertype !== 'undefined' && (filtertype == 'navfancycolored' || filtertype == 'colored_diamonds'))
+ {
+     options.title = "<?= __('Fancy Color')?>";
+     info_html = 'Also known as fancy color diamonds, these are diamonds with colors that extend beyond GIA’s D-Z color grading scale. They fall all over the color spectrum, with a range of intensities and saturation. The most popular colors are pink and yellow.';
+ }
+ if (typeof filtertype !== 'undefined' && (filtertype == 'navlabgrown' || filtertype == 'lab_grown_diamonds'))
+ {
+     options.title = "<?= __('Lab Grown')?>";
+     info_html = 'Lab-grown diamonds are created in a lab by replicating the high heat and high pressure environment that causes a natural diamond to form. They are compositionally identical to natural mined diamonds (hardness, density, light refraction, etc), and the two look exactly the same. A lab-grown diamond is an attractive alternative for those seeking a product with less environmental footprint.';
+ }
+ if (typeof filtertype !== 'undefined' && filtertype == 'shape')
+ {
+     options.title = "<?= __('Shape')?>";
+     info_html = '<p>'+ "<?= __('A diamond’s shape is not the same as a diamond’s cut. The shape refers to the general outline of the stone, and not its light refractive qualities. Look for a shape that best suits the ring setting you have chosen, as well as the recipient’s preference and personality. Here are some of the more common shapes that  offers:') ?>"+'</p> <div class="popup-Diamond-Table" style="height:160px;"><ol class="list-unstyled"><li><span class="popup-Dimond-Sketch"></span><span>'+ "<?= __('Round') ?>"+'</span></li><li><span class="popup-Dimond-Sketch"></span><span>'+ "<?= __('Asscher') ?>"+'</span></li><li><span class="popup-Dimond-Sketch"></span><span>'+ "<?= __('Marquise') ?>"+'</span></li><li><span class="popup-Dimond-Sketch"></span><span>'+ "<?= __('Oval') ?>"+'</span></li><li><span class="popup-Dimond-Sketch"></span><span>'+ "<?= __('Cushion') ?>"+'</span></li><li><span class="popup-Dimond-Sketch"></span><span>'+ "<?= __('Radiant') ?>"+'</span></li><li><span class="popup-Dimond-Sketch"></span><span>'+ "<?= __('Pear') ?>"+'</span></li><li><span class="popup-Dimond-Sketch"></span><span>'+ "<?= __('Emerald') ?>"+'</span></li><li><span class="popup-Dimond-Sketch"></span><span>'+ "<?= __('Heart') ?>"+'</span></li><li><span class="popup-Dimond-Sketch"></span><span>'+ "<?= __('Princess') ?>"+'</span></li></ol></div>';
+ }
+ if (typeof filtertype !== 'undefined' && filtertype == 'cut')
+ {
+     options.title = "<?= __('Cut')?>";
+     info_html = '<p>'+"<?= __("Not to be confused with shape, a diamond’s cut rating tells you how well its proportions interact with light. By evaluating the angles and proportions of the diamond, the cut grade is designed to tell you how sparkly and brilliant your stone is. Cut grading is usually not available for fancy shapes (any shape that is not round), because the mathematical formula that determines light return becomes less reliable when different length to width ratios are factored in.") ?>"+'</p>';
+ }
+ if (typeof filtertype !== 'undefined' && filtertype == 'carat')
+ {
+     options.title = "<?= __('Carat')?>";
+     info_html = '<p>Carat is a unit of measurement to determine a diamond’s weight. Typically, a higher carat weight means a larger looking diamond, but that is not always the case. Look for the mm measurements of the diamond to determine its visible size.</p><img src="https://shopifygemtools.gemfind.com/diamondlink/assets/images/carat.jpg" alt="Carat">';
+ }
+ if (typeof filtertype !== 'undefined' && filtertype == 'price')
+ {
+     info_html = 'Filter By Price';
+ }
+ if (typeof filtertype !== 'undefined' && filtertype == 'color')
+ {
+     options.title = "<?= __('Color')?>";
+     info_html = '<p>'+"<?= __('The color scale measures the degree of colorlessness in a diamond. D is the highest and most colorless grade, but also the most expensive. To get the most value for your budget, look for an eye colorless stone. For most diamonds, this is in the F-H range.') ?>"+'</p>';
+ }
+ if (typeof filtertype !== 'undefined' && filtertype == 'clarity')
+ {
+     options.title = "<?= __('Clarity')?>";
+        info_html = '<p>'+"<?= __('A diamond’s clarity refers to the tiny traces of natural elements that are trapped inside the stone. 99% of diamonds contain inclusions or flaws. You do not need a flawless diamond - they are very rare and expensive - but you want to look for one that is perfect to the naked eye. Depending on the shape of the diamond, the sweet spot for clarity is usually between VVS2 to SI1.') ?>"+'</p>';
+ }
+ if (typeof filtertype !== 'undefined' && filtertype == 'depth')
+ {
+     options.title = "<?= __('Depth')?>";
+     info_html = '<p>'+"<?= __('Depth percentage is the height of the diamond measured from the culet to the table, divided by the width of the diamond. The lower the depth %, the larger the diamond will appear (given the same weight), but if this number is too low then the brilliance of the diamond will be sacrificed. The depth percentage is one of the elements that determines the Cut grading.') ?>"+'</p>';
+ }
+ if (typeof filtertype !== 'undefined' && filtertype == 'table')
+ {
+     options.title = "<?= __('Table')?>";
+     info_html = '<p>Table percentage is the width of a diamond’s largest facet (the table) divided by its overall width. It tells you how big the “face” of a diamond is.</p>';
+ }
+ if (typeof filtertype !== 'undefined' && filtertype == 'polish')
+ {
+     options.title = "<?= __('Polish')?>";
+     info_html = '<p>Polish describes how smooth the surface of a diamond is. Aim for an Excellent or Very Good polish rating.</p>';
+ }
+ if (typeof filtertype !== 'undefined' && filtertype == 'symmetry')
+ {
+     options.title = "<?= __('Symmetry')?>";
+     info_html = '<p>Symmetry describes how symmetrical the diamond is cut all the way around, which is a contributing factor to a diamond’s sparkle and brilliance. Aim for an Excellent or Very Good symmetry rating for round brilliant shapes, and Excellent to Good for fancy shapes.</p>';
+ }
+ if (typeof filtertype !== 'undefined' && filtertype == 'fluorescence')
+ {
+     options.title = "<?= __('Fluorescence')?>";
+     info_html = '<p>Fluorescence tells you how a diamond responds to ultraviolet light - does it glow under a black light? Diamonds with no fluorescence are generally priced higher on the market, but it is rare for fluorescence to have any visual impact on the diamond; some fluorescence can even enhance the look of the stone. ' + shopname + ' recommends searching for diamonds with none to medium fluorescence, and keeping open the option of strong fluorescence for additional value.</p>';
+ }
+ if (typeof filtertype !== 'undefined' && filtertype == 'fancy_color')
+ {
+     options.title = "<?= __('Fancy Color')?>";
+     info_html = 'Filter By Fancy Color';
+ }
+ if (typeof filtertype !== 'undefined' && filtertype == 'fancy_intensity')
+ {
+     options.title = "<?= __('Fancy Intensity')?>";
+     info_html = "<?= __('Filter By Fancy Intensity')?>";
+
+ }
+ if (typeof filtertype !== 'undefined' && filtertype == 'metal')
+ {
+     options.title = "<?= __('Filter By Metal')?>";
+            // info_html = 'Filter By Metal';
+
+        }
+
+        if (typeof filtertype == 'undefined')
+        {
+         info_html = "";
+     }
+     $('#popup-modal').html(info_html);
+
+     var popup = modal(options, $('#popup-modal'));    
+
+     $("#popup-modal").modal('openModal');
+ }
+});
+
+</script>
+
+<style>
+input, input:before, input:after {
+  -webkit-user-select: initial !important;
+  -khtml-user-select: initial !important;
+  -moz-user-select: initial !important;
+  -ms-user-select: initial !important;
+  user-select: initial !important;
+}
+</style>

@@ -1,0 +1,117 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var  $block \Magento\Sales\Block\Order\Item\Renderer\DefaultRenderer */
+$customViewModel = $block->getData('view_model');
+$_item = $block->getItem();
+$itemStatusId = $_item->getStatusId();
+$itemStatusName =  $_item->getStatusName($itemStatusId);
+$currentOrderStatus = $_item->getStatus();
+$itemId = $_item->getItemId();
+
+$orderId = $_item->getOrderId();
+
+$productUrl = "javascript:void(0);";
+$sellingPrice = '';
+if ($_item->getProduct()) {
+    $product = $_item->getProduct();
+    if ($_item->getProductType() == $product->getProductType()) {
+        $productUrl = $_item->getProduct()->getProductUrl();
+    }
+    $sellingPrice = $_item->getProduct()->getSettingPrice();
+}
+
+
+
+$pid = $_item->getProductId();
+
+//$productId = $_item->getProduct()->getId();
+$imageUrl = $customViewModel->getProductsImageLink($pid);
+
+$productName = $_item->getName();
+$quantityOrdered = $_item->getQtyOrdered()*1;
+$orderItemPrice = $_item->getOrder()->formatPrice($_item->getPrice());
+
+
+if ($itemStatusId == 1 || $itemStatusId == 9 ) {
+    $currentOrderStatusColor = '#C4C4C4';
+} elseif ($itemStatusId == 2) {
+    $currentOrderStatusColor = '#008000';
+} elseif ($itemStatusId >= 4 && $itemStatusId <= 8) {
+    $currentOrderStatusColor = '#D5C1BA';
+}
+
+
+?>
+<div class="product-items">
+    <div class="order-item-image">
+        <a href="<?=  /* @noEscape */ $productUrl?>" > 
+        <image src="<?=  /* @noEscape */ $imageUrl?>" alt="<?=  /* @noEscape */ $productName?>" /> </a>
+    </div>
+    <div class="order-item-sub-details">
+        <div class="order-item-name">
+            <a href="<?=  /* @noEscape */ $productUrl?>" >
+            <?=  /* @noEscape */ $productName?> </a>
+            <?php if ($_options = $block->getItemOptions()): ?>
+            <button class="viewOptionBtn" id="viewoptions_<?=$itemId?>" data-current-item-id="<?=$itemId?>"><?=  /* @noEscape */ $block->escapeHtml(__('View Details')) ?></button>
+            <?php endif; ?>
+
+        </div>
+        <div class="order-item-desc">
+            <div class="order-item-price"> <?=  /* @noEscape */ $orderItemPrice?> </div>   
+            <div class="order-item-qty"><?=  /* @noEscape */ __('Qty:');?> <?=  /* @noEscape */ $quantityOrdered?></div>
+            <div class="order-item-status">
+                <span class="order-item-status-color" 
+                style="background-color:<?= /* @noEscape */ $currentOrderStatusColor;?>">
+                </span>
+                <?=  /* @noEscape */ $currentOrderStatus ?>
+            </div>        
+        </div>
+        <?php 
+            $class = 'no-display';
+            if ($sellingPrice) {
+                $class = '';
+            }
+        ?>
+        <div class="static-text <?php echo $class; ?> "><span>(<?=  /* @noEscape */ $block->escapeHtml(__('Setting Price')) ?>)</span></div>
+    </div>
+
+
+        
+    
+    <?php if ($_options = $block->getItemOptions()): ?>
+    <div class="order-item-options" id="order_item_options_<?=$itemId?>">
+        <?php foreach ($_options as $_option): ?>
+            <div class="order-item-option-group">
+                <div class="option-label"><?= $block->escapeHtml($_option['label']) ?></div>
+                <?php if (!$block->getPrintStatus()): ?>
+                    <?php $_formatedOptionValue = $block->getFormatedOptionValue($_option) ?>
+                    <dd<?= (isset($_formatedOptionValue['full_view']) ? ' class="tooltip wrapper"' : '') ?>>
+                        <?= $block->escapeHtml($_formatedOptionValue['value'], ['a']) ?>
+                        <?php if (isset($_formatedOptionValue['full_view'])): ?>
+                            <div class="tooltip content">
+                                <dl class="item options">
+                                    <dt><?= $block->escapeHtml($_option['label']) ?></dt>
+                                    <dd><?= $block->escapeHtml($_formatedOptionValue['full_view']) ?></dd>
+                                </dl>
+                            </div>
+                        <?php endif; ?>
+                    </dd>
+                <?php else: ?>
+                    <?php $optionValue = isset($_option['print_value']) ? $_option['print_value'] : $_option['value'] ?>
+                    <div class="option-label"><?= $block->escapeHtml($optionValue) ?></div>
+                <?php endif; ?>
+            </div>
+        <?php endforeach; ?>
+    </div>  
+    <?php endif; ?> 
+    <?php $addtInfoBlock = $block->getProductAdditionalInformationBlock(); ?>
+    <?php if ($addtInfoBlock): ?>
+    <div class="order-item-additional-info-block">    
+            <?= $addtInfoBlock->setItem($_item)->toHtml() ?>
+    </div>        
+    <?php endif; ?>
+</div>

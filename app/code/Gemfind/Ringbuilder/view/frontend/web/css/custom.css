@@ -1,0 +1,6522 @@
+@font-face {
+	font-family: 'luma-icons';
+	src: url('../fonts/Luma-Icons.eot');
+	src: url('../fonts/Luma-Icons.eot?#iefix') format('embedded-opentype'), url('../fonts/Luma-Icons.woff2') format('woff2'), url('../fonts/Luma-Icons.woff') format('woff'), url('../fonts/Luma-Icons.ttf') format('truetype'), url('../fonts/Luma-Icons.svg') format('svg');
+	font-weight: 300;
+	font-style: normal
+}
+
+body {
+	font-family: 'Lato', sans-serif;
+	color: #010101;
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body.ringbuilder-diamond-index.page-layout-1column.loaded,
+body.ringbuilder-product-view.page-layout-1column.loaded,
+body.ringbuilder-settings-index.page-layout-1column,
+body.ringbuilder-settings-view.page-layout-1column {
+	font-size: 1.4em;
+	font-family: 'Lato', sans-serif;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 1.428571;
+}
+
+.modals-overlay {
+	background-color: rgba(51, 51, 51, 0.88) !important;
+}
+
+.tab-section li.tab-li {
+	width: 31%;
+	float: left;
+	list-style: none;
+}
+
+a {
+	color: #010101;
+	text-decoration: none;
+}
+
+.no-padding {
+	padding: 0;
+}
+
+.search-details .table thead.fixed-table-head tr th {
+position: sticky !important;
+cursor: pointer !important;
+top: 0;
+z-index: 99;
+}
+.search-details .table-responsive{
+overflow: initial !important;
+}
+.page-main{
+overflow: initial;
+}
+
+.diamond-info {
+	float: left;
+	width: 100%;
+	border: 1px solid #e5e5e5;
+	text-align: center;
+	padding: 28px 20px 28px 20px;
+	box-sizing: border-box;
+}
+
+span.show-filter-info-nav.kendana img,
+span.show-filter-info.kendana img {
+	width: 16px;
+	height: 16px;
+}
+
+.compare-or-details button.btn-compare {
+	background: #1979c3;
+	font-size: 0;
+	border: 0;
+	padding: 0;
+	height: 40px;
+	width: 40px;
+}
+
+.compare-or-details button.btn-compare {
+	background: #1979c3;
+	font-size: 0;
+	border: 0;
+	padding: 0;
+	height: 40px;
+	width: 40px;
+	background-image: url(../images/spirit-img.png);
+	background-position: 10px 8px;
+	margin: 0 2px;
+	background-repeat: no-repeat;
+	box-shadow: none;
+	border-radius: 0;
+}
+
+.compare-or-details {
+	width: 100%;
+	display: table;
+	vertical-align: middle;
+}
+
+.compare-or-details button.btn-details {
+	background: #1979c3;
+	color: #fff;
+	border: 0;
+	font-size: 20px;
+	height: 40px;
+	display: inline-block;
+	vertical-align: top;
+	margin: 0 2px;
+	box-shadow: none;
+	border-radius: 0;
+}
+
+.diamond-info h4 {
+	font-size: 19px;
+}
+
+.diamond-info h5 {
+	font-size: 17px;
+}
+
+.diamonds-filter ul.filter-right li {
+	text-align: right;
+	float: none;
+	display: inline-block;
+	position: relative;
+	margin-right: 40px;
+}
+
+.diamond-info h2 {
+	font-weight: bold;
+	font-size: 24px;
+}
+
+.diamond-info span {
+	font-size: 17px;
+	margin-bottom: 40px;
+	display: inline-block;
+}
+
+.diamonds-filter {
+	float: left;
+	width: 100%;
+	clear: both;
+}
+
+.diamond-filter-title {
+	float: left;
+	width: 100%;
+	background: #e8e8e8;
+	padding: 19px 0;
+	padding-left: 20px;
+	box-sizing: border-box;
+}
+
+.diamond-filter-title ul {
+	float: left;
+	width: 50%;
+	padding: 0;
+	list-style: none;
+	margin: 0;
+}
+
+.diamond-filter-title ul li {
+	float: left;
+	margin-right: 30px;
+	margin-bottom: 0;
+}
+
+.diamond-filter-title ul li a {
+	font-size: 18px;
+	color: #000;
+	text-decoration: none;
+	font-weight: 500;
+}
+
+.diamonds-filter ul.filter-right {
+	text-align: right;
+	float: left;
+}
+
+.diamond-filter-title.save-reset-filters ul.filter-right li {
+	text-align: right;
+	float: none;
+	display: inline-block;
+	position: relative;
+	margin-right: 40px;
+}
+
+.diamond-filter-title ul li a:before {
+	position: absolute;
+	left: -23px;
+	top: 3px;
+	height: 20px;
+	width: 20px;
+	font-family: 'luma-icons';
+	content: '\e614';
+	font-size: 16px;
+}
+
+.diamonds-filter ul.filter-right li:nth-child(2) a:before,
+.save-reset-filters ul.filter-right li:nth-child(2) a:before {
+	content: '\e628';
+}
+
+.diamonds-filter ul.filter-right li:nth-child(2) {
+	margin-right: 20px;
+}
+
+.filter-for-shape ul li label,
+.filter-for-shape ul li,
+.color-filter ul li {
+	font-size: 14px;
+}
+
+.filter-details {
+	float: left;
+	width: 100%;
+	clear: both;
+	padding-top: 10px;
+	padding-right: 0;
+	box-sizing: border-box;
+}
+
+.filter-for-shape {
+	width: 50%;
+	float: left;
+}
+
+.shape-bg {
+	background: #fafafa;
+	box-sizing: border-box;
+	width: 100%;
+	clear: both;
+	padding: 18px 18px 0;
+	float: left;
+	width: 100%;
+}
+
+.filter-details ul {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	float: left;
+	width: 100%;
+	clear: both;
+	box-sizing: border-box;
+}
+
+.filter-details h4 {
+	margin: 0;
+	font-size: 18px;
+	font-weight: 600;
+	margin-bottom: 20px;
+	margin-top: 5px;
+	text-align: left;
+}
+
+.filter-for-shape ul li {
+	float: left;
+	width: 9%;
+	text-align: center;
+	margin-right: 1%;
+	position: relative;
+	margin-bottom: 10px;
+}
+
+.filter-for-shape ul li p {
+	margin: 0;
+	font-size: 16px;
+	line-height: normal;
+	padding-bottom: 3px;
+	margin-top: 24px;
+}
+
+.filter-details ul li input[type=checkbox],
+.filter-details ul li input[type=radio] {
+	position: absolute;
+	margin: 0;
+	width: 100%;
+	left: 0;
+	height: 100%;
+	opacity: 0;
+	z-index: 2;
+	top: 0;
+	cursor: pointer;
+}
+
+.filter-details .shape-type {
+	border: 1px solid #dacaca;
+}
+
+.filter-details .shape-type.selected {
+	background: #1979c3;
+}
+
+.filter-details .shape-type {
+	border: 1px solid #9f9f9f;
+	min-height: 44px;
+	text-align: center;
+	background: #f7f7f7;
+}
+
+.filter-main {
+	float: left;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.filter-main.filter-alignment-left {
+}
+
+.filter-main.filter-alignment-right {
+}
+
+.filter-for-shape .cut-main ul li {
+	border: 1px solid #9f9f9f;
+	padding: 11px 27px;
+	width: 14%;
+	margin: 0 2px;
+	text-align: center;
+	float: none;
+	position: relative;
+	margin-bottom: 30px;
+	display: inline-block;
+}
+
+.filter-for-shape .cut-main ul li a {
+	font-size: 18px;
+	color: #010101;
+	text-decoration: none;
+}
+
+.cut-main {
+	float: left;
+	width: 100%;
+	display: inline-block;
+}
+
+.filter-for-shape .cut-main ul li.active a {
+	color: #fff;
+}
+
+.color-filter {
+	float: left;
+	width: 100%;
+	margin-top: 0;
+}
+
+.color-filter ul li {
+	display: inline-block;
+	text-align: center;
+	box-sizing: border-box;
+}
+
+.color-filter {
+	float: left;
+	width: 100%;
+	text-align: left;
+}
+
+.color-filter ul li {
+	display: inline-block;
+	text-align: center;
+	width: 9.7%;
+	padding: 0;
+	margin: 0 0.5%;
+	border: 1px solid #9f9f9f;
+	position: relative;
+}
+
+.color-filter ul li a {
+	color: #010101;
+	font-size: 16px;
+	text-transform: uppercase;
+	text-decoration: none;
+	width: 100%;
+	float: left;
+}
+
+.color-filter ul li.active a {
+	color: #fff;
+}
+
+.color-filter.clarity-filter ul li {
+	width: 8.6%;
+}
+
+.filter-advanced .accordion {
+	color: #444;
+	cursor: pointer;
+	padding: 18px 10px 18px 35px;
+	width: 100%;
+	border: none;
+	text-align: left;
+	outline: none;
+	font-size: 18px;
+	font-weight: 600;
+	transition: 0.4s;
+	background: #fafafa;
+	position: relative;
+	box-shadow: none;
+}
+
+.filter-advanced .panel {
+	max-height: none !important;
+	float: left;
+	width: 100%;
+	box-shadow: none;
+}
+
+.filter-advanced .accordion:before {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 15px;
+	content: '\e61C';
+	font-family: 'luma-icons';
+	text-align: center;
+	-webkit-transform: .8s ease-in-out;
+	transition: transform .8s ease-in-out;
+	padding: 5px;
+	font-size: 16px;
+}
+
+.filter-advanced .accordion.active:before {
+	content: '\e60f';
+}
+
+.filter-details .polish-depth ul li {
+	float: left;
+	width: 23%;
+	margin: 0 1%;
+	border: 1px solid #9f9f9f;
+	padding: 9px 0;
+	text-align: center;
+	box-sizing: border-box;
+	position: relative;
+}
+
+.polish-depth {
+	float: left;
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+.filter-details .polish-depth ul li a {
+	font-size: 16px;
+	text-decoration: none;
+}
+
+.filter-advanced-main {
+	float: left;
+	width: 100%;
+	clear: both;
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+	box-sizing: border-box;
+}
+
+.filter-details .polish-depth.filter-Fluoroscence ul li {
+	width: 18%;
+	text-transform: uppercase;
+}
+
+.filter-details .polish-depth.filter-Fluoroscence ul li a {
+	text-transform: uppercase;
+}
+
+.filter-details .polish-depth.filter-Fluoroscence ul li a {
+	text-transform: uppercase;
+	text-decoration: none;
+}
+
+.filter-advanced .filter-advanced-main {
+	float: left;
+	clear: none;
+}
+
+.filter-advanced .filter-advanced-main.advance-left {
+	padding-right: 10px;
+}
+
+.filter-advanced .filter-advanced-main.advance-r3450ight {
+	padding-left: 10px;
+}
+
+.filter-advanced-main.advance-right .fluo-right {
+	float: left;
+	width: 50%;
+	padding: 0 10px;
+	box-sizing: border-box;
+}
+
+.filter-advanced-main.advance-right .fluo-right select {
+	width: 100%;
+	border: 1px solid #9f9f9f;
+	height: 34px;
+	background: #e8e8e8;
+	font-size: 16px;
+}
+
+.filter-advanced-main.advance-right .fluo-right select option {
+	font-size: 16px;
+}
+
+.search-details .table thead tr th {
+	font-size: 16px;
+	font-weight: normal;
+}
+
+.search-details .table tbody tr td,
+.search-details .table tbody tr th {
+	background: #fafafa;
+}
+
+.search-details .table tbody tr:hover td,
+.search-details .table tbody tr:hover th {
+	background: #e5e5e5;
+	cursor: pointer;
+}
+
+.searching-result {
+	float: left;
+	width: 100%;
+	clear: both;
+}
+
+.no-result-div {
+	text-align: center;
+	font-size: 24px;
+	margin-bottom: 50px;
+}
+
+.searching-result .number-of-search {
+	width: 40%;
+	float: left;
+}
+
+.searching-result .view-or-search-result {
+	width: 40%;
+	float: left;
+}
+
+.diamonds-product-view .searching-result .view-or-search-result {
+	width: 60%;
+}
+
+.search-details .table-responsive {
+	float: left;
+	width: 100%;
+	overflow: auto;
+	margin-top: 20px;
+}
+
+.number-of-search p {
+	font-size: 14px;
+	color: #000;
+	margin-bottom: 0;
+	float: left;
+}
+
+.number-of-search p strong {
+	margin-right: 10px;
+}
+
+.change-view-result p {
+	font-size: 16px;
+	color: #000;
+	float: left;
+	display: inline-block;
+	margin: 0;
+}
+
+.change-view-result ul {
+	padding: 0;
+	list-style: none;
+	margin: 0;
+	float: none;
+	width: auto;
+	padding-left: 10px;
+	text-align: right;
+	display: inline-block;
+	margin-top: 1px;
+}
+
+.change-view-result ul li {
+	float: left;
+	position: relative;
+	padding-left: 29px;
+	margin-right: 6px;
+	padding-top: 2px;
+	margin-bottom: 0;
+}
+
+.change-view-result ul li a:before {
+	content: '';
+	font-family: 'luma-icons';
+	font-size: 22px;
+	text-align: center;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 30px;
+	height: 30px;
+}
+
+.change-view-result ul li.grid-view a:before {
+	background-color: #e8e8e8;
+	content: '\e60d';
+	font-size: 16px;
+	line-height: 30px;
+}
+
+.change-view-result ul li.list-view a:before {
+	background-position: -299px -3px;
+}
+
+.change-view-result ul li a {
+	font-size: 0;
+}
+
+.searching-result .view-or-search-result .change-view-result {
+	width: 100%;
+	float: left;
+	text-align: right;
+	margin-bottom: 5px;
+	display: inline-block;
+	align-items: center;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+}
+
+.search-in-table {
+	float: right;
+	display: inline-block;
+	vertical-align: middle;
+	position: relative;
+	width: 20%;
+}
+
+.search-in-table input {
+	background: #fafafa;
+	border: 0;
+	min-width: 210px;
+	padding: 8px 10px;
+	padding-right: 58px;
+}
+
+.search-in-table button {
+	border: 0;
+	padding: 0;
+	margin-top: 0;
+	margin-left: 0;
+	background-position: 255px 7px;
+	position: absolute;
+	right: 0;
+	height: 100%;
+	border-radius: 0;
+	top: 0;
+	box-shadow: none;
+	color: rgba(0, 0, 0, 0);
+	width: 35px;
+	line-height: 33px;
+}
+
+.search-in-table button:before {
+	content: '';
+	content: '\e615';
+	font-family: 'luma-icons';
+	float: left;
+	width: 100%;
+	height: 100%;
+	font-size: 16px;
+	font-weight: normal;
+}
+
+.search-details .table thead tr>th:nth-child(1) {
+	font-size: 0;
+	position: relative;
+}
+
+.search-details .table thead tr>th:nth-child(1):before {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 9px;
+	background-image: url(../images/spirit-img.png);
+	width: 30px;
+	height: 30px;
+	background-position: 5px 6px;
+}
+
+.search-details .table tbody tr th.table-selecter {
+	position: relative;
+}
+
+.search-details .table tbody tr th.table-selecter input[type="checkbox"] {
+	position: absolute;
+	left: 0;
+	top: 0;
+	min-width: 1em;
+	width: 100%;
+	height: 100%;
+	z-index: 2;
+	opacity: 0;
+	margin: 0;
+	padding: 0;
+	cursor: pointer;
+	box-sizing: border-box;
+	padding: 0;
+}
+
+.search-details .table tbody tr th.table-selecter input[type="checkbox"]:checked~.state label:after {
+	transform: scale(3.5);
+	opacity: 0;
+	transition: all 0.3s ease;
+	border-radius: 50%;
+}
+
+.search-details .table tbody tr th.table-selecter input[type="checkbox"]:checked~.state label:before {
+	opacity: 1;
+}
+
+.search-details .table tbody tr th.table-selecter .state label {
+	position: absolute;
+	display: inline-block;
+	font-weight: 400;
+	margin: 0;
+	text-indent: 1.5em;
+	min-width: calc(1em + 2px);
+	font-size: 0;
+	top: 0;
+	width: 20px;
+	height: 20px;
+}
+
+.search-details .table tbody tr th.table-selecter .state label:before {
+	content: '';
+	width: 16px;
+	height: 16px;
+	display: block;
+	box-sizing: border-box;
+	border-radius: 0;
+	z-index: 0;
+	position: absolute;
+	left: 0;
+	top: 1px;
+	background-color: transparent;
+	border-radius: 4px;
+}
+
+.search-details .table tbody tr th.table-selecter .state label:after {
+	content: '';
+	width: 16px;
+	height: 16px;
+	display: block;
+	box-sizing: border-box;
+	border-radius: 0;
+	z-index: 0;
+	position: absolute;
+	left: 0;
+	top: 1px;
+	background-color: transparent;
+	border-radius: 4px;
+}
+
+.search-details .table tbody tr th.table-selecter .state {
+	position: absolute;
+	top: 11px;
+	width: 20px;
+	height: 20px;
+	left: 8px;
+}
+
+.shape-flex {
+	display: flex;
+	justify-content: space-between;
+	align-items: stretch;
+}
+
+.shape-flex .filter-main {
+	width: 100%;
+	float: inherit;
+}
+
+.shape-flex .filter-main .filter-for-shape {
+	height: 100%;
+}
+
+.search-details {
+	/* margin-top: 30px;*/
+}
+
+.d-container {
+	float: left;
+	width: 100%;
+	clear: both;
+}
+
+.d-row {
+	float: left;
+	width: 100%;
+	clear: both;
+}
+
+
+/*CUSTOM TABLE STYLE END*/
+
+.search-details .table>tbody>tr>th,
+.search-details .table>tfoot>tr>th,
+.search-details .table>thead>tr>th {
+	padding: 13px;
+	line-height: 1.42857143;
+	vertical-align: top;
+}
+
+.search-details .table>tbody>tr>td,
+.search-details .table>thead>tr>td,
+.search-details .table>tfoot>tr>td {
+	padding: 10px;
+}
+
+.search-details th {
+	text-align: left;
+}
+
+.search-details .table {
+	width: 100%;
+	max-width: 100%;
+	margin-bottom: 20px;
+	border-spacing: 0;
+	border-collapse: collapse;
+	background-color: transparent;
+	box-sizing: border-box;
+	float: left;
+}
+
+
+/*CUSTOM TABLE STYLE END*/
+
+.d-container {
+	float: left;
+	width: 100%;
+	clear: both;
+	max-width: 100%;
+	margin: 0 auto;
+	float: none;
+}
+
+.diamonds-preview {
+	width: 35%;
+	float: left;
+}
+
+.ringbuilder-settings-view .diamonds-preview,
+.ringbuilder-diamond-completering .diamonds-preview {
+	width: 47%;
+}
+
+.diamonds-details {
+	width: 100%;
+	float: left;
+}
+
+.ring-specification-title h2 {
+	width: calc(100% - 30px);
+}
+
+.ringbuilder-settings-view .ring-details.no-padding.ring-request-form,
+.ringbuilder-diamond-completering .ring-details.no-padding.ring-request-form {
+	width: 51%;
+}
+
+.ringbuilder-diamond-completering .ring-size.prdctdrpdwn span.title {
+	/*position: relative;
+	top: 35px !important;
+	color: #777777 !important;*/
+}
+
+.filter-details .shape-type:after {
+	background-image: url(../images/shape-images.png);
+	content: '';
+	float: left;
+	width: 32px;
+	height: 32px;
+	position: absolute;
+	top: 5px;
+	right: 0;
+	left: 0;
+	margin: 0 auto;
+	z-index: 1;
+	transition: all 500ms cubic-bezier(0, 0.4, 0.51, 1.35);
+	background-size: 15em;
+}
+
+
+/*Round shape*/
+
+.filter-for-shape ul li.round .shape-type:after {
+	background-position: -46px 0;
+}
+
+.filter-for-shape ul li.round .shape-type:hover:after,
+.filter-for-shape ul li.round .shape-type.selected:after {
+	background-position: -46px -44px;
+}
+
+
+/*Round shape*/
+
+
+/*princess shape*/
+
+.filter-for-shape ul li.princess .shape-type:after {
+	background-position: -173px -2px;
+}
+
+.filter-for-shape ul li.princess .shape-type:hover:after,
+.filter-for-shape ul li.princess .shape-type.selected:after {
+	background-position: -173px -44px;
+}
+
+
+/*princess shape*/
+
+
+/*emerald shape*/
+
+.filter-for-shape ul li.emerald .shape-type:after {
+	background-position: -215px -2px;
+}
+
+.filter-for-shape ul li.emerald .shape-type:hover:after,
+.filter-for-shape ul li.emerald .shape-type.selected:after {
+	background-position: -215px -45px;
+}
+
+
+/*emerald shape*/
+
+
+/*radiant shape*/
+
+.filter-for-shape ul li.radiant .shape-type:after {
+	background-position: -300px -2px;
+}
+
+.filter-for-shape ul li.radiant .shape-type:hover:after,
+.filter-for-shape ul li.radiant .shape-type.selected:after {
+	background-position: -300px -46px;
+}
+
+
+/*radiant shape*/
+
+
+/*cushion shape*/
+
+.filter-for-shape ul li.cushion .shape-type:after {
+	background-position: 37px -95px;
+}
+
+.filter-for-shape ul li.cushion .shape-type:hover:after,
+.filter-for-shape ul li.cushion .shape-type.selected:after {
+	background-position: 37px -137px;
+}
+
+
+/*cushion shape*/
+
+
+/*pear shape*/
+
+.filter-for-shape ul li.pear .shape-type:after {
+	background-position: -4px -94px;
+}
+
+.filter-for-shape ul li.pear .shape-type:hover:after,
+.filter-for-shape ul li.pear .shape-type.selected:after {
+	background-position: -4px -138px;
+}
+
+
+/*pear shape*/
+
+
+/*marquise shape*/
+
+.filter-for-shape ul li.marquise .shape-type:after {
+	background-position: -47px -94px;
+}
+
+.filter-for-shape ul li.marquise .shape-type:hover:after,
+.filter-for-shape ul li.marquise .shape-type.selected:after {
+	background-position: -47px -139px;
+}
+
+
+/*marquise shape*/
+
+
+/*oval shape*/
+
+.filter-for-shape ul li.oval .shape-type:after {
+	background-position: -88px -94px;
+}
+
+.filter-for-shape ul li.oval .shape-type:hover:after,
+.filter-for-shape ul li.oval .shape-type.selected:after {
+	background-position: -88px -137px;
+}
+
+
+/*oval shape*/
+
+
+/*asscher shape*/
+
+.filter-for-shape ul li.asscher .shape-type:after {
+	background-position: -131px -3px;
+}
+
+.filter-for-shape ul li.asscher .shape-type:hover:after,
+.filter-for-shape ul li.asscher .shape-type.selected:after {
+	background-position: -131px -46px;
+}
+
+
+/*asscher shape*/
+
+
+/*heart shape*/
+
+.filter-for-shape ul li.heart .shape-type:after {
+	background-position: -132px -93px;
+}
+
+.filter-for-shape ul li.heart .shape-type:hover:after,
+.filter-for-shape ul li.heart .shape-type.selected:after {
+	background-position: -132px -138px;
+}
+
+
+/*heart shape*/
+
+
+/* Slider
+
+
+
+ ----------------------------------*/
+
+#search-diamonds .ui-slider {
+	position: relative;
+	text-align: left;
+	height: 14px;
+}
+
+#search-diamonds .ui-slider .ui-slider-val {
+	width: 75px;
+	margin-top: 30px;
+	border: 1px solid #cecece;
+	height: 24px;
+	font-size: 12px line-height: 24px;
+	padding: 0 8px;
+	text-align: right;
+	border-radius: 100px;
+	color: #2c2c2c;
+	-webkit-appearance: none;
+	appearance: none;
+}
+
+#search-diamonds .ui-slider .ui-slider-val.slider-left {
+	float: left;
+}
+
+#search-diamonds .ui-slider .ui-slider-val.slider-right {
+	float: right;
+	width: 130px;
+}
+
+#search-diamonds .ui-slider .ui-slider-handle {
+	position: absolute;
+	z-index: 2;
+	cursor: default;
+	width: 23px;
+	height: 23px;
+	top: -6px;
+	margin-left: -10px;
+	border-radius: 50%;
+	outline: 0 none;
+	-webkit-transform: .2s ease-out, background 0.3s;
+	transition: transform 0.2s, background 0.3s;
+}
+
+#search-diamonds .ui-slider .ui-slider-handle.ui-state-active {
+	-webkit-transform: scale(1.5);
+	transform: scale(1.5);
+}
+
+#search-diamonds .ui-slider .ui-slider-range {
+	position: absolute;
+	z-index: 1;
+	font-size: .7em;
+	display: block;
+	border: 0;
+}
+
+#search-diamonds .ui-slider-horizontal {
+	height: 12px;
+	border: 1px solid #e5e5e5;
+	background: #FCFDFD;
+	border-radius: 30px;
+}
+
+#search-diamonds .ui-slider-horizontal .ui-slider-range {
+	height: 100%;
+	top: 0px;
+}
+
+#search-diamonds .ui-slider-horizontal .ui-slider-range-min {
+	left: 0;
+}
+
+#search-diamonds .ui-slider-horizontal .ui-slider-range-max {
+	right: 0;
+}
+
+
+/* Label slider Legend */
+
+#search-diamonds .ui-slider-legend p {
+	margin: 12px 0 0 0;
+	float: left;
+	text-align: center;
+	position: relative;
+}
+
+#search-diamonds .ui-slider-legend p b {
+	font-weight: normal;
+	font-size: 12px;
+	color: #788589;
+	display: block;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+#search-diamonds .ui-slider-legend p.first span {
+	display: none;
+}
+
+#search-diamonds .ui-slider-legend p span {
+	display: block;
+	position: absolute;
+	top: -22px;
+	z-index: 0;
+	border-radius: 50%;
+	width: 5px;
+	height: 5px;
+	background: #E6E6E6;
+}
+
+.search-view-grid .product-box-action input[type="checkbox"] {
+	top: 0;
+	left: 0;
+}
+
+.product-box-action .state {
+	padding-left: 25px;
+}
+
+.search-view-grid {
+	float: left;
+	width: 100%;
+}
+
+.grid-product-listing {
+	float: left;
+	width: 100%;
+	clear: both;
+}
+
+.search-product-grid {
+	float: left;
+	width: 23%;
+	box-sizing: border-box;
+	margin: 1% 1%;
+	padding: 10px;
+	border: 1px solid #e8e8e8;
+	text-align: center;
+	position: relative;
+}
+
+.gridmode .search-product-grid {
+	width: 31.6%;
+}
+
+.gridmode .search-product-grid:nth-child(4n) {
+	margin-right: 2.6%;
+}
+
+.gridmode .search-product-grid:nth-child(3n) {
+	margin-right: 0px;
+}
+
+.search-product-grid .product-images,
+.search-product-grid .product-details,
+.search-product-grid .product-images,
+.search-product-grid .product-item-name {
+	float: left;
+	width: 100%;
+}
+
+.search-product-grid .product-images {
+	min-height: 270px;
+	max-height: initial;
+	display: block;
+	align-items: center;
+	justify-content: center;
+	margin-top: 40px;
+}
+
+.product-inner-info {
+	position: absolute;
+	top: 0;
+	width: 90%;
+	right: 0;
+	background: rgba(250, 250, 250, 0.9);
+	opacity: 0;
+	transition: opacity .25s ease-in-out;
+	-moz-transition: opacity .25s ease-in-out;
+	-webkit-transition: opacity .25s ease-in-out;
+	word-break: break-all;
+	height: auto;
+	overflow: auto;
+	visibility: hidden;
+}
+
+.product-inner-info.active {
+	opacity: 1;
+	visibility: visible;
+}
+
+.product-inner-info ul {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	float: left;
+	width: 100%;
+	padding: 20px 10px 10px 10px;
+	box-sizing: border-box;
+}
+
+.product-inner-info ul li {
+	float: left;
+	width: 100%;
+	line-height: normal;
+	margin-bottom: 5px;
+}
+
+.product-inner-info ul li p {
+	margin: 0;
+}
+
+.product-inner-info ul li p span {
+	text-align: left;
+	float: left;
+}
+
+.product-inner-info ul li p span:nth-child(odd) {
+	width: 60%;
+}
+
+.product-inner-info ul li p span {
+	float: left;
+	width: 40%;
+	font-size: 12px;
+	font-weight: 600;
+}
+
+.search-product-grid .product-details .product-item-name span {
+	width: 100%;
+	float: left;
+	font-size: 12px;
+	color: #000;
+	margin: 4px 0;
+}
+
+.search-product-grid .product-details .product-box-pricing {
+	float: left;
+	width: 100%;
+	text-align: center;
+}
+
+.search-product-grid .product-details .product-box-pricing span {
+	font-size: 24px;
+	font-weight: bold;
+}
+
+.search-product-grid .product-details .product-box-pricing {
+	float: left;
+	width: 100%;
+	text-align: center;
+	margin: 9px 0;
+}
+
+.search-product-grid .product-details .product-box-action {
+	width: 100%;
+	clear: both;
+	margin: 0 auto;
+	display: inline-block;
+	max-width: 140px;
+	margin: 6px 0;
+}
+
+.product-slide-button {
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 1;
+}
+
+.product-slide-button .trigger-info {
+	float: left;
+	margin: 5px;
+	font-size: 0;
+}
+
+.product-slide-button .trigger-info:before {
+	float: left;
+	height: 15px;
+	width: auto;
+	font-size: 44px;
+	line-height: 13px;
+	letter-spacing: -3px;
+	content: '\2807';
+	transform: rotate(270deg);
+}
+
+.product-details .product-box-action label {
+	font-size: 16px;
+	font-weight: 400;
+}
+
+.grid-paginatin {
+	float: left;
+	width: 100%;
+	clear: both;
+	margin-bottom: 10px;
+}
+
+.grid-paginatin ul {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	text-align: right;
+	float: right;
+	width: auto;
+}
+
+.grid-paginatin ul li a {
+	line-height: normal;
+	font-size: 16px;
+	padding: 8px;
+	width: 100%;
+	float: left;
+	box-sizing: border-box;
+	transition: 0.3s;
+}
+
+.grid-paginatin ul li {
+	display: inline-block;
+	min-width: 35px;
+	text-align: center;
+	min-height: 35px;
+	vertical-align: middle;
+	border: 1px solid #e8e8e8;
+	margin: 0 1px;
+}
+
+.grid-paginatin ul li.grid-next a,
+.grid-paginatin ul li.grid-previous a {
+	float: left;
+	width: 100%;
+	height: auto;
+	text-indent: -9999px;
+}
+
+.grid-paginatin ul li.grid-next a:before,
+.grid-paginatin ul li.grid-previous a:before {
+	content: '\e617';
+	font-family: 'luma-icons';
+	font-size: 18px !important;
+	text-indent: 0px;
+	float: left;
+}
+
+.grid-paginatin ul li.grid-previous a:before {
+	transform: rotate(180deg);
+	-webkit-transform: rotate(180deg);
+	-moz-transform: rotate(180deg);
+	-o-transform: rotate(180deg);
+	-ms-transform: rotate(180deg);
+}
+
+section.compare-product {
+	float: left;
+	width: 100%;
+	clear: both;
+}
+
+section.compare-product .diamonds-details {
+	float: left;
+	width: 100%;
+}
+
+.compare-info {
+	float: left;
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+.compare-info .responsive-table {
+	overflow: auto;
+}
+
+.compare-info table {
+	width: 100%;
+	border-spacing: 0;
+	border-collapse: collapse;
+	white-space: nowrap;
+	table-layout: fixed;
+}
+
+.compare-info table tr:nth-child(odd) {
+	background-color: #F2F2F2;
+}
+
+.compare-info table tr:nth-child(even) {
+	background-color: #E6E6E6;
+}
+
+.compare-info th,
+.compare-info tr,
+.compare-info td {
+	text-align: center;
+	border: 1px solid #e8e8e8;
+	padding: 20px;
+	vertical-align: middle;
+}
+
+.compare-info tbody tr>td:nth-child(1) {
+	min-width: 180px;
+}
+
+.compare-info tbody tr>td:nth-child(1) {
+	min-width: 180px;
+	font-size: 18px;
+	color: #000;
+}
+
+.compare-info tbody tr td {
+	height: 24px;
+	vertical-align: middle;
+}
+
+.compare-product .compare-info table tr:nth-child(even) {
+	background-color: #f2f2f2;
+}
+
+
+/*10-23-18 LIVE CSS START HERE*/
+
+.shape-container {
+	float: left;
+	width: 100%;
+	clear: both;
+}
+
+
+/*10-23-18 LIVE CSS END HERE*/
+
+
+/*DIAMONDS WITH SEPECIFICATIONS START*/
+
+.with-specification .diamonds-preview {
+	width: 430px;
+}
+
+.ringbuilder-diamond-completering .diamonds-info .intro-field .prdctdrpdwn span:not(.title) {
+	float: right;
+}
+
+body.ringbuilder-diamond-completering .product-controler ul li a {
+	font-size: 14px
+}
+
+.with-specification .diamonds-details {
+	width: calc(100% - 430px);
+	float: left;
+}
+
+.specification-title {
+	width: 100%;
+	background: #e8e8e8;
+	display: table;
+	vertical-align: middle;
+	padding: 16px 20px;
+	box-sizing: border-box;
+}
+
+.specification-title h2 {
+	display: table-cell;
+	padding: 0;
+	margin: 0;
+	font-size: 20px;
+	color: #000;
+}
+
+.specification-title h4 {
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+	vertical-align: middle;
+	text-align: right;
+	text-align: right;
+	float: right;
+}
+
+.specification-title h4 a {
+	font-size: 16px;
+	font-weight: normal;
+	position: relative;
+	/*padding-right: 20px;*/
+	top: 0;
+	vertical-align: middle;
+}
+
+.specification-title h4 a:after {
+	content: '';
+}
+
+.specification-info {
+	float: left;
+	width: 100%;
+}
+
+.specification-info ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	float: left;
+	width: 100%;
+}
+
+.specification-info ul li {
+	float: left;
+	width: 100%;
+	clear: both;
+	padding: 11px 20px;
+	box-sizing: border-box;
+	margin-bottom: 0;
+}
+
+.specification-info ul li div,
+.specification-info ul li div {
+	float: left;
+	width: 50%;
+}
+
+.specification-info ul li .diamonds-info p,
+.specification-info ul li .diamonds-details-title p {
+	padding: 0;
+	margin: 0;
+	font-size: 16px;
+	color: #000;
+}
+
+.specification-info ul li .diamonds-info {
+	padding: 0;
+	margin: 0;
+	text-align: right;
+}
+
+.specification-info ul li:nth-child(even) {
+	background: #f8f8f8;
+}
+
+.diamond-info h2 span {
+	font-size: 20px;
+	margin: 0;
+	line-height: normal;
+}
+
+.diamond-grade {
+	display: table;
+	vertical-align: middle;
+	margin-left: -20px;
+	margin-right: -20px;
+	background: #f7f7f7;
+	padding: 17px 20px;
+	margin-bottom: -28px;
+}
+
+.grade-logo {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.grade-info {
+	display: table-cell;
+	vertical-align: middle;
+	text-align: left;
+	padding-left: 15px;
+}
+
+.grade-info p {
+	font-size: 16px;
+	color: #626262;
+	line-height: 24px;
+	margin-bottom: 0;
+}
+
+.product-thumb {
+	width: 100%;
+	display: table;
+	vertical-align: middle;
+	float: left;
+}
+
+.product-thumb .thumg-img {
+	margin-right: 5px;
+	float: left;
+}
+
+.requested-form {
+	float: left;
+	width: 100%;
+	padding: 20px;
+	box-sizing: border-box;
+}
+
+.requested-form h2 {
+	margin: 0;
+	padding: 0;
+	font-size: 30px;
+	color: #000;
+}
+
+.requested-form p {
+	padding: 0;
+	margin: 0;
+	margin-top: 10px;
+	font-size: 18px;
+	color: #000;
+}
+
+.diamond-request-form .form-field label,
+.ring-request-form .form-field label {
+	margin: 20px 0;
+	position: relative;
+	display: inline-block;
+	width: 100%;
+}
+
+.diamond-request-form .form-field span,
+.ring-request-form .form-field span {
+	padding: 10px;
+	pointer-events: none;
+	position: absolute;
+	left: 0;
+	top: 0;
+	transition: 0.2s;
+	transition-timing-function: ease;
+	transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+	opacity: 0.5;
+	padding-left: 0;
+	padding-bottom: 4px;
+}
+
+.diamond-request-form .form-field input,
+.ring-request-form .form-field input {
+	padding: 10px;
+}
+
+.diamond-request-form .form-field span.moveUp,
+.ring-request-form .form-field span.moveUp {
+	transform: translateY(-90%);
+}
+
+.diamond-request-form .form-field,
+.ring-request-form .form-field {
+	float: left;
+	width: 100%;
+	clear: both;
+	max-width: 465px;
+	padding-left: 25px;
+	box-sizing: border-box;
+}
+
+.diamond-request-form .form-field label input,
+.ring-request-form .form-field label input {
+	width: 100%;
+	border: 0;
+	border-bottom: 1px solid #9f9f9f;
+	box-sizing: border-box;
+	padding: 0;
+	height: 38px;
+	font-size: 16px;
+}
+
+.diamond-request-form .form-field label input:focus,
+.diamond-request-form .form-field label textarea:focus,
+.ring-request-form .form-field label input:focus,
+.ring-request-form .form-field label textarea:focus {
+	outline: none;
+	box-shadow: none;
+}
+
+.diamond-request-form .form-field label textarea,
+.ring-request-form .form-field label textarea {
+	width: 100%;
+	max-width: 100%;
+	max-height: 150px;
+	min-height: 80px;
+	padding: 10px;
+	box-sizing: border-box;
+	font-family: 'Lato', sans-serif;
+	font-size: 18px;
+	line-height: 20px;
+}
+
+.diamond-request-form .form-field label textarea:focus,
+.ring-request-form .form-field label textarea:focus {
+	outline: none;
+}
+
+.diamond-request-form .form-field label textarea,
+.ring-request-form .form-field label textarea {
+	border: 0;
+	border-bottom: 1px solid #9f9f9f;
+	resize: none;
+	padding-left: 0;
+}
+
+.prefrence-area {
+	float: left;
+	width: 100%;
+}
+
+.prefrence-area ul {
+	float: right;
+	margin: 0;
+	padding: 0;
+}
+
+.prefrence-area ul li {
+	float: left;
+	list-style: none;
+	margin: 0 10px;
+	padding: 0;
+	position: relative;
+}
+
+.prefrence-area p {
+	float: left;
+	margin: 0;
+}
+
+.diamond-request-form .form-field .prefrence-area label,
+.ring-request-form .form-field .prefrence-area label {
+	float: left;
+	width: auto;
+	margin: 0;
+	padding-left: 30px;
+}
+
+.diamond-request-form .form-field .prefrence-area input,
+.ring-request-form .form-field .prefrence-area input {
+	float: left;
+	position: absolute;
+	left: 0;
+	top: 0;
+	min-width: 1em;
+	width: 100%;
+	height: 100%;
+	z-index: 2;
+	opacity: 0;
+	margin: 0;
+	padding: 0;
+	cursor: pointer;
+	box-sizing: border-box;
+	padding: 0;
+}
+
+.diamond-request-form .form-field .prefrence-area label:after,
+.diamond-request-form .form-field .prefrence-area label:before,
+.ring-request-form .form-field .prefrence-area label:after,
+.ring-request-form .form-field .prefrence-area label:before {
+	content: '';
+	border: 2px solid #9f9f9f;
+	width: 16px;
+	height: 16px;
+	float: left;
+	border-radius: 50%;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+.diamond-request-form .form-field .prefrence-area input:checked~label:before,
+.ring-request-form .form-field .prefrence-area input:checked~label:before {
+	right: 0;
+	left: 0;
+	text-align: center;
+	transform: scale(0.6);
+	border-color: transparent;
+}
+
+.prefrence-action {
+	float: left;
+	width: 100%;
+	clear: both;
+	margin-top: 10px;
+}
+
+.prefrence-action .preference-btn {
+	border: 0;
+	font-size: 20px;
+	padding: 10px 40px;
+	margin: 0 3px;
+}
+
+.prefrence-action .preference-btn.btn-cencel {
+	background: #e5e5e5;
+	color: #000;
+}
+
+
+/*DIAMONDS WITH SEPECIFICATIONS END*/
+
+
+/*DIAMONDS PAGE START*/
+
+.diamond-page .specification-title {
+	background: transparent;
+	padding-top: 0;
+}
+
+.diamond-page .diamond-desc {
+	padding: 20px;
+}
+
+.diamond-page .diamond-desc p {
+	padding: 0;
+	margin: 0;
+	font-size: 16px;
+	color: #000;
+}
+
+.intro-field {
+	float: left;
+	width: 100%;
+}
+
+.intro-field ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	width: 50%;
+	float: left;
+	box-sizing: border-box;
+}
+
+.intro-field ul li {
+	display: table;
+	vertical-align: middle;
+	width: 100%;
+	padding: 9px 10px;
+	box-sizing: border-box;
+	padding-left: 0;
+}
+
+.intro-field ul li p,
+.intro-field ul li strong {
+	display: table-cell;
+	font-size: 18px;
+}
+
+.intro-field ul:nth-child(1) {
+	border-right: 1px solid #9f9f9f;
+}
+
+.intro-field ul:nth-child(2) li {
+	padding-left: 40px;
+}
+
+.intro-field ul li p {
+	text-align: right;
+}
+
+.diamond-page .diamond-request-form .form-field,
+.tab-content .ring-request-form .form-field {
+	max-width: 565px;
+}
+
+.intro-field ul:nth-child(2) li {
+	padding-left: 30px;
+}
+
+.intro-field ul:nth-child(1) li {
+	padding-right: 30px;
+}
+
+.product-controler {
+	float: left;
+	width: 100%;
+	clear: both;
+	margin-top: 30px;
+}
+
+.product-controler ul {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+.product-controler ul li {
+	position: relative;
+}
+
+.product-controler ul li:before {
+	content: '';
+	font-family: 'luma-icons';
+	position: absolute;
+	width: 28px;
+	height: 28px;
+	position: absolute;
+	left: 0;
+	color: #fff;
+	font-size: 16px;
+	text-align: center;
+	line-height: 28px;
+}
+
+.product-controler ul li a {
+	padding-left: 40px;
+	margin-top: 5px;
+	float: left;
+	line-height: normal;
+	text-decoration: none;
+	transition: 0.3s;
+}
+
+.product-controler ul li {
+	position: relative;
+	margin-bottom: 22px;
+	float: left;
+	width: 50%;
+}
+
+.product-controler ul li:nth-child(1):before {
+	content: '\e62A';
+}
+
+.product-controler ul li:nth-child(2):before {
+	content: '\e60C';
+}
+
+.product-controler ul li:nth-child(3):before {
+	content: '\e61d';
+}
+
+.product-controler ul li:nth-child(4):before {
+	content: '\e624';
+}
+
+.product-controler ul li:nth-child(5):before {
+	content: '\e612';
+}
+
+.diamond-request-form .form-field .diamond-action span,
+.ring-request-form .form-field .diamond-action span {
+	box-sizing: border-box;
+	position: static;
+	font-size: 30px;
+	opacity: 1;
+	font-weight: 600;
+	float: left;
+	width: 100%;
+	pointer-events: all;
+}
+
+.diamond-page .diamond-action button.addtocart,
+.ring-request-form .diamond-action button.addtocart {
+	float: left;
+	clear: both;
+	font-size: 26px;
+	text-transform: capitalize;
+	border: 0;
+	padding: 10px 30px;
+	cursor: pointer;
+	margin-top: 10px;
+}
+
+.diamond-action {
+	float: left;
+	width: 100%;
+	clear: both;
+	margin-top: 0px;
+}
+
+
+/*DIAMONDS PAGE END*/
+
+
+/*DIAMONDS PRINT START*/
+
+.print-header {
+	background: #1979c3;
+	float: left;
+	width: 100%;
+}
+
+.header-container {
+	display: table;
+	width: 100%;
+}
+
+.print-header h2,
+.print-header h4 {
+	margin: 0;
+	padding: 0;
+}
+
+.print-header .header-title,
+.print-header .header-date {
+	display: table-cell;
+	text-align: left;
+	vertical-align: middle;
+	color: #fff;
+}
+
+.print-header .header-date {
+	text-align: right;
+}
+
+.print-header h2 {
+	font-size: 30px;
+	font-weight: 400;
+}
+
+.print-header h4 {
+	font-size: 20px;
+	font-weight: 400;
+}
+
+.header-container {
+	display: table;
+	width: 100%;
+	padding: 22px 0;
+	max-width: 1170px;
+	margin: 0 auto;
+}
+
+.diamonds-print-preview {
+	float: left;
+	width: 100%;
+	background: #f7f7f7;
+	border: 1px solid #e8e8e8;
+	box-sizing: border-box;
+	padding: 20px;
+	margin-top: 40px;
+}
+
+.diamonds-print-preview .diamond-info-one,
+.diamonds-print-preview .diamond-info-two {
+	float: left;
+	width: 50%;
+	text-align: center;
+	padding: 20px;
+	box-sizing: border-box;
+}
+
+.diamonds-print-preview .print-info {
+	float: left;
+	width: 100%;
+	text-align: center;
+	margin: 22px 0;
+}
+
+.diamonds-print-preview .print-info span {
+	font-size: 20px;
+	color: #000;
+}
+
+.diamonds-print-preview .print-info p {
+	font-size: 24px;
+	color: #000;
+	font-weight: 600;
+}
+
+.diamonds-print-preview .print-info p span {
+	font-size: 24px;
+	color: #1979c3;
+}
+
+.diamonds-grade-info {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.diamonds-grade {
+	display: table-cell;
+	vertical-align: middle;
+	width: 170px;
+}
+
+.print-diamond-certifications {
+	float: left;
+	width: 100%;
+	clear: both;
+	background: #e8e8e8;
+	padding: 30px;
+	box-sizing: border-box;
+	margin-top: 40px;
+	border: 1px solid #e8e8e8;
+	margin-bottom: 40px;
+}
+
+.diamonds-grade-info p {
+	margin: 0;
+	padding: 0;
+	font-size: 18px;
+	color: #000;
+}
+
+.print-details {
+	float: left;
+	width: 100%;
+	clear: both;
+	border: 1px solid #e8e8e8;
+}
+
+.diamond-title {
+	background: #1979c3;
+	display: table;
+	width: 100%;
+	vertical-align: middle;
+	padding: 30px 20px;
+	box-sizing: border-box;
+}
+
+.diamond-title h2 {
+	color: #fff;
+	font-size: 32px;
+	font-weight: 400;
+	margin: 0;
+	padding: 0;
+}
+
+.diamond-title p {
+	color: #fff;
+	font-size: 18px;
+	margin: 0;
+	padding: 0;
+	margin-top: 8px;
+}
+
+.diamond-title .diamond-name {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.diamond-title .diamond-price {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.diamond-title .diamond-price span {
+	font-size: 30px;
+	color: #fff;
+}
+
+.diamond-inner-details {
+	float: left;
+	width: 100%;
+}
+
+.diamond-inner-details ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.diamond-inner-details ul li {
+	float: left;
+	width: 100%;
+	padding: 19px 30px;
+	box-sizing: border-box;
+	border-bottom: 1px solid #e8e8e8;
+}
+
+.diamond-inner-details ul li div {
+	float: left;
+	width: 50%;
+	text-align: left;
+}
+
+.diamond-inner-details ul li .diamond-quality {
+	text-align: right;
+}
+
+.diamond-specifications p {
+	font-size: 18px;
+	color: #000;
+	font-weight: 500;
+	margin: 0;
+	padding: 0;
+}
+
+.diamond-inner-details ul li:last-child {
+	border: 0;
+}
+
+
+/*DIAMONDS PRINT END*/
+
+
+/*24-10-18 start*/
+
+.product-details .product-box-action .state label:before {
+	content: '';
+	width: 16px;
+	height: 16px;
+	display: block;
+	box-sizing: border-box;
+	z-index: 0;
+	position: absolute;
+	left: 0;
+	top: 4px;
+	background-color: transparent;
+	border-radius: 4px;
+}
+
+.product-details .product-box-action .state label:after {
+	content: '';
+	width: 16px;
+	height: 16px;
+	display: block;
+	box-sizing: border-box;
+	border-radius: 0;
+	z-index: 0;
+	position: absolute;
+	left: 0;
+	top: 4px;
+	background-color: transparent;
+	border-radius: 4px;
+}
+
+.product-details .product-box-action input[type="checkbox"] {
+	position: absolute;
+	left: 0;
+	top: 0;
+	min-width: 1em;
+	width: 100%;
+	height: 100%;
+	z-index: 2;
+	opacity: 0;
+	margin: 0;
+	cursor: pointer;
+	box-sizing: border-box;
+	padding: 0;
+}
+
+.product-details .product-box-action {
+	position: relative;
+}
+
+.change-view-result ul li.grid-view a.active:before {
+	background-color: #1979c3;
+	background-position: -371px -5px;
+}
+
+.change-view-result ul li.list-view a:before {
+	content: '\e609';
+	background-color: #e8e8e8;
+}
+
+.change-view-result ul li.list-view a.active:before {
+	background-position: -299px -3px;
+	content: '\e609';
+}
+
+.searching-result .view-or-search-result .change-view-result .grid-view-sort {
+	float: left;
+}
+
+.searching-result .view-or-search-result .change-view-result .grid-view-sort select {
+	float: left;
+	width: auto;
+	margin-right: 10px;
+}
+
+.filter-main .slider_wrapper {
+	padding: 10px;
+}
+
+.searching-result .view-or-search-result .change-view-result .grid-view-sort select:focus {
+	box-shadow: none;
+}
+
+
+/*24-10-18 end*/
+
+
+/*25-10-18 start*/
+
+.product-box-pricing a {
+	text-decoration: none;
+}
+
+.clarity-filter.shape-bg {
+	
+}
+
+#search-diamonds-form select#gemfind_diamond_origin:focus {
+	box-shadow: none;
+}
+
+.search-details .table .table-sort:after,
+.search-details .table .table-sort:before {
+	content: '';
+	width: auto;
+	display: inline-block;
+	background-position: -248px -45px;
+	height: 100%;
+	position: absolute;
+	top: 15px;
+	margin-left: 4px;
+	content: '\e618';
+	font-family: 'luma-icons';
+	right: 4px;
+	font-size: 10px;
+}
+
+.search-details .table .table-sort:before {
+	content: '\e607';
+	top: 24px;
+	height: auto;
+}
+
+.search-details .table thead tr th.table-sort {
+	position: relative;
+	cursor: pointer;
+}
+
+.search-details .table tbody tr td {
+	border-right: 1px solid #ddd;
+	border-top: 0;
+}
+
+.search-details .table tbody tr td:last-child {
+	border-right: 0;
+}
+
+.search-details .table tbody tr th {
+	border-top: 0;
+	border-right: 1px solid #ddd;
+}
+
+.search-details .table thead tr th.table-sort.ASC:after {
+	opacity: 0;
+}
+
+.search-details .table .table-sort.DESC:before {
+	opacity: 0;
+}
+
+.diamondvideo iframe {
+	width: 100%;
+	height: 465px;
+	border: 0;
+}
+
+.diamond-page button {
+	box-shadow: none;
+	border-radius: 0;
+	line-height: normal;
+	font-weight: 500;
+	transition: 0.3s;
+}
+
+.diamond-page button:hover {
+	opacity: 0.8;
+}
+
+.search-details .table tbody tr td:nth-child(2) img {
+	display: inline-block;
+	text-align: left;
+	float: left;
+}
+
+.search-details .table tbody tr td:nth-child(2) {
+	text-align: right;
+	min-width: 100px;
+}
+
+.diamond-page .search-details {
+	float: left;
+	width: 100%;
+	clear: both;
+}
+
+.diamond-page .specification-title h2 {
+	font-size: 34px;
+	font-weight: 500;
+}
+
+.diamond-page .diamond-data .diamond-desc {
+	padding-top: 0;
+}
+
+
+/*25-10-18 start*/
+
+
+/*26-10-18 start*/
+
+.filter-for-shape ul li:nth-child(1),
+.color-filter ul li:nth-child(1),
+.filter-details .polish-depth ul li:nth-child(1) {
+	margin-left: 0;
+}
+
+.filter-advanced .filter-main .filter-for-shape {
+	padding-left: 0;
+}
+
+.filter-advanced .filter-main.filter-alignment-left {
+	padding-left: 0;
+}
+
+.filter-advanced .filter-advanced-main select {
+	max-width: 300px;
+	display: none;
+}
+
+.grid-paginatin .result-bottom {
+	float: left;
+	width: auto;
+}
+
+.d-container select,
+.search-details select {
+	background: url(../images/dropdown-arrow.png);
+	background-repeat: no-repeat;
+	background-position: 96% center;
+	background-size: 14px;
+	position: relative;
+}
+
+.search-details select {
+	background-position: 98% center;
+	padding: 0px 18px 0px 7px;
+	height: 32px;
+}
+
+.grid-paginatin ul li a:hover {
+	text-decoration: none;
+}
+
+
+/*26-10-18 end*/
+
+
+/*29-10-18 start*/
+
+.diamond-page .specification-title h4 a {
+	text-decoration: none;
+}
+
+.grid-paginatin ul li.grid-next a:hover,
+.grid-paginatin ul li.grid-previous a:hover {
+	background-color: transparent;
+}
+
+.search-details .table tbody tr td a {
+	text-decoration: none;
+	padding: 2px;
+}
+
+.SumoSelect>.CaptionCont>label>i {
+	font-style: normal;
+}
+
+.SumoSelect>.CaptionCont>label>i:before {
+	font-family: 'luma-icons';
+	font-size: 14px;
+	background-image: none !important;
+	content: '\e607';
+	float: left;
+	margin-left: 5px;
+	margin-top: 2px;
+}
+
+.SumoSelect>.CaptionCont>label>i {
+	background-image: none !important;
+	margin: 0;
+	height: auto !important;
+	width: auto !important;
+}
+
+.filter-advanced .SumoSelect>.CaptionCont>label {
+	border-left: 1px solid #9f9f9f;
+	height: 23px;
+	margin-top: 8px;
+	padding-left: 5px;
+	cursor: pointer;
+}
+
+.certificate-div .SumoSelect>.CaptionCont>label>i:before {
+	margin-left: 10px;
+}
+
+.filter-advanced .SumoSelect:focus>.CaptionCont,
+.SumoSelect:hover>.CaptionCont,
+.SumoSelect.open>.CaptionCont {
+	box-shadow: none;
+}
+
+.filter-advanced .SumoSelect>.CaptionCont {
+	position: relative;
+	border: 1px solid #9f9f9f;
+	min-height: 14px;
+	background-color: transparent;
+	border-radius: 0;
+	margin: 0;
+	padding: 8px 8px;
+	cursor: pointer;
+}
+
+.filter-advanced .SumoSelect>.CaptionCont>span.placeholder {
+	color: #010101;
+	font-style: normal;
+	font-size: 16px;
+	cursor: pointer;
+}
+
+.filter-advanced .SumoSelect>.CaptionCont>span {
+	font-size: 14px;
+	cursor: pointer;
+}
+
+.filter-advanced .SumoSelect {
+	float: left;
+	width: 100%;
+	padding: 0 5px;
+	box-sizing: border-box;
+}
+
+.filter-advanced {
+	float: left;
+	width: 100%;
+	clear: both;
+	margin-top: 0;
+	margin-left: 0;
+	margin-right: 0;
+}
+
+.filter-advanced .SumoSelect.open>.optWrapper {
+	width: 94%;
+	box-sizing: border-box;
+	margin-top: 5px;
+	margin-left: 3%;
+}
+
+.filter-advanced .SumoSelect:focus>.CaptionCont,
+.filter-advanced .SumoSelect:hover>.CaptionCont,
+.filter-advanced .SumoSelect.open>.CaptionCont {
+	box-shadow: none;
+	border: 1px solid #9f9f9f;
+}
+
+.filter-advanced .SumoSelect>.optWrapper>.options li.opt {
+	margin-bottom: 0;
+}
+
+.sumo_gemfind_diamond_origin li.opt:nth-child(1) {
+	border-color: #ddd !important;
+}
+
+
+/*29-10-18 end*/
+
+
+/*30-10-18 start*/
+
+.search-details .table tbody tr td.view-data {
+	position: relative;
+}
+
+.search-details .table tbody tr td.view-data a {
+	display: inline-block;
+	margin: 0 auto;
+	text-align: center;
+	width: 100%;
+	padding: 0;
+}
+
+.prefrence-action .preference-btn span {
+	position: static;
+	opacity: 1;
+}
+
+.grid-paginatin a#compare-main {
+	clear: both;
+	float: none;
+	margin: 10px 0;
+	padding: 8px 13px;
+	text-decoration: none;
+}
+
+.grid-paginatin a#compare-main:hover {
+	text-decoration: none;
+}
+
+.product-details .product-box-action input[type="checkbox"]:checked~.state label:after {
+	transform: scale(3.5);
+	opacity: 0;
+	transition: all 0.3s ease;
+	border-radius: 50%;
+}
+
+.product-details .product-box-action input[type="checkbox"]:checked~.state label:before {
+	opacity: 1;
+}
+
+.grid-paginatin .btn-compare {
+	width: 33%;
+	float: left;
+	text-align: left;
+	margin: 8px 0;
+}
+
+.grid-paginatin .pagination-div {
+	width: 33%;
+	float: right;
+}
+
+.grid-paginatin .page-checked {
+	width: 33%;
+	float: left;
+	text-align: center;
+	display: inline-block;
+}
+
+.grid-paginatin .page-checked .result-bottom {
+	width: 100%;
+	text-align: center;
+}
+
+
+/*30-10-18 end*/
+
+
+/*31-10-18 start*/
+
+.diamond-page .grid-paginatin .btn-compare {
+	display: none;
+}
+
+.diamond-page .grid-paginatin .page-checked .result-bottom {
+	text-align: left;
+}
+
+.diamond-request-form .has-datepicker--icon:before,
+.ring-request-form .has-datepicker--icon:before {
+	width: 22px;
+	height: 24px;
+	position: absolute;
+	right: 0;
+	background-position: -41px -72px;
+	background-repeat: no-repeat;
+	cursor: pointer;
+	bottom: 5px;
+	content: '\e612';
+	font-family: 'luma-icons';
+	font-size: 21px;
+	color: #000;
+}
+
+.ui-datepicker .ui-datepicker-calendar .ui-datepicker-today a {
+	color: #fff;
+}
+
+.ui-datepicker .ui-datepicker-calendar td .ui-state-hover,
+.ui-datepicker .ui-datepicker-calendar .ui-state-active {
+	background: #1979c3;
+	color: #fff;
+}
+
+.compare-product table thead tr td {
+	border-color: #f7f7f7;
+	border-bottom-color: #e8e8e8;
+}
+
+.compare-product .compare-info table tr:nth-child(odd),
+.compare-product .compare-info table tr:nth-child(even) {
+	background-color: #f7f7f7;
+}
+
+.compare-info table tbody tr th:nth-child(1) {
+	background: #f1f1f1;
+	text-align: left;
+	max-width: 60px;
+	white-space: normal;
+	word-break: break-all;
+	max-width: 90px;
+}
+
+.compare-product table thead tr td img {
+	box-shadow: 0px 0px 50px 10px #e5e5e5;
+}
+
+.compare-info table tbody tr th:nth-child(1) a {
+	background: transparent;
+	text-indent: -9999px;
+	color: rgba(0, 0, 0, 0);
+	position: relative;
+	float: left;
+	margin-right: 10px;
+	margin-top: 2px;
+}
+
+.compare-info table tbody tr th:nth-child(1) a:before {
+	content: 'X';
+	width: 16px;
+	height: 16px;
+	display: inline-block;
+	border-radius: 50%;
+	float: left;
+	color: #fff;
+	opacity: 1;
+	text-indent: 0;
+	font-size: 10px;
+	line-height: 16px;
+	text-align: center;
+}
+
+.compare-product .compare-info table .compare-actions td {
+	border-color: #f7f7f7;
+	padding: 20px;
+}
+
+.compare-actions .delete-row {
+	height: 36px;
+	width: 41px;
+	display: inline-block;
+	margin: 0 5px;
+	transition: all 500ms cubic-bezier(0, 0.4, 0.51, 1.35);
+	font-family: 'luma-icons';
+	text-align: center;
+}
+
+.compare-actions .delete-row:before {
+	content: '\e604';
+	font-size: 24px;
+	text-align: center;
+	display: inherit;
+}
+
+.compare-actions .view-product {
+	border: 0;
+	font-size: 22px;
+	padding: 3px 12px;
+	cursor: pointer;
+	margin: 0 5px;
+	text-decoration: none;
+}
+
+.compare-actions .delete-row:hover {
+	background-position: -149px -72px;
+}
+
+.actions-row {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 10px 0;
+}
+
+.cls-for-hide {
+	display: none;
+}
+
+.change-view-result .grid-view-sort .optWrapper ul li.opt,
+.change-view-result .sumo_pagesize .optWrapper ul li.opt {
+	width: 100%;
+	text-align: left;
+	float: left;
+	box-sizing: border-box;
+}
+
+.change-view-result .grid-view-sort .optWrapper ul {
+	max-height: unset;
+}
+
+.change-view-result .grid-view-sort .SumoSelect {
+	width: auto;
+}
+
+
+/*31-10-18 end*/
+
+
+/*1-11-18 start*/
+
+.price-main .price-left,
+.price-main .price-right {
+	position: relative;
+	left: 0;
+}
+
+.price-main .price-left span.currency-icon,
+.price-main .price-right span.currency-icon {
+	position: absolute;
+	left: 7px;
+	top: 35px;
+	font-size: 12px;
+	pointer-events: none;
+}
+
+.price-main .price-right {
+	right: 0px;
+	left: auto;
+}
+
+.price-main .price-right span.currency-icon {
+	left: auto;
+	right: 84px;
+	min-width: 40px;
+}
+
+.price-main .price-right input {
+	margin-right: 30px;
+}
+
+.tableper-main .table-left {
+	position: relative;
+	left: 0;
+}
+
+.tableper-main .table-left span.currency-icon {
+	position: absolute;
+	left: 56px;
+	top: 33px;
+	pointer-events: none;
+}
+
+.tableper-main .table-right {
+	right: -10px;
+	left: auto;
+}
+
+.tableper-main .table-right span.currency-icon {
+	position: absolute;
+	right: 9px;
+	top: 33px;
+	pointer-events: none;
+}
+
+.tableper-main .table-right input {
+	margin-right: 0px;
+}
+
+
+/*DEPTH SECTION START*/
+
+.depth-main .depth-left {
+	position: relative;
+	left: 0px;
+}
+
+.depth-main .depth-left span.currency-icon {
+	position: absolute;
+	left: 56px;
+	top: 33px;
+	pointer-events: none;
+}
+
+.depth-main .depth-right {
+	right: -10px;
+	left: auto;
+}
+
+.depth-main .depth-right span.currency-icon {
+	position: absolute;
+	right: 8px;
+	top: 32px;
+	pointer-events: none;
+}
+
+.depth-main .depth-right input {
+	margin-right: 0px;
+}
+
+
+/*DEPTH SECTION END*/
+
+.change-view-result .grid-view-sort .SumoSelect select {
+	display: none;
+}
+
+#search-diamonds .price-main.ui-slider .ui-slider-val.slider-left,
+#search-diamonds .price-main.ui-slider .ui-slider-val.slider-right {
+	text-align: right;
+	padding-left: 45px;
+}
+
+#search-diamonds .depth-main.ui-slider .ui-slider-val.slider-right,
+#search-diamonds .depth-main.ui-slider .ui-slider-val.slider-left,
+#search-diamonds .tableper-main.ui-slider .ui-slider-val.slider-left,
+#search-diamonds .tableper-main.ui-slider .ui-slider-val.slider-right {
+	padding-left: 0;
+	padding-right: 21px;
+}
+
+
+/*1-11-18 end*/
+
+
+/*2-11-18 START*/
+
+
+/*PLACEHOLDER CSS KIT*/
+
+.diamond-forms textarea::-webkit-input-placeholder {
+	font-size: 16px;
+	color: #010101;
+	opacity: 0.5;
+}
+
+.diamond-forms textarea:-moz-placeholder {
+	font-size: 16px;
+	color: #010101;
+	opacity: 0.5;
+}
+
+.diamond-forms textarea::-moz-placeholder {
+	font-size: 16px;
+	color: #010101;
+	opacity: 0.5;
+}
+
+.diamond-forms textarea:-ms-input-placeholder {
+	font-size: 16px !important;
+	color: #010101;
+	opacity: 0.5;
+}
+
+.diamond-forms textarea::-ms-input-placeholder {
+	font-size: 16px;
+	color: #010101;
+	opacity: 0.5;
+}
+
+.diamond-forms textarea::placeholder {
+	font-size: 16px;
+	color: #010101;
+	opacity: 0.5;
+}
+
+.diamond-forms textarea:-ms-input-placeholder {
+	font-size: 16px !important;
+	color: #010101;
+	opacity: 0.5;
+}
+
+.diamond-forms input::placeholder {
+	font-size: 16px;
+	color: #010101;
+	opacity: 0.5;
+}
+
+.diamond-forms input:-ms-input-placeholder {
+	font-size: 16px !important;
+	color: #010101;
+	opacity: 0.5;
+}
+
+.diamond-forms input::-ms-input-placeholder {
+	font-size: 16px;
+	color: #010101;
+	opacity: 0.5;
+}
+
+.d-container select option:first-child {
+	color: rgba(1, 1, 1, 0.5);
+}
+
+
+/*PLACEHOLDER CSS KIT*/
+
+.prefrence-action button.preference-btn span {
+	padding-left: 10px;
+}
+
+.with-specification.diamond-page .diamond-specification .specification-title {
+	background: #e8e8e8;
+	padding-top: 16px;
+}
+
+.with-specification.diamond-page .specification-title h2 {
+	font-size: 20px
+}
+
+.with-specification.diamond-page .diamond-data .specification-title h2 {
+	font-size: 34px;
+	width: calc(100% - 190px);
+	display: inline-block;
+}
+
+
+/*2-11-18 END*/
+
+
+/*5-11-18 START*/
+
+.filter-advanced .grid-view-sort .SumoSelect>.CaptionCont>label {
+	padding-left: 0;
+}
+
+.advance-right .certificate-div {
+	margin-left: -5px;
+	float: left;
+	width: 100%;
+}
+
+.advance-right .polish-depth {
+}
+
+.grid-paginatin a#compare-main:hover {
+	opacity: 0.8;
+}
+
+.compare-product .diamonds-filter .filter-title {
+	display: block;
+	float: left;
+	width: 100%;
+}
+
+.compare-product .filter-title ul.filter-left {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.compare-product .filter-title ul.filter-left li {
+	float: left;
+	margin-right: 40px;
+	margin-bottom: 0;
+}
+
+.compare-product .filter-title ul.filter-left li a {
+	font-size: 18px;
+	text-decoration: none;
+}
+
+.compare-product .filter-title ul.filter-left {
+	float: left;
+	width: 100%;
+	background: #e8e8e8;
+	padding: 20px 0;
+	padding-left: 35px;
+	box-sizing: border-box;
+}
+
+
+/*5-11-18 END*/
+
+
+/*6-11-18 START*/
+
+.SumoSelect>.optWrapper.isFloating>.options {
+	width: 100%;
+	height: 100%;
+}
+
+.diamonds-product-view .columns .column.main {
+	max-width: 100%;
+}
+
+.diamonds-product-view div#groupContainerDiv {
+	display: none !important;
+}
+
+.diamonds-product-view .form-main {
+	display: none;
+}
+
+.diamonds-product-view .search-details .table tbody tr th.table-selecter,
+.diamonds-product-view .search-product-grid .product-details .product-box-action,
+.diamonds-product-view .search-in-table {
+	position: relative;
+	display: none;
+}
+
+.diamonds-product-view .search-details .table thead tr>th:nth-child(1) {
+	font-size: 0;
+	position: relative;
+	display: none;
+}
+
+
+/*6-11-18 END*/
+
+
+/*12-11-18 START HERE*/
+
+.diamonds-search ._keyfocus *:focus,
+.diamonds-search input:not([disabled]):focus,
+.diamonds-search textarea:not([disabled]):focus,
+.diamonds-search select:not([disabled]):focus {
+	box-shadow: none;
+}
+
+.diamond-forms .note {
+	text-align: left;
+	font-size: 16px;
+	float: left;
+	margin-left: 23px;
+	box-sizing: border-box;
+	padding: 10px;
+	width: 565px;
+	margin-bottom: 10px;
+}
+
+
+/*12-11-18 END HERE*/
+
+
+/*22-11-18- START HERE*/
+
+.color-filter.fancy-overtone-filter ul li {
+	width: 7.8%;
+}
+
+.color-filter.fancy-color-filter ul li.active {
+	color: rgba(0, 0, 0, 0);
+}
+
+.filter-details .fancy-color-filter ul li:before {}
+
+.filter-details .fancy-color-filter ul li {
+	color: rgba(0, 0, 0, 0);
+	width: 7.8%;
+}
+
+.filter-details .fancy-color-filter ul li:hover {
+	color: rgba(0, 0, 0, 0);
+}
+
+
+/*22-11-18- END HERE*/
+
+
+/*23-11-18- START HERE*/
+
+.gemfind-loading-mask .loader.gemfind-loader {
+	background: url(../images/loader-2.gif);
+}
+
+.loading-mask.gemfind-loading-mask {
+	text-align: center;
+	left: 50%;
+	transform: translate(-50%, 0);
+	width: 100%;
+	height: 100%;
+	display: table;
+}
+
+.gemfind-loading-mask .loader.gemfind-loader {
+	background-image: url(../images/loader-2.gif);
+	width: 100%;
+	height: 100%;
+	background-size: auto;
+	background-position: center;
+	text-align: center;
+	display: table;
+	vertical-align: middle;
+	background-repeat: no-repeat;
+}
+
+.product-slide-button .trigger-info:hover,
+.product-slide-button .trigger-info:hover:before,
+.change-view-result ul li a {
+	text-decoration: none;
+}
+
+
+/*23-11-18- END HERE*/
+
+.prefrence-area .mage-error {
+	width: 100%;
+	clear: both;
+}
+
+
+/*3-12-18 start here*/
+
+.filter-details .cut-main ul li {
+	
+}
+
+.ie9 .filter-details .cut-main ul li {
+	min-width: auto;
+}
+
+.filter-details .fancy-color-filter ul li img {
+	max-width: 30px;
+}
+
+.price-main .price-right input.slider-right {
+	margin-right: 0;
+}
+
+#search-diamonds .ui-slider .ui-slider-val {
+	width: 115px;
+}
+
+
+/*3-12-18 end here*/
+
+
+/*6-12-18 start here*/
+
+.search-in-table a {
+	position: absolute;
+	right: 40px;
+	z-index: 1;
+	font-weight: 900;
+	font-size: 18px;
+	top: 5px;
+	text-decoration: none;
+	visibility: hidden;
+}
+
+.search-in-table.executed a {
+	visibility: visible;
+}
+
+
+/*6-12-18 end here*/
+
+
+/*18-12-18 start here*/
+
+.item-page {
+	display: inline-block;
+	width: auto;
+	float: left;
+}
+
+.item-page p.leftpp {
+	display: inline-block;
+	margin-top: 8px;
+}
+
+.number-of-search>p {
+	margin-top: 0;
+	font-size: 24px;
+}
+
+.item-page .sumo_pagesize {
+	width: 80px;
+}
+
+.item-page .sumo_pagesize select#pagesize {
+	visibility: hidden;
+	display: none;
+}
+
+.filter-advanced .item-page .SumoSelect>.CaptionCont>label {
+	padding-left: 0;
+}
+
+.item-page .SumoSelect>.CaptionCont>label>i:before {
+	margin-left: 8px;
+}
+
+
+/*18-12-18 start here*/
+
+
+/*19-12-18start here*/
+
+#search-diamonds .ui-slider .depth-left .ui-slider-val,
+#search-diamonds .ui-slider .depth-right .ui-slider-val.slider-right,
+#search-diamonds .ui-slider .table-left .ui-slider-val,
+#search-diamonds .ui-slider .table-right .ui-slider-val {
+	width: 75px;
+}
+
+#search-diamonds .carat-main.ui-slider .ui-slider-val {
+	width: 65px;
+	text-align: right;
+}
+
+
+/*19-12-18end here*/
+
+
+/*28-12-18 start here*/
+
+.gridview-dir-div {
+	float: left;
+}
+
+.gridview-dir-div a {
+	color: rgba(0, 0, 0, 0);
+	position: relative;
+	float: left;
+	display: none;
+}
+
+.gridview-dir-div a:before {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 8px;
+	height: 24px;
+	width: 17px;
+	opacity: 1;
+	color: #000;
+	background-image: url(../images/asc-desc_arrow.png);
+	background-size: 4em;
+	background-repeat: no-repeat;
+}
+
+.gridview-dir-div #ASC:before {
+	content: '';
+}
+
+.gridview-dir-div #DESC:before {
+	content: '';
+	background-position: -40px -11px;
+}
+
+.gridview-dir-div a.active {
+	display: block;
+}
+
+.diamonds-product-view .diamond-report p,
+.diamond-report .view_text {
+	display: inline-block;
+}
+
+.diamonds-product-view iframe video {
+	max-width: 100% !important;
+	max-height: 100% !important;
+}
+
+.dealerinfopopup .modal-inner-wrap {
+	width: 380px;
+}
+
+.internalusemodel .modal-inner-wrap {
+	width: 380px;
+}
+
+.dealer-info-section table,
+.dealer-info-section table td {
+	border: 1px solid;
+}
+
+.dealerinfopopup .modal-footer,
+.internalusemodel .modal-footer {
+	display: none;
+}
+
+#internaluseform button {
+	margin-top: 10px;
+}
+
+.internalusemodel.modal-slide .modal-title,
+.dealerinfopopup.modal-slide .modal-title {
+	font-size: 18px;
+	font-weight: 500;
+	text-transform: uppercase;
+	border-bottom: none;
+	padding-bottom: 0px;
+}
+
+
+/*28-12-18 end here*/
+
+.breadcrumbs ul li a {
+	font-size: 18px;
+	text-decoration: none;
+}
+
+.breadcrumbs ul li a:before {
+	content: '<';
+	margin-right: 5px;
+}
+
+.product-video-icon {
+	position: absolute;
+	top: 8px;
+	left: 0;
+	z-index: 1;
+}
+
+.filter-advanced-main.advance-left.video-filter-section {
+	clear: both;
+}
+
+.change-view-result .SumoSelect>.optWrapper.isFloating>.options li.opt {
+	width: 100%;
+}
+
+span.videoicon:before {}
+
+table#result_table svg {
+	display: block;
+	margin: 0 auto;
+}
+
+span.videoicon {
+	position: relative;
+	display: inline-block;
+	min-width: 35px;
+	color: rgba(0, 0, 0, 0);
+	width: 30px;
+	overflow: hidden;
+}
+
+.internaluse,
+.dealerinfopopup {
+	display: inline-block;
+	width: 100%;
+	font-weight: 800;
+	color: #626262;
+	margin-top: 5px;
+}
+
+.internalusemodel.modal-slide header,
+.dealerinfopopup.modal-slide header {
+	padding-bottom: 8px;
+	padding-top: 8px;
+}
+
+.internalusemodel.modal-slide header button,
+.dealerinfopopup.modal-slide header button {
+	padding: 10px;
+	background: #1979C3;
+	border-radius: 0;
+	line-height: 22px;
+}
+
+.internalusemodel.modal-slide header button:before,
+.dealerinfopopup.modal-slide header button:before {
+	color: #fff;
+	vertical-align: middle;
+}
+
+.internalusemodel.modal-slide .modal-inner-wrap,
+.dealerinfopopup.modal-slide .modal-inner-wrap {
+	border: 2px solid #1979C3;
+}
+
+.internalusemodel.modal-slide header button:hover,
+.dealerinfopopup.modal-slide header button:hover {
+	background: #1979C3;
+	opacity: 0.8;
+}
+
+.internalusemodel.modal-slide header button:hover:before,
+.dealerinfopopup.modal-slide header button:hover:before {
+	color: #fff;
+}
+
+.internalusemodel.modal-slide .modal-content,
+.dealerinfopopup.modal-slide .modal-content {
+	padding-top: 10px;
+}
+
+
+/*Ring Builder CSSS*/
+
+.ring-details.no-padding.ring-request-form {
+	float: left;
+	padding-left: 15px;
+}
+
+.ringbuilder-settings-view .form-main {
+	display: none;
+}
+
+.ring-specification-title h2 {
+	margin-top: 0px;
+	display: inline-block;
+	font-weight: 500;
+	font-size: 34px;
+}
+
+.ring-specification-title h4 {
+	float: right;
+	margin-top: 0px;
+}
+
+.modal-popup.custom-modal.modal-slide._inner-scroll._show {
+	width: 600px;
+	margin: 0 auto;
+	left: 0px !important;
+}
+
+.modal-popup.custom-modal.modal-slide._inner-scroll .modal-inner-wrap {
+	height: auto;
+	min-height: auto !important;
+}
+
+.modal-slide .action-close {
+	padding: 5px 8px !important;
+	background: black !important;
+	border-radius: 0px !important;
+}
+
+.modal-custom .action-close:before,
+.modal-popup .action-close:before,
+.modal-slide .action-close:before {
+	font-size: 11px !important;
+	line-height: 11px !important;
+	color: #fff !important;
+	vertical-align: middle !important;
+}
+
+.modal-popup .action-close:hover,
+.modal-slide .action-close:hover {
+	color: #fff !important;
+}
+
+.custom-modal .note {
+	background: none !important;
+}
+
+.modal-popup.custom-modal .modal-header {
+	padding-top: 2rem;
+}
+
+.modal-popup.custom-modal .modal-content {
+	text-align: center;
+}
+
+
+/*Ring Builder CSSS*/
+
+
+/* no-slider css */
+
+.slider_wrapper .noUi-horizontal .noUi-handle {
+	width: 21px;
+	height: 21px;
+	top: -5px;
+}
+
+.slider_wrapper .noUi-handle {
+	box-shadow: none;
+	border-radius: 50%;
+}
+
+.noUi-handle:before,
+.noUi-handle:after {
+	background: none;
+}
+
+.noUi-horizontal {
+	height: 14px;
+}
+
+.noUi-handle {
+	border: none;
+}
+
+.specification-title .diamond-spec-header a {
+    padding-right: 0;
+}
+.specification-title .diamond-spec-header a svg{
+display: inline-block;
+    vertical-align: sub;
+}
+
+/* no-slider css */
+.ring-specification-title .ring-spec-header a {
+    font-size: 14px;
+    font-weight: 400;
+}
+.ring-specification-title .ring-spec-header a svg {
+    display: inline-block;
+    vertical-align: sub;
+}
+.ring-specification-title .ring-spec-header a:hover {
+    text-decoration: none;
+    color: #000;
+}
+
+/*RESPONSIVE CSS START HERE*/
+
+@media only screen and (max-width: 1260px) {
+	.filter-details .cut-main ul li {
+		min-width: 20%;
+	}
+}
+
+@media only screen and (max-width: 1100px) {
+	/* .search-details .table tbody tr td:nth-child(3), .search-details .table tbody tr td:nth-child(7), .search-details .table tbody tr td:nth-child(8), .search-details .table tbody tr td:nth-child(9), .search-details .table tbody tr td:nth-child(10), .search-details .table tbody tr td:nth-child(11), .search-details .table tbody tr td:nth-child(12), .search-details .table tbody tr td:nth-child(14), .search-details .table thead tr th:nth-child(3), .search-details .table thead tr th:nth-child(7), .search-details .table thead tr th:nth-child(8), .search-details .table thead tr th:nth-child(9), .search-details .table thead tr th:nth-child(10), .search-details .table thead tr th:nth-child(11), .search-details .table thead tr th:nth-child(12), .search-details .table thead tr th:nth-child(14) {
+        display: none !important;
+    } */
+	.search-details .table .table-sort:after,
+	.search-details .table .table-sort:before,
+	.search-details .table tr>td span.shape-name,
+	.search-details .table thead tr>th:nth-child(1):before {
+		display: none;
+	}
+	.search-details .table tbody tr td:nth-child(2) img {
+		float: none;
+	}
+	.search-details .table tbody tr td:nth-child(2) {
+		text-align: center;
+	}
+	.search-details .table-responsive {
+		overflow: auto;
+	}
+	.search-product-grid .product-images {
+		min-height: 230px
+	}
+	.grid-product-listing {
+		margin-left: 0;
+	}
+	.btn-compare {
+		float: left;
+		width: 100%;
+		clear: both;
+		margin: 10px 0;
+	}
+	.search-details .table tbody tr td {
+		white-space: nowrap;
+		word-break: break-all;
+	}
+	.filter-details .fancy-color-filter ul li {
+		width: 7.7%;
+	}
+	.color-filter.fancy-overtone-filter ul li {
+		width: 7.7%;
+	}
+	.filter-details .cut-main ul li {
+		min-width: 19%;
+	}
+	.number-of-search>p {
+		font-size: 18px;
+	}
+	.search-details .table tbody tr td.videodatacol,
+	.search-details .table tbody tr td.inhousecol,
+	.search-details .table tbody tr td.measurecol,
+	.search-details .table tbody tr td.symmetrycol,
+	.search-details .table tbody tr td.polishcol,
+	.search-details .table tbody tr td.tablecol,
+	.search-details .table tbody tr td.depthcol {
+		display: none !important;
+	}
+	.search-details .table thead tr th#Depth,
+	.search-details .table thead tr th#TableMeasure,
+	.search-details .table thead tr th#Polish,
+	.search-details .table thead tr th#Symmetry,
+	.search-details .table thead tr th#Measurements,
+	.search-details .table thead tr th#Inhouse,
+	.search-details .table thead tr th.video-data {
+		display: none !important;
+	}
+}
+
+@media only screen and (max-width: 991px) {
+	.filter-details .cut-main ul li {
+	}
+	/*Diamonds search page css start*/
+	.diamonds-details {
+		width: 100%;
+	}
+	.diamonds-preview {
+		width: 100% !important;
+		max-width: 300px;
+		clear: both;
+		margin: 0 auto;
+		float: none;
+		overflow: hidden;
+		margin-bottom: 40px;
+	}
+	.search-details .table-responsive {
+		overflow: auto;
+		box-sizing: border-box;
+		float: left;
+		width: 100%;
+	}
+	.search-product-grid .product-details .product-box-pricing span {
+		font-size: 18px;
+		margin: 0px 0;
+	}
+	.search-product-grid .product-details .product-box-action {
+		margin: 4px 0;
+	}
+	.product-inner-info {
+		width: 100%;
+	}
+	.product-inner-info ul li {
+		word-break: break-all;
+	}
+	.color-filter.clarity-filter ul li {
+		width: 8.3%;
+	}
+	.color-filter ul li {
+		width: 9.6%;
+	}
+	.filter-details {
+		margin-top: 10px;
+		padding: 0;
+	}
+	/*Diamonds search page css end*/
+	/*Diamonds page css start*/
+	.with-specification .diamonds-details {
+		width: 100%
+	}
+	.diamond-page .diamond-request-form .form-field,
+	.ring-request-form .form-field {
+		max-width: 100%;
+		padding-left: 0;
+	}
+	.diamond-page .diamond-desc {
+		padding: 0;
+		margin-bottom: 20px;
+	}
+	.specification-title {
+		padding: 10px 0;
+	}
+	/*Diamonds page css end*/
+	.filter-for-shape .cut-main ul li {
+		margin-bottom: 10px;
+	}
+	.filter-advanced {
+		margin-top: 0;
+		margin-left: 0;
+		margin-right: 0;
+	}
+	.compare-info th,
+	.compare-info tr,
+	.compare-info td {
+		width: 150px;
+	}
+	/*@-moz-document url-prefix() {
+
+
+
+    .search-details .table-responsive{width: 90vw;}
+
+
+
+}*/
+	.prefrence-area ul li div {
+		width: auto;
+		float: left;
+		clear: both;
+	}
+	.with-specification.diamond-page .diamond-specification .specification-title {
+		padding-left: 10px;
+		padding-right: 10px;
+		padding-top: 10px;
+	}
+	.filter-details .fancy-color-filter ul li {
+		width: 7.6%;
+	}
+	.color-filter.fancy-overtone-filter ul li {
+		width: 10.7%;
+		margin-bottom: 10px;
+	}
+	.color-filter.fancy-overtone-filter {
+		text-align: center;
+	}
+	.diamond-forms .note {
+		margin-left: 0;
+		width: 100%;
+	}
+	.search-in-table {
+		width: 100%;
+		max-width: 350px;
+		margin-top: 5px;
+	}
+	.searching-result .view-or-search-result .change-view-result .grid-view-sort {
+		float: right;
+	}
+	.change-view-result ul li {
+		height: 30px;
+	}
+	.change-view-result ul {
+		margin-top: 5px;
+		float: left;
+	}
+	.searching-result .number-of-search {
+		width: 100%;
+	}
+	.searching-result .view-or-search-result {
+		margin-top: 8px;
+		width: 50%;
+	}
+	.change-view-result ul li:last-child {
+		margin-right: 2px;
+	}
+	.SumoSelect.sumo_gemfind_diamond_origin {
+		padding-right: 0;
+	}
+	.change-view-result ul.options li {
+		height: auto;
+	}
+	.item-page {
+		float: none;
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	/*Diamonds search page css start*/
+	.search-product-grid:nth-child(1n) {
+		margin-left: 0;
+	}
+	.search-product-grid:nth-child(4n) {
+		margin-right: 0;
+	}
+	.search-product-grid {
+		margin: 1% 2.6%;
+	}
+	/*Diamonds search page css end*/
+	/*3-12-18 start here*/
+	.filter-details .fancy-color-filter ul,
+	.filter-details .color-filter ul,
+	.filter-details .filter-advanced-main ul {
+		display: -webkit-flex;
+		display: -moz-flex;
+		display: -ms-flexbox;
+		display: -o-flex;
+		display: flex;
+	}
+	.filter-details .fancy-color-filter ul li,
+	.filter-details .color-filter ul li,
+	.filter-details .filter-advanced-main ul li {
+		/*-webkit-flex:1; -moz-flex:1; -ms-flex:1; -o-flex:1;flex: 1;*/
+		-webkit-flex: 1 1 auto;
+		-moz-flex: 1 1 auto;
+		-ms-flex: 1 1 auto;
+		-o-flex: 1 1 auto;
+		flex: 1 1 auto;
+	}
+	.filter-details .fancy-color-filter ul li {
+		font-size: 0;
+		height: 48px;
+	}
+	.filter-details .cut-main ul {
+		
+	}
+	/*3-12-18 end here*/
+}
+
+@media only screen and (max-width: 767px) {
+	.ring-specification-title h2,
+.ring-specification-title .ring-spec-header{width: 100%;}
+	.specification-title h4.diamond-spec-header {
+
+}
+	.shape-flex {
+		flex-wrap: wrap;
+	}
+	.shape-flex .filter-main {
+		margin-bottom: 12px;
+	}
+	.shape-flex .filter-main:last-child {
+		margin-bottom: 0;
+	}
+	.modal-popup.custom-modal.modal-slide._inner-scroll._show {
+		width: 320px;
+		left: 0px !important;
+		margin: 0 auto;
+	}
+	.modal-popup.custom-modal.modal-slide._inner-scroll .modal-inner-wrap {
+		height: auto;
+		min-height: auto !important;
+	}
+	/*Diamonds search page css start*/
+	.filter-main, .ringbuilder-settings-index .shapepricefiltersection .filter-alignment-left .metaltypeli {
+		width: 100% !important;
+		display: block !important;
+	}
+	
+	.search-product-grid {
+		width: 98%;
+	}
+	.searching-result .view-or-search-result .change-view-result .grid-view-sort select {
+		width: 49%;
+		margin-right: 0;
+		margin-left: 1%;
+	}
+	.search-details {
+		margin-top: 0;
+	}
+	.filter-main.filter-alignment-left {
+		padding-left: 0;
+	}
+	.filter-main.filter-alignment-right {
+		padding-right: 0;
+	}
+	.cut-main {
+		min-height: auto;
+		width: 100% !important;
+		float: none !important;
+	}
+	.filter-details ul {
+		display: flex;
+		flex-wrap: wrap;
+	}
+	.color-filter ul li,
+	.color-filter.clarity-filter ul li,
+	.filter-details .polish-depth ul li {
+		max-width: 32.4%;
+		flex: 0 0 32.4%;
+		-ms-flex: 0 0 32.4%;
+		width: 100%;
+		margin-left: 0 !important;
+		margin-bottom: 10px;
+		margin-right: 1%;
+		width: 100%
+	}
+	.color-filter ul li:nth-child(3n+0),
+	.color-filter.clarity-filter ul li:nth-child(3n+0),
+	.filter-details .polish-depth ul li:nth-child(3n+0),
+	.filter-details .polish-depth.filter-Fluoroscence ul li:nth-child(3n+0) {
+		margin-right: 0 !important;
+	}
+	.filter-advanced-main {
+		width: 100%;
+	}
+	.filter-advanced .filter-advanced-main.advance-right {
+		padding-left: 0;
+	}
+	.filter-advanced .panel {
+		margin-bottom: 0;
+	}
+	.filter-details h4 {
+		margin-bottom: 10px;
+		width: auto !important;
+	}
+	.filter-advanced-main {
+		padding-bottom: 0;
+		margin-bottom: 0;
+	}
+	.diamond-filter-title ul {
+		width: 100%;
+		text-align: center;
+		padding: 6px 0;
+	}
+	.diamond-filter-title {
+		padding: 8px 0;
+		padding-left: 10px;
+	}
+	.filter-for-shape ul li {
+		width: 19%;
+		margin-bottom: 18px;
+		margin-bottom: 10px
+	}
+	.filter-for-shape ul li:nth-child(3n+0) {
+		
+	}
+	.diamonds-filter ul.filter-right {
+		text-align: center;
+		float: left;
+		border-top: 1px solid #b9adad;
+	}
+	.diamond-filter-title ul li {
+		float: none;
+		display: inline-block;
+	}
+	/*Diamonds search page css end*/
+	/*Diamonds page css start*/
+	.diamond-page .specification-title h2 {
+		display: inline-block;
+		float: left;
+		font-size: 24px;
+		width: auto;
+	}
+	.specification-title h4 {
+		display: inline-block;
+		float: right;
+		width: auto;
+		margin-top: 5px;
+		text-align: left;
+	}
+	.ringbuilder-diamond-view .specification-title h4.diamond-spec-header{
+		float: left;
+	} 
+	.specification-title h4.close {
+    float: right;
+}
+	.intro-field ul li {
+		padding: 4px 5px;
+	}
+	.intro-field ul li p,
+	.intro-field ul li strong {
+		font-size: 16px;
+	}
+	.diamond-page .diamond-desc {
+		margin-bottom: 10px;
+	}
+	.diamonds-preview {
+		margin-bottom: 20px;
+	}
+	.specification-title {
+		padding: 20px 0;
+	}
+	.product-controler {
+		margin-top: 20px;
+	}
+	.diamond-request-form .form-field span,
+	.ring-request-form .form-field span {
+		padding: 0;
+	}
+	.diamond-action {
+		margin-top: 20px;
+		text-align: center;
+	}
+	.diamond-action .box-tocart {
+		text-align: center;
+		display: inline-block;
+		margin-bottom: 0;
+	}
+	.diamond-page .search-details {
+		/*margin-top: 20px;*/
+	}
+	.diamond-page .diamond-action button.addtocart {
+		font-size: 18px;
+		padding: 6px 20px;
+	}
+	.diamond-grade {
+		padding: 10px 10px;
+		margin-left: -10px;
+		margin-right: -10px;
+		margin-bottom: -10px;
+	}
+	.diamondimg {
+		max-width: 120px;
+		margin: 0 auto;
+	}
+	.diamond-info {
+		padding: 10px 10px 10px 10px;
+	}
+	.grade-info p {
+		line-height: 18px;
+		font-size: 14px;
+	}
+	.diamond-info h2 {
+		margin: 0;
+		margin-bottom: 10px;
+	}
+	.diamond-info h5 {
+		margin: 0;
+		margin-bottom: 10px;
+	}
+	/*Diamonds page css end*/
+	.search-product-grid .product-images {
+		max-width: initial;
+		min-height: auto;
+		float: none;
+		margin: 20px auto;
+	}
+	.grid-paginatin .pagination-div {
+		width: auto;
+		float: right;
+	}
+	.grid-paginatin .page-checked .result-bottom {
+		text-align: right;
+		margin-top: 10px;
+	}
+	.grid-paginatin .page-checked {
+		width: 100%;
+	}
+	.with-specification .grid-paginatin .page-checked {
+		width: auto;
+	}
+	.with-specification.diamond-page .diamond-data .specification-title h2 {
+		font-size: 22px;
+	}
+	.diamond-page .diamond-desc p {
+		font-size: 14px;
+	}
+	.with-specification.diamond-page .diamond-specification .specification-title {
+		padding-left: 10px;
+		padding-bottom: 15px;
+	}
+	.filter-details ul {
+		text-align: left;
+		width: 100% !important;
+		float: none !important; 
+	}
+	.filter-advanced .filter-main .filter-for-shape {
+		padding-right: 0;
+	}
+	.compare-info th,
+	.compare-info tr,
+	.compare-info td {
+		width: 100px;
+	}
+	.filter-advanced.shape-bg {
+		padding: 10px;
+	}
+	.SumoSelect>.optWrapper.selall>.options {
+		text-align: left;
+	}
+	.SumoSelect>.optWrapper>.options {
+		text-align: left;
+	}
+	.diamonds-index-index .columns .column.main {
+		max-width: 100%;
+	}
+	.diamond-request-form .form-field .diamond-action span,
+	.ring-request-form .form-field .diamond-action span {
+		font-size: 24px;
+	}
+	.filter-details .fancy-color-filter ul li {
+		width: 18%;
+		margin-bottom: 10px;
+		font-size: 0;
+	}
+	.searching-result .number-of-search {
+		width: 100%;
+	}
+	.item-page .sumo_pagesize {
+		margin-right: 0;
+		padding-right: 0;
+	}
+	.filter-advanced .item-page .SumoSelect>.CaptionCont {
+		float: right;
+	}
+	.searching-result .view-or-search-result .change-view-result .grid-view-sort {
+		width: auto;
+		float: right;
+		text-align: right;
+	}
+	.change-view-result .grid-view-sort .SumoSelect {
+		float: left;
+		margin-top: 0px;
+		padding-right: 0;
+	}
+	.search-in-table {
+		width: auto;
+		max-width: none;
+	}
+	.change-view-result .grid-view-sort .SumoSelect:nth-child(2) {
+		padding-left: 0;
+	}
+	.advance-right .certificate-div .certificates-formobile,
+	.advance-right .certificate-div .origin-formobile {
+		display: block !important;
+	}
+	.advance-right .certificate-div .certificates-formobile.labbrowncerti {
+		display: none !important;
+	}
+	.filter-details .polish-depth ul li {
+		display: inline-block;
+		float: none;
+	}
+	.search-in-table input {
+		min-width: 217px;
+		font-size: 13px;
+	}
+	.price-main .price-right {
+		right: 0;
+	}
+	.filter-advanced .filter-advanced-main.advance-left {
+		padding-right: 0;
+	}
+	.filter-advanced .certificate-div .SumoSelect {
+		width: 100%;
+		margin-bottom: 20px;
+		padding: 0;
+	}
+	.advance-right .certificate-div {
+		margin-left: 0;
+	}
+	.gridview-dir-div {
+		margin-left: 10px;
+	}
+	.diamonds-product-view .breadcrumbs {
+		display: block;
+	}
+	.searching-result .view-or-search-result {
+		width: 100%;
+	}
+	.modal-popup.internalusemodel.modal-slide._inner-scroll .modal-inner-wrap,
+	.modal-popup.dealerinfopopup.modal-slide._inner-scroll .modal-inner-wrap {
+		height: auto;
+		min-height: auto;
+	}
+	.modal-popup.internalusemodel.modal-slide .modal-inner-wrap[class],
+	.modal-popup.dealerinfopopup.modal-slide .modal-inner-wrap[class] {
+		background-color: #fff;
+		transform: none !important;
+		position: relative;
+		margin: 0 auto;
+		margin-top: 20px;
+	}
+	.modal-popup.internalusemodel.modal-slide._inner-scroll._show,
+	.modal-popup.dealerinfopopup.modal-slide._inner-scroll._show {
+		left: 0;
+	}
+}
+
+@media only screen and (max-width: 639px) {
+	.rings-search .shape-container:not(.shapepricefiltersection) .color-filter ul {
+		display: flex;
+		display: -ms-flexbox;
+		flex-wrap: wrap;
+	}
+	.rings-search .shape-container:not(.shapepricefiltersection) .color-filter ul li {
+		flex: 0 0 33.33% -ms-flex:0 0 33.33%;
+		max-width: 33.33%
+	}
+	.modal-popup.custom-modal.modal-slide._inner-scroll._show {
+		width: 320px;
+		left: 0px !important;
+		margin: 0 auto;
+	}
+	/*Diamonds search page css start*/
+	.searching-result .number-of-search,
+	.diamonds-product-view .searching-result .view-or-search-result {
+		width: 100% !important;
+	}
+	.searching-result {
+		margin-bottom: 8px;
+	}
+	.searching-result .number-of-search {
+		margin-bottom: 5px;
+	}
+	.color-filter.clarity-filter ul li {
+		width: 31%;
+		margin-bottom: 10px;
+		margin-left: 1%;
+		margin-right: 1%;
+		float: left;
+	}
+	.color-filter ul li {
+		width: 31%;
+		margin-bottom: 10px;
+		margin-right: 1%;
+		margin-left: 1%;
+		float: left;
+	}
+	.filter-details .polish-depth.filter-Fluoroscence ul li {
+		width: 31%;
+		margin-bottom: 10px;
+		margin-right: 1%;
+		margin-left: 1%;
+		float: left;
+	}
+	.filter-for-shape ul li:nth-child(1),
+	.color-filter ul li:nth-child(1),
+	.filter-details .polish-depth ul li:nth-child(1) {
+		margin-left: 1%;
+	}
+	.filter-details .polish-depth ul li {
+		width: 31%;
+		margin-left: 1%;
+		margin-right: 1%;
+		float: left;
+	}
+	.filter-for-shape ul li:nth-child(1) {
+		margin-left: 0;
+	}
+	.filter-details .cut-main ul li {
+		width: 32.1%;
+		margin-left: 0;
+		margin-right: 1%;
+		box-sizing: border-box;
+		float: left;
+	}
+	.grid-paginatin ul {
+		text-align: center;
+	}
+	/*Diamonds search page css end*/
+	.grid-paginatin .pagination-div {
+		width: 100%;
+		float: right;
+	}
+	.grid-paginatin .page-checked .result-bottom {
+		text-align: center;
+		margin-top: 0;
+	}
+	.grid-paginatin .page-checked {
+		width: 100%;
+	}
+	.grid-paginatin .btn-compare {
+		margin: 0;
+	}
+	.grid-paginatin .btn-compare {
+		width: 100%;
+		float: none;
+		margin: 0 auto;
+		text-align: center;
+	}
+	.grid-paginatin .btn-compare a {
+		width: auto;
+	}
+	.grid-paginatin ul {
+		width: 100%;
+		margin-top: 15px;
+		margin-bottom: 8px;
+	}
+	.with-specification .grid-paginatin .page-checked {
+		width: 100%;
+	}
+	.with-specification .grid-paginatin .page-checked .result-bottom {
+		text-align: center;
+	}
+	.with-specification .grid-paginatin ul {
+		margin-top: 0;
+	}
+	.advance-right .polish-depth {
+		margin-bottom: 15px;
+	}
+	.prefrence-action .preference-btn {
+		padding: 10px 10px;
+		font-size: 16px;
+	}
+	.requested-form {
+		padding: 0;
+	}
+	.requested-form h2 {
+		font-size: 20px;
+		font-weight: 400;
+	}
+	.diamond-request-form .form-field label,
+	.ring-request-form .form-field label {
+		margin: 15px 0;
+	}
+	.diamond-request-form .form-field label textarea,
+	.ring-request-form .form-field label textarea {
+		min-height: 60px;
+	}
+	.diamond-request-form .form-field label input,
+	.ring-request-form .form-field label input {
+		height: 35px;
+	}
+	.prefrence-action button.preference-btn span {
+		padding-left: 0;
+	}
+	.product-inner-info {
+		height: 100%;
+		overflow: auto;
+	}
+	.compare-info table tbody tr th:nth-child(1) a {
+		margin-right: 20px;
+	}
+	.compare-product .filter-title ul.filter-left li a {
+		font-size: 16px;
+	}
+	.color-filter.fancy-overtone-filter ul li {
+		width: 22%;
+	}
+	.search-in-table {
+		width: 100%;
+	}
+}
+
+@media only screen and (max-width: 520px) {
+	.modal-popup.custom-modal.modal-slide._inner-scroll._show {
+		width: 320px;
+		left: 0px !important;
+		margin: 0 auto;
+	}
+	.searching-result .view-or-search-result .change-view-result {
+		justify-content: space-between;
+	}
+	.searching-result .view-or-search-result .change-view-result .grid-view-sort {
+		width: auto;
+		float: right
+	}
+	.filter-advanced .SumoSelect>.CaptionCont {
+		width: 100%;
+		box-sizing: border-box;
+	}
+	.change-view-result .grid-view-sort .SumoSelect {
+		width: 80%;
+	}
+	.change-view-result ul {
+		float: left;
+		padding-left: 0;
+		position: static;
+		flex: 1;
+	}
+	.gridview-dir-div {
+		margin-left: 0;
+		width: 10%;
+		padding-left: 15px;
+		box-sizing: border-box;
+	}
+	.item-page {
+		float: none;
+	}
+	#search-diamonds .ui-slider .ui-slider-val {
+		width: 100px;
+	}
+	#search-diamonds .ui-slider .ui-slider-val.slider-right {
+		width: 110px;
+	}
+	#search-diamonds .ui-slider .price-right .ui-slider-val.slider-right {
+		width: 129px;
+	}
+	.price-main .price-right span.currency-icon {
+		right: 84px;
+	}
+	.filter-details .cut-main ul li {
+		float: left;
+		box-sizing: border-box;
+		padding: 11px 8px;
+	}
+}
+
+@media only screen and (max-width: 480px) {
+	.search-details .table tr>th,
+	.search-details .table tr>td {
+		font-size: 10px !important;
+	}
+	.search-details .table tr>th,
+	.search-details .table tr>td {
+		padding: 10px !important;
+	}
+	.search-details .table .table-sort:after,
+	.search-details .table .table-sort:before,
+	.search-details .table tr>td span.shape-name {
+		display: none;
+	}
+	.search-details .table tbody tr td:nth-child(2) {
+		min-width: auto;
+	}
+	.search-details .table thead tr>th:nth-child(1):before {
+		width: 20px;
+		height: 24px;
+		background-position: 0px 0px;
+	}
+	.search-details .table tbody tr th.table-selecter .state,
+	.search-details .table tbody tr th.table-selecter .state label:before,
+	.search-details .table tbody tr th.table-selecter .state label:after {
+		width: 11px;
+		height: 11px;
+	}
+	/* .search-details .table tbody tr td:nth-child(7),
+
+.search-details .table tbody tr td:nth-child(8),
+
+.search-details .table tbody tr td:nth-child(9),
+
+.search-details .table tbody tr td:nth-child(10),
+
+.search-details .table tbody tr td:nth-child(11),
+
+.search-details .table tbody tr td:nth-child(12),
+
+.search-details .table tbody tr td:nth-child(14),
+
+.search-details .table thead tr th:nth-child(7),
+
+.search-details .table thead tr th:nth-child(8),
+
+.search-details .table thead tr th:nth-child(9),
+
+.search-details .table thead tr th:nth-child(10),
+
+.search-details .table thead tr th:nth-child(11),
+
+.search-details .table thead tr th:nth-child(12),
+
+.search-details .table thead tr th:nth-child(14){display: none !important;} */
+	.search-details .table tbody tr td.videodatacol,
+	.search-details .table tbody tr td.inhousecol,
+	.search-details .table tbody tr td.measurecol,
+	.search-details .table tbody tr td.symmetrycol,
+	.search-details .table tbody tr td.polishcol,
+	.search-details .table tbody tr td.tablecol,
+	.search-details .table tbody tr td.depthcol {
+		display: none !important;
+	}
+	.search-details .table thead tr th#Depth,
+	.search-details .table thead tr th#TableMeasure,
+	.search-details .table thead tr th#Polish,
+	.search-details .table thead tr th#Symmetry,
+	.search-details .table thead tr th#Measurements,
+	.search-details .table thead tr th#Inhouse,
+	.search-details .table thead tr th.video-data {
+		display: none !important;
+	}
+	/* .ringbuilder-diamond-view .search-details .table thead tr > th:nth-child(1){display: none !important;} */
+	.ringbuilder-diamond-view .table-selecter .state {
+		display: none;
+	}
+	.search-details .table tbody tr th.table-selecter .state {
+		top: 13px;
+		left: 5px;
+	}
+	
+	.search-details .table tbody tr td {
+		vertical-align: middle !important;
+	}
+	.modal-popup.custom-modal.modal-slide._inner-scroll._show {
+		width: 320px;
+		left: 0px !important;
+		margin: 0 auto;
+	}
+	/*Diamonds search page css start*/
+	.search-product-grid {
+		padding: 5px;
+	}
+	.product-details .product-box-action label {
+		font-size: 14px;
+	}
+	.product-box-action .state {
+		padding-left: 20px;
+	}
+	.search-product-grid .product-details .product-box-pricing {
+		margin: 3px 0;
+	}
+	.search-product-grid .product-details .product-box-pricing span {
+		font-size: 14px;
+	}
+	.search-product-grid .product-details .product-item-name span {
+		margin: 2px 0;
+	}
+	.product-item-name {
+		margin: 2px 0;
+	}
+	.product-inner-info ul li p span:nth-child(odd) {
+		width: 100%;
+	}
+	.product-inner-info ul li p span {
+		width: 100%;
+	}
+	.product-inner-info ul li {
+		padding-bottom: 5px;
+		border-bottom: 1px solid #ddd;
+	}
+	.filter-for-shape ul li label,
+	.filter-for-shape ul li,
+	.color-filter ul li,
+	.filter-advanced .SumoSelect>.CaptionCont>span.placeholder {
+		font-size: 14px;
+	}
+	.filter-details .polish-depth ul li {
+		width: 30%;
+		margin-bottom: 5px;
+	}
+	.diamond-filter-title ul li {
+		margin-right: 10px;
+	}
+	.diamond-filter-title ul li a {
+		font-size: 16px;
+	}
+	/*Diamonds search page css end*/
+	/*Diamonds page css start*/
+	.with-specification .diamonds-preview {
+		width: 100%;
+	}
+	.product-controler ul li {
+		width: 100%;
+	}
+	.product-controler ul li {
+		margin-bottom: 10px;
+		width: 30%;
+		border: 1px solid #9f9f9f;
+		padding: 4px 5px 3px 5px;
+		box-sizing: border-box;
+		margin-left: 1%;
+		min-height: 33px;
+		margin-right: 1%;
+	}
+	.product-controler ul li a {
+		font-size: 11px;
+		padding-right: 0;
+		padding-left: 25px;
+		margin-top: -2px;
+		min-height: 28px;
+	}
+	.product-controler ul li:before {
+		width: 24px;
+		top: 6px;
+		height: 24px;
+		left: 3px;
+		font-size: 12px;
+		line-height: 24px;
+	}
+	/*Diamonds page css end*/
+	.grid-paginatin a#compare-main {
+		width: 100%;
+		box-sizing: border-box;
+		float: left;
+		text-align: center;
+	}
+	.search-product-grid .product-images {
+		max-width: initial;
+		float: none;
+		margin: 10px auto;
+		min-height: auto;
+	}
+	.search-details .table,
+	.btn-compare {
+		margin-bottom: 0;
+	}
+	.grid-paginatin ul {
+		margin-top: 0;
+	}
+	.with-specification .grid-paginatin ul {
+		margin-top: 15px;
+	}
+	.grid-paginatin ul li {
+		min-width: 33px;
+		min-height: 33px;
+	}
+	.compare-product .filter-title ul.filter-left {
+		padding-left: 5px;
+	}
+	.compare-product .filter-title ul.filter-left li {
+		margin-right: 17px;
+	}
+	.compare-product .filter-title ul.filter-left li a {
+		font-size: 15px;
+	}
+	.filter-advanced .grid-view-sort .SumoSelect>.CaptionCont {
+		width: 100%;
+		box-sizing: border-box;
+	}
+	.filter-details .polish-depth ul li:nth-child(1) {
+		margin-left: 1%;
+	}
+	.SumoSelect>.CaptionCont {
+		width: 100%;
+		box-sizing: border-box;
+	}
+	.prefrence-area ul {
+		width: 100%;
+		margin-top: 10px;
+	}
+	.prefrence-area ul li:first-child {
+		padding-left: 0;
+		margin-left: 0;
+	}
+	.filter-details .fancy-color-filter ul li {
+		width: 21%;
+	}
+	.color-filter.fancy-overtone-filter ul li {
+		width: 30%;
+	}
+	.color-filter.fancy-IntIntensity-filter ul li {
+		width: 22%;
+	}
+	/*    .item-page .sumo_pagesize{width: 70%; float: right;}*/
+	.search-in-table {
+		width: 100%
+	}
+	/*    .item-page{width: 100%;}*/
+	.gridview-dir-div {
+		padding-left: 12px;
+	}
+	/*paging css*/
+	.change-view-result p {
+		font-size: 12px;
+	}
+	.item-page .sumo_pagesize {
+		width: 70px;
+	}
+	.filter-advanced .SumoSelect>.CaptionCont {
+		padding: 5px 2px;
+	}
+	.filter-advanced .SumoSelect>.CaptionCont>span {
+		padding-right: 26px;
+		text-align: center;
+	}
+	.filter-advanced .SumoSelect>.CaptionCont>label {
+		height: 23px;
+		margin-top: 4px;
+	}
+	.change-view-result .grid-view-sort .SumoSelect {
+		width: 75px;
+	}
+	.filter-advanced .SumoSelect>.CaptionCont>label {
+		width: 25px;
+	}
+	.gridview-dir-div {
+		padding-left: 0px;
+	}
+	.item-page .SumoSelect>.CaptionCont>label>i:before {
+		margin-left: 6px;
+	}
+	.gridview-dir-div a:before {
+		top: 5px;
+		background-position: 9px 0;
+		width: 24px;
+	}
+	.gridview-dir-div a#DESC.active {
+		width: 24px;
+	}
+	.gridview-dir-div a#DESC.active:before {
+		background-position: -30px -11px;
+	}
+	.filter-advanced .certificate-div .SumoSelect>.CaptionCont>span {
+		text-align: left;
+	}
+	.diamonds-product-view .internalusemodel .modal-inner-wrap,
+	.diamonds-product-view .dealerinfopopup .modal-inner-wrap {
+		width: 90%;
+	}
+	.internalusemodel.modal-slide .modal-content,
+	.dealerinfopopup.modal-slide .modal-content {
+		padding: 10px;
+	}
+}
+
+@media only screen and (max-width: 375px) {
+	.search-details .table tr>th,
+	.search-details .table tr>td {
+		padding: 8px !important;
+	}
+	.search-details .table thead tr>th:nth-child(1):before {
+		display: none;
+	}
+}
+
+@media only screen and (max-width: 360px) {
+	.compare-product .filter-title ul.filter-left {
+		text-align: center;
+	}
+	.compare-product .filter-title ul.filter-left li {
+		float: none;
+		display: inline-block;
+	}
+}
+
+@media only screen and (max-width: 320px) {
+	.search-details .table tr>th,
+	.search-details .table tr>td {
+		padding: 5px !important;
+	}
+	.search-details .table tbody tr th.table-selecter .state {
+		top: 10px;
+		left: 3px;
+	}
+}
+
+
+/*RESPONSIVE CSS END HERE*/
+
+@media screen and (min-width:0\0) and (min-resolution:+72dpi) {
+	/*IE9 CSS ONLY START*/
+	 :root .actions-row {
+		vertical-align: middle;
+	}
+	 :root .actions-row a {
+		display: table-cell;
+		vertical-align: middle;
+		float: left;
+		margin-right: 2px;
+		padding: 2px 0;
+	}
+	.search-details .table tbody tr th {
+		border-right: 2px solid #ddd;
+	}
+	.search-details .table tbody tr td:last-child {
+		border-left: 2px solid #ddd;
+	}
+	.compare-actions .view-product {
+		padding: 4px 10px !important;
+	}
+	/*IE9 CSS ONLY END*/
+}
+
+
+/*CSS for the ring builder*/
+
+.flow-tabs .tab-section .tab-ul:after {
+	display: block;
+	clear: both;
+	content: "";
+}
+
+.flow-tabs .tab-section .tab-ul {
+	padding-left: 0px;
+}
+
+.flow-tabs .tab-section .tab-ul .tab-li {
+	margin-bottom: 0px;
+	width: 32.5%;
+}
+
+.flow-tabs .tab-section li.tab-li a {
+	text-decoration: none;
+	display: block;
+	padding: 1rem 0px;
+	background: #fafafa;
+	border-width: 1px;
+	border-color: rgb(121, 121, 121);
+	border-style: solid;
+	position: relative;
+	border-right: 0;
+	padding: 1.9rem 0px 1.9rem 64px;
+}
+
+.flow-tabs .tab-section li.tab-li a .tab-icon {
+	width: 30px;
+	height: 37px;
+	float: right;
+	background: url(../images/icons-sprite.png) no-repeat;
+}
+
+.flow-tabs .tab-section li.tab-li a .ring-icon {
+	background-position: 0 0;
+}
+
+.flow-tabs .tab-section li.tab-li a .diamond-icon {
+	background-position: 0px 10px;
+}
+
+.flow-tabs .tab-section li.tab-li a .finalring-icon {
+	background-position: 0px -60px;
+}
+
+.flow-tabs .tab-section li.tab-li.active a .ring-icon {
+	background-position: -33px -25px;
+}
+
+.flow-tabs .tab-section li.tab-li.active a .diamond-icon {
+	background-position: -32px 10px;
+}
+
+.flow-tabs .tab-section li.tab-li.active a .finalring-icon {
+	background-position: -34px -60px;
+}
+
+.flow-tabs .tab-section li.tab-li:first-child a {
+	border-radius: 5px 0px 0 5px;
+}
+
+.flow-tabs .tab-section li.tab-li.active a {
+	background: #0e75a8;
+}
+
+.flow-tabs .tab-section li.tab-li.active a .tab-title {
+	color: #fff;
+}
+
+.flow-tabs .tab-section li.tab-li.active a:after {
+	border-color: transparent transparent transparent #0e75a8;
+}
+
+.flow-tabs .tab-section li.tab-li a:after {
+	position: absolute;
+	content: "";
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 41.5px 0 41.5px 31px;
+	border-color: transparent transparent transparent #fafafa;
+	top: -1px;
+	right: -30px;
+	z-index: 2;
+}
+
+.flow-tabs .tab-section li.tab-li a:before {
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 41.5px 0 41.5px 31px;
+	border-color: transparent transparent transparent #797979;
+	position: absolute;
+	content: "";
+	top: -1px;
+	right: -31px;
+	z-index: 1;
+}
+
+.flow-tabs .tab-section .tab-title {
+	font-size: 14px;
+	font-weight: 400;
+	color: #797979;
+	line-height: 20px;
+	display: inline-block;
+}
+
+.flow-tabs .tab-section .tab-title strong {
+	font-size: 24px;
+	display: block;
+	font-weight: 400;
+}
+
+.flow-tabs .rings-search .shape-container:not(.shapepricefiltersection) .color-filter.shape-bg {
+	background: transparent;
+	padding: 0px;
+}
+
+.flow-tabs .rings-search .filter-details {
+	padding-top: 0px;
+}
+
+.flow-tabs .rings-search .color-filter ul li {
+	border: none;
+	border-bottom: 2px solid #fff;
+}
+
+.flow-tabs .rings-search .color-filter.metaltypeli ul li {
+	border: none;
+	border-bottom: 2px solid #fafafa;
+}
+
+.flow-tabs .rings-search .shapepricefiltersection {
+
+}
+
+.flow-tabs .rings-search .shapepricefiltersection .filter-alignment-right .shape-bg {
+	min-height: 100%;
+}
+
+.flow-tabs .rings-search .shapepricefiltersection .filter-alignment-right ul {
+	display: flex;
+	display: -webkit-flex;
+	float: none;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+}
+
+.flow-tabs .rings-search .shapepricefiltersection .filter-alignment-right ul li {
+	width: 9%;
+}
+
+.flow-tabs .rings-search .shapepricefiltersection .filter-alignment-right .filter-for-shape ul li {
+	
+}
+
+.flow-tabs .rings-search .shapepricefiltersection .filter-alignment-right .filter-for-shape ul li label {
+	display: block;
+	font-size: 14px;
+	margin-top: 4px;
+}
+
+.color-filter ul li label {
+	font-size: 14px;
+}
+
+.shapepricefiltersection .filter-alignment-left .metaltypeli ul {
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+.shapepricefiltersection .filter-alignment-left .metaltypeli ul li .metallabel {
+	display: block;
+	border: 2px solid #fff;
+	padding: 4px;
+	font-size: 16px;
+	margin: 0 0 2px 0;
+}
+
+.ringbuilder-settings-index .rings-search .filter-details h4 {
+	margin-bottom: 2px;
+}
+
+.ringbuilder-settings-index .shapepricefiltersection .filter-alignment-left .metaltypeli ul li {
+	padding-bottom: 0px;
+}
+
+.ringbuilder-settings-index .filter-advanced .searching-result .view-or-search-result .change-view ul {
+	margin-bottom: 0px;
+}
+
+.ringbuilder-settings-index .shapepricefiltersection .filter-alignment-left .metaltypeli ul li .metallabel.rosegold {
+	border-color: #ff8080;
+}
+
+.ringbuilder-settings-index .shapepricefiltersection .filter-alignment-left .metaltypeli ul li .metallabel.whitegold {
+	border-color: #848484;
+}
+
+.ringbuilder-settings-index .shapepricefiltersection .filter-alignment-left .metaltypeli ul li .metallabel.yellowgold {
+	border-color: #c9a63a;
+}
+
+.ringbuilder-settings-index .shapepricefiltersection .filter-alignment-left .metaltypeli ul li .metallabel.platinum {
+	border-color: #848484;
+}
+
+.ringbuilder-settings-index .flow-tabs .rings-search .shapepricefiltersection .filter-alignment-right .filter-for-shape ul li:nth-child(5n) {
+}
+
+.ringbuilder-settings-index .shapepricefiltersection>.filter-main.filter-alignment-right {
+
+}
+
+.ringbuilder-settings-index .shapepricefiltersection>.filter-main.filter-alignment-left {
+	display: flex;
+}
+
+.ringbuilder-settings-index .shapepricefiltersection .filter-alignment-left .price-filter {
+	padding-left: 0px;
+}
+
+.ringbuilder-settings-index .shapepricefiltersection .filter-alignment-left .metaltypeli {
+	width: 50%;
+    display: inline-block;
+    margin-bottom: 0px;
+    float: left;
+	padding-bottom: 0;
+	
+}
+
+.ringbuilder-settings-index .shapepricefiltersection .filter-alignment-left .metaltypeli ul li {
+	font-size: 16px;
+	font-weight: 300;
+	max-width: 56px;
+	width: 100%;
+	flex: 0 0 56px;
+	-webkit-flex: 0 0 56px;
+	box-sizing: border-box;
+}
+
+.ringbuilder-settings-index .filter-advanced .searching-result {
+	display: flex;
+	display: -webkit-flex;
+	justify-content: space-between;
+}
+
+.ringbuilder-settings-index .filter-advanced .searching-result div {
+	width: auto;
+	float: none;
+}
+
+.ringbuilder-settings-index .filter-advanced .searching-result .view-or-search-result {
+	display: flex;
+	display: -webkit-flex;
+	justify-content: flex-end;
+}
+
+.ringbuilder-settings-index .filter-advanced .searching-result .view-or-search-result .change-view-result {
+	width: auto;
+}
+
+.ringbuilder-settings-index .filter-advanced .searching-result .view-or-search-result .change-view-result {
+	width: auto;
+}
+
+.ringbuilder-settings-index .filter-advanced .searching-result .view-or-search-result .change-view ul {
+	display: flex;
+	display: -webkit-flex;
+	justify-content: space-between;
+	list-style-type: none;
+}
+
+.ringbuilder-settings-index .filter-advanced .searching-result .view-or-search-result .change-view ul li {
+	display: flex;
+	display: -webkit-flex;
+}
+
+.ringbuilder-settings-index .price-filter {
+	position: relative;
+}
+
+.ringbuilder-settings-index .price-main .price-left,
+.ringbuilder-settings-index .price-main .price-right {
+	position: absolute;
+	top: 30px;
+}
+
+.ringbuilder-settings-index .price-filter .slider_wrapper input[type="text"] {
+	font-size: 12px;
+	text-align: right;
+	color: #000;
+	height: 22px;
+	border-radius: 11px;
+	background: #fafafa;
+	max-width: 110px;
+	padding: 0px 10px 0 40px;
+}
+
+.ringbuilder-settings-index .price-main .price-left span.currency-icon,
+.ringbuilder-settings-index .price-main .price-right span.currency-icon {
+	top: 4px;
+	font-size: 12px
+}
+
+.ringbuilder-settings-index .price-filter .slider_wrapper input[type="text"]:focus {
+	outline: none;
+}
+
+.ringbuilder-settings-index .price-main span.currency-icon {
+	left: 10px!important;
+}
+
+.ringbuilder-settings-index .price-filter .ui-slider-horizontal {
+	border: 1px solid #e0e0e0;
+	cursor: pointer;
+}
+
+.ringbuilder-settings-index .price-filter .ui-slider-handle {
+	height: 20px;
+	width: 20px;
+	top: -5px;
+	-webkit-transform: .2s ease-out, background 0.3s;
+	transition: transform 0.2s, background 0.3s;
+}
+
+.ringbuilder-settings-index .price-filter .shape-bg {
+	padding: 18px 18px 58px 18px;
+}
+
+.ringbuilder-settings-index .shapepricefiltersection .filter-alignment-left .price-filter {
+	width: 50%;
+    display: inline-block;
+    float: left;
+}
+
+.ringbuilder-settings-index .searching-result .change-view-result {
+	margin-right: 5px;
+	
+}
+
+.ringbuilder-settings-index .searching-result .change-view ul li a.gridmodenarrow {
+	background-position: 8px 10px;
+}
+
+.ringbuilder-settings-index .searching-result .change-view ul li a.gridmodenarrow.active {
+	background-position: -27px -14px;
+}
+
+.ringbuilder-settings-index .searching-result .change-view ul li a.gridmodewidecol {
+	background-position: 4px -14px;
+}
+
+.ringbuilder-settings-index .searching-result .change-view ul li a.gridmodewidecol.active {
+	background-position: -27px 9px;
+}
+
+.ringbuilder-settings-index .searching-result .change-view ul li {
+	margin-left: 5px;
+}
+
+.ringbuilder-settings-index .searching-result .search-in-table {
+	margin-left: 5px;
+}
+
+.ringbuilder-settings-index .searching-result .search-in-table button {
+	height: 32px;
+}
+
+.ringbuilder-settings-index .searching-result .change-view ul {
+	padding: 0px;
+}
+
+.search-product-grid .product-details .product-item-name span {
+	font-size: 15px;
+	font-weight: 700;
+	line-height: 23px;
+}
+
+.grid-product-listing {
+	display: flex;
+	display: -webkit-flex;
+	flex-wrap: wrap;
+}
+
+.rings-search .ui-slider .ui-slider-range {
+	position: absolute;
+	z-index: 1;
+	font-size: .7em;
+	display: block;
+	border: 0;
+}
+
+.rings-search .ui-slider-horizontal .ui-slider-range {
+	height: 100%;
+	top: 0px;
+}
+
+.price-filter .ui-slider-handle.ui-state-active {
+	-webkit-transform: scale(1.5);
+	transform: scale(1.5);
+}
+
+.grid-paginatin .page-checked .result-bottom {
+	text-align: left;
+}
+
+.search-product-grid .product-details .product-item-name span {
+	line-height: 21px;
+}
+
+.grid-paginatin .page-checked .result-bottom {
+	margin-top: 8px;
+}
+
+.ring-specification-title h2 {
+	font-weight: 400;
+	font-size: 30px;
+	width: calc(100% - 150px);
+}
+
+.ring-specification-title a svg {
+	font-size: 16px;
+}
+
+.ring-specification-title a {
+	font-size: 0
+}
+
+.diamonds-preview .diamond-info h2 {
+	font-size: 20px;
+}
+
+.diamond-info {
+	border: none;
+	padding: 0px;
+}
+
+.diamond-info .diamond-image {
+	border: 1px solid #e5e5e5;
+	padding: 20px;
+}
+
+.product-thumb {
+	margin-top: 10px;
+}
+
+.product-thumb a {
+	display: inline-block;
+	padding: 6px;
+	border: 1px solid #dbdbdb;
+	vertical-align: top;
+	margin-right: 4px;
+}
+
+.product-thumb a:last-child {
+	margin-right: 0px;
+}
+
+.diamond-image .top-icons {
+	text-align: right;
+}
+
+.diamond-image .top-icons span {
+	margin-bottom: 0px;
+	vertical-align: middle;
+	cursor: pointer;
+}
+
+.ringbuilder-settings-view .internaluse,
+.ringbuilder-settings-view .dealerinfopopup {
+	margin: 1.5rem 0 1.5rem 0;
+}
+
+.ringbuilder-settings-view .modal-inner-wrap .modal-header .action-close {
+	border-radius: 0px;
+	right: 0;
+	top: 0;
+	margin: 0px;
+}
+
+.ringbuilder-settings-view .modal-inner-wrap .modal-content .error {
+	color: #ff0000;
+	padding: 1rem 0;
+	display: block;
+}
+
+.ringbuilder-settings-view .modal-inner-wrap {
+	width: 100%;
+	max-width: 380px;
+}
+
+.ringbuilder-settings-view .modal-inner-wrap .modal-content .internaluseform {
+	position: relative;
+	text-align: left;
+}
+
+.ringbuilder-settings-view .modal-inner-wrap .modal-content .preference-btn {
+	margin-top: 1rem;
+	box-shadow: none;
+}
+
+.ringbuilder-settings-view .modal-inner-wrap .modal-content .preference-btn:focus {
+	box-shadow: none;
+	border: none;
+}
+
+.ringbuilder-settings-view .modal-inner-wrap .modal-content input:focus {
+	outline: none;
+	box-shadow: none;
+}
+
+.ringbuilder-settings-view .modal-inner-wrap .modal-footer {
+	padding: 1rem;
+	text-align: center!important;
+	display: none;
+}
+
+.ringbuilder-diamond-view .modal-inner-wrap .modal-header .action-close {
+	border-radius: 0px;
+	right: 0;
+	top: 0;
+	margin: 0px;
+}
+
+.ringbuilder-diamond-view .modal-inner-wrap .modal-content .error {
+	color: #ff0000;
+	padding: 1rem 0;
+	display: block;
+}
+
+.ringbuilder-diamond-view .modal-inner-wrap {
+	width: 100%;
+	max-width: 380px;
+}
+
+.ringbuilder-diamond-view .modal-inner-wrap .modal-content .internaluseform {
+	position: relative;
+	text-align: left;
+}
+
+.ringbuilder-diamond-view .modal-inner-wrap .modal-content .preference-btn {
+	margin-top: 1rem;
+	box-shadow: none;
+}
+
+.ringbuilder-diamond-view .modal-inner-wrap .modal-content .preference-btn:focus {
+	box-shadow: none;
+	border: none;
+}
+
+.ringbuilder-diamond-view .modal-inner-wrap .modal-content input:focus {
+	outline: none;
+	box-shadow: none;
+}
+
+.ringbuilder-diamond-view .modal-inner-wrap .modal-footer {
+	padding: 1rem;
+	text-align: center!important;
+	display: none;
+}
+
+.ringbuilder-diamond-view .diamond-info {
+	border: 1px solid #e5e5e5;
+	padding: 20px;
+}
+
+.ringbuilder-diamond-view .diamond-info .diamond-image {
+	border: none;
+	padding: 0px;
+}
+
+.ringbuilder-settings-view .diamond-desc p {
+	font-weight: 400;
+	font-size: 14px;
+}
+
+.ringbuilder-settings-view .diamonds-info {
+	padding-left: 0px;
+}
+
+.ringbuilder-diamond-completering .diamonds-info {
+	padding-left: 0px;
+}
+
+.ringbuilder-settings-view .diamonds-info .intro-field .prdctdrpdwn select[class*="drpdwn"] {
+	height: 42px;
+	background-color: #f2f2f2;
+	font-size: 18px;
+	font-weight: 300;
+	margin: 0px 0px 0 170px;
+	border: none;
+	max-width: 192px;
+	text-align-last: right;
+}
+
+.ringbuilder-settings-view .diamonds-info .intro-field .prdctdrpdwn .title {
+	font-size: 18px;
+	font-weight: 700;
+	top: 0px;
+	z-index: 2;
+	left: 10px;
+	color: #000;
+	opacity: 1;
+	margin-top: 0px !important;
+}
+
+.ringbuilder-settings-view .diamonds-info .intro-field .prdctdrpdwn select[class*="drpdwn"]:focus {
+	box-shadow: none;
+}
+
+.ringbuilder-settings-view .diamonds-info .intro-field .prdctdrpdwn {
+	margin-bottom: 8px;
+	max-width: 308px;
+	position: relative;
+	background-color: #f2f2f2;
+	width: 100%
+}
+
+.ringbuilder-diamond-completering .diamonds-info .intro-field .prdctdrpdwn select[class*="drpdwn"] {
+	height: 42px;
+	background-color: #f2f2f2;
+	font-size: 18px;
+	font-weight: 300;
+	padding: 0px 30px 0 110px;
+	border: none;
+	text-align-last: right;
+}
+
+.ringbuilder-diamond-completering .diamonds-info .intro-field .prdctdrpdwn .title {
+	font-size: 18px;
+	font-weight: 700;
+	top: 0px;
+	z-index: 2;
+	left: 10px;
+	color: #000;
+	opacity: 1;
+}
+
+.ringbuilder-diamond-completering .diamonds-info .intro-field .prdctdrpdwn select[class*="drpdwn"]:focus {
+	box-shadow: none;
+}
+
+.ringbuilder-diamond-completering .diamonds-info .intro-field .prdctdrpdwn {
+	margin-bottom: 8px;
+	max-width: 308px;
+	position: relative;
+	width: 100%
+}
+
+.ringbuilder-settings-view .diamonds-info .imagenote {
+	position: relative;
+	color: #000;
+	font-size: 18px;
+	font-weight: 300;
+	margin: 1rem 0 1rem 0;
+	clear: both;
+}
+
+.ringbuilder-settings-view .diamonds-info .imagenote span {
+	margin: 0px;
+	position: static;
+	padding: 0px;
+	opacity: 1;
+	color: #000;
+}
+
+.ringbuilder-settings-view .diamonds-info .product-controler ul li a {
+	font-size: 16px;
+	font-weight: 400;
+}
+
+.ringbuilder-settings-view .diamonds-info .diamond-action span {
+	font-size: 30px;
+}
+
+.ringbuilder-settings-view .diamonds-info .diamond-action button {
+	font-size: 16px;
+	font-weight: 700;
+	color: #fff;
+	text-align: center;
+	border-radius: 0px;
+	padding: 1.9rem 2rem;
+	line-height: 1;
+	margin-top: 1rem;
+	margin-right: 1rem;
+	font-family: 'Lato', sans-serif;
+}
+
+.ringbuilder-diamond-completering .ringprice {
+	margin-top: 1rem;
+}
+
+.ringbuilder-settings-view .diamonds-info .diamond-action {
+	display: flex;
+	display: -webkit-flex;
+	flex-wrap: wrap;
+}
+
+.ringbuilder-settings-view .diamonds-info .diamond-action .box-tocart {
+	margin-bottom: 0px;
+}
+
+.ringbuilder-diamond-index .flow-tabs .tab-section li.tab-li a .ring-icon {
+	background-position: 0 -24px;
+}
+
+.ringbuilder-diamond-view .flow-tabs .tab-section li.tab-li a .ring-icon {
+	background-position: 0 -24px;
+}
+
+.ringbuilder-diamond-view .search-in-table button {
+	line-height: 33px;
+}
+
+.ringbuilder-diamond-view .diamonds-info .diamond-action {
+	display: flex;
+	display: -webkit-flex;
+	flex-wrap: wrap;
+}
+
+.ringbuilder-diamond-view .diamonds-info .diamond-action .addtocart {
+	font-size: 22px;
+	margin-right: 1rem;
+	font-family: 'Lato', sans-serif;
+}
+
+.ringbuilder-diamond-completering .flow-tabs .tab-section li.tab-li a .ring-icon {
+	background-position: 0 -24px;
+}
+
+.ringbuilder-diamond-completering .ringprice {
+	position: relative;
+	font-weight: 700;
+	font-size: 24px;
+	opacity: 1;
+}
+
+.ringbuilder-diamond-completering .ringprice span {
+	position: static;
+	opacity: 1;
+}
+
+.ringbuilder-diamond-completering .intro-field {
+	float: none;
+}
+
+.ringbuilder-diamond-completering .intro-field:after {
+	display: block;
+	clear: both;
+	content: "";
+}
+
+.ringbuilder-diamond-completering .intro-field .metaltypelabel {
+	position: static;
+	display: inline-block;
+	font-weight: 700;
+	opacity: 1;
+	font-size: 18px;
+	padding: 4px;
+	margin-top: 0px !important;
+}
+
+.ringbuilder-diamond-completering .intro-field .sidestonequalitylabel {
+	position: static;
+	display: inline-block;
+	font-weight: 700;
+	opacity: 1;
+	font-size: 18px;
+	padding: 4px;
+	margin-top: 0px !important;
+}
+
+.ringbuilder-diamond-completering .intro-field .metaltypedata {
+	position: static;
+	display: inline-block;
+	padding: 4px;
+	opacity: 1;
+}
+
+.ringbuilder-diamond-completering .intro-field .sidestonequalitydata {
+	position: static;
+	display: inline-block;
+	padding: 4px;
+	opacity: 1;
+}
+
+.ringbuilder-diamond-completering .diamond-content-data:after {
+	clear: both;
+	display: block;
+	content: "";
+}
+
+.ringbuilder-diamond-completering .diamond-sku span.diamond-sku {
+	position: static;
+}
+
+.ringbuilder-diamond-completering .certificate-image span.diamondprice {
+	position: static;
+}
+
+.ringbuilder-diamond-completering .diamonds-info #diamond-content-data {
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+}
+
+.ringbuilder-diamond-completering .diamonds-info #diamond-content-data div.diamond-sku {
+	float: left;
+	margin-top: 1rem;
+	font-size: 16px;
+	font-weight: 700;
+}
+
+.diamond-desc {
+	clear: both;
+}
+
+.ringbuilder-diamond-completering .diamonds-info #diamond-content-data div.diamond-sku span.diamond-sku {
+	color: #000;
+	opacity: 1;
+}
+
+.ringbuilder-diamond-completering .diamonds-info .certificate-image {
+	margin-top: 0rem;
+	clear: both;
+}
+
+.ringbuilder-diamond-completering .diamonds-info .certificate-image .diamondprice {
+	display: block;
+	font-size: 24px;
+	font-weight: 700;
+	opacity: 1;
+}
+
+.ringbuilder-diamond-completering .diamond-action span {
+	display: block;
+	font-size: 24px;
+	font-weight: 700;
+	opacity: 1;
+	padding: 1rem 0px;
+}
+
+.ringbuilder-diamond-completering .diamond-action .box-tocart button {
+	font-size: 16px;
+	font-weight: 700;
+	color: #fff;
+	text-align: center;
+	border-radius: 0px;
+	padding: 1.4rem 2rem;
+	line-height: 1;
+	margin-top: 1rem;
+	margin-right: 1rem;
+	box-shadow: none;
+	font-family: 'Lato', sans-serif;
+}
+
+.ringbuilder-diamond-view .diamonds-info .diamond-action #completering_addtocart_form .addtocart {
+	margin-right: 0rem;
+}
+
+.ringbuilder-settings-index .searching-result .change-view ul li a {
+	background: url(../images/grid-sprite.png) no-repeat;
+}
+
+.ringbuilder-settings-index .searching-result .change-view ul li a {
+	font-size: 0px;
+	width: 33px;
+	height: 32px;
+}
+
+.search-in-table input {
+	background: #f4f4f4;
+}
+
+.ringbuilder-settings-index .searching-result .change-view ul li a {
+	background-color: #f4f4f4;
+}
+
+.ringbuilder-diamond-completering .diamond-action .box-tocart button {
+	background-color: #002;
+}
+
+.metaltypemaindiv {
+	max-width: 308px;
+	display: inline-block;
+	background: #f2f2f2;
+	padding: 4px 4px;
+	box-sizing: border-box;
+}
+
+.sidestonemaindiv {
+	max-width: 308px;
+	display: inline-block;
+	background: #f2f2f2;
+	padding: 4px 4px;
+	box-sizing: border-box;
+}
+
+.diamond-filter-title.save-reset-filters ul.filter-right {
+	width: auto;
+	float: right;
+}
+
+.diamond-filter-title.save-reset-filters {
+	margin-bottom: 10px;
+}
+
+.ringbuilder-diamond-view .diamonds-info .diamond-action .addtocart {
+	font-size: 16px;
+	margin-right: 1rem;
+	font-family: 'Lato', sans-serif;
+	padding: 1.9rem 2rem;
+	text-align: center;
+	border-radius: 0px;
+	padding: 1.9rem 2rem;
+	line-height: 1;
+	font-family: 'Lato', sans-serif;
+	font-weight: 700;
+}
+
+.ringbuilder-diamond-view .product-controler ul li a {
+	font-size: 14px;
+}
+
+.specification-title h2 {
+	font-weight: 500;
+}
+
+.ringbuilder-diamond-view .product-thumb {
+	margin-bottom: 1rem;
+}
+
+.search-details .table tbody tr:hover .view-data svg#Capa_1,
+.search-details .table tbody tr.selected_row .view-data svg#Capa_1 {
+	fill: #fff;
+}
+
+.search-product-grid.selected_grid {
+	box-shadow: 2px 2px 7px 1px #dcdcdc;
+	border-color: #000;
+}
+
+
+/*A-code popup changes*/
+
+.rb-popup .action-close {
+	background: #000 !important;
+	border-radius: 0px !important;
+	padding: 5px 7px;
+}
+
+.rb-popup .action-close:before,
+.modal-popup .action-close:before,
+.modal-slide .action-close:before {
+	color: #fff !important;
+	vertical-align: middle !important;
+	font-weight: 700;
+}
+
+.modal-popup.rb-popup .action-close:hover,
+.modal-slide .action-close:hover {
+	color: #fff !important;
+}
+
+.rb-popup .note {
+	background: none !important;
+}
+
+.modal-popup.rb-popup.custom-modal .modal-header {
+	padding-top: 1rem;
+}
+
+.modal-popup.rb-popup .modal-content {
+	padding: 15px 19px;
+}
+
+.rb-popup .action-close,
+.modal-popup .action-close,
+.modal-slide .action-close {
+	right: -15px!important;
+	top: -16px!important;
+}
+
+aside.modal-popup.rbdl-popup footer {
+	display: none;
+}
+
+.modal-popup._inner-scroll .modal-inner-wrap {
+	width: 600px;
+	max-width: 100%;
+}
+
+
+/*shape pop-up*/
+
+.list-unstyled {
+	padding-left: 0;
+	list-style: none;
+}
+
+.popup-Diamond-Table ol li {
+	width: 19%;
+	display: inline-block;
+	text-align: center;
+	height: 80px;
+}
+
+.popup-Diamond-Table ol li .popup-Dimond-Sketch {
+	display: block;
+	height: 36px;
+	margin-top: 20px;
+	line-height: 34px;
+}
+
+.popup-Diamond-Table ol li:nth-child(1) .popup-Dimond-Sketch {
+	background-image: url('https://partners.gemfind.com/diamondlink//assets/images/shapes/round.png');
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.popup-Diamond-Table ol li:nth-child(2) .popup-Dimond-Sketch {
+	background-image: url('https://partners.gemfind.com/diamondlink//assets/images/shapes/asscher.png');
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.popup-Diamond-Table ol li:nth-child(3) .popup-Dimond-Sketch {
+	background-image: url('https://partners.gemfind.com/diamondlink//assets/images/shapes/marquise.png');
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.popup-Diamond-Table ol li:nth-child(4) .popup-Dimond-Sketch {
+	background-image: url('https://partners.gemfind.com/diamondlink//assets/images/shapes/oval.png');
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.popup-Diamond-Table ol li:nth-child(5) .popup-Dimond-Sketch {
+	background-image: url('https://partners.gemfind.com/diamondlink//assets/images/shapes/cushion.png');
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.popup-Diamond-Table ol li:nth-child(6) .popup-Dimond-Sketch {
+	background-image: url('https://partners.gemfind.com/diamondlink//assets/images/shapes/radiant.png');
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.popup-Diamond-Table ol li:nth-child(7) .popup-Dimond-Sketch {
+	background-image: url('https://partners.gemfind.com/diamondlink//assets/images/shapes/pear-v2.png');
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.popup-Diamond-Table ol li:nth-child(8) .popup-Dimond-Sketch {
+	background-image: url('https://partners.gemfind.com/diamondlink//assets/images/shapes/emerald.png');
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.popup-Diamond-Table ol li:nth-child(9) .popup-Dimond-Sketch {
+	background-image: url('https://partners.gemfind.com/diamondlink//assets/images/shapes/heart.png');
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.popup-Diamond-Table ol li:nth-child(10) .popup-Dimond-Sketch {
+	background-image: url('https://partners.gemfind.com/diamondlink//assets/images/shapes/princess.png');
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.ring-specification-title h4.complete-ring-spec a{
+	font-size: 14px;
+    font-weight: 400;
+} 
+.ring-specification-title .complete-ring-spec a svg {
+    display: inline-block;
+    vertical-align: sub;
+}
+.ring-specification-title .complete-ring-spec a:hover {
+    text-decoration: none;
+    color: #000;
+}
+@media(max-width: 767px) {
+	.modal-popup.modal-slide._inner-scroll .modal-inner-wrap {
+		min-height: auto!important;
+		transform: translateY(50%);
+		margin: 0 auto!important;
+	}
+	.modal-popup.modal-slide {
+		left: 0!important;
+	}
+	.ring-specification-title h4.complete-ring-spec{float: left;}
+}
+
+
+/*shape pop-up ends*/
+
+
+/*A-code popup changes ends*/
+
+
+/*Media Queries*/
+
+@media only screen and (max-width:1199px) {
+	.ring-specification-title h2 {
+		font-size: 24px;
+		margin-bottom: 1.4rem;
+	}
+	.ringbuilder-settings-view .diamonds-info .imagenote {
+		font-size: 16px;
+	}
+	.product-controler {
+		margin-top: 15px;
+	}
+	.product-controler ul li {
+		margin-bottom: 20px;
+	}
+	.ringbuilder-settings-view .diamonds-info .diamond-action button {
+		font-size: 20px;
+		font-weight: 600;
+		padding: 1.4rem 1.5rem;
+	}
+	.diamond-info h2 span {
+		font-size: 18px;
+	}
+	.diamond-info h2 {
+		font-size: 18px;
+	}
+}
+
+@media only screen and (max-width:992px) {
+	.search-product-grid .product-images {
+		min-height: 200px
+	}
+	.flow-tabs .tab-section li.tab-li a {
+		padding: 1rem 0px 1rem 44px;
+	}
+	.flow-tabs .tab-section li.tab-li a:before {
+		border-width: 32.5px 0 32.5px 25px;
+		right: -26px;
+	}
+	.flow-tabs .tab-section li.tab-li a:after {
+		border-width: 32.5px 0 32.5px 25px;
+		right: -25px;
+	}
+	.ringbuilder-settings-index .shapepricefiltersection>.filter-main[class*="filter-alignment-"] {
+		width: 100%;
+		float: none;
+		flex: 0 0 100%;
+		max-width: 100%;
+		padding: 0px;
+		margin-bottom: 20px;
+	}
+	.ringbuilder-settings-index .shapepricefiltersection>.filter-main.filter-alignment-left {
+		margin-bottom: 0px;
+	}
+	.filter-advanced .searching-result .number-of-search {
+		flex: 0 0 100%;
+		max-width: 100%;
+	}
+	.ringbuilder-settings-index .filter-advanced .searching-result {
+		flex-wrap: wrap;
+	}
+	.search-in-table {
+		margin-top: 0px;
+	}
+	.flow-tabs .rings-search .shapepricefiltersection {
+		flex-wrap: wrap;
+		margin-bottom: 20px;
+	}
+	.diamonds-preview {
+		max-width: 276px;
+		float: left;
+	}
+	.ring-specification-title h2 {
+		font-size: 22px;
+	}
+	.specification-title {
+		padding: 10px 8px;
+	}
+	.diamonds-preview .diamond-info h2 {
+		font-size: 18px;
+	}
+	.ring-details.no-padding.ring-request-form {
+		width: 60% !important;
+	}
+	.ringbuilder-diamond-view .diamonds-info .diamond-action .addtocart {
+		font-size: 20px;
+	}
+	.with-specification.diamond-page .diamond-data .specification-title h2 {
+		font-size: 28px;
+	}
+	.diamond-request-form .form-field .diamond-action span,
+	.ring-request-form .form-field .diamond-action span {
+		font-size: 28px;
+	}
+	.with-specification .diamonds-details {
+		width: 60%;
+		padding-left: 2%;
+	}
+	.ringbuilder-diamond-view .diamonds-info .diamond-action .addtocart {
+		font-size: 18px;
+		padding: 1rem;
+	}
+	.diamond-request-form .form-field .diamond-action span,
+	.ring-request-form .form-field .diamond-action span {
+		font-size: 22px;
+	}
+	.search-product-grid .product-images {
+		min-height: initial;
+	}
+}
+
+@media only screen and (max-width:767px) {
+	.search-product-grid .product-details .product-item-name span {
+		line-height: 18px;
+		font-size: 14px;
+	}
+	.flow-tabs .rings-search .color-filter ul li {
+		vertical-align: top;
+	}
+	.flow-tabs .tab-section li.tab-li a {
+		padding: 0.6rem 0px 0.6rem 34px;
+	}
+	.flow-tabs .tab-section .tab-title strong {
+		font-size: 16px;
+	}
+	.flow-tabs .tab-section li.tab-li a:after {
+		border-width: 27.5px 0 27.5px 16px;
+		right: -16px;
+	}
+	.flow-tabs .tab-section li.tab-li a:before {
+		border-width: 27.5px 0 27.5px 16px;
+		right: -17px;
+	}
+	.grid-paginatin .page-checked .result-bottom {
+		text-align: center;
+	}
+	.diamonds-preview {
+		max-width: 100%;
+		float: left;
+	}
+	.ring-details.no-padding.ring-request-form {
+		width: 100% !important;
+		padding-left: 0px;
+	}
+	.diamond-action {
+		text-align: left;
+	}
+	.ringbuilder-settings-view .diamonds-info .intro-field .prdctdrpdwn .title {
+		top: 8px;
+	}
+	.with-specification .diamonds-details {
+		padding-left: 0px;
+		width: 100%;
+	}
+	.with-specification.diamond-page .diamond-data .specification-title h2 {
+		font-size: 20px;
+		width: 92%;
+	}
+	.ringbuilder-diamond-completering .diamonds-info .intro-field .prdctdrpdwn .title {
+		top: 8px;
+	}
+	.flow-tabs .rings-search .shapepricefiltersection .filter-alignment-right .filter-for-shape ul li {
+		margin-bottom: 1rem;
+		width: 19%;
+	}
+	.gridmode .search-product-grid:nth-child(4n) {
+		margin-right: 1%;
+	}
+	.gridmode .search-product-grid:last-child {
+		margin-right: 0px!important;
+	}
+	/*a-code*/
+	.color-filter.shape-bg ul {
+		width: 100%!important;
+		float: left!important;
+		margin-top: 10px;
+	}
+	.filter-for-shape.shape-bg h4 {
+		width: 100%!important;
+	}
+	.filter-for-shape.shape-bg ul#shapeul {
+		width: 100%!important;
+		float: left!important;
+	}
+	.filter-for-shape.shape-bg .slider_wrapper {
+		width: 90%!important;
+		float: left!important;
+		margin-top: 10px;
+	}
+	.color-filter.clarity-filter.shape-bg.metaltypeli h4 {
+		width: 100%!important;
+	}
+}
+
+@media only screen and (max-width:639px) {
+	.rings-search .shape-container:not(.shapepricefiltersection) .color-filter ul li {
+		margin: 0px;
+		width: 33.3%;
+	}
+	.flow-tabs .rings-search .shape-container:not(.shapepricefiltersection) .color-filter ul li {
+		border-top: 1px solid #9f9f9f;
+		border-right: 1px solid #9f9f9f;
+	}
+	.flow-tabs .rings-search .shape-container:not(.shapepricefiltersection) .color-filter ul li:nth-child(3n+1) {
+		border-left: 1px solid #9f9f9f;
+	}
+	.flow-tabs .rings-search .shape-container:not(.shapepricefiltersection) .color-filter ul li:nth-last-child(-n+3) {
+		border-bottom: 1px solid #9f9f9f;
+	}
+	.flow-tabs .rings-search .shape-container:not(.shapepricefiltersection) .shapepricefiltersection .filter-alignment-right .shape-bg {
+		padding: 15px;
+	}
+}
+
+@media only screen and (max-width:575px) {
+	.flow-tabs .tab-section li.tab-li.active .tab-title,
+	.flow-tabs .tab-section .tab-title,
+	.flow-tabs .tab-section li.tab-li.active a .tab-title {
+		display: none;
+	}
+	.flow-tabs .tab-section li.tab-li.active a .ring-icon {
+		margin-left: 10%;
+	}
+	.flow-tabs .tab-section li.tab-li a .tab-icon {
+		float: none;
+		display: inline-block;
+	}
+	.flow-tabs .tab-section .tab-ul .tab-li {
+		margin-bottom: 0px;
+		width: 31.5%;
+	}
+	.flow-tabs .tab-section .tab-ul .tab-li.active {
+		margin-bottom: 0px;
+		width: 31.5%;
+		text-align: center;
+	}
+	.flow-tabs .tab-section li.tab-li a {
+		padding: 0.6rem 0px 0.6rem 22px;
+	}
+	.flow-tabs .rings-search .shapepricefiltersection .filter-alignment-right .filter-for-shape ul li {
+		margin-right: 0px;
+	}
+	.flow-tabs .rings-search .shapepricefiltersection .filter-alignment-right .filter-for-shape ul li {
+		margin-right: 1% !important;
+		font-size: 14px
+	}
+	.ringbuilder-settings-index .shapepricefiltersection .filter-alignment-left .metaltypeli ul li {
+		float: none;
+	}
+	.ringbuilder-settings-index .filter-advanced .searching-result .view-or-search-result {
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+	.ringbuilder-settings-index .filter-advanced .searching-result .view-or-search-result .change-view ul {
+		margin-bottom: 0px;
+	}
+	.filter-advanced .searching-result .number-of-search {
+		display: flex;
+		justify-content: left;
+	}
+	.flow-tabs .rings-search .shapepricefiltersection {
+		margin-bottom: 0px;
+	}
+	.diamonds-preview .diamond-info h2 {
+		font-size: 16px;
+	}
+	.diamond-info h2 span {
+		font-size: 16px;
+	}
+	.ring-specification-title h2 {
+		font-size: 18px;
+		width: 100%;
+	}
+	.ringbuilder-settings-view .diamonds-info .intro-field .prdctdrpdwn select[class*="drpdwn"] {
+		margin: auto;
+		max-width: 181px;
+		float: right;
+	}
+	.diamond-request-form .form-field .diamond-action span,
+	.ring-request-form .form-field .diamond-action span {
+		font-size: 18px;
+	}
+	.ring-specification-title a svg {
+		font-size: 14px;
+	}
+	.product-controler ul li {
+		width: 48%;
+		margin-left: 1%;
+	}
+	body.ringbuilder-diamond-completering .product-controler ul li a {
+		font-size: 12px;
+		line-height: 24px
+	}
+	.ringbuilder-settings-view .diamonds-info .diamond-action button {
+		font-size: 14px;
+		margin-top: 6px;
+		margin-right: 0.4rem;
+		padding: 1rem;
+	}
+	.diamond-action {
+		margin-top: 10px;
+	}
+	.ringbuilder-settings-view .diamonds-info .diamond-action #add_diamondtoring_form button {
+		margin-right: 0px;
+	}
+	.ringbuilder-diamond-view .diamonds-info .diamond-action .addtocart {
+		font-size: 14px;
+		margin-right: 0.6rem;
+	}
+	.ringbuilder-diamond-completering .diamonds-preview .diamond-action span {
+		font-size: 20px;
+	}
+	.ringbuilder-diamond-completering .flow-tabs .tab-section .tab-title strong {
+		font-size: 14px;
+	}
+	.ringbuilder-diamond-completering .flow-tabs .tab-section li.tab-li.active .finalring-icon {
+		width: 26px;
+	}
+	.ringbuilder-diamond-completering .ringprice {
+		font-size: 20px;
+	}
+	.ringbuilder-diamond-completering .diamonds-info .certificate-image .diamondprice {
+		margin-top: 1rem;
+		font-size: 20px;
+	}
+	.ringbuilder-settings-index .searching-result .search-in-table {
+		width: 100%;
+	}
+	.flow-tabs .rings-search .shapepricefiltersection .filter-alignment-right .shape-bg {
+		padding: 10px;
+	}
+	.flow-tabs .rings-search .shapepricefiltersection .filter-alignment-right ul li {
+		max-width: 32.5%;
+		flex: 0 0 32.5%;
+		-webkit-flex: 0 0 32.5%;
+	}
+	.flow-tabs .rings-search .shapepricefiltersection .filter-alignment-right .filter-for-shape ul li:nth-child(3n+0) {
+	}
+	.ringbuilder-settings-index .filter-advanced .searching-result div.grid-view-sort,
+	.ringbuilder-settings-index .filter-advanced .searching-result .view-or-search-result .change-view-result,
+	.ringbuilder-settings-index .filter-advanced .searching-result div#searchintable {
+		width: 100%;
+		margin-right: 0;
+		margin-bottom: 10px;
+		margin-left: 0
+	}
+	.ringbuilder-settings-index .shapepricefiltersection .filter-alignment-left .metaltypeli ul li:nth-child(3n+0) {
+		margin-right: 0;
+	}
+	.ringbuilder-settings-index .shapepricefiltersection .filter-alignment-left .metaltypeli ul li {
+		max-width: 32.1%;
+		flex: 0 0 32.1%;
+		-webkit-flex: 0 0 32.1%;
+		margin-left: 0
+	}
+	.ringbuilder-settings-index .filter-advanced .searching-result {
+		display: flex;
+		display: -webkit-flex;
+		justify-content: space-between;
+	}
+	.ringbuilder-settings-index .filter-advanced .searching-result div.change-view {
+		order: 1;
+		margin-top: -42px;
+		width: 100%;
+	}
+	.ringbuilder-settings-index .filter-advanced .searching-result div {
+		order: 2
+	}
+	.ringbuilder-settings-index .filter-advanced .searching-result .view-or-search-result .change-view ul {
+		justify-content: flex-end;
+	}
+	.ringbuilder-settings-view .diamonds-info .product-controler ul li a {
+		font-size: 12px;
+		line-height: 24px
+	}
+	.ringbuilder-settings-view .diamonds-info .product-controler ul li a {
+		margin-top: 2px;
+	}
+	.ringbuilder-settings-view .diamonds-info .intro-field .prdctdrpdwn .title {
+		font-size: 16px;
+		float: left;
+	}
+	.ringbuilder-settings-view .diamonds-info .intro-field .prdctdrpdwn {
+		max-width: 100%;
+		float: left;
+		width: 100%;
+	}
+	.ringbuilder-diamond-view .product-controler ul li a {
+		margin-top: 2px;
+		font-size: 12px;
+		line-height: 24px
+	}
+	.ringbuilder-diamond-view .diamonds-info .diamond-action .addtocart {
+		padding: 0.8rem;
+	}
+	.ringbuilder-diamond-view .specification-title {
+		padding: 10px 0px;
+	}
+	.specification-info ul li .diamonds-info p,
+	.specification-info ul li .diamonds-details-title p {
+		font-size: 14px;
+	}
+	.flow-tabs .tab-section li.tab-li:not(.active) a {
+		text-align: center;
+	}
+}
+
+
+
+
+.filter-for-shape.shape-bg h4 {
+	width: 10%;
+	display: inline-block;
+}
+
+.filter-for-shape.shape-bg ul#shapeul {
+	width: 90%;
+	display: inline-block;
+	float: right;
+}
+
+.filter-for-shape.shape-bg .slider_wrapper {
+	width: 76%;
+	float: right;
+}
+
+.color-filter.clarity-filter.shape-bg.metaltypeli h4 {
+	width: 15%;
+	display: inline-block;
+}
+
+.color-filter.clarity-filter.shape-bg.metaltypeli ul {
+	width: 85%;
+	float: right;
+}
+
+.filter-for-shape.shape-bg .cut-main {
+	float: right;
+	width: 88%;
+}
+
+.filter-for-shape.shape-bg .cut-main ul li {
+	
+}
+
+.color-filter.shape-bg h4 {
+	width: 10%;
+	display: inline-block;
+}
+
+.color-filter.shape-bg ul {
+	width: 90%;
+	float: right;
+}
+
+.polish-depth h4 {
+	width: 15%;
+	display: inline-block;
+}
+
+.polish-depth ul {
+	width: 85%;
+	float: right;
+}
+
+.polish-depth.filter-Fluoroscence h4 {
+	width: 12%;
+	display: inline-block;
+}
+
+.polish-depth.filter-Fluoroscence ul {
+	width: 85%;
+	float: right;
+}
+
+.advance-left .polish-depth {
+}
+.filter-main.filter-alignment-left.price-filter .filter-for-shape.shape-bg h4{
+	width: 20%;
+}
+h4.title {
+    width: 20% !important;
+}
+/*shape pop-up ends*/
+
+.filter-for-shape.shape-bg h4{
+    width: 10%;
+    display: inline-block;
+}
+.filter-for-shape.shape-bg ul#shapeul{
+    width: 88%;
+    display: inline-block;
+    float: right;
+}
+.filter-for-shape.shape-bg .cut-main{
+    float: right;
+    width: 88% !important;
+}
+.filter-for-shape.shape-bg .cut-main ul li{
+    /*min-width: 17.5%;*/
+}
+
+.filter-for-shape.shape-bg .slider_wrapper {
+    width: 72%;
+    float: right;
+}
+.color-filter.shape-bg h4{
+    width: 11%;
+    display: inline-block;
+}
+.color-filter.shape-bg ul {
+    width: 88%;
+    float: right;
+}
+.polish-depth h4{
+    width: 12%;
+    display: inline-block;
+	float:left;
+}
+.polish-depth ul{
+    width: 88%;
+    float: right;
+}
+.polish-depth.filter-Fluoroscence h4{
+    /*width: 25%;*/
+    display: inline-block;
+}
+.polish-depth.filter-Fluoroscence ul{
+    /*width: 75%;*/
+    float: right;
+}
+.shape-container.shape-flex .filter-for-shape.shape-bg h4{
+	width: 14%;
+}
+.filter-advanced.shape-bg .shape-container{
+	margin-bottom: 15px;
+}
+.noUi-target {
+    height: 12px;
+    border: 1px solid #e5e5e5;
+    background: #FCFDFD;
+    border-radius: 30px;
+    width: 96%;
+    float: none;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+}
+.polish-depth .cut-main.slider_wrapper{
+	width: 88%;
+}
+
+.noUi-value.noUi-value-horizontal.noUi-value-large {
+    position: initial;
+    transform: none;
+    width: 100%;
+    margin-left: 5px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.noUi-value-horizontal {
+    top: 12px;
+    font-size: 16px;
+    font-weight: 300;
+    color: #000;
+}
+
+.noUi-base .noUi-pips-horizontal {
+    height: 30px;
+}
+.noUi-pips {
+    position: absolute;
+    color: #999;
+}
+
+.noUi-pips-horizontal {
+    padding: 10px 0;
+    height: 80px;
+    top: 100%;
+    left: 0;
+    width: 100%;
+}
+
+.noUi-base .noUi-pips-horizontal {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.noUi-value.noUi-value-horizontal.noUi-value-large {
+    position: initial;
+    transform: none;
+    width: 100%;
+    margin-left: 5px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.diamonds-details .noUi-value.noUi-value-horizontal.noUi-value-large:last-child {
+    display: none;
+}
+
+.noUi-marker-horizontal.noUi-marker-large {
+    height: 15px;
+    top: -10px;
+    height: 10px;
+    width: 5px;
+}
+.noUi-marker.noUi-marker-horizontal.noUi-marker-normal {
+    display: none;
+}
+
+.color-filter.shape-bg .cut-main {
+    float: none;
+    width: 88% !important;
+    display: inline-block;
+}
+
+
+

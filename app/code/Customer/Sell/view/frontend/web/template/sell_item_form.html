@@ -1,0 +1,264 @@
+<form id="sell-form">
+    <div class="formsec" data-bind="visible: step() == 'imageupload'">
+        <div class="title" data-bind="i18n: 'Select an option to upload'"></div>
+        <div class="selectsec-title">
+            <input
+                type="radio"
+                name="imagetype"
+                id="certificate_images"
+                value="certificate_images"
+                data-bind="checked: imagetype"
+            />
+            <label class="label" for="certificate_images"
+                ><span
+                    data-bind="i18n: 'Certificate and Jewellery Images'"
+                ></span
+            ></label>
+        </div>
+        <div class="selectsec-title">
+            <input
+                type="radio"
+                name="imagetype"
+                id="productimages"
+                value="productimages"
+                data-bind="checked: imagetype"
+            />
+            <label class="label" for="productimages"
+                ><span data-bind="i18n: 'Only Jewellery Image'"></span
+            ></label>
+        </div>
+        <div class="selectsec-title">
+            <input
+                type="radio"
+                name="imagetype"
+                id="noimages"
+                value="noimages"
+                data-bind="checked: imagetype"
+            />
+            <label class="label" for="noimages"
+                ><span data-bind="i18n: 'No Images.'"></span
+            ></label>
+        </div>
+        <input type="hidden" id="count" data-bind="value: imagecount" />
+        <div
+            class="imgupload"
+            data-bind="visible: imagecount() == 0 && uploadenable"
+        >
+            <div class="btn">
+                <span class="leftimg"></span>
+                <span class="rightimg">
+                    <span data-bind="text: uploadimagetext"></span>
+                    <span
+                        class="s2"
+                        data-bind="i18n: '(Maximum - 10 Images)'"
+                    ></span>
+                </span>
+            </div>
+            <input
+                id="image-uploader-box"
+                class="image-uploader-box"
+                accept="image/*"
+                multiple="true"
+                name="images[]"
+                type="file"
+                data-bind="event: { change: uploadImage }, attr:{title: $t('Upload file')}"
+                data-validate="{ 'required-file': true, 'validate-fileextensions': true }"
+            />
+        </div>
+        <div
+            class="imgupload multiple"
+            data-bind="visible: imagecount() > 0 && uploadenable"
+        >
+            <div class="btn">
+                <div class="btn1">
+                    <div class="imgone">
+                        <!-- ko foreach: { data: images, as: 'image'} -->
+                        <div class="oneimg">
+                            <img
+                                class="uploadimg"
+                                data-bind="attr:{
+								src: image.data,
+								id: image.index
+							}"
+                            />
+                            <img
+                                class="close"
+                                data-bind="click: $parent.removeimage, attr:{src: $parent.closeimage}"
+                            />
+                        </div>
+                        <!-- /ko -->
+                        <div class="oneimg">
+                            <img
+                                class="uploadimg new"
+                                data-bind="click: addmoreimages, attr:{src: newimage}, visible: imagecount() != 10 && uploadenable"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="field required placeholder1">
+            <input
+                type="tel"
+                name="mobile"
+                id="mobile"
+                required="required"
+                class="floatingLabelObserver"
+                data-bind="afterRender: initTel($element), value: mobile"
+                data-validate="{'required-entry':true, 'g-validate-init-number':true}"
+                required=""
+            />
+        </div>
+        <div class="submit-btn">
+            <button 
+                data-bind="click: saveupload, text: upload"
+                onclick="ga('send', 'event', 'Sell Your Jewellery', 'Submit Form', 'Click on Upload');"
+            ></button>
+        </div>
+    </div>
+
+    <div class="meeting-sec main" data-bind="visible: step() == 'appointment'">
+        <h2 data-bind="text: $t('Schedule a Meeting.')"></h2>
+        <div class="date-apoinmentsec">
+            <p
+                data-bind="text: $t('Schedule an appointment with our Diamond Expert.')"
+            ></p>
+            <div class="date-apoinment-con">
+                <div class="mainsec">
+                    <div class="btn" data-bind="click: openiframe">
+                        <span class="leftimg">
+                            <img data-bind="attr:{src: linkimage}" />
+                        </span>
+                        <span class="rightimg">
+                            <span
+                                data-bind="text: $t('Make An Appointment')"
+                            ></span>
+                        </span>
+                    </div>
+                </div>
+                <div class="calendar-layer"></div>
+                <div class="submit-btn">
+                    <div class="leftbtn">
+                        <button
+                            data-bind="enable: checkappointmentbook,click: goback.bind($data,'imageupload'), text: $t('Previous')"
+                            onclick="ga('send', 'event', 'Sell Your Jewellery', 'Submit Form', 'Click on Previous');"
+                        ></button>
+                    </div>
+                    <div class="rightbtn">
+                        <button
+                            data-bind="enable: checkappointmentbook, click: gotoform, text: $t('Next')"
+                            onclick="ga('send', 'event', 'Sell Your Jewellery', 'Submit Form', 'Click on Next');"
+                        ></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fom-sec" data-bind="visible: step() == 'form'">
+        <h2 data-bind="text: $t('Please Fill The Form.')"></h2>
+        <div class="form-detail">
+            <div class="full-field">
+                <div class="field left placeholder1">
+                    <input
+                        type="text"
+                        name="firstname"
+                        data-validate="{'required-entry':true}"
+                        data-bind="value: fname"
+                        required
+                    />
+                    <label
+                        class="label floating-label1 label"
+                        data-bind="text: $t('First Name')"
+                    ></label>
+                </div>
+                <div class="field right placeholder1">
+                    <input
+                        type="text"
+                        name="lastname"
+                        data-validate="{'required-entry':true}"
+                        data-bind="value: lname"
+                        required
+                    />
+                    <label
+                        class="label floating-label1 label"
+                        data-bind="text: $t('Last Name')"
+                    ></label>
+                </div>
+            </div>
+            <div class="full-femail">
+                <div class="field placeholder1">
+                    <input
+                        type="email"
+                        name="email"
+                        data-validate="{'required-entry':true, 'validate-email': true}"
+                        data-bind="value: email"
+                        required
+                    />
+                    <label
+                        class="label floating-label1 label"
+                        data-bind="text: $t('Email')"
+                    ></label>
+                </div>
+            </div>
+            <div class="full-methods">
+                <div class="field">
+                    <label data-bind="i18n: 'Preferred Method'"></label>
+                    <select
+                        id="preferred_method"
+                        name="preferred_method"
+                        class="preferred_method"
+                        data-bind="
+						value: preferredmethod,
+						options: availablePerferredMethod,
+						optionsText: 'name',
+						optionsValue: 'id'"
+                    ></select>
+                </div>
+            </div>
+            <div class="full-femail">
+                <div class="field placeholder1">
+                    <input type="text" data-bind="value: desc" />
+                    <label
+                        class="label floating-label1 label"
+                        data-bind="i18n: 'Item Description'"
+                    ></label>
+                </div>
+            </div>
+            <div class="submit-btn">
+                <div class="leftbtn">
+                    <button
+                        data-bind="click: goback.bind($data,'appointment'), text: $t('Previous')"
+                        onclick="ga('send', 'event', 'Sell Your Jewellery', 'Submit Form', 'Click on Previous');"
+                    ></button>
+                </div>
+                <div class="rightbtn">
+                    <button
+                        data-bind="click: submitform, text: $t('Next')"
+                        onclick="ga('send', 'event', 'Sell Your Jewellery', 'Submit Form', 'Click on Next');"
+                    ></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="thankyousec" data-bind="visible: step() == 'thankyousec'">
+        <h1 data-bind="text: $t('Thank you')"></h1>
+        <div class="content">
+            <p
+                data-bind="text: $t('Thank you for submitting your product information. We are now processing your order.')"
+            ></p>
+            <p data-bind="text: quote_id"></p>
+            <p data-bind="text: date"></p>
+            <p
+                data-bind="text: $t('Please contact info@diamondicq.com if there is any question.')"
+            ></p>
+            <div class="submit-btn">
+                <button
+                    data-bind="click: resetform, text: $t('Close')"
+                    onclick="ga('send', 'event', 'Sell Your Jewellery', 'Submit Form', 'Click on Close');"
+                ></button>
+            </div>
+        </div>
+    </div>
+</form>

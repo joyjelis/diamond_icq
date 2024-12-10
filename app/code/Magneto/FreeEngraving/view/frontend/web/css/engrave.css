@@ -1,0 +1,92 @@
+.engraving__ring {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 465px;
+  height: 97px;
+  background-position: bottom center !important;
+  position: relative;
+}
+p.textEngravingValue {
+  text-align: center;
+  width: 100%;
+  display: inline-block;
+  position: absolute !important;
+  /* top: 50%; */
+  top: 48%;
+  z-index: 99999;
+  transform: translateY(-50%);
+  margin: 0 !important;
+}
+.checkout-cart-index .modal-popup.modal-slide #engraving__font {
+  margin-bottom: 16px;
+}
+.checkout-cart-index .modal-popup.modal-slide .engraving__ring {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 465px;
+  height: 97px;
+  position: relative;
+  background-position: bottom center !important;
+}
+.catalog-product-view select#engraving__font {
+  margin-bottom: 16px;
+}
+
+
+/* ========== Engrave POPUP CSS ========= */
+p {
+    font-size: 16px;
+    line-height: 26px;
+    letter-spacing: 0.5px;
+    color: #4f4343;
+  }
+ 
+  /* Popup open button */
+  .openBtn {
+    
+    /*
+    color: #FFF;
+    background: #269faf;
+    */
+    /* color: #269faf;
+    padding: 10px;
+    text-decoration: none;
+    border: 1px solid #269faf;
+    border-radius: 3px; */
+  }
+ 
+  .openBtn:hover {
+   /* background: #35c7db; */ 
+  }
+ 
+  .popup {
+    position: fixed;
+    top: 0px;
+    left: 402px;
+    width: 100%;
+    height: 100%;
+    display: none;
+  }
+ 
+  /* Popup inner div */
+  .popup-content {
+    width: 200px;
+    margin: 0 auto;
+    padding: 15px;
+    margin-top: 100px;
+    border-radius: 6px;
+    background: #FFF;
+    position: relative;
+    border: 2px black double;
+  }
+
+ 
+  /* Popup close button */
+  .closeBtn {
+    position: absolute;
+    top: 5px;
+    right: 12px;
+    font-size: 17px;
+    color: #7c7575;
+    text-decoration: none;
+  }

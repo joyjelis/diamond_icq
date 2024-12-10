@@ -1,0 +1,51 @@
+<?php
+// @codingStandardsIgnoreFile
+$ringbuilderHelper = $this->helper(Gemfind\Ringbuilder\Helper\Data::class);
+$product = $block->getProduct();
+$isDiamondSold = 'https://schema.org/InStock';
+if (!empty($product['diamondData'])) {
+    if ($ringbuilderHelper->isDiamondSold("dl-" . $product['diamondData']['diamondId'])) {
+        $isDiamondSold = 'https://schema.org/OutOfStock';
+    }
+} else {
+    $product['diamondData'] = ['currencyFrom'=>0, 'price'=>0];
+}
+$metaTitle ='';
+$metaDescrition='';
+if (isset($product['ringData']['mainImageURL'])) {
+    $imgurl = $product['ringData']['mainImageURL'];
+    $metaTitle .= $product['ringData']['settingName'] ?? '';
+    $metaDescrition .= $product['ringData']['description'] ?? '';
+}
+if (isset($product['diamondData']['defaultDiamondImage'])) {
+    $imgurl = $product['diamondData']['defaultDiamondImage'];
+    $metaTitle .= $product['diamondData']['mainHeader'] ?? '';
+    $metaDescrition .= $product['diamondData']['subHeader'] ?? '';
+}
+
+?>
+<?php if (isset($imgurl)): ?>
+    <meta property="og:type" content="product" />
+    <meta property="og:title" content="<?= $block->escapeHtmlAttr($metaTitle); ?>" />
+    <meta property="og:description" content="<?= $block->escapeHtmlAttr($metaDescrition); ?>" />
+    <meta property="og:image" content="<?= $imgurl; ?>" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="<?= $block->getBaseUrl(); ?>" />
+    <meta name="twitter:title" content="<?= $block->escapeHtmlAttr($metaTitle) ?>" />
+    <meta name="twitter:description" content="<?= $block->escapeHtmlAttr($metaDescrition); ?>" />
+    <meta name="twitter:image" content="<?= $imgurl; ?>" />
+<?php endif; ?>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "<?= $metaTitle; ?>",
+  "image": "<?= $imgurl; ?>",
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "<?= $block->escapeHtmlAttr($product['diamondData']['currencyFrom']); ?>",
+    "price": "<?= (empty($product['diamondData'])) ? 0 : (int)$product['diamondData']['price']; ?>",
+    "availability": "<?= $block->escapeHtmlAttr($isDiamondSold); ?>"
+  }
+}
+</script>

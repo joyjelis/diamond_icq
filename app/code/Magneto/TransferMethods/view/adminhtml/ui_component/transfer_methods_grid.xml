@@ -1,0 +1,195 @@
+<?xml version="1.0"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">transfer_methods_grid.transfer_methods_grid_data_source</item>
+        </item>
+        <!-- <item name="buttons" xsi:type="array">
+	        <item name="add" xsi:type="array">
+	           <item name="name" xsi:type="string">add</item>
+	           <item name="label" xsi:type="string">Add</item>
+	           <item name="class" xsi:type="string">primary</item>
+	           <item name="url" xsi:type="string">transfer/methods/add</item>
+	        </item>
+	     </item> -->
+    </argument>
+    <settings>
+		<spinner>transfer_methods_grid_columns</spinner>
+		<deps>
+			<dep>transfer_methods_grid.transfer_methods_grid_data_source</dep>
+		</deps>
+	</settings>
+    <dataSource name="transfer_methods_grid_data_source" component="Magento_Ui/js/grid/provider">
+        <settings>
+            <storageConfig>                
+				<param name="indexField" xsi:type="string">method_id</param>
+            </storageConfig>
+            <updateUrl path="mui/index/render"/>
+        </settings>
+        <aclResource>Magneto_TransferMethods::index</aclResource>
+        <dataProvider class="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider" name="transfer_methods_grid_data_source">
+            <settings>
+                <requestFieldName>id</requestFieldName>
+				<primaryFieldName>method_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <listingToolbar name="listing_top">
+		<settings>
+			<sticky>true</sticky>
+		</settings>
+		<bookmark name="bookmarks"/>
+		<columnsControls name="columns_controls"/>
+		<filters name="listing_filters"/>
+		<paging name="listing_paging"/>
+		<massaction name="listing_massaction">
+            <action name="massDelete">
+                <settings>
+                    <url path="transfer/methods/massDelete"/> 
+                    <type>massDelete</type>
+                    <label translate="true">Delete</label>
+                </settings>
+            </action>
+        </massaction>
+	</listingToolbar>
+    <columns name="transfer_methods_grid_columns">
+		<!-- <settings>
+			<editorConfig>
+				<param name="selectProvider" xsi:type="string">transfer_methods_grid.transfer_methods_grid.transfer_methods_grid_columns.ids</param>
+				<param name="enabled" xsi:type="boolean">true</param>
+				<param name="indexField" xsi:type="string">sell_id</param>
+				<param name="clientConfig" xsi:type="array">
+					<item name="saveUrl" path="*/sell/inlineEdit" xsi:type="url"/>
+					<item name="validateBeforeSave" xsi:type="boolean">false</item>
+				</param>
+			</editorConfig>
+			<childDefaults>
+				<param name="fieldAction" xsi:type="array">
+					<item name="provider" xsi:type="string">transfer_methods_grid.transfer_methods_grid.transfer_methods_grid_columns_editor</item>
+					<item name="target" xsi:type="string">startEdit</item>
+					<item name="params" xsi:type="array">
+						<item name="0" xsi:type="string">${ $.$data.rowIndex }</item>
+						<item name="1" xsi:type="boolean">true</item>
+					</item>
+				</param>
+			</childDefaults>
+		</settings> -->
+		<selectionsColumn name="ids">
+			<settings>
+				<indexField>method_id</indexField>
+			</settings>
+		</selectionsColumn>
+		<column name="method_id">
+			<settings>
+				<filter>textRange</filter>
+				<sorting>asc</sorting>
+				<label translate="true">ID</label>				
+			</settings>
+		</column>
+		
+		<column name="bank_name">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">Bank Name</label>
+				<editor>
+					<editorType>text</editorType>
+					<validation>
+						<rule name="required-entry" xsi:type="boolean">true</rule>
+					</validation>
+				</editor>
+			</settings>
+		</column>
+
+		<column name="account_name">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">Account Name</label>
+				<editor>
+					<editorType>text</editorType>
+					<validation>
+						<rule name="required-entry" xsi:type="boolean">true</rule>
+					</validation>
+				</editor>
+			</settings>
+		</column>
+
+		<column name="account_no">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">Account No</label>
+				<editor>
+					<editorType>text</editorType>
+					<validation>
+						<rule name="required-entry" xsi:type="boolean">true</rule>
+					</validation>
+				</editor>
+			</settings>
+		</column>
+
+		<column name="swift_code">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">Swift Code</label>
+				<editor>
+					<editorType>text</editorType>
+					<validation>
+						<rule name="required-entry" xsi:type="boolean">true</rule>
+					</validation>
+				</editor>
+			</settings>
+		</column>
+
+		<column name="country" component="Magento_Ui/js/grid/columns/select">
+			<settings>
+				<filter>select</filter>
+				<dataType>select</dataType>
+				<options class="Magneto\TransferMethods\Model\Config\Source\Country"/>
+				<label translate="true">Country</label>
+				<editor>
+					<editorType>select</editorType>
+					<validation>
+						<rule name="required-entry" xsi:type="boolean">true</rule>
+					</validation>
+				</editor>
+			</settings>
+		</column>
+
+		<!-- <column name="customer_id" class="Magneto\TransferMethods\Ui\Component\Listing\Column\CustomerName">
+			<settings>
+				<label translate="true">Customer Name</label>
+			</settings>
+		</column> -->
+
+		<column name="created_at" class="Magento\Ui\Component\Listing\Columns\Date">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="filter" xsi:type="string">dateRange</item>
+					<item name="component" xsi:type="string">Magento_Ui/js/grid/columns/date</item>
+					<item name="dataType" xsi:type="string">date</item>
+					<item name="label" xsi:type="string" translate="true">Created At</item>
+					<item name="sortOrder" xsi:type="number">60</item>
+				</item>
+			</argument>
+		</column>
+
+		<column name="updated_at" class="Magento\Ui\Component\Listing\Columns\Date">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="filter" xsi:type="string">dateRange</item>
+					<item name="component" xsi:type="string">Magento_Ui/js/grid/columns/date</item>
+					<item name="dataType" xsi:type="string">date</item>
+					<item name="label" xsi:type="string" translate="true">Modified At</item>
+					<item name="sortOrder" xsi:type="number">70</item>
+				</item>
+			</argument>
+		</column>
+
+		<actionsColumn class="Magneto\TransferMethods\Ui\Component\Listing\Column\Actions" name="actions">
+			<settings>
+				<indexField>method_id</indexField>
+				<resizeEnabled>false</resizeEnabled>
+				<resizeDefaultWidth>107</resizeDefaultWidth>
+			</settings>
+		</actionsColumn>
+	</columns>
+</listing>

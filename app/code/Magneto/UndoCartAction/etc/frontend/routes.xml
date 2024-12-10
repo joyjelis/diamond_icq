@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * @author Magneto Team
+ * @copyright Copyright (c) 2021 Magneto (https://www.magnetoitsolutions.com)
+ * @package Magneto_UndoCartAction
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
+    <router id="standard">
+        <route id="restoreitem" frontName="restoreitem">
+            <module name="Magneto_UndoCartAction" />
+        </route>
+    </router>
+</config>

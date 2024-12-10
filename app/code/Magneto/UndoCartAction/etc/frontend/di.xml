@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * @author Magneto Team
+ * @copyright Copyright (c) 2021 Magneto (https://www.magnetoitsolutions.com)
+ * @package Magneto_UndoCartAction
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+	<virtualType name="Magneto\UndoCartAction\Model\Session\Storage" type="Magento\Framework\Session\Storage">
+        <arguments>
+            <argument name="namespace" xsi:type="string">undocart</argument>
+        </arguments>
+    </virtualType>
+
+	<type name="Magneto\UndoCartAction\Model\Session">
+		<arguments>
+			<argument name="storage" xsi:type="object">Magneto\UndoCartAction\Model\Session\Storage</argument>
+		</arguments>
+	</type>
+
+	<type name="Magento\Quote\Model\Quote">
+		<plugin name="undo_cart_action" type="Magneto\UndoCartAction\Plugin\SaveItem" />
+	</type>
+
+</config>

@@ -1,0 +1,168 @@
+<div class="title"><?php echo __('Product Details'); ?></div>
+<div class="intro-field">
+   <div class="accordian4">
+      <div class="metal-type prdctdrpdwn">
+         <div class="img"> <img src="<?php echo $this->getViewFileUrl('images/Ellipse15.svg'); ?>" alt="metal-type"> </div>
+         <span class="title">Metal Type</span>
+        
+         <div class="rightactive">
+            <div class="content">14K Rose Gold</div>
+         </div>
+      </div>
+   </div>
+   <div class="panel">
+      <div class="filter swatches metaltype">
+      	<div class="main customized">
+      		<div class="left">
+            <div class="one">
+               <div class="option" >14K</div>
+               <label>white Gold</label>
+            </div>
+            <div class="one se">
+               <div class="option" >14K</div>
+               <label>RoseGold</label>
+            </div>
+        	</div>
+            <div class="customise-metal"><a href="">Customize Metal</a></div>
+            
+         </div>
+         <div class="main">
+            <div class="one rose">
+               <div class="option" >14K</div>
+               <label>RoseGold</label>
+            </div>
+            <div class="one ">
+               <div class="option">14K</div>
+               <label>WhiteGold</label>
+            </div>
+            <div class="one yellow">
+               <div class="option">14K</div>
+               <label>YellowGold</label>
+            </div>
+            <div class="one rose">
+               <div class="option">18K</div>
+               <label>RoseGold</label>
+            </div>
+            <div class="one ">
+               <div class="option">18K</div>
+               <label>WhiteGold</label>
+            </div>
+            <div class="one yellow">
+               <div class="option">18K</div>
+               <label>YellowGold</label>
+            </div>
+            <div class="one ">
+               <div class="option">PL</div>
+               <label>Platinum</label>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="accordian4">
+      <div class="ring-size prdctdrpdwn">
+         <div class="img"><img src="<?php echo $this->getViewFileUrl('images/rings.svg'); ?>" alt="ring"></div>
+         <span class="title">Select Ring Size</span>
+     
+         <div class="rightactive">
+            <div class="content">5</div>
+         </div>
+      </div>
+   </div>
+   <div class="panel">
+      <div class="filter swatches ring_size">
+         <div class="main">
+            <div class="one">
+               <div class="option">4</div>
+            </div>
+             <div class="one">
+               <div class="option">4.5</div>
+            </div>
+            <div class="one">
+               <div class="option">5</div>
+            </div>
+             <div class="one">
+               <div class="option">5.5</div>
+            </div>
+            <div class="one">
+               <div class="option">6</div>
+            </div>
+             <div class="one">
+               <div class="option">6.5</div>
+            </div>
+            <div class="one">
+               <div class="option">7</div>
+            </div>
+             <div class="one">
+               <div class="option">8</div>
+            </div>
+         </div>
+         <div class="ring-detailsextra">
+         	<div class="fullclass">
+         		<div class="left">
+         			<div class="image"><img src="<?php echo $this->getViewFileUrl('images/diamond-ring.svg'); ?>" alt="diamond-ring"></div>
+         			<div class="p">This Ring cannot be resized.</div>
+         		</div>
+         		<div class="right">
+         			<div class="help">
+         				<a href="">Ring Size Help?</a>
+         			</div>
+         		</div>
+         	</div>
+         </div>
+      	</div>
+  	 </div>
+  	 <div class="accordian4">
+      <div class="ring-size prdctdrpdwn">
+         <div class="img"><img src="<?php echo $this->getViewFileUrl('images/quantity-limits.svg'); ?>" alt="quantity"></div>
+         <span class="title">Qty</span>
+     
+         <div class="rightactive">
+            <div class="content">1</div>
+         </div>
+      </div>
+   </div>
+   <div class="panel">
+      <div class="filter swatches ring_size">
+         <div class="main">
+         	<div class="qtysec">
+         		<p>Type Required Quantity</p><input type="number" name="" value="1">
+         	</div>
+         </div>
+       </div>
+    </div>
+    	 <div class="accordian4">
+      <div class="ring-size prdctdrpdwn">
+         <div class="img"><img src="<?php echo $this->getViewFileUrl('images/carbon_information.svg'); ?>" alt="carbon_information"></div>
+         <span class="title">By Order</span>
+     
+      </div>
+   </div>
+   <div class="panel">
+      <div class="filter swatches ring_size">
+         <div class="main">
+         	<div class="ordersec">
+         		<input type="checkbox" name="">
+         		<p>Made to measure takes 21 Days to proceed.</p>
+         	</div>
+         </div>
+       </div>
+    </div>
+ </div>
+
+ <script>
+   var acc = document.getElementsByClassName("accordian4");
+   var i;
+
+   for (i = 0; i < acc.length; i++) {
+     acc[i].addEventListener("click", function() {
+       this.classList.toggle("active");
+       var panel = this.nextElementSibling;
+       if (panel.style.display === "block") {
+         panel.style.display = "none";
+      } else {
+         panel.style.display = "block";
+      }
+   });
+  }
+</script>

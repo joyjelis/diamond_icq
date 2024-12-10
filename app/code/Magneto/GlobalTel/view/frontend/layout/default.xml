@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <script src="Magneto_GlobalTel::js/gtel.js"/>
+    </head>    
+    <body>
+        <referenceBlock name="head.additional">
+            <block class="Magento\Framework\View\Element\Template" name="globaltel" template="Magneto_GlobalTel::globaltel.phtml">
+                <arguments>
+                    <argument name="global_tel_helper" xsi:type="object">Magneto\GlobalTel\ViewModel\GlobalTelHelper</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+    </body>
+</page>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <virtualType name="Travash\Categories\ReferenceVideoUpload" type="Travash\Categories\Model\VideoUploader">
+    <arguments>
+        <argument name="baseTmpPath" xsi:type="string">categories/tmp/video</argument>
+        <argument name="basePath" xsi:type="string">categories/video</argument>
+        <argument name="allowedExtensions" xsi:type="array">
+            <item name="mp4" xsi:type="string">mp4</item>
+        </argument>
+        <argument name="allowedMimeTypes" xsi:type="array">
+            <item name="mp4" xsi:type="string">video/mp4</item>
+        </argument> 
+    </arguments>
+</virtualType>
+ 
+<type name="Travash\Categories\Controller\Adminhtml\Category\CategoryVideo\Upload">
+    <arguments>
+        <argument name="imageUploader" xsi:type="object">Travash\Categories\ReferenceVideoUpload</argument>
+    </arguments>
+</type>
+</config>

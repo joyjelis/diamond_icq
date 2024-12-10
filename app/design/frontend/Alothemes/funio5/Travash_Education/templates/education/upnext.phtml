@@ -1,0 +1,147 @@
+<?php
+     $_categoryId = $parentCatIfd = $this->getRequest()->getParam("cat");
+     $edu = $this->getRequest()->getParam("edu");
+    $educations = $this->getNextEducationsByCategoryId($edu, $_categoryId);
+    $selector     = 'alo-content-'.uniqid();
+?>
+<style type="text/css">
+.slick-slide {
+    margin: 0 15px;
+}
+/* the parent */
+.slick-list {
+    margin: 0 -15px;
+}
+.slick-track {
+    margin-left:0;
+}
+.education-bottom-list-wrap .product-items .product-item{float:left; width:20%;margin-right:0px} .education-bottom-list-wrap .product-item:nth-child(n+6){display: none}</style>
+<div class="container mb-4">
+    <div class="education-bottom-list-wrap mb-4">
+        <?php if (count($educations) > 1): ?>
+        <h1 class="title">
+            <?php echo __("UP NEXT") ?>
+        </h1>
+        <?php endif; ?>
+        <div class="<?php echo $selector ?>" data-mage-init='{"gridSlider": {}}'>
+            <ul class="product-items">
+            <?php
+            $i=0;
+            foreach ($educations as $id => $education):
+                if ($i == 0 && $edu == '') {
+                    $i++;
+                    continue;
+                }
+                ?>
+                    <?php $eduUrl = $education->getUrlKey(); ?>
+                    <?php
+                    if (!($_categoryId > 0)) {
+                        $_categoryId = $education->getEducationCatId();
+                    }
+                    $categoryInfo = $this->getCategoryInfo($_categoryId);
+                    $catUrlkey = $categoryInfo->getUrlKey();
+                        
+                    ?>
+                <li class="product-item">
+                <div class="product-item-photo" style="max-height:130px;height:130px">
+                    <?php
+                    if (!empty($education->getFeaturedImg())): ?>
+                        <a href="<?php echo !empty($eduUrl) ? $this->getUrl() ."education/" . $catUrlkey . "/" . $eduUrl : $this->getUrl() ."/education/cat/" . $_categoryId . "/edu/" . $education->getId() ; ?>">
+                            <img style="width:240px;" src="<?php echo $this->getEducationImage($education->getFeaturedImg());?>"/>
+                        </a>
+                    <?php else: ?> 
+                        <a href="<?php echo !empty($eduUrl) ? $this->getUrl() ."education/" . $catUrlkey . "/" . $eduUrl : $this->getUrl() ."/education/cat/" . $_categoryId . "/edu/" . $education->getId() ; ?>">
+                            <img src="http://via.placeholder.com/240x130"/>
+                        </a>
+                        <?php endif ?>  
+                    </div>
+                    <div class="product-item-details">
+                        <a href="<?php echo !empty($eduUrl) ? $this->getUrl() ."education/" . $catUrlkey . "/" . $eduUrl : $this->getUrl() ."/education/cat/" . $_categoryId . "/edu/" . $education->getId() ; ?>">
+                            <strong><?php echo $education->getTitle();?></strong>
+                        </a>
+                    </div>
+                </li>
+                <?php endforeach; ?>
+            </ul>
+        </div>   
+    </div>   
+</div>
+
+<script type="text/javascript">
+    require(['jquery', 'slick'], function($, slick){
+        $('.product-items').slick({
+                    dots: false,
+                    arrows: true,
+                    infinite: false,
+                    speed: 300,
+                    slidesToShow: 6,
+                    slidesToScroll: 1,
+                    responsive: [
+                        {
+                            breakpoint: 1280,
+                            settings: {
+                                slidesToShow: 6,
+                                slidesToScroll: 6
+                            }
+                        },
+                        {
+                            breakpoint: 1024,
+                            settings: {
+                                slidesToShow: 3,
+                                slidesToScroll: 3
+                            }
+                        },
+                        {
+                            breakpoint: 768,
+                            settings: {
+                                slidesToShow: 4,
+                                slidesToScroll: 4
+                            }
+                        },
+                        {
+                            breakpoint: 767,
+                            settings: {
+                                slidesToShow: 4,
+                                slidesToScroll: 4
+                            }
+                        },
+                        {
+                            breakpoint: 640,
+                            settings: {
+                                slidesToShow: 2,
+                                slidesToScroll: 2
+                            }
+                        },
+                        {
+                            breakpoint: 480,
+                            settings: {
+                                slidesToShow: 2.3,
+                                slidesToScroll: 1
+                            }
+                        },
+                        {
+                            breakpoint: 360,
+                            settings: {
+                                slidesToShow: 2.3,
+                                slidesToScroll: 1
+                            }
+                        },
+                        {
+                            breakpoint: 320,
+                            settings: {
+                                slidesToShow: 2.3,
+                                slidesToScroll: 1
+                            }
+                        },
+                        {
+                            breakpoint: 315,
+                            settings: {
+                                slidesToShow: 1.2,
+                                slidesToScroll: 1
+                            }
+                        }
+                    ]
+                });
+    });
+</script>
+

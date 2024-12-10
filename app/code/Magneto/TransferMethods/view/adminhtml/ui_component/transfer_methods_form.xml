@@ -1,0 +1,154 @@
+<?xml version="1.0" ?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+	<argument name="data" xsi:type="array">
+		<item name="js_config" xsi:type="array">
+			<item name="provider" xsi:type="string">transfer_methods_form.transfer_methods_form_data_source</item>
+		</item>
+		<item name="label" translate="true" xsi:type="string">General Information</item>
+		<item name="template" xsi:type="string">templates/form/collapsible</item>
+	</argument>
+
+	<settings>
+		<buttons>
+			<button class="Magneto\TransferMethods\Block\Adminhtml\Method\Edit\BackButton" name="back"/>
+			<button class="Magneto\TransferMethods\Block\Adminhtml\Method\Edit\DeleteButton" name="delete"/>
+			<button class="Magneto\TransferMethods\Block\Adminhtml\Method\Edit\SaveButton" name="save"/>
+			<button class="Magneto\TransferMethods\Block\Adminhtml\Method\Edit\SaveAndContinueButton" name="save_and_continue"/>
+		</buttons>
+		<namespace>transfer_methods_form</namespace>
+		<dataScope>data</dataScope>
+		<deps>
+			<dep>transfer_methods_form.transfer_methods_form_data_source</dep>
+		</deps>
+	</settings>
+	<dataSource name="transfer_methods_form_data_source">
+		<argument name="data" xsi:type="array">
+			<item name="js_config" xsi:type="array">
+				<item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+			</item>
+		</argument>
+		<settings>
+			<submitUrl path="*/*/save"/>
+		</settings>
+		<dataProvider class="Magneto\TransferMethods\Model\DataProvider" name="transfer_methods_form_data_source">
+			<settings>
+				<requestFieldName>method_id</requestFieldName>
+				<primaryFieldName>method_id</primaryFieldName>
+			</settings>
+		</dataProvider>
+	</dataSource>
+
+	<fieldset name="general">
+		<argument name="data" xsi:type="array">
+			<item name="config" xsi:type="array">
+				<item name="collapsible" xsi:type="boolean">true</item>
+				<item name="opened" xsi:type="boolean">true</item>
+				<item name="label" xsi:type="string" translate="true">General</item>
+			</item>
+		</argument>
+
+		<field name="is_primary" component="Magento_Ui/js/form/element/single-checkbox-toggle-notice" formElement="checkbox">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="default" xsi:type="number">0</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>boolean</dataType>
+				<label translate="true">Is Primary</label>
+			</settings>
+			<formElements>
+				<checkbox>
+					<settings>
+						<valueMap>
+							<map name="false" xsi:type="number">0</map>
+							<map name="true" xsi:type="number">1</map>
+						</valueMap>
+						<prefer>toggle</prefer>
+					</settings>
+				</checkbox>
+			</formElements>
+		</field>
+
+		<field formElement="input" name="bank_name" sortOrder="10">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">methods</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>text</dataType>
+				<label translate="true">Bank Name</label>
+				<dataScope>bank_name</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">false</rule>
+				</validation>
+			</settings>
+		</field>
+
+		<field formElement="input" name="account_name" sortOrder="20">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">methods</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>text</dataType>
+				<label translate="true">Account Name</label>
+				<dataScope>account_name</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">true</rule>
+				</validation>
+			</settings>
+		</field>
+
+		<field formElement="input" name="account_no" sortOrder="30">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">methods</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>text</dataType>
+				<label translate="true">Account No</label>
+				<dataScope>account_no</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">true</rule>
+				</validation>
+			</settings>
+		</field>
+
+		<field formElement="input" name="swift_code" sortOrder="40">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">methods</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>text</dataType>
+				<label translate="true">Swift Code</label>
+				<dataScope>swift_code</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">true</rule>
+				</validation>
+			</settings>
+		</field>
+
+		<field formElement="select" name="country" sortOrder="50">
+			<argument name="data" xsi:type="array">
+				<item name="options" xsi:type="object">Magento\Directory\Model\Config\Source\Country</item>
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">methods</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>text</dataType>
+				<label translate="true">Country</label>
+				<dataScope>country</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">true</rule>
+				</validation>
+			</settings>
+		</field>
+	</fieldset>
+</form>

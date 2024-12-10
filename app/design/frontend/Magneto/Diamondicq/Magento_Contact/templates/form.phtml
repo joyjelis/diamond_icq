@@ -1,0 +1,229 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// phpcs:disable Magento2.Templates.ThisInTemplate
+// phpcs:disable Generic.Files.LineLength.TooLong
+
+/** @var \Magento\Contact\Block\ContactForm $block */
+/** @var \Magento\Contact\ViewModel\UserDataProvider $viewModel */
+
+$viewModel = $block->getViewModel();
+?>
+<div class="breadcrumbs">
+    <ul class="items">
+        <li class="item"><a href="<?php echo $block->getBaseUrl()?>"><?php /* @escapeNotVerified */ echo __('Home') ?></a></li>
+        <li class="item"><strong><?php /* @escapeNotVerified */ echo __('Contact Us') ?></strong></li>
+    </ul>
+</div>
+<div class="dcontact-main">
+    <div class="container">
+        <div class="col-md-3 dcontact-left">
+            <?php echo $block->getLayout()->createBlock(\Magento\Cms\Block\Block::class)->setBlockId('contact-us-information-section')->toHtml();?>
+        </div>
+        <div class="col-md-3 dcontact-right">
+            <div class="dcontact-subcontainer">
+                <div class="insidebody">
+                    <h2 class="dcontact-sectiontitle"><?php /* @escapeNotVerified */ echo __('Send a message') ?></h2>
+                    <span class="dcontact-tagline">
+                        <?php /* @escapeNotVerified */ echo __('Let us know how we can assist you.') ?>
+                    </span>
+                    <form class="form contact"
+                          action="<?= $block->escapeUrl($block->getFormAction()) ?>"
+                          id="contact-form"
+                          method="post"
+                          data-hasrequired="<?= $block->escapeHtmlAttr(__('* Required Fields')) ?>"
+                          data-mage-init='{"validation":{}}'>
+                        <fieldset class="fieldset">
+                            <div class="field name required placeholder1">
+                                    <input name="name"
+                                           id="name"
+                                           title="<?= $block->escapeHtmlAttr(__('First Name')) ?>"
+                                           value="<?= $block->escapeHtmlAttr($viewModel->getFirstName()) ?>"
+                                           class="input-text"
+                                           type="text"
+                                           data-validate="{required:true}" required/>
+                                <label class="floating-label1 label" for="name"><span><?= $block->escapeHtml(__('First Name')) ?></span></label>
+                            </div>
+                            <div class="field last_name required placeholder1">
+                                    <input name="lastname"
+                                           id="lastname"
+                                           title="<?= $block->escapeHtmlAttr(__('Last Name')) ?>"
+                                           value="<?= $block->escapeHtmlAttr($viewModel->getLastName())?>"
+                                           class="input-text"
+                                           type="text"
+                                           data-validate="{required:true}" required/>
+                                <label class="floating-label1 label" for="name"><span><?= $block->escapeHtml(__('Last Name')) ?></span></label>
+                            </div>
+                            <div class="field email required placeholder1">
+                                    <input name="email"
+                                           id="email"
+                                           title="<?= $block->escapeHtmlAttr(__('Email Address')) ?>"
+                                           value="<?= $block->escapeHtmlAttr($viewModel->getUserEmail()) ?>"
+                                           class="input-text"
+                                           type="email"
+                                           data-validate="{required:true, 'validate-email':true}" required/>
+                                <label class="floating-label1 label" for="email"><span><?= $block->escapeHtml(__('Email Address')) ?></span></label>
+                            </div>
+                            <div class="field telephone placeholder1">
+                                    <input name="telephone"
+                                           id="telephone"
+                                           placeholder="<?= $block->escapeHtmlAttr(__('Mobile No.')) ?>"
+                                           title="<?= $block->escapeHtmlAttr(__('Phone Number')) ?>"
+                                           class="input-text"
+                                           type="tel" required/>
+                                <!-- <label class="label floating-label2" for="telephone"><span><?= $block->escapeHtml(__('Phone Number')) ?></span></label> -->
+                            </div>
+                            <div class="field comment required placeholder1">
+                                    <input name="comment"
+                                            type="text"
+                                              id="comment"
+                                              title="<?= $block->escapeHtmlAttr(__('Message')) ?>"
+                                              class="input-text"
+                                              data-validate="{required:true}" required><?= $block->escapeHtml($viewModel->getUserComment()) ?></input>
+                                    <label class="floating-label1 label" for="comment">
+                                        <span><?= $block->escapeHtml(__('Message')) ?></span>
+                                    </label>
+                            </div>
+                            <div class="field custom-label is_agree">
+                                     <div class="hear-diamond">
+                                           <input type="checkbox" class="checkbox" id="is_agree" name="is_agree" value="1">
+                                           <label for="is_agree"><span><?php /* @escapeNotVerified */ echo __('I wish to receive news on my email') ?></span></label>
+                                      </div>
+                                </div>
+                                <div class="field custom-label hear-about">
+                                    <label class="servise-head"><?php /* @escapeNotVerified */ echo __('How did you hear about us?') ?></label>
+                                    <div class="hear-diamond">
+                                        <input type="checkbox" class="hcheckbox" name="hear[]" id="hear1" value="<?php /* @escapeNotVerified */ echo __('Social Network (Facebook/Twitter/IG etc.)') ?>">
+                                        <label for="hear1"><span><?php /* @escapeNotVerified */ echo __('Social media (Facebook/Twitter/IG etc.)') ?></span></label>
+                                    </div>
+                                    <div class="hear-diamond">
+                                        <input type="checkbox" class="hcheckbox" name="hear[]" id="hear2" value="<?php /* @escapeNotVerified */ echo __('Search (Google/Yahoo/Wechat etc.)') ?>">
+                                        <label for="hear2"><span><?php /* @escapeNotVerified */ echo __('Search engine (Google/Yahoo/Wechat etc.)') ?></span></label>
+                                    </div>
+                                    <div class="hear-diamond">
+                                        <input type="checkbox" class="hcheckbox" name="hear[]" id="hear3" value="<?php /* @escapeNotVerified */ echo __('From a friend') ?>">
+                                        <label for="hear3"><span><?php /* @escapeNotVerified */ echo __('From a friend') ?></span></label>
+                                    </div>
+                                    <div class="hear-diamond">
+                                        <input type="checkbox" class="hcheckbox" name="hear[]" id="hear4" value="<?php /* @escapeNotVerified */ echo __('Other') ?>">
+                                        <label for="hear4"><span><?php /* @escapeNotVerified */ echo __('Other') ?></span></label>
+                                    </div>
+                                </div>
+                            <?= $block->getChildHtml('form.additional.info') ?>
+                        </fieldset>
+                        <div class="actions-toolbar">
+                            <div class="primary">
+                                <input type="hidden" name="hideit" id="hideit" value="" />
+                                <button type="submit" title="<?= $block->escapeHtmlAttr(__('Send')) ?>" class="action submit primary">
+                                    <span><?= $block->escapeHtml(__('Send')) ?></span>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- <form class="form contact" action="<?= $this->getUrl('contact/index/post') ?>" id="contact-form" method="post" data-hasrequired="<?php /* @escapeNotVerified */ echo __('* Required Fields') ?>" data-mage-init='{"validation":{}}'>
+                      <input type="hidden" name="formid" value="contact-form">
+                        <fieldset class="fieldset">
+                            <div class="fields">
+                                <div class="field name required">
+                                    <label class="label" for="name"><span><?= $block->escapeHtml(__('Name')) ?></span></label>
+                                    <div class="control">
+                                        <input name="name"
+                                               id="name"
+                                               title="<?= $block->escapeHtmlAttr(__('Name')) ?>"
+                                               value="<?= $block->escapeHtmlAttr($viewModel->getUserName()) ?>"
+                                               class="input-text"
+                                               type="text"
+                                               data-validate="{required:true}"/>
+                                    </div>
+                                </div>
+                                <div class="field email required">
+                                    <label class="label" for="email"><span><?= $block->escapeHtml(__('Email')) ?></span></label>
+                                    <div class="control">
+                                        <input name="email"
+                                               id="email"
+                                               title="<?= $block->escapeHtmlAttr(__('Email')) ?>"
+                                               value="<?= $block->escapeHtmlAttr($viewModel->getUserEmail()) ?>"
+                                               class="input-text"
+                                               type="email"
+                                               data-validate="{required:true, 'validate-email':true}"/>
+                                    </div>
+                                </div>
+                                <div class="field telephone">
+                                    <label class="label" for="telephone"><span><?= $block->escapeHtml(__('Phone Number')) ?></span></label>
+                                    <div class="control">
+                                        <input name="telephone"
+                                               id="telephone"
+                                               title="<?= $block->escapeHtmlAttr(__('Phone Number')) ?>"
+                                               value="<?= $block->escapeHtmlAttr($viewModel->getUserTelephone()) ?>"
+                                               class="input-text"
+                                               type="tel" />
+                                    </div>
+                                </div>
+                                <div class="field comment required">
+                                    <label class="label" for="comment">
+                                        <span><?= $block->escapeHtml(__('What’s on your mind?')) ?></span>
+                                    </label>
+                                    <div class="control">
+                                        <textarea name="comment"
+                                                  id="comment"
+                                                  title="<?= $block->escapeHtmlAttr(__('What’s on your mind?')) ?>"
+                                                  class="input-text"
+                                                  cols="5"
+                                                  rows="3"
+                                                  data-validate="{required:true}"
+                                        ><?= $block->escapeHtml($viewModel->getUserComment()) ?></textarea>
+                                    </div>
+                                </div>
+                                 <div class="field custom-label is_agree">
+                                     <div class="hear-diamond">
+                                           <input type="checkbox" class="checkbox" id="is_agree" name="is_agree" value="1">
+                                            <span><?php /* @escapeNotVerified */ echo __('I wish to receive news on my email') ?></span>
+                                      </div>
+                                </div>
+                                <div class="field custom-label">
+                                    <label class="servise-head"><?php /* @escapeNotVerified */ echo __('How did you hear about us?') ?></label>
+                                    <div class="hear-diamond">
+                                        <input type="checkbox" class="hcheckbox" name="" value="<?php /* @escapeNotVerified */ echo __('Social Network (Facebook/Twitter/IG etc.)') ?>">
+                                        <span><?php /* @escapeNotVerified */ echo __('Social media (Facebook/Twitter/IG etc.)') ?></span>
+                                    </div>
+                                    <div class="hear-diamond">
+                                        <input type="checkbox" class="hcheckbox" name="" value="<?php /* @escapeNotVerified */ echo __('Search (Google/Yahoo/Wechat etc.)') ?>">
+                                        <span><?php /* @escapeNotVerified */ echo __('Search engine (Google/Yahoo/Wechat etc.)') ?></span>
+                                    </div>
+                                    <div class="hear-diamond">
+                                        <input type="checkbox" class="hcheckbox" name="" value="<?php /* @escapeNotVerified */ echo __('From a friend') ?>">
+                                        <span><?php /* @escapeNotVerified */ echo __('From a friend') ?></span>
+                                    </div>
+                                    <div class="hear-diamond">
+                                        <input type="checkbox" class="hcheckbox" name="" value="<?php /* @escapeNotVerified */ echo __('Other') ?>">
+                                        <span><?php /* @escapeNotVerified */ echo __('Other') ?></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <div class="actions-toolbar">
+                            <div class="primary">
+                                <input type="hidden" name="hideit" id="hideit" value="" />
+                                <button type="submit" title="<?= $block->escapeHtmlAttr(__('Submit')) ?>" class="action submit primary">
+                                    <span><?= $block->escapeHtml(__('Submit')) ?></span>
+                                </button>
+                            </div>
+                        </div>
+                    </form> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Customer/js/block-submit-on-send": {
+                "formId": "contact-form"
+            }
+        }
+    }
+</script>

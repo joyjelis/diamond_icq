@@ -1,0 +1,89 @@
+<div class="status-details insp-fail">
+    <fieldset class='shipping-details'>
+        <div id="pickup_address">
+            <address id="returnshippingaddress">
+            <?php if ($address = $block->getAddress()): ?>
+                <?= $address ?>
+            <?php endif; ?>
+            </address>
+        </div>
+        <div class="field choice" id="return-shipping-div">
+                <input type="checkbox" name="return_shpping" id="return-shipping" value="<?php echo  !empty($block->getAddress()) ? '1' : ''; ?>" 
+                <?= !empty($block->getAddress()) ? 'checked' : ''; ?>>
+                <label class="label" for="return-shipping"><span><?= __("Use above address for return shipping")?></span></label>
+        </div>
+        <div class="field ship_address required hidden" id="m2-component" data-bind="scope:'m2kocomponent'" 
+        <?= !empty($block->getAddress()) ? 'style="display:none;"' : ''; ?>>
+        
+            <!-- ko template: getTemplate() --><!-- /ko -->
+            <script type="text/x-magento-init">
+                {
+                    "#m2-component": {
+                        "Magento_Ui/js/core/app": {
+                           "components": {
+                            "m2kocomponent": {
+                                "component": "Customer_Sell/js/addresspopup",
+                                "template" : "Customer_Sell/addresspopup",
+                                "country_html": "<?php echo base64_encode($block->getCountries()); ?>",
+                                "region_html": "<?php echo base64_encode($block->getRegion()); ?>",
+                                "country_url": "<?php echo $block->getCountryUrl(); ?>",
+                                "save_url": "<?php echo $block->getAddressSave(); ?>",
+                                "error_msg": "<?php echo __("This is a required field.") ?>",
+                                "sell_data": <?= $block->getJsConfig(); ?>
+                            }
+                        }
+                    }
+                }
+            }
+        </script>
+    </div>
+
+    <div class="actions-toolbar">
+        <div class="primary">
+            <button 
+            type="submit" 
+            title="<?= $block->escapeHtml(__('Pay Online')) ?>" 
+            class="action submit payonline primary">
+            <span><?= $block->escapeHtml(__('Pay Online')) ?></span>
+        </button>
+    </div>
+</div>
+</fieldset>
+</div>
+<script>
+    require(['jquery', 'jquery/ui'], function($) {
+        jQuery(document).ready(function() {
+            var returnshipping = $('#return-shipping').val();
+            if(returnshipping == ""){
+                $('.field.ship_address.required').show();
+            }
+            
+            $('#return-shipping').change(function(){
+                if($(this).is(":checked")){
+                    $('.field.ship_address.required').hide();
+                    $('#return-shipping').val(returnshipping);
+                }else{
+                    returnshipping = $('#return-shipping').val();
+                    $('#return-shipping').val('');
+                    $('.field.ship_address.required').show();
+                }
+            });
+
+            $("#sell-form").submit(function(){
+                $('#pickup_error').remove();
+                var returnshipping = $('#return-shipping').val();
+                var error_msg = "<?php echo __("Please add return shipping address") ?>"
+                if(returnshipping == ""){
+                    $('#return-shipping-div').after('<div generated="true" id="pickup_error" style="display: block;font-size: .8rem;line-height: 1.2rem;font-style: italic;color: red;">'+ error_msg +'</div>');
+                    if($('#ship-address').is(":checked")){
+                        $('#ship-address').click();
+                    }
+                    
+                    return false;
+                }
+
+                return true;
+            });
+        });
+    });
+</script>

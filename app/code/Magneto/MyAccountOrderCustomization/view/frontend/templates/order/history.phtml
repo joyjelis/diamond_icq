@@ -1,0 +1,87 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// phpcs:disable Magento2.Templates.ThisInTemplate
+// @codingStandardsIgnoreFile
+
+/** @var \Magento\Sales\Block\Order\History $block */
+?>
+<?php
+$_orders = $block->getOrders();
+$customOrderHelper = $this->helper("Magneto\MyAccountOrderCustomization\Helper\Data");
+?>
+<?= $block->getChildHtml('info') ?>
+<?php if ($_orders && count($_orders)) : ?>
+    <div class="table-wrapper orders-history">
+                <?php foreach ($_orders as $_order) : ?>
+                    <?php $allItems = $_order->getAllItems();?>
+                    <div class="order-history-block">
+                        <div class="order-history-summary">
+                            <div class="order-id" >
+                                <?= $block->escapeHtml(__('Order Id:')) ?>&nbsp;<?= $block->escapeHtml($_order->getRealOrderId()) ?>
+                            </div>
+                            <div class="order-view-details">
+                                <a href="<?= $block->escapeUrl($block->getViewUrl($_order)) ?>" class="action view">
+                                    <span><?= $block->escapeHtml(__('View Details')) ?></span>
+                                </a>
+                            </div>
+                            <br/>
+                            <div class="order-items-count-bill-amount" >
+                                (<?php echo count($allItems);?> <?= $block->escapeHtml(__('items')) ?>) <?= $block->escapeHtml(__('Bill Amount:')) ?><?= /* @noEscape */ $_order->formatPrice($_order->getGrandTotal()) ?>
+                            </div>
+                            <div class="order-date">
+                                <?= $block->formatDate($_order->getCreatedAt(),2);?>
+                            </div>
+                        </div>
+                        <div class="order-history-items">
+                            <?php foreach($allItems as $orderItem){
+
+                                $product = $orderItem->getProduct();
+                                $productName = $orderItem->getName();
+                                $quantityOrdered = $orderItem->getQtyOrdered()*1;
+                                $orderItemPrice = $_order->formatPrice($orderItem->getPrice());
+
+                                $itemStatusId = $orderItem->getStatusId();
+                                $itemStatusName =  $orderItem->getStatusName($itemStatusId);
+                                $currentOrderStatus = $orderItem->getStatus();
+
+                                if ($itemStatusId == 1 || $itemStatusId == 9 ) {
+                                    $currentOrderStatusColor = '#C4C4C4';
+                                } elseif ($itemStatusId == 2) {
+                                    $currentOrderStatusColor = '#008000';
+                                } elseif ($itemStatusId >= 4 && $itemStatusId <= 8) {
+                                    $currentOrderStatusColor = '#D5C1BA';
+                                }
+
+                                $imageUrl = $customOrderHelper->getProductImage($product->getId());
+                                $productUrl = $product->getProductUrl();
+                            ?>
+                            <div class="product-items">
+                                <div class="order-item-image"><a href="#" style="cursor: default" > <image src="<?=$imageUrl?>" alt="<?=$productName?>" /> </a></div>
+                                <div class="order-item-sub-details">
+                                    <div class="order-item-name"><a href="#" style="cursor: default" ><?=$productName?> </a></div>
+                                    <div class="order-item-desc">
+                                        <div class="order-item-price"><?=$orderItemPrice?></div>
+                                        <div class="order-item-qty"><?=__('Qty:');?> <?=$quantityOrdered?></div>
+                                        <div class="order-item-status">
+                                            <span class="order-item-status-color" style="background-color:<?php echo $currentOrderStatusColor;?>"></span>
+                                            <?=$currentOrderStatus?>
+                                        </div>
+                                    </div>
+                                    <div class="static-text"><span>(<?= $block->escapeHtml(__('Setting Price')) ?>)</span></div>
+                                </div>
+                            </div>
+                            <?php } ?>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+    </div>
+    <?php if ($block->getPagerHtml()) : ?>
+        <div class="order-products-toolbar toolbar bottom"><?= $block->getPagerHtml() ?></div>
+    <?php endif ?>
+<?php else : ?>
+    <div class="message info empty"><span><?= $block->escapeHtml($block->getEmptyOrdersMessage()) ?></span></div>
+<?php endif ?>

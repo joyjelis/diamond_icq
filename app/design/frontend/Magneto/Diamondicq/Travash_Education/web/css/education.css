@@ -1,0 +1,114 @@
+#education-sidebar .title,
+.education-list-wrap .title,
+.education-bottom-list-wrap .title
+ {
+  font-family: 'Italiana',serif;
+  margin-bottom: 2rem;
+  font-size: 40;
+}
+
+#education-sidebar .main-cat-list {
+  padding: 0;
+  margin: 0;
+}
+
+#education-sidebar .main-cat-list li {
+  padding-left: 10px;
+  margin-bottom: 2rem;
+  list-style: none;
+  border-left: 6px solid #ffffff;
+}
+
+#education-sidebar .main-cat-list li.active {
+  border-left: 6px solid #AD0010;
+}
+
+#education-sidebar .main-cat-list li:hover {
+  border-left: 6px solid #AD0010;
+}
+
+#education-sidebar .main-cat-list li a{
+  color: #BAB8B5;
+  font-family: 'Manrope';
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 142.02%;
+}
+
+#education-sidebar .main-cat-list li.active a{
+  color: #242424;
+}
+
+#education-sidebar .main-cat-list li:hover a{
+  color: #242424;
+}
+
+.education-list-wrap .main-subcat-list {
+  padding: 0;
+  margin: 0;
+} 
+
+.education-list-wrap .main-subcat-list li{
+  display: inline;
+  padding: 5px 10px;
+}
+.education-list-wrap .main-subcat-list li a{
+  color: rgba(36, 36, 36, 0.7);
+  font-family: 'Manrope';
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 173.02%;
+  padding: 5px 0px;
+}
+.education-list-wrap .main-subcat-list li:hover a,
+.education-list-wrap .main-subcat-list li.active a{
+  border-bottom: 2px solid #AD0010;
+}
+.education-list-wrap .available{
+  padding: 5rem 0;
+  background: #f2f2f2;
+  text-align: center;
+  margin-top: 5rem;
+}
+.education-content {
+  max-width: 535px;
+}
+
+.education-content strong{
+    font-weight: 700;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 770px) {
+  .page-layout-2columns-left .sidebar-main {
+    width: 30% !important;
+  }
+
+  .page-layout-2columns-left .column.main {
+    width: 70% !important;
+  }
+}
+
+@media (max-width: 767px) {  
+  .page-layout-2columns-left .sidebar-main {
+    width: 100% !important;
+    order: 0;
+  }
+
+  .page-layout-2columns-left .column.main {
+    width: 100% !important;
+    order: 3;
+  }
+}

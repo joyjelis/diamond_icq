@@ -1,0 +1,55 @@
+<?php
+    $_categoryId = $parentCatIfd = $this->getRequest()->getParam("cat");
+    $edu = $this->getRequest()->getParam("edu");
+    $educations = $this->getEducationsByCategoryId($edu, $_categoryId);
+
+?>
+<div class="container mb-4">
+    <div class="education-bottom-list-wrap mb-4">
+        <?php if (count($educations) > 1): ?>
+        <h1 class="title">
+            <?php echo __("UP NEXT") ?>
+        </h1>
+        <?php endif; ?>
+        <div class="d-flex flex-row mb-4">
+        <?php
+            $i=0;
+        foreach ($educations as $id => $education):
+            if ($i == 0) {
+                $i++;
+                continue;
+            }
+            ?>
+                <?php $eduUrl = $education->getUrlKey(); ?>
+                <?php
+                if (!($_categoryId > 0)) {
+                    $_categoryId = $education->getEducationCatId();
+                }
+                $categoryInfo = $this->getCategoryInfo($_categoryId);
+                $catUrlkey = $categoryInfo->getUrlKey();
+                     
+                ?>
+            <div class="p-2">
+                <div class="mb-2">
+                <?php
+                if (!empty($education->getFeaturedImg())): ?>
+                    <img style="width:240px" src="<?php echo $this->getEducationImage($education->getFeaturedImg());?>"/>
+                <?php else: ?> 
+                    <img src="http://via.placeholder.com/240x130"/>
+                    <?php endif ?>  
+                </div>
+                <?php
+                if (!empty($eduUrl)): ?>
+                    <a href="<?php echo $this->getUrl() ."/education/" . $catUrlkey . "/" . $eduUrl; ?>">
+                         <strong><?php echo $education->getTitle();?></strong>
+                    </a>
+                <?php else: ?>
+                    <a href="<?php echo $this->getUrl() ."/education/cat/" . $_categoryId . "/edu/" . $education->getId(); ?>">
+                         <strong><?php echo $education->getTitle();?></strong>
+                    </a>
+                <?php endif ?>
+            </div>
+            <?php endforeach; ?>
+        </div>
+    </div>   
+</div>

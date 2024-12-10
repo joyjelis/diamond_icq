@@ -1,0 +1,78 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var \Magento\Newsletter\Block\Subscribe $block */
+?>
+<div class="block newsletter newsletter-v2">
+    <div class="content">
+        <form class="form subscribe"
+            novalidate
+            action="<?= $block->escapeUrl($block->getFormActionUrl()) ?>"
+            method="post"
+            data-mage-init='{"validation": {"errorClass": "mage-error"}}'
+            id="newsletter-validate-detail">
+            <div class="field newsletter">
+                <div class="control">
+                    <label for="newsletter">
+                        <input name="email" type="email" id="newsletter"
+                               placeholder="<?= $block->escapeHtml(__('Enter your email address')) ?>"
+                               data-mage-init='{"mage/trim-input":{}}'
+                               data-validate="{required:true, 'validate-email':true}"
+                        />
+                    </label>
+                </div>
+            </div>
+            <div class="actions">
+                <button class="action subscribe primary"
+                        title="<?= $block->escapeHtmlAttr(__('Submit')) ?>"
+                        type="submit"
+                        aria-label="Subscribe">
+                    <span class="bold"><?= $block->escapeHtml(__('Submit')) ?></span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Customer/js/block-submit-on-send": {
+                "formId": "newsletter-validate-detail"
+            }
+        }
+    }
+</script>
+<style>
+        .bold {
+            font-family: "Sans Serif FLF Demibold";
+        }
+        .newslettermain-sec .rightsec {
+            float: none;
+            margin: auto;
+        }
+        @media only screen and (max-width: 767px) {
+            .newslettermain-sec .rightsec .block.newsletter .content .field.newsletter {
+                max-width: 100%;
+                float: none;
+            }
+            .newslettermain-sec .rightsec .block.newsletter .actions {
+                max-width: 100%;
+                float: none;
+            }
+        }
+        .newslettermain-sec .rightsec .block.newsletter-v2 .actions button.action.subscribe.primary {
+            background: #F8E0D6;
+            border-radius: 30px;
+            max-width: 200px;
+            min-height: 45px;
+            border-radius: 30px;
+            width: 100%;
+            margin-top: 30px;
+        }
+        .newslettermain-sec .rightsec .block.newsletter .content .field.newsletter input {
+            text-align: center;
+        }
+    </style>

@@ -1,0 +1,52 @@
+<?php
+
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/**
+ * @var $block \Magento\Sales\Block\Order\Totals
+ * @see \Magento\Sales\Block\Order\Totals
+ */
+?>
+<div class="block custom-order-totals">
+    <div class="new-div">
+          <div class="block-title">
+        <strong><?= /* @noEscape */ __("Price Details")?></strong>
+    </div>    
+<?php foreach ($block->getTotals() as $_code => $_total): ?>
+    <?php if ($_total->getBlockName()): ?>
+        <?= $block->getChildHtml($_total->getBlockName(), false) ?>
+    <?php else:?>
+    <div class="<?= $block->escapeHtmlAttr($_code) ?>">
+        <div <?= /* @noEscape */ $block->getLabelProperties() ?> scope="row">
+            <?php if ($_total->getStrong()): ?>
+                <strong><?= $block->escapeHtml($_total->getLabel()) ?></strong>
+            <?php else: ?>
+                <?= $block->escapeHtml($_total->getLabel()) ?>
+            <?php endif ?>
+        </div>
+        <div <?= /* @noEscape */ $block->getValueProperties() ?> 
+                data-th="<?= /* @noEscape */ $block->escapeHtmlAttr($_total->getLabel()) ?>">
+            <?php if ($_total->getStrong()): ?>
+                <strong><?= /* @noEscape */ $block->formatValue($_total) ?></strong>
+            <?php else: ?>
+                <?= /* @noEscape */ $block->formatValue($_total) ?>
+            <?php endif?>
+        </div>
+    </div>
+    <?php endif; ?>
+<?php endforeach?>
+    </div>
+</div>
+<div class="block useful-information">
+    <div class="block-title">
+        <strong><?= /* @noEscape */ __("Useful Information")?></strong>
+    </div>
+<div class="info-desc">
+    <?php 
+        $url ="<a href=".$block->getUrl('faq').">". __('Help')."</a>";
+    ?>
+    <span><?=__("If you have any questions, please see our %1 section.",$url);?></span>
+</div></div>

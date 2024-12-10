@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!-- <preference for="Magento\Checkout\Controller\Cart\Add" type="Magneto\FreeEngraving\Controller\Cart\Add" /> -->
+	<type name="Magento\Quote\Model\Quote\Item\ToOrderItem">
+		<plugin name="additional_options_quote" type="Magneto\FreeEngraving\Model\Plugin\Quote\ToOrderItem" sortOrder="1" />
+	</type>
+    <!-- override cart/item/default.phtml file -->
+    <type name="Magento\Checkout\Block\Cart\AbstractCart">
+        <plugin name="item-test" type="Magneto\FreeEngraving\Plugin\Cart\AbstractCart" sortOrder="1"/>
+    </type>
+    <type name="Magento\Checkout\Block\Cart\Item\Renderer">
+        <plugin name="showRmaInfoCart" type="Amasty\Rma\Plugin\DisplayRmaInfo\DisplayCart" disabled="true"/>
+    </type>
+
+    <type name="Gemfind\Ringbuilder\Controller\Settings\Adddiamond">
+        <plugin name="addringengravingplugin" type="Magneto\FreeEngraving\Plugin\Settings\AddRingEngraving" />
+    </type>
+      
+  </config> 

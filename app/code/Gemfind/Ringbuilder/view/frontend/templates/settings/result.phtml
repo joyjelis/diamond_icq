@@ -1,0 +1,235 @@
+<?php 
+$list = $block->getRings(); 
+$noimageurl = $this->getViewFileUrl('Gemfind_Ringbuilder::images/no-image.jpg'); 
+$loaderimg = $this->getViewFileUrl('Gemfind_Ringbuilder::images/loader-2.gif'); 
+$siteurl = $block->getSiteUrl(); ?>
+<?php $resultperpageoptions = $block->getResultsPerPageOptions(); ?>
+<div class="search-details no-padding">
+<div class="searching-result"> 
+      <div class="number-of-search"> 
+        <p><strong><?php echo number_format($list['pagination']['total']); ?></strong><?php echo __('Settings'); ?></p>
+    </div>
+    <div class="view-or-search-result"> 
+      <div class="change-view-result"> 
+          <select class="pagesize" id="pagesize" name="pagesize" onchange="ItemPerPage(this)">
+            <?php foreach ($resultperpageoptions as $value) { ?>
+              <option value="<?php echo $value['value'] ?>"><?php echo $value['label'] ?></option>
+            <?php } ?>
+          </select>
+        </div> 
+        <div class="grid-view-sort"> 
+          <select name="gridview-orderby" id="gridview-orderby" class="gridview-orderby" onchange="gridSort(this)"> <option value="cost-l-h"><?php echo __('Price: Low - High'); ?></option> <option value="cost-h-l"><?php echo __('Price: High - Low'); ?></option></select> 
+        </div> 
+        <div class="change-view"><ul> <li class="grid-view"> <a href="javascript:;" class="gridmodenarrow" id="gridmodenarrow"><?php echo __('Grid view 3 column'); ?></a> </li> <li class="grid-view-wide"> <a href="javascript:;" class="active gridmodewidecol" id="gridmodewidecol"><?php echo __('Grid view 4 column'); ?></a> </li> </ul> </div>
+        <div class="search-in-table" id="searchintable"> 
+            <input type="text" name="searchdidfield" id="searchdidfield" placeholder="<?php echo __('Search Setting#'); ?>"><a href="javascript:;" title="close" id="resetsearchdata">X</a><button id="searchsettingid" title="Search Setting"></button> 
+          </div>           
+        </div> 
+    </div> 
+</div>
+</div>
+<?php if (isset($list['pagination']['total']) && $list['pagination']['total'] != 0) : ?>
+<div class="search-details no-padding">
+   <div class="search-view-grid gridmodewide" id="grid-mode">
+      <div class="grid-product-listing">
+         <?php foreach ($list['data'] as $result) :
+          ?>
+            <?php $diamondviewurl = ''; ?>
+            <?php 
+                $ch = curl_init($result->videoURL);
+                curl_setopt($ch, CURLOPT_TIMEOUT, 2);
+                curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 2);
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                curl_setopt($ch, CURLOPT_TIMEOUT, 30);
+                $data = curl_exec($ch);
+                $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+                curl_close($ch); 
+                if($httpcode>=200 && $httpcode<300){
+                    $status = 200;
+                } else {
+                    $status = 404;
+                }
+               ?>
+         <div class="search-product-grid" id="<?php echo $result->settingId; ?>">
+          <a href="<?php echo $block->getRingViewUrl($result->priceSettingId,$result->name) ?>" id="ringurlid-<?php echo $result->settingId ?>" class="ringautourl" onclick="SetBackValue('<?php echo $result->settingId ?>','<?php echo $block->getRingViewUrl($result->priceSettingId,$result->name) ?>');" title="<?php echo __('View Ring') ?>"> 
+            <div class="product-images"> 
+              <span class="imagecheck" data-src="<?php echo $result->imageUrl; ?>" data-srcbig="<?php echo $result->imageUrl; ?>" data-id="<?php echo $result->settingId; ?>"></span>
+            	<img src="<?php echo $loaderimg; ?>" alt="<?php echo $result->name; ?>" title="<?php echo $result->name; ?>" />
+              <?php if($result->videoURL && $status == 200){ ?>
+                
+				<video  playsinline="" autoplay="" loop="" muted="" width="" height="" src="<?php echo $result->videoURL; ?>" type="video/mp4" style="display: none;"></video>
+
+              <?php } ?>
+            </div>
+            <div class="product-details"> 
+              <div class="product-item-name">
+                  <span><strong><?php echo $result->name; ?></strong></span>         
+              </div> 
+            <?php if($result->showPrice){ ?>
+            <div class="product-box-pricing">
+              <span><?php if($result->cost != 'Call For Price'){ 
+                if($result->currencyFrom != 'USD') { 
+                  $csymbol = $result->currencySymbol; 
+                } else {
+                  $csymbol = '$';
+                } 
+                echo $csymbol.number_format($result->cost); 
+              } else { 
+                echo 'Call For Price'; 
+              } ?>               
+              </span>
+            </div> 
+            <?php } else { ?>
+              <div class="product-box-pricing"><span><?php echo __('Call For Price'); ?></span></div> 
+            <?php } ?>
+          </div>
+          </a>
+            <input type="hidden" name="diamondimage" id="diamondimage-<?php echo $result->settingId; ?>" value="" /> 
+            <?php if($result->showPrice){ ?>
+            <input type="hidden" name="diamondprice" id="diamondprice-<?php echo $result->settingId; ?>" value="<?php echo number_format($result->cost); ?>" />
+            <?php } else { ?>
+              <input type="hidden" name="diamondprice" id="diamondprice-<?php echo $result->settingId; ?>" value="<?php echo __('Call For Price'); ?>" />
+            <?php } ?>
+         </div>
+         <?php endforeach; ?>
+      </div>
+   </div>
+   <div class="grid-paginatin" style="text-align:center;">
+      <?php $current = 1;
+         $number = $list['perpage'];
+         $pages = ceil($list['pagination']['total']/$number);
+         if($list['pagination']['currentpage'] > 1){
+           $current = $list['pagination']['currentpage'];
+         }
+     	if($current-1 == 0){
+     		$value = 1;
+     	} else {
+     		$value = $current-1;
+     	}
+       	?>
+      <div class="pagination-div">
+         <ul>
+            <li <?=($current == 1) ? 'class="disabled grid-next"' : 'class="grid-next"'?>>
+               <a href="javascript:void(0);" <?php if(($current-1) != 0){ ?> onclick="PagerClick('<?php echo ($value) ?>');" <?php } ?>><?php echo ($value) ?></a>
+            </li>
+            <?php for($i=1; $i <= $pages; $i++)
+               {
+                 if($i<>$current){ 
+                   if($i >= $current + 3){
+                     continue;
+                   }
+                   if($i <= $current - 3){
+                     continue;
+                   }
+               ?>
+            <li>
+               <a href="javascript:void(0);" onclick="PagerClick('<?php echo $i ?>');"><?php echo $i; ?></a>
+            </li>
+            <?php } else { ?>
+            <li class="active">
+               <a href="javascript:void(0);" class="active" onclick="PagerClick('<?php echo $i ?>');"><?php echo $i; ?></a>
+            </li>
+            <?php } } ?>
+            <li <?=($current == $pages) ? 'class="disabled grid-previous"' : 'class="grid-previous"'?>>
+               <a href="javascript:void(0);" <?php if($current != $pages){ ?> onclick="PagerClick('<?php echo ($current+1); ?>');" <?php } ?>><?php echo ($current+1); ?></a>
+            </li>
+         </ul>
+      </div>
+      <?php
+         if ($current == 1) {
+             $from = 1;
+             $to = $number;
+         } else {
+             $from = (($current - 1) * $number) + 1;
+             $to = ($current * $number);
+         }
+         
+         if ($list['pagination']['total'] < $to) {
+             $to = $list['pagination']['total'];
+         }
+         
+             echo __("<div class='page-checked'><div class='result-bottom'>Results ") . number_format($from) . __(" to ") . number_format($to) . __(" of ") . number_format($list['pagination']['total']). __(" </div></div> ");
+         ?>
+   </div>
+</div>
+<?php /*foreach ($list['data'] as $result) : ?>
+            <?php $diamondviewurltes[] = $block->getRingViewUrl($result->settingId); ?>
+<?php endforeach;*/ ?>
+<?php else: ?>
+<div class="search-details no-padding no-result-main">
+   <div class="searching-result no-result-div">
+      <?php echo __('No Data Found.') ?>
+   </div>
+</div>
+<?php endif; ?>
+<script>
+   require([
+       "jquery"
+   ], function ($) {
+        $( "span.imagecheck" ).each(function() {
+        var id = $( this ).attr("data-id");
+        var src = $( this ).attr("data-src");  
+        imageExists(src, function(exists) {
+          if(exists){
+            $('tr#'+id+' td img').attr('src',src);
+            $('div#'+id+' div.product-images img').attr('src',src);
+            $('input#diamondimage-'+id).val(src);
+          } else {
+            $('tr#'+id+' td img').attr('src','<?php echo $noimageurl ?>');
+            $('div#'+id+' div.product-images img').attr('src','<?php echo $noimageurl ?>');
+            $('input#diamondimage-'+id).val('<?php echo $noimageurl ?>');
+          } 
+        });
+      });
+		function imageExists(url, callback) {
+		    var img = new Image();
+		    img.onload = function() { callback(true); };
+		    img.onerror = function() { callback(false); };
+		    img.src = url;
+  		}
+    $('.change-view ul li a').click(function() {
+        console.log('click');
+        $('.change-view ul li a').removeClass('active');
+        $(this).addClass('active');
+        if($(this).hasClass('gridmodenarrow')){
+            $('#grid-mode').removeClass('gridmodewide');
+            $('#grid-mode').addClass('gridmode');
+        } else {
+            $('#grid-mode').addClass('gridmodewide');
+            $('#grid-mode').removeClass('gridmode');
+        }
+     });
+    $(".search-product-grid").mouseenter(function(){
+      var windowsize = $(window).width();
+      if (windowsize > 767) {
+      var divid = $(this).attr('id');
+      if($('#'+divid+' div.product-images video').length){
+        $('#'+divid+' div.product-images img').css('display','none');
+        $('#'+divid+' div.product-images video').css('display','block');
+      }
+      }
+    });
+    $(".search-product-grid").mouseleave(function(){
+      var divid = $(this).attr('id');
+      if($('#'+divid+' div.product-images video').length){
+        $('#'+divid+' div.product-images img').css('display','block');
+        $('#'+divid+' div.product-images video').css('display','none');
+      }
+    });
+	$(".ringautourl").click(function(){
+	  $('.product-images').each(function(){
+		  if($(this).find('video').length){
+			  $(this).find('img').css('display','block');
+			  $(this).find('video').css('display','none');
+		  }
+	  });
+    });
+   }); 
+</script>
+<input type="hidden" name="gemfind_rb_version" value="2.6" />
+<?php 
+  $poweredvalues = $block->getGemfindEnabledPoweredBy();
+  if($poweredvalues){
+?>
+<span style="float: right;"><?php echo __('Powered By '); ?><a target="_blank" href="http://www.gemfind.com"><?php echo __('GemFind'); ?></a></span>
+<?php } ?>

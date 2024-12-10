@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"   layout="empty"  xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+     <title>Print Diamond</title>
+        <css src="Gemfind_Ringbuilder::css/print.css" />
+    </head>
+	<body>
+        <referenceBlock name="page.main.title" remove="true"/>
+		<referenceContainer name="header.container" remove="true" />
+        <referenceContainer name="footer" remove="true" />
+        <referenceContainer name="page.top" remove="true"/>
+        <referenceBlock name="copyright" remove="true"/>
+		<referenceContainer name="content">
+          <block class="Gemfind\Ringbuilder\Block\Diamond\Product\Printdiamond" ifconfig="gemfindringbuilder/general/enable_in_frontend" name="gemfind.product.printdiamond" template="Gemfind_Ringbuilder::diamond/printdiamond.phtml" />
+        </referenceContainer>
+	</body>
+</page>

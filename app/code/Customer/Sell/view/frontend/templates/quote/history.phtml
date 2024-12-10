@@ -1,0 +1,42 @@
+<?php
+$class = Customer\Sell\Block\Quote\History::class;
+$history = $block->getHistory();
+?>
+<?= $this->getLayout()->createBlock($class)
+->setTemplate("Customer_Sell::quote/status/main.phtml")->toHtml();?>
+<style>.product-history a{display: none;}</style>
+<div class="product-history table">
+    <div class="block-title"><h3><?= __("Product History")?></h3></div>
+    <div class="table-wrapper product-history table">
+        <?php if ($history): ?>
+            <table class="data table">
+                <thead>
+                    <tr>
+                        <th class="col date head"><?= __("Date")?></th>
+                        <th class="col time head"><?= __("Time")?></th>
+                        <th class="col status head"><?= __("Status")?></th>
+                        <th class="col remark head"><?= __("Remark")?></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($history as $key => $value): ?>
+                        <tr>
+                            <td class="col sub-label date"><?= __($value['date'])?></td>
+                            <td class="col sub-label time"><?= __($value['time'])?></td>
+                            <td class="col sub-label status"><?= __($value['status'])?></td>
+                            <td class="col sub-label remark"><?= __($value['remarks'])?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        <?php endif; ?>
+        <?php if (!$history): ?>
+            <tr class="col sub-label"><?= __("No History Record(s)") ?></tr>
+        <?php endif; ?>
+    </div>
+</div>
+<div class="order-products-toolbar toolbar bottom" id="sell-diamond-pager">    
+    <?php if ($block->getPagerHtml()): ?>
+        <?php echo $block->getPagerHtml(); ?>
+    <?php endif ?>
+</div>

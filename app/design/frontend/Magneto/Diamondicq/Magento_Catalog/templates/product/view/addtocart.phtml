@@ -1,0 +1,139 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var $block \Magento\Catalog\Block\Product\View */
+?>
+<?php $_product = $block->getProduct(); ?>
+<?php 
+$productQty = 0;
+$configproId = array();
+
+$customblock = $block->getLayout()->createBlock('Magneto\Custom\Block\Addtocart');
+$product = $customblock->getCurrentProduct();
+$isSimpleProductStock = 1;
+$productTypeInstance = $product->getTypeInstance();
+    if ($product->getTypeId() == \Magento\ConfigurableProduct\Model\Product\Type\Configurable::TYPE_CODE) {
+    $usedProducts = $productTypeInstance->getUsedProducts($product);
+    $totalQty = 0;
+      foreach ($usedProducts  as $child) { 
+        $configproId[$child->getId()] = $child->getSku();
+        $salableStock = json_decode($customblock->getSalableQuantity($child->getSku()));
+            if(array_key_exists(0, $salableStock))
+            {
+                if(isset($salableStock[0]->qty))
+                {
+                  $totalQty += (int)$salableStock[0]->qty;
+                }
+            } 
+        } 
+          $productQty = (int)$totalQty;
+    }else{
+          $salableStock = json_decode($customblock->getSalableQuantity($product->getSku()));
+            if(isset($salableStock[0]->qty)){
+                $productQty = (int)$salableStock[0]->qty;
+            }   
+
+        if ($productQty <= 0) {
+            $isSimpleProductStock = 0;
+        }      
+    }
+?>
+
+
+
+<?php if ($product->getTypeId() == 'configurable') { ?>
+<div class="ring-detailsextra">
+    <div class="fullclass">
+        <div class="left">
+            <div class="image"><img src="<?php echo $this->getViewFileUrl('images/diamond-ring.svg'); ?>" alt="diamond-ring"></div>
+            <div class="p"><?php echo __('This Ring cannot be resized.'); ?>.</div>
+        </div>
+        <div class="right">
+            <div class="help">
+                <button type="button" class="open" id="ringbtn"><?php echo __('Ring Size Help?'); ?></buttton>
+            </div>
+        </div>
+    </div>
+</div>
+        <div class="popup-overlay" id="popup-ring">
+              <div class="popup-content">
+                <h2>Pop-Up</h2>
+                <p> This is an example pop-up that you can make using jQuery.</p>
+                <button type="button" class="close">Close</button> </div>
+            </div>
+<?php } ?>
+<div class="stock-available">
+    <?php if($isSimpleProductStock == 0){ ?>
+        <p class="stock-available stock unavailable"><?php echo __('Out of stock'); ?></p>
+    <?php }else{ ?>
+        <p class="stock-available"><?php echo __('Number of stock available:'); ?></p>
+        <p class="value"><?php echo $productQty; ?></p>
+    <?php } ?>
+    
+</div>
+<?php $buttonTitle = __('Add to Cart'); ?>
+<?php if ($_product->isSaleable() && $isSimpleProductStock == 1) :?>
+<div class="box-tocart">
+    <div class="fieldset">
+        <?php //echo $this->getChildHtml('addtocartbtn'); ?>
+        <div class="actions">
+            <button type="submit"
+                    title="<?= $block->escapeHtmlAttr($buttonTitle) ?>"
+                    class="action primary tocart"
+                    id="product-addtocart-button" disabled>
+                <span><?= $block->escapeHtml($buttonTitle) ?></span>
+            </button>
+            <?= $block->getChildHtml('', true) ?>
+        </div>
+    </div>
+</div>
+
+<?php endif; ?>
+<script type="text/x-magento-init">
+    {
+        "#product_addtocart_form": {
+            "Magento_Catalog/js/validate-product": {}
+        }
+    }
+</script>
+<?php if ($product->getTypeId() == 'configurable') { ?>
+<script>
+    require(
+        [
+            'jquery',
+            'Magento_Ui/js/modal/modal'
+        ],
+        function(
+            $,
+            modal
+        ) {
+            var options = {
+                type: 'popup',
+                responsive: true,
+                title: 'Ring',
+                innerScroll: true,
+                buttons: [{
+                    text: '',
+                    class: '',
+                    click: function () {
+                        this.closeModal();
+                    }
+                }],
+                opened: function($Event) {
+                    $(".modal-footer").hide();
+                }
+            };
+
+            var popup = modal(options, $('#popup-ring'));
+            $('#ringbtn').click(function(){
+                $('#popup-ring').modal('openModal');
+            });
+            
+        }
+    );
+</script>
+<?php } ?>
+

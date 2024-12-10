@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+  <magicmenu>
+    <item>
+      <name><![CDATA[Sell your Jewellery]]></name>
+      <extra><![CDATA[1]]></extra>
+      <magic_label><![CDATA[]]></magic_label>
+      <link><![CDATA[sell-your-jewellery-with-diamondicq]]></link>
+      <ext_content><![CDATA[]]></ext_content>
+      <order><![CDATA[1]]></order>
+      <status><![CDATA[1]]></status>
+    </item>
+    <item>
+      <name><![CDATA[Buy Diamond]]></name>
+      <extra><![CDATA[1]]></extra>
+      <magic_label><![CDATA[]]></magic_label>
+      <link><![CDATA[ringbuilder/diamond]]></link>
+      <ext_content><![CDATA[]]></ext_content>
+      <order><![CDATA[2]]></order>
+      <status><![CDATA[1]]></status>
+    </item>
+    <item>
+      <name><![CDATA[Diamond 101]]></name>
+      <extra><![CDATA[1]]></extra>
+      <magic_label><![CDATA[]]></magic_label>
+      <link><![CDATA[diamond-101]]></link>
+      <ext_content><![CDATA[]]></ext_content>
+      <order><![CDATA[3]]></order>
+      <status><![CDATA[1]]></status>
+    </item>
+    <item>
+      <name><![CDATA[About]]></name>
+      <extra><![CDATA[1]]></extra>
+      <magic_label><![CDATA[]]></magic_label>
+      <link><![CDATA[about-us]]></link>
+      <ext_content><![CDATA[]]></ext_content>
+      <order><![CDATA[4]]></order>
+      <status><![CDATA[1]]></status>
+    </item>
+  </magicmenu>
+</root>

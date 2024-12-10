@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    
+    <virtualType name="Customer\Sell\Model\ResourceModel\Sell\Grid\Collection" 
+        type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">customer_sell</argument>
+            <argument name="resourceModel" xsi:type="string">
+                Customer\Sell\Model\ResourceModel\Sell
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="customer_sell_sell_listing_data_source" xsi:type="string">
+                    Customer\Sell\Model\ResourceModel\Sell\Grid\Collection
+                </item>
+            </argument>
+        </arguments>
+    </type>
+
+    <virtualType name="Customer\Sell\DiamondImageUpload" type="Customer\Sell\Helper\ImageUploader">
+        <arguments>
+            <argument name="baseTmpPath" xsi:type="string">sell/tmp</argument>
+            <argument name="basePath" xsi:type="string">sell/dimages</argument>
+            <argument name="allowedExtensions" xsi:type="array">
+                <item name="jpg" xsi:type="string">jpg</item>
+                <item name="jpeg" xsi:type="string">jpeg</item>
+                <item name="gif" xsi:type="string">gif</item>
+                <item name="png" xsi:type="string">png</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Customer\Sell\Controller\Adminhtml\Sell\Upload">
+        <arguments>
+            <argument name="imageUploader" xsi:type="object">
+                Customer\Sell\DiamondImageUpload
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Framework\Mail\Template\TransportBuilder">
+        <plugin name="add_password" type="Customer\Sell\Plugin\Password" />
+    </type>
+
+    <type name="Customer\Sell\Model\EntityPool">
+        <arguments>
+            <argument name="entities" xsi:type="array">
+                <item name="purchasecash" xsi:type="string">purchasecash</item>
+                <item name="tradein" xsi:type="string">tradein</item>
+                <item name="consignment" xsi:type="string">consignment</item>
+                <item name="quote" xsi:type="string">quote</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <preference for="Customer\Sell\Api\SellRepositoryInterface" type="Customer\Sell\Model\SellRepository"/>
+    <preference for="Customer\Sell\Api\Data\SellInterface" type="Customer\Sell\Model\Data\Sell"/>
+</config>

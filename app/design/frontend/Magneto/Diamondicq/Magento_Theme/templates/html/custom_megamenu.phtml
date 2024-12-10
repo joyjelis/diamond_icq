@@ -1,0 +1,72 @@
+<?php
+$is_blog_enabled = false;
+$blog_helper = $this->helper("Magefan\Blog\Helper\Data");
+if ($blog_helper && (int)$blog_helper->getConfig('mfblog/general/enabled')) {
+    $is_blog_enabled = true;
+}
+?>
+<div class="desktop-menu">
+    <ul class="menu-list">
+        <li class="inmenu-sell-diamonds">
+            <a href="<?php echo $block->getUrl('', ['_direct' =>'sell-your-jewellery-with-diamondicq']); ?>" class="innermenu-alink"><?= __('Sell Diamonds') ?></a>
+        </li>
+        <li class="inmenu-buy-diamonds">
+            <a href="<?php echo $block->getUrl('', ['_direct' =>'ringbuilder/diamond']); ?>" class="innermenu-alink"><?= __('Buy Diamonds') ?></a>
+        </li>
+        <li class="inmenu-faq">
+            <a href="<?php echo $block->getUrl('', ['_direct' =>'faq']); ?>" class="innermenu-alink"><?= __('FAQ') ?></a>
+        </li>
+        <?php if ($is_blog_enabled): ?>
+        <li class="inmenu-blog">
+            <a href="<?php echo $block->getUrl('', ['_direct' =>'blog']); ?>" class="innermenu-alink"><?= __('Blog') ?></a>
+        </li>
+        <?php endif; ?>
+        <li class="inmenu-about-us">
+            <a href="<?php echo $block->getUrl('', ['_direct' =>'about-us']); ?>" class="innermenu-alink"><?= __('About Diamond ICQ') ?></a>
+        </li>
+</ul>
+</div>
+
+<script>
+require(['jquery', 'jquery/ui'], function($){
+    jQuery(document).ready(function($){
+        jQuery(".imgloadclass").click(function(){
+            jQuery(this).parent().find(".loaderimg").css('display','block');
+        });
+
+         jQuery(".downloadbtn2").on("click",function(){
+             jQuery(this).parent().find(".loading-mask1").show();
+             jQuery(this).parent().find(".loading-mask1").addClass("magnetoloader");
+                setTimeout(function() {
+                   jQuery(".magnetoloader").hide();
+                   jQuery(".magnetoloader").removeClass("magnetoloader");
+                }, 1500);
+                //return false;
+            });
+
+         jQuery(".viewpage").on("click",function(){
+             jQuery(this).parent().find(".loading-mask2 ").show();
+             jQuery(this).parent().find(".loading-mask2 ").addClass("magnetoloader");
+                setTimeout(function() {
+                   jQuery(".magnetoloader").hide();
+                   jQuery(".magnetoloader").removeClass("magnetoloader");
+                }, 1500);
+                //return false;
+            });
+
+        /* ======== Homepage Marketplace Section Show/Hide using jQuery ======== */
+        jQuery("a.marketplace_links").click(function(){
+            jQuery(".marketplace_secs").hide();
+            var div_ids = jQuery(this).attr('data-id');
+            jQuery("#"+div_ids).show();
+        });
+        setTimeout(function() {
+            jQuery("a.marketplace_links:first").click();
+        }, 2000);
+        /* ======== Homepage Marketplace Section Show/Hide using jQuery ======== */
+
+
+    });
+
+});
+</script>

@@ -1,0 +1,133 @@
+{
+    "customer_sell": {
+        "column": {
+            "sell_id": true,
+            "quote": true,
+            "trade": true,
+            "certificate": true,
+            "certificate_name": true,
+            "certificate_image": true,
+            "email": true,
+            "mobile": true,
+            "image": true,
+            "name": true,
+            "color": true,
+            "clarity": true,
+            "carat": true,
+            "cut": true,
+            "polish": true,
+            "symmetry": true,
+            "fluorescence": true,
+            "lab": true,
+            "is_certify": true,
+            "qualityofprice": true,
+            "certificate_no": true,
+            "price": true,
+            "accept_offer": true,
+            "bank_name": true,
+            "account_name": true,
+            "account_no": true,
+            "country": true,
+            "swift_code": true,
+            "trade_for": true,
+            "trade_type": true,
+            "item_arrived": true,
+            "ship_by": true,
+            "item_inspected": true,
+            "process_by": true,
+            "inspection_pass": true,
+            "pay_shipping": true,
+            "transaction": true,
+            "accept_transaction": true,
+            "schedule_date": true,
+            "schedule_accept": true,
+            "reconsider_price": true,
+            "offer_price": true,
+            "offer_consignemnt": true,
+            "number_of_items": true,
+            "jewellery_type": true,
+            "description": true,
+            "customer_id": true,
+            "internal": true,
+            "tracking": true,
+            "transaction_customer": true,
+            "reason": true,
+            "customer_country": true,
+            "status": true,
+            "created_at": true,
+            "updated_at": true,
+            "pick_up_address_id": true,
+            "booking_appintment_id": true,
+            "store_id": true,
+            "booking_appintment_url_slug": true,
+            "imagetype": true,
+            "return_shipping_address_id": true,
+            "landmark": true,
+            "postcode": true,
+            "pickup_country": true,
+            "city": true,
+            "street": true,
+            "pick_date": true,
+            "certificate_remark": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "sell_sequence_profile": {
+        "column": {
+            "profile_id": true,
+            "prefix": true,
+            "start_value": true,
+            "step": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "SELL_SEQUENCE_PROFILE_PREFIX": true
+        }
+    },
+    "sequence_sell_q": {
+        "column": {
+            "sequence_value": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "sequence_sell_p": {
+        "column": {
+            "sequence_value": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "sequence_sell_t": {
+        "column": {
+            "sequence_value": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "sequence_sell_c": {
+        "column": {
+            "sequence_value": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "sell_quote_history": {
+        "column": {
+            "sell_history_id": true,
+            "sell_id": true,
+            "status": true,
+            "remarks": true,
+            "created_at": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

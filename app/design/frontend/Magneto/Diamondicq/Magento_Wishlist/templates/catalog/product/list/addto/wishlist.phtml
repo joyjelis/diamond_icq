@@ -1,0 +1,29 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+/** @var Magento\Wishlist\Block\Catalog\Product\ProductList\Item\AddTo\Wishlist $block */
+$customblock = $block->getLayout()->createBlock('Magneto\Custom\Block\Addtocart');
+$wishlistItems = $customblock->getWishlistItems();
+$productId = $block->getProduct()->getId();
+$productClass = 'product-wishlist-'.$productId;
+$wishlistClass = '';
+if (array_key_exists($productId, $wishlistItems)) {
+    $wishlistClass = 'already-in-wishlist';
+    $wishlistParams = $block->getWishlistHelper()->getRemoveParams($wishlistItems[$productId]);
+} else {
+    $wishlistParams = $block->getAddToWishlistParams($block->getProduct());
+}
+?>
+<?php if ($block->getWishlistHelper()->isAllow()) : ?>
+    <a href="#"
+       class="action towishlist <?php  echo $wishlistClass.' '.$productClass; ?>"
+       title="<?= $block->escapeHtmlAttr(__('Add to Wish List')) ?>"
+       aria-label="<?= $block->escapeHtmlAttr(__('Add to Wish List')) ?>"
+       data-post='<?= /* @noEscape */ $wishlistParams ?>'
+       data-action="add-to-wishlist"
+       role="button">
+        <span><?= $block->escapeHtml(__('Add to Wish List')) ?></span>
+    </a>
+<?php endif; ?>

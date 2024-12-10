@@ -1,0 +1,335 @@
+<?php
+/**
+ *
+ * @category : FME
+ * @Package  : FME_ProductSorting
+ * @Author   : Athar Ali <support@fmeextensions.com>
+ * @copyright Copyright 2018 © fmeextensions.com All right reserved
+ * @license https://fmeextensions.com/LICENSE.txt
+ */
+namespace FME\ProductSorting\Setup;
+
+use Magento\Eav\Setup\EavSetup;
+use Magento\Eav\Setup\EavSetupFactory;
+use Magento\Framework\Setup\InstallDataInterface;
+use Magento\Framework\Setup\ModuleContextInterface;
+use Magento\Framework\Setup\ModuleDataSetupInterface;
+use Magento\Catalog\Model\ResourceModel\Product\CollectionFactory;
+
+class InstallData implements InstallDataInterface
+{
+    private $action;
+    private $productCollection;
+    /**
+     * Eav setup factory
+     *
+     * @var EavSetupFactory
+     */
+    private $eavSetupFactory;
+
+    /**
+     * Init
+     *
+     * @param EavSetupFactory $eavSetupFactory eavSetupFactory
+     */
+    public function __construct(EavSetupFactory $eavSetupFactory,
+        CollectionFactory $productCollectionFactory,
+    \Magento\Catalog\Model\ResourceModel\Product\Action $action)
+    {
+        $this->action = $action;
+        $this->productCollection = $productCollectionFactory;
+        $this->eavSetupFactory = $eavSetupFactory;
+    }
+
+    /**
+     * Install
+     *
+     * @param ModuleDataSetupInterface $setup   setup
+     * @param ModuleContextInterface   $context context
+     *
+     * @return void
+     *
+     * @SuppressWarnings(PHPMD.CyclomaticComplexity)
+     * @SuppressWarnings(PHPMD.ExcessiveMethodLength)
+     * @SuppressWarnings(PHPMD.NPathComplexity
+     */
+    public function install(
+        ModuleDataSetupInterface $setup,
+        ModuleContextInterface $context
+    )
+    {
+        $eavSetup = $this->eavSetupFactory->create(['setup' => $setup]);
+
+        // $eavSetup->addAttribute(
+        //     \Magento\Catalog\Model\Product::ENTITY,
+        //     'review_count',
+        //     [
+        //         'type' => 'int',
+        //         'backend' => '',
+        //         'frontend' => '',
+        //         'label' => 'Review Count',
+        //         'input' => 'text',
+        //         'class' => '',
+        //         'source' => '',
+        //         'global'=> \Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface::SCOPE_STORE,
+        //         'visible' => false,
+        //         'required' => false,
+        //         'user_defined' => false,
+        //         'default' => 0,
+        //         'searchable' => false,
+        //         'filterable' => false,
+        //         'comparable' => false,
+        //         'visible_on_front' => false,
+        //         'used_for_sort_by' => true,
+        //         'unique' => false,
+        //         'apply_to' => ''
+        //     ]
+        // );
+
+        // $eavSetup->addAttribute(
+        //     \Magento\Catalog\Model\Product::ENTITY,
+        //     'best_seller',
+        //     [
+        //         'type' => 'int',
+        //         'backend' => '',
+        //         'frontend' => '',
+        //         'label' => 'Best Seller',
+        //         'input' => 'text',
+        //         'class' => '',
+        //         'source' => '',
+        //         'global'=> \Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface::SCOPE_STORE,
+        //         'visible' => false,
+        //         'required' => false,
+        //         'user_defined' => false,
+        //         'default' => 0,
+        //         'searchable' => false,
+        //         'filterable' => false,
+        //         'comparable' => false,
+        //         'visible_on_front' => false,
+        //         'used_for_sort_by' => true,
+        //         'unique' => false,
+        //         'apply_to' => ''
+        //     ]
+        // );
+
+        // $eavSetup->addAttribute(
+        //     \Magento\Catalog\Model\Product::ENTITY,
+        //     'top_rated',
+        //     [
+        //         'type' => 'int',
+        //         'backend' => '',
+        //         'frontend' => '',
+        //         'label' => 'Top Rated',
+        //         'input' => 'text',
+        //         'class' => '',
+        //         'source' => '',
+        //         'global'=> \Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface::SCOPE_STORE,
+        //         'visible' => false,
+        //         'required' => false,
+        //         'user_defined' => false,
+        //         'default' => 0,
+        //         'searchable' => false,
+        //         'filterable' => false,
+        //         'comparable' => false,
+        //         'visible_on_front' => false,
+        //         'used_for_sort_by' => true,
+        //         'unique' => false,
+        //         'apply_to' => ''
+        //     ]
+        // );
+
+        // $eavSetup->addAttribute(
+        //     \Magento\Catalog\Model\Product::ENTITY,
+        //     'most_viewed',
+        //     [
+        //         'type' => 'int',
+        //         'backend' => '',
+        //         'frontend' => '',
+        //         'label' => 'Most Viewed',
+        //         'input' => 'text',
+        //         'class' => '',
+        //         'source' => '',
+        //         'global'=> \Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface::SCOPE_STORE,
+        //         'visible' => false,
+        //         'required' => false,
+        //         'user_defined' => false,
+        //         'default' => 0,
+        //         'searchable' => false,
+        //         'filterable' => false,
+        //         'comparable' => false,
+        //         'visible_on_front' => false,
+        //         'used_for_sort_by' => true,
+        //         'unique' => false,
+        //         'apply_to' => ''
+        //     ]
+        // );
+        // $eavSetup->addAttribute(
+        //     \Magento\Catalog\Model\Product::ENTITY,
+        //     'wished',
+        //     [
+        //         'type' => 'int',
+        //         'backend' => '',
+        //         'frontend' => '',
+        //         'label' => 'Now in Wishlists',
+        //         'input' => 'text',
+        //         'class' => '',
+        //         'source' => '',
+        //         'global'=> \Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface::SCOPE_STORE,
+        //         'visible' => false,
+        //         'required' => false,
+        //         'user_defined' => false,
+        //         'default' => 3,
+        //         'searchable' => false,
+        //         'filterable' => false,
+        //         'comparable' => false,
+        //         'visible_on_front' => false,
+        //         'used_for_sort_by' => true,
+        //         'unique' => false,
+        //         'nullable' => false,
+        //         'apply_to' => ''
+        //     ]
+        // );
+        // $eavSetup->addAttribute(
+        //     \Magento\Catalog\Model\Product::ENTITY,
+        //     'stockquantity',
+        //     [
+        //         'type' => 'int',
+        //         'backend' => '',
+        //         'frontend' => '',
+        //         'label' => 'Stock Quantity',
+        //         'input' => 'text',
+        //         'class' => '',
+        //         'source' => '',
+        //         'global'=> \Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface::SCOPE_STORE,
+        //         'visible' => false,
+        //         'required' => false,
+        //         'user_defined' => false,
+        //         'default' => 0,
+        //         'searchable' => false,
+        //         'filterable' => false,
+        //         'comparable' => false,
+        //         'visible_on_front' => false,
+        //         'used_for_sort_by' => true,
+        //         'unique' => false,
+        //         'apply_to' => ''
+        //     ]
+        // );
+        $eavSetup->addAttribute(
+            \Magento\Catalog\Model\Product::ENTITY,
+            'saving',
+            [
+                'type' => 'decimal',
+                'backend' => '',
+                'frontend' => '',
+                'label' => 'Biggest Saving',
+                'input' => 'text',
+                'class' => '',
+                'source' => '',
+                'global'=> \Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface::SCOPE_STORE,
+                'visible' => false,
+                'required' => false,
+                'user_defined' => false,
+                'default' => 0,
+                'searchable' => false,
+                'filterable' => false,
+                'comparable' => false,
+                'visible_on_front' => false,
+                'used_for_sort_by' => true,
+                'unique' => false,
+                'apply_to' => ''
+            ]
+        );
+
+        $eavSetup->addAttribute(
+            \Magento\Catalog\Model\Product::ENTITY,
+            'imageProduct',
+            [
+                'type' => 'int',
+                'backend' => '',
+                'frontend' => '',
+                'label' => 'Image Info',
+                'input' => 'text',
+                'class' => '',
+                'source' => '',
+                'global'=> \Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface::SCOPE_STORE,
+                'visible' => false,
+                'required' => false,
+                'user_defined' => false,
+                'default' => 0,
+                'searchable' => false,
+                'filterable' => false,
+                'comparable' => false,
+                'visible_on_front' => false,
+                'used_for_sort_by' => true,
+                'unique' => false,
+                'apply_to' => ''
+            ]
+        );
+
+        $eavSetup->addAttribute(
+            \Magento\Catalog\Model\Product::ENTITY,
+            'outOfStock',
+            [
+                'type' => 'int',
+                'backend' => '',
+                'frontend' => '',
+                'label' => 'Stock status',
+                'input' => 'text',
+                'class' => '',
+                'source' => '',
+                'global'=> \Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface::SCOPE_STORE,
+                'visible' => false,
+                'required' => false,
+                'user_defined' => false,
+                'default' => 0,
+                'searchable' => false,
+                'filterable' => false,
+                'comparable' => false,
+                'visible_on_front' => false,
+                'used_for_sort_by' => true,
+                'unique' => false,
+                'apply_to' => ''
+            ]
+        );
+
+
+        $eavSetup->addAttribute(
+            \Magento\Catalog\Model\Product::ENTITY,
+            'status_order',
+            [
+                'type' => 'int',
+                'backend' => '',
+                'frontend' => '',
+                'label' => 'Order status',
+                'input' => 'text',
+                'class' => '',
+                'source' => '',
+                'global'=> \Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface::SCOPE_STORE,
+                'visible' => false,
+                'required' => false,
+                'user_defined' => false,
+                'default' => 0,
+                'searchable' => false,
+                'filterable' => false,
+                'comparable' => false,
+                'visible_on_front' => false,
+                'used_for_sort_by' => true,
+                'unique' => false,
+                'apply_to' => ''
+            ]
+        );
+
+        $eavSetup->updateAttribute( \Magento\Catalog\Model\Product::ENTITY, 'created_at', 'used_for_sort_by', 0);
+        $productCollection = $this->productCollection->create();
+        $productIds = $productCollection->getColumnValues('entity_id');
+
+        foreach ($productIds as $item) {
+            $this->action->updateAttributes(
+                [$item],
+                ['wished' => 3],
+                0);
+        }
+
+    }
+
+}

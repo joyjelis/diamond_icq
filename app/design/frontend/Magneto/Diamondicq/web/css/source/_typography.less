@@ -1,0 +1,109 @@
+.lib-font-face(
+    @family-name:"Santral Regular",
+    @font-path: "@{baseDir}fonts/Santral-Regular",
+    @font-weight: 500,
+    @font-style: normal,
+    @font-display: swap
+);
+
+.lib-font-face(
+    @family-name:"Santral Bold",
+    @font-path: "@{baseDir}fonts/Santral-Bold",
+    @font-weight: 600,
+    @font-style: normal,
+    @font-display: swap
+);
+
+.lib-font-face(
+    @family-name: "Noto Serif TC Bold",
+    @font-path: "@{baseDir}fonts/NotoSerifTC-Bold",
+    @font-weight: 700,
+    @font-style: normal,
+    @font-display: swap
+);
+
+.lib-font-face(
+    @family-name:"Montserrat Regular",
+    @font-path: "@{baseDir}fonts/Montserrat",
+    @font-weight: 300,
+    @font-style: normal,
+    @font-display: swap
+);
+
+.lib-font-face(
+    @family-name:"Montserrat Medium",
+    @font-path: "@{baseDir}fonts/Montserrat-Medium",
+    @font-weight: 500,
+    @font-style: normal,
+    @font-display: swap
+);
+
+.lib-font-face(
+    @family-name:"PMINGLIU",
+    @font-path: "@{baseDir}fonts/PMINGLIU",
+    @font-weight: 500,
+    @font-style: normal,
+    @font-display: swap
+);
+
+.lib-otf-font-face(
+    @family-name,
+    @font-path,
+    @font-weight: normal,
+    @font-style: normal
+) {
+    @font-face {
+        font-family: @family-name;
+        src: url("@{font-path}.otf");
+        font-weight: @font-weight;
+        font-style: @font-style;
+    }
+}
+
+.lib-otf-font-face(
+  @family-name:"Sans Serif Book FLF",
+  @font-path: "@{baseDir}fonts/SansSerifBookFLF",
+  @font-weight: 300,
+  @font-style: normal
+);
+
+.lib-otf-font-face(
+  @family-name:"Sans Serif Book FLF",
+  @font-path: "@{baseDir}fonts/SansSerifFLF-Demibold",
+  @font-weight: 600,
+  @font-style: bold
+);
+
+.lib-otf-font-face(
+  @family-name:"Sans Serif Book FLF",
+  @font-path: "@{baseDir}fonts/SansSerifFLF-Demibold",
+  @font-weight: 700,
+  @font-style: bold
+);
+
+.lib-otf-font-face(
+  @family-name:"Sans Serif FLF Demibold",
+  @font-path: "@{baseDir}fonts/SansSerifFLF-Demibold",
+  @font-weight: 700,
+  @font-style: normal
+);
+
+
+@font-face {
+    font-family: "font_SansSerifBookFLF";
+    src: url("@{baseDir}fonts/SansSerifBookFLF.woff");
+}
+@font-face {
+    font-family: "font_SansSerifBookFLF";
+    src: url("@{baseDir}fonts/SansSerifFLF-Demibold.woff");
+    font-weight: bold;
+}
+@font-face {
+    font-family: "font_NotoSansTC";
+    src: url("@{baseDir}fonts/NotoSansTC-Regular.woff");
+}
+@font-face {
+    font-family: "font_NotoSansTC";
+    src: url("@{baseDir}fonts/NotoSansTC-Bold.woff");
+    font-weight: bold;
+}

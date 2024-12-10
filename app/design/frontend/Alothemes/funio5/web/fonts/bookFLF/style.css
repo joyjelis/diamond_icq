@@ -1,0 +1,14 @@
+@font-face {
+    font-family: "Sans Serif Book FLF";
+    src: url('SansSerifBookFLF.woff') format('woff'),
+         url('SansSerifBookFLF.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face{
+    font-family: "Sans Serif FLF Demibold";
+    src: url('SansSerifFLF-Demibold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}

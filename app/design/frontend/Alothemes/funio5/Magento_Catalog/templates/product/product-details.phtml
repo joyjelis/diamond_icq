@@ -1,0 +1,356 @@
+<?php
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var $block \Magento\Catalog\Block\Product\View */
+$_product = $block->getProduct();
+?>
+<div class="product_details">
+    <div class="container p-0">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="product-details-info">
+
+                    <?php /* Product Description */ ?>
+                    <?php if ($_product->getDescription()): ?>
+                        <div class="long_description">
+                            <h3><?= __('Description') ?></h3>
+                            <?= $block->getChildHtml('description') ?>
+                        </div>
+                    <?php endif; ?>
+
+                    <div class="short_description">
+                        <?php if ($_product->getWeight() || $_product->getShortDescription()): ?>
+                            <h3><?= __('Product Details') ?></h3>
+                            <ul>
+                                <?php /* If Type is Diamond then display sum of Centre, Side1 and Side2 Qty */ ?>
+                                <?php if ($_product->getData('diamond_qty_centre') || $_product->getData('diamond_qty_side1') || $_product->getData('diamond_qty_side2')): ?>
+                                    <?php
+                                        $diamondValue = __('Diamond');
+                                        $diamondTypeCentre = $_product->getResource()->getAttribute('diamond_type_centre')->getFrontend()->getValue($_product);
+                                        $diamondTypeSide1 = $_product->getResource()->getAttribute('diamond_type_side1')->getFrontend()->getValue($_product);
+                                        $diamondTypeSide2 = $_product->getResource()->getAttribute('diamond_type_side2')->getFrontend()->getValue($_product);
+                                    ?>
+                                    <?php
+                                        $totalDiamondQty = 0;
+                                    if ($_product->getData('diamond_qty_centre')) {
+                                        if ($diamondTypeCentre != '') {
+                                            if ($diamondTypeCentre == $diamondValue) {
+                                                $totalDiamondQty += (int)$_product->getData('diamond_qty_centre');
+                                            }
+                                        }
+                                    }
+                                    if ($_product->getData('diamond_qty_side1')) {
+                                        if ($diamondTypeSide1 != '') {
+                                            if ($diamondTypeSide1 == $diamondValue) {
+                                                $totalDiamondQty += (int)$_product->getData('diamond_qty_side1');
+                                            }
+                                        }
+                                    }
+                                    if ($_product->getData('diamond_qty_side2')) {
+                                        if ($diamondTypeSide2 != '') {
+                                            if ($diamondTypeSide2 == $diamondValue) {
+                                                $totalDiamondQty += (int)$_product->getData('diamond_qty_side2');
+                                            }
+                                        }
+                                    }
+                                    ?>
+                                    <?php if ($totalDiamondQty > 0): ?>
+                                        <li><?= __('Set with %1 Diamond', $totalDiamondQty) ?></li>
+                                    <?php endif; ?>
+                                <?php endif; ?>
+
+
+                                <?php /* If Type is not Diamond then display Centre, Side1 and Side2 and sum of weight */ ?>
+                                <?php if ($_product->getData('diamond_minumum_carat_total_weight_centre') || $_product->getData('diamond_minumum_carat_total_weight_side1') || $_product->getData('diamond_minumum_carat_total_weight_side2')): ?>
+                                    <?php
+                                        $diamondValue = __('Diamond');
+                                        $diamondTypeCentre = $_product->getResource()->getAttribute('diamond_type_centre')->getFrontend()->getValue($_product);
+                                        $diamondTypeSide1 = $_product->getResource()->getAttribute('diamond_type_side1')->getFrontend()->getValue($_product);
+                                        $diamondTypeSide2 = $_product->getResource()->getAttribute('diamond_type_side2')->getFrontend()->getValue($_product);
+                                    ?>
+                                    <?php
+                                        $diamondType = [];
+                                        $diamondWeight = 0;
+                                    if ($_product->getData('diamond_minumum_carat_total_weight_centre')) {
+                                        if ($diamondTypeCentre != '') {
+                                            if ($diamondTypeCentre != $diamondValue) {
+                                                $diamondType[] = $diamondTypeCentre;
+                                                $diamondWeight += (float)$_product->getData('diamond_minumum_carat_total_weight_centre');
+                                            }
+                                        }
+                                    }
+                                    if ($_product->getData('diamond_minumum_carat_total_weight_side1')) {
+                                        if ($diamondTypeSide1 != '') {
+                                            if ($diamondTypeSide1 != $diamondValue) {
+                                                $diamondType[] = $diamondTypeSide1;
+                                                $diamondWeight += (float)$_product->getData('diamond_minumum_carat_total_weight_side1');
+                                            }
+                                        }
+                                    }
+                                    if ($_product->getData('diamond_minumum_carat_total_weight_side2')) {
+                                        if ($diamondTypeSide2 != '') {
+                                            if ($diamondTypeSide2 != $diamondValue) {
+                                                $diamondType[] = $diamondTypeSide2;
+                                                $diamondWeight += (float)$_product->getData('diamond_minumum_carat_total_weight_side2');
+                                            }
+                                        }
+                                    }
+                                    ?>
+                                    <?php if ($diamondWeight > 0): ?>
+                                        <?php if (!empty($diamondType)): ?>
+                                            <?php
+                                                $diamondType = implode(', ', $diamondType);
+                                                $diamondWeight = number_format($diamondWeight, 2);
+                                            ?>
+                                            <li><?= __('%1 weighing a total of approximately %2 carat', $diamondType, $diamondWeight) ?></li>
+                                        <?php endif; ?>
+                                    <?php endif; ?>
+                                <?php endif; ?>
+
+
+                                <?php /* If Type is Diamond then display sum of Centre, Side1 and Side2 Weight */ ?>
+                                <?php if ($_product->getData('diamond_minumum_carat_total_weight_centre') || $_product->getData('diamond_minumum_carat_total_weight_side1') || $_product->getData('diamond_minumum_carat_total_weight_side2')): ?>
+                                    <?php
+                                        $diamondValue = __('Diamond');
+                                        $diamondTypeCentre = $_product->getResource()->getAttribute('diamond_type_centre')->getFrontend()->getValue($_product);
+                                        $diamondTypeSide1 = $_product->getResource()->getAttribute('diamond_type_side1')->getFrontend()->getValue($_product);
+                                        $diamondTypeSide2 = $_product->getResource()->getAttribute('diamond_type_side2')->getFrontend()->getValue($_product);
+                                    ?>
+                                    <?php
+                                        $totalDiamondWeight = 0;
+                                    if ($_product->getData('diamond_minumum_carat_total_weight_centre')) {
+                                        if ($diamondTypeCentre != '') {
+                                            if ($diamondTypeCentre == $diamondValue) {
+                                                $totalDiamondWeight += (float)$_product->getData('diamond_minumum_carat_total_weight_centre');
+                                            }
+                                        }
+                                    }
+                                    if ($_product->getData('diamond_minumum_carat_total_weight_side1')) {
+                                        if ($diamondTypeSide1 != '') {
+                                            if ($diamondTypeSide1 == $diamondValue) {
+                                                $totalDiamondWeight += (float)$_product->getData('diamond_minumum_carat_total_weight_side1');
+                                            }
+                                        }
+                                    }
+                                    if ($_product->getData('diamond_minumum_carat_total_weight_side2')) {
+                                        if ($diamondTypeSide2 != '') {
+                                            if ($diamondTypeSide2 == $diamondValue) {
+                                                $totalDiamondWeight += (float)$_product->getData('diamond_minumum_carat_total_weight_side2');
+                                            }
+                                        }
+                                    }
+                                    ?>
+                                    <?php if ($totalDiamondWeight > 0): ?>
+                                        <?php $totalDiamondWeight = number_format($totalDiamondWeight, 2); ?>
+                                        <li><?= __('Diamonds weighing a total of approximately %1 carat', $totalDiamondWeight) ?></li>
+                                    <?php endif; ?>
+                                <?php endif; ?>
+
+
+                                <?php /* Total Weight */ ?>
+                                <?php if ($_product->getWeight() > 0): ?>
+                                    <?php $productWeight = preg_replace('/\.(\d{3}).*/', '.$1', $_product->getWeight()); ?>
+                                    <li><?= __('Total approximate weight %1 grams', $productWeight) ?></li>
+                                <?php endif; ?>
+                            </ul>
+                        <?php endif; ?>
+                    </div>
+
+                    <div class="pro_attributes">
+                        <div class="additional-attributes-wrapper table-wrapper">
+                            <table class="data table additional-attributes" id="product-attribute-specs-table">
+                                <tbody>
+                                    <?php /* Diamond Carat */ ?>
+                                    <?php
+                                        $diamondCarat = [];
+                                    if ($_product->getData('diamond_minumum_carat_total_weight_centre')) {
+                                        $diamondCarat[] = $_product->getData('diamond_minumum_carat_total_weight_centre');
+                                    }
+                                    if ($_product->getData('diamond_minumum_carat_total_weight_side1')) {
+                                        $diamondCarat[] = $_product->getData('diamond_minumum_carat_total_weight_side1');
+                                    }
+                                    if ($_product->getData('diamond_minumum_carat_total_weight_side2')) {
+                                        $diamondCarat[] = $_product->getData('diamond_minumum_carat_total_weight_side2');
+                                    }
+                                    ?>
+                                    <tr>
+                                        <th class="col label" scope="row"><?= __('Carat') ?></th>
+                                        <td class="col data" data-th="<?= __('Carat') ?>">
+                                            <?php if (!empty($diamondCarat)): ?>
+                                                <?php $diamondCarat = implode(', ', $diamondCarat); ?>
+                                                <?= $diamondCarat ?>
+                                            <?php else: ?>
+                                                <?= __('-') ?>
+                                            <?php endif; ?>
+                                        </td>
+                                    </tr>
+
+
+                                    <?php /* Diamond Materials */ ?>
+                                    <?php
+                                        $diamondMaterial = [];
+                                    if ($_product->getData('diamond_shape_centre') && $_product->getData('diamond_type_centre')) {
+                                        $diamondMaterial[] = $_product->getResource()->getAttribute('diamond_shape_centre')->getFrontend()->getValue($_product) . ' ' . $_product->getResource()->getAttribute('diamond_type_centre')->getFrontend()->getValue($_product);
+                                    } else {
+                                        if ($_product->getData('diamond_shape_centre')) {
+                                            $diamondMaterial[] = $_product->getResource()->getAttribute('diamond_shape_centre')->getFrontend()->getValue($_product);
+                                        }
+                                    }
+                                    if ($_product->getData('diamond_shape_side1') && $_product->getData('diamond_type_side1')) {
+                                        $diamondMaterial[] = $_product->getResource()->getAttribute('diamond_shape_side1')->getFrontend()->getValue($_product) . ' ' . $_product->getResource()->getAttribute('diamond_type_side1')->getFrontend()->getValue($_product);
+                                    } else {
+                                        if ($_product->getData('diamond_shape_side1')) {
+                                            $diamondMaterial[] = $_product->getResource()->getAttribute('diamond_shape_side1')->getFrontend()->getValue($_product);
+                                        }
+                                    }
+                                    if ($_product->getData('diamond_shape_side2') && $_product->getData('diamond_type_side2')) {
+                                        $diamondMaterial[] = $_product->getResource()->getAttribute('diamond_shape_side2')->getFrontend()->getValue($_product) . ' ' . $_product->getResource()->getAttribute('diamond_type_side2')->getFrontend()->getValue($_product);
+                                    } else {
+                                        if ($_product->getData('diamond_shape_side2')) {
+                                            $diamondMaterial[] = $_product->getResource()->getAttribute('diamond_shape_side2')->getFrontend()->getValue($_product);
+                                        }
+                                    }
+                                    if ($_product->getData('metal_type')) {
+                                        $diamondMaterial[] = $_product->getResource()->getAttribute('metal_type')->getFrontend()->getValue($_product);
+                                    }
+                                    ?>
+                                    <tr>
+                                        <th class="col label" scope="row"><?= __('Materials') ?></th>
+                                        <td class="col data" data-th="<?= __('Materials') ?>">
+                                            <?php if (!empty($diamondMaterial)): ?>
+                                                <?php $diamondMaterial = implode(', ', $diamondMaterial); ?>
+                                                <?= $diamondMaterial ?>
+                                            <?php else: ?>
+                                                <?= __('-') ?>
+                                            <?php endif; ?>
+                                        </td>
+                                    </tr>
+
+
+                                    <?php /* Diamond Color */ ?>
+                                    <?php
+                                        $diamondColor = [];
+                                    if ($_product->getData('diamond_minimum_color_centre')) {
+                                        $diamondColor[] = $_product->getResource()->getAttribute('diamond_minimum_color_centre')->getFrontend()->getValue($_product);
+                                    }
+                                    if ($_product->getData('diamond_average_color_side1')) {
+                                        $diamondColor[] = $_product->getResource()->getAttribute('diamond_average_color_side1')->getFrontend()->getValue($_product);
+                                    }
+                                    if ($_product->getData('diamond_average_color_side2')) {
+                                        $diamondColor[] = $_product->getResource()->getAttribute('diamond_average_color_side2')->getFrontend()->getValue($_product);
+                                    }
+                                    ?>
+                                    <tr>
+                                        <th class="col label" scope="row"><?= __('Color') ?></th>
+                                        <td class="col data" data-th="<?= __('Color') ?>">
+                                            <?php if (!empty($diamondColor)): ?>
+                                                <?php $diamondColor = implode(', ', $diamondColor); ?>
+                                                <?= $diamondColor ?>
+                                            <?php else: ?>
+                                                <?= __('-') ?>
+                                            <?php endif; ?>
+                                        </td>
+                                    </tr>
+
+
+                                    <?php /* Diamond Size */ ?>
+                                    <?php
+                                        $diamondSize = [];
+                                    if ($_product->getData('metal_type_length')) {
+                                        $diamondSize[] = $_product->getResource()->getAttribute('metal_type_length')->getFrontend()->getValue($_product);
+                                    }
+                                    if ($_product->getData('chain_length')) {
+                                        $diamondSize[] = $_product->getResource()->getAttribute('chain_length')->getFrontend()->getValue($_product);
+                                    }
+                                    if ($_product->getData('ring_size')) {
+                                        $diamondSize[] = $_product->getResource()->getAttribute('ring_size')->getFrontend()->getValue($_product);
+                                    }
+                                    ?>
+                                    <tr>
+                                        <th class="col label" scope="row"><?= __('Size') ?></th>
+                                        <td class="col data" data-th="<?= __('Size') ?>">
+                                            <?php if (!empty($diamondSize)): ?>
+                                                <?php $diamondSize = implode(', ', $diamondSize); ?>
+                                                <?= $diamondSize ?>
+                                            <?php else: ?>
+                                                <?= __('-') ?>
+                                            <?php endif; ?>
+                                        </td>
+                                    </tr>
+
+
+                                    <?php /* Diamond Clarity */ ?>
+                                    <?php
+                                        $diamondClarity = [];
+                                    if ($_product->getData('diamond_minimum_clarity_centre')) {
+                                        $diamondClarity[] = $_product->getResource()->getAttribute('diamond_minimum_clarity_centre')->getFrontend()->getValue($_product);
+                                    }
+                                    if ($_product->getData('diamond_average_clarity_side1')) {
+                                        $diamondClarity[] = $_product->getResource()->getAttribute('diamond_average_clarity_side1')->getFrontend()->getValue($_product);
+                                    }
+                                    if ($_product->getData('diamond_average_clarity_side2')) {
+                                        $diamondClarity[] = $_product->getResource()->getAttribute('diamond_average_clarity_side2')->getFrontend()->getValue($_product);
+                                    }
+                                    ?>
+                                    <tr>
+                                        <th class="col label" scope="row"><?= __('Clarity') ?></th>
+                                        <td class="col data" data-th="<?= __('Clarity') ?>">
+                                            <?php if (!empty($diamondClarity)): ?>
+                                                <?php $diamondClarity = implode(', ', $diamondClarity); ?>
+                                                <?= $diamondClarity ?>
+                                            <?php else: ?>
+                                                <?= __('-') ?>
+                                            <?php endif; ?>
+                                        </td>
+                                    </tr>
+
+
+                                    <?php /* Diamond Type */ ?>
+                                    <tr>
+                                        <th class="col label" scope="row"><?= __('Type') ?></th>
+                                        <td class="col data" data-th="<?= __('Type') ?>">
+                                            <?php if ($_product->getData('jewellery_type')): ?>
+                                                <?= $_product->getResource()->getAttribute('jewellery_type')->getFrontend()->getValue($_product); ?>
+                                            <?php else: ?>
+                                                <?= __('-') ?>
+                                            <?php endif; ?>
+                                        </td>
+                                    </tr>
+
+
+                                    <?php /* Diamond Cuts */ ?>
+                                    <?php
+                                        $diamondCuts = [];
+                                    if ($_product->getData('diamond_minimum_cut_centre')) {
+                                        $diamondCuts[] = $_product->getResource()->getAttribute('diamond_minimum_cut_centre')->getFrontend()->getValue($_product);
+                                    }
+                                    if ($_product->getData('diamond_average_cut_side1')) {
+                                        $diamondCuts[] = $_product->getResource()->getAttribute('diamond_average_cut_side1')->getFrontend()->getValue($_product);
+                                    }
+                                    if ($_product->getData('diamond_average_cut_side2')) {
+                                        $diamondCuts[] = $_product->getResource()->getAttribute('diamond_average_cut_side2')->getFrontend()->getValue($_product);
+                                    }
+                                    ?>
+                                    <tr>
+                                        <th class="col label" scope="row"><?= __('Cuts') ?></th>
+                                        <td class="col data" data-th="<?= __('Cuts') ?>">
+                                            <?php if (!empty($diamondCuts)): ?>
+                                                <?php $diamondCuts = implode(', ', $diamondCuts); ?>
+                                                <?= $diamondCuts ?>
+                                            <?php else: ?>
+                                                <?= __('-') ?>
+                                            <?php endif; ?>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

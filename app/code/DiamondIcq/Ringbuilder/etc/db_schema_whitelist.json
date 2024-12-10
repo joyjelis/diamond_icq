@@ -1,0 +1,50 @@
+{
+    "rapnet_diamond": {
+        "column": {
+            "diamond_id": true,
+            "shape": true,
+            "size": true,
+            "color": true,
+            "fancy_color_dominant_color": true,
+            "fancy_color_secondary_color": true,
+            "fancy_color_overtone": true,
+            "fancy_color_intensity": true,
+            "clarity": true,
+            "cut": true,
+            "symmetry": true,
+            "polish": true,
+            "depth_percent": true,
+            "table_percent": true,
+            "meas_length": true,
+            "meas_width": true,
+            "meas_depth": true,
+            "girdle_min": true,
+            "girdle_max": true,
+            "girdle_condition": true,
+            "culet_size": true,
+            "culet_condition": true,
+            "fluor_color": true,
+            "fluor_intensity": true,
+            "has_cert_file": true,
+            "lab": true,
+            "currency_code": true,
+            "currency_symbol": true,
+            "total_sales_price": true,
+            "total_sales_price_in_currency": true,
+            "cert_num": true,
+            "stock_num": true,
+            "has_image_file": true,
+            "image_file_url": true,
+            "video_url": true,
+            "has_sarineloupe": true,
+            "eye_clean": true,
+            "status": true,
+            "import_timestamp": true,
+            "diamond_type": true,
+            "hash": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

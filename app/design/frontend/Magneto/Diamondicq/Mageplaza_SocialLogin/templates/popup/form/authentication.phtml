@@ -1,0 +1,126 @@
+<?php
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_SocialLogin
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+?>
+<div class="social-login block-container authentication">
+
+    <div class="block social-login-customer-authentication col-mp mp-12 block-customer-login" id="social-login-authentication">
+        <div class="social-login-title">
+            <h2 class="login-title"><?= __('Sign In') ?></h2>
+        </div>
+        <div class="block-title">
+            <span class="block-customer-login-heading" role="heading"
+                  aria-level="2"><?= __('Please log in to your account.') ?></span>
+        </div>
+        <div class="block-content" aria-labelledby="block-customer-login-heading">
+            <form class="form-customer-login" id="social-form-login" data-mage-init='{"validation":{}}'>
+                <?= $block->getBlockHtml('formkey') ?>
+                <fieldset class="fieldset login" data-hasrequired="<?= __('* Required Fields') ?>">
+                    <?= $block->getChildHtml('form_before_login_fields') ?>
+
+                    <div class="placeholder1 field">
+                      <input name="username" id="social_login_email" type="email" class="inputText"
+                                   value="<?= $block->escapeHtml($block->getUsername()) ?>"
+                                    <?php if ($block->isAutocompleteDisabled()): ?>
+                                        autocomplete="off"
+                                    <?php endif; ?>
+                                   title="<?= __('Email Address') ?>"
+                                   data-validate="{required:true, 'validate-email':true}" required/>
+                       <label class="floating-label1 label" for="social_login_email">
+                           <span><?= __('Email Address') ?></span>
+                       </label>
+                    </div>
+
+                    <div class="placeholder1 field">
+                        <input name="password" id="social_login_pass" type="password"
+                                   class="inputText"
+                                <?= $block->isAutocompleteDisabled() ? ' autocomplete="off"' : '' ?>
+                                   title="<?= __('Password') ?>"
+                                   data-validate="{required:true, 'validate-password':true}" required>
+                         <label class="floating-label1 label" for="social_login_pass">
+                             <span><?= __('Password') ?></span>
+                         </label>
+                    </div>
+                    
+                    <div class="customer-account-login">
+                        <div class="login-container">
+                            <div class="block-customer-login ">
+                                <div class="form-login">
+                                    <?= $block->getChildHtml('remember.me.popup') ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <?= $block->getChildHtml('form_additional_info') ?>
+                    <div class="actions-toolbar">
+                        <div class="primary">
+                            <button type="button" class="action login primary" style="display:none" id="bnt-social-login-authentication">
+                                <span><?= __('Sign in') ?></span>
+                            </button>
+                            <button type="button" class="action login primary" id="visiblePopupLogin">
+                                <span><?= __('Sign in') ?></span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="actions-toolbar bottom dont-have-account">
+                        <div class="pre-primary"><span><?= __("Don't have an account?") ?></span></div>
+                        <div class="primary">
+                            <a class="action create" href="#"><span><?= __('Sign Up') ?></span></a>
+                        </div>
+                        <div class="secondary">
+                            <a class="action remind" href="#"><span><?= __('Reset Password') ?></span></a>
+                        </div>
+                    </div>
+                    <?= $block->getChildHtml('popup.authentication.social') ?>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    require(['jquery', 'jquery/ui'], function($){
+        jQuery(document).ready(function () {
+            try{
+                jQuery("input[name^='mp_recaptcha_']:checkbox").attr('data-validate','{required:true}');
+            }catch(e){
+                //unable to validate
+            }
+
+            jQuery("#visiblePopupLogin").on('click', function(){
+                try{
+                    jQuery("input[name^='mp_recaptcha_']:checkbox").attr('data-validate','{required:true}');
+                }catch(e){
+                    //unable to validate
+                }
+                jQuery('#bnt-social-login-authentication').trigger('click');
+            });
+            
+            jQuery("#bnt-social-login-create,#bnt-social-login-forgot").on('click', function(){
+                try{
+                    jQuery("input[name^='mp_recaptcha_']:checkbox", this.form)
+                        .attr('data-validate', '{required:true}')
+                        .attr('required', true);
+                }catch(e){
+                    //unable to validate
+                }
+            });
+        });
+    });
+</script>

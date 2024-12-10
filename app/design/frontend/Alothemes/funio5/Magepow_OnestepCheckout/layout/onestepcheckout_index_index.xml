@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * onstepcheckout_index_index
+ *
+ * @copyright Copyright © 2020 Magepow. All rights reserved.
+ * @author    @copyright Copyright (c) 2014 Magepow (<https://www.magepow.com>)
+ * @license <https://www.magepow.com/license-agreement.html>
+ * @Author: magepow<support@magepow.com>
+ * @github: <https://github.com/magepow>
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="checkout" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+     <body>
+        <referenceBlock name="checkout.root">
+            <arguments>
+                <argument name="jsLayout" xsi:type="array">
+                    <item name="components" xsi:type="array">
+                        <item name="checkout" xsi:type="array">
+                            <item name="children" xsi:type="array">
+                                <item name="steps" xsi:type="array">
+                                    <item name="children" xsi:type="array">
+                                        <item name="shipping-step" xsi:type="array">
+                                            <item name="children" xsi:type="array">
+                                                <item name="shippingAddress" xsi:type="array">
+                                                    <item name="children" xsi:type="array">
+                                                        <item name="shipping-address-fieldset" xsi:type="array">
+                                                            <item name="children" xsi:type="array">
+                                                                <item name="telephone" xsi:type="array">
+                                                                    <item name="validation" xsi:type="array">
+                                                                        <item name="pattern" xsi:type="string">^[0-9\+\s]+$</item>
+                                                                    </item>
+                                                                </item>
+																<item name="phone_number" xsi:type="array">
+                                                                    <item name="visible" xsi:type="boolean">false</item>
+                                                                </item>
+																<item name="city" xsi:type="array">
+																	<item name="sortOrder" xsi:type="string">91</item>
+																</item>
+                                                            </item>
+                                                        </item>
+                                                    </item>
+                                                </item>
+                                            </item>
+                                        </item>
+										<item name="billing-step" xsi:type="array">
+                                            <item name="children" xsi:type="array">
+                                                <item name="billingAddress" xsi:type="array">
+                                                    <item name="children" xsi:type="array">
+                                                        <item name="billing-address-fieldset" xsi:type="array">
+                                                            <item name="children" xsi:type="array">
+                                                                <item name="telephone" xsi:type="array">
+                                                                    <item name="validation" xsi:type="array">
+                                                                        <item name="pattern" xsi:type="string">^[0-9\+\s]+$</item>
+                                                                    </item>
+                                                                </item>
+                                                                <item name="phone_number" xsi:type="array">
+                                                                    <item name="visible" xsi:type="boolean">false</item>
+                                                                </item>
+																<item name="city" xsi:type="array">
+																	<item name="sortOrder" xsi:type="string">91</item>
+																</item>
+                                                            </item>
+                                                        </item>
+                                                    </item>
+                                                </item>
+                                            </item>
+                                        </item>
+                                    </item>
+                                </item>
+                            </item>
+                        </item>
+                    </item>
+                </argument>
+            </arguments>
+        </referenceBlock>
+    </body>
+</page>

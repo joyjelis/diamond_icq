@@ -1,0 +1,126 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var \Magento\ConfigurableProduct\Pricing\Render\FinalPriceBox$block */
+/** @var \Magento\Framework\Pricing\Price\PriceInterface $priceModel */
+
+$controllerName = $this->getRequest()->getControllerName();
+$actionName = $this->getRequest()->getActionName();
+$routeName = $this->getRequest()->getRouteName();
+$moduleName = $this->getRequest()->getModuleName();
+
+$customblock = $block->getLayout()->createBlock('Magneto\Custom\Block\Addtocart');
+$priceModel = $block->getPriceType('regular_price');
+/** @var \Magento\Framework\Pricing\Price\PriceInterface $finalPriceModel */
+$finalPriceModel = $block->getPriceType('final_price');
+$idSuffix = $block->getIdSuffix() ? $block->getIdSuffix() : '';
+$schema = ($block->getZone() == 'item_view') ? true : false;
+$product = $finalPriceModel->getProduct();
+$basePrice = $product->getPriceInfo()->getPrice('regular_price');
+$regularPrice = $basePrice->getMinRegularAmount()->getValue();
+$specialPrice = $product->getFinalPrice();
+//$discount = $customblock->getDiscount($pid = null, $specialPrice , $regularPrice);
+$discount = 0;
+$baseUrl = $this->getBaseUrl();
+
+if ($actionName == 'view' && $controllerName == 'product' && $routeName == 'catalog' ) { ?>
+<input type="hidden" name="baseUrl" id="baseUrl" value="<?php echo $baseUrl; ?>">
+<div class="childProductIdDiv no-display" id="childProductId" style=""></div>
+<!-- <input type="hidden" name="childProductId" id="childProductId" /> -->
+<span class="normal-price no-display" id="orgPrice">
+        <?= /* @noEscape */ $block->renderAmount($finalPriceModel->getAmount(), [
+        'display_label' => __('As low as'),
+        'price_id' => $block->getPriceId('product-price-' . $idSuffix),
+        'price_type' => 'finalPrice',
+        'include_container' => true,
+        'schema' => $schema,
+    ]);
+?>
+</span>
+
+<div class="custom-price">     
+    <div class="original">
+        <div class="original discountPrice" id="replacePrice">
+            <p class="price-title"><span class="org no-display "><?php echo __('Original '); ?></span><?php echo __('Price'); ?>:</p>
+            <p class="price" ><span class="price"><?php echo $block->renderAmount($priceModel->getAmount()); ?></span></p>
+            <p class="discount-per no-display"><?php echo __('(Discount <span class="per">'.$discount.'</span>%)'); ?></p>
+        </div>
+    </div>
+<?php 
+    if (!$block->isProductList() && $block->hasSpecialPrice()) : ?>
+
+    <span class="old-price sly-old-price no-display">
+        <?= /* @noEscape */ $block->renderAmount($priceModel->getAmount(), [
+            'display_label'     => __('Regular Price'),
+            'price_id'          => $block->getPriceId('old-price-' . $idSuffix),
+            'price_type'        => 'oldPrice',
+            'include_container' => true,
+            'skip_adjustments'  => true
+        ]); ?>
+    </span>
+
+    <div class="special sly-old-price no-display" id="specialPrice">
+            <p><?php echo __('Special Price'); ?>:</p>
+            <p class="price"><span class="price"><?php echo $block->renderAmount($finalPriceModel->getAmount()); ?></span></p>
+    </div>
+
+    <?php endif;?>
+
+<?php if ($block->showMinimalPrice()) : ?>
+    <?php if ($block->getUseLinkForAsLowAs()) :?>
+        <a href="<?= $block->escapeUrl($block->getSaleableItem()->getProductUrl()) ?>" class="minimal-price-link">
+            <?= /* @noEscape */ $block->renderAmountMinimal() ?>
+        </a>
+    <?php else :?>
+        <span class="minimal-price-link">
+            <?= /* @noEscape */ $block->renderAmountMinimal() ?>
+        </span>
+    <?php endif?>
+<?php endif; ?>
+</div>
+
+<style>
+ .custom-price .old-price.sly-old-price{
+    display: none !important;
+}
+</style>
+<?php }else{ ?> 
+<span class="normal-price">
+    <?= /* @noEscape */ $block->renderAmount($finalPriceModel->getAmount(), [
+        'display_label' => __('As low as'),
+        'price_id' => $block->getPriceId('product-price-' . $idSuffix),
+        'price_type' => 'finalPrice',
+        'include_container' => true,
+        'schema' => $schema,
+    ]);
+?>
+</span>
+
+<?php if (!$block->isProductList() && $block->hasSpecialPrice()) : ?>
+    <span class="old-price sly-old-price no-display">
+        <?= /* @noEscape */ $block->renderAmount($priceModel->getAmount(), [
+            'display_label'     => __('Regular Price'),
+            'price_id'          => $block->getPriceId('old-price-' . $idSuffix),
+            'price_type'        => 'oldPrice',
+            'include_container' => true,
+            'skip_adjustments'  => true
+        ]); ?>
+    </span>
+<?php endif; ?>
+
+<?php if ($block->showMinimalPrice()) : ?>
+    <?php if ($block->getUseLinkForAsLowAs()) :?>
+        <a href="<?= $block->escapeUrl($block->getSaleableItem()->getProductUrl()) ?>" class="minimal-price-link">
+            <?= /* @noEscape */ $block->renderAmountMinimal() ?>
+        </a>
+    <?php else :?>
+        <span class="minimal-price-link">
+            <?= /* @noEscape */ $block->renderAmountMinimal() ?>
+        </span>
+    <?php endif?>
+<?php endif; ?>
+
+<?php } ?>

@@ -1,0 +1,60 @@
+<?php
+$item = $block->getSellitem();
+$price = $item->getPrice();
+$offerPrice = $item->getOfferPrice();
+$status = $item->getStatus();
+?>
+<div class="status-details qualified">
+    <div class="item-status-desc">
+        <span>
+            <?= $block->escapeHtml(__("Your Item :")); ?>
+        </span>
+        <strong>
+            <?= $block->escapeHtml(__("Qualified.")); ?>
+        </strong>
+    </div>
+    <div class='field note no-label'>
+        <span>
+            <?= $block->escapeHtml(__('Offer Price')) ?> :
+        </span>
+        <strong>
+            <?= $block->formatSellPrice($price); ?>
+        </strong>
+    </div>
+    <?php if ($offerPrice && $status == 4) { ?>
+        <div class='field note no-label'>
+            <span>
+                <?= $block->escapeHtml(__('New Offer Price')) ?> :
+            </span>
+            <strong>
+                <?= $block->formatSellPrice($offerPrice); ?>
+            </strong>
+        </div>
+    <?php } ?>
+    <div class="field accept required">
+        <label class="head label" for="name">
+            <span><?= $block->escapeHtml(__('Accept Offer ?')) ?></span>
+        </label>
+        <div class="control">
+            <div class="sub-control">
+                <input type="radio" class="radio" id="yes" data-validate="{'validate-one-required-by-name':true}" name="accept_offer" value="1">
+                <label class="label" for="yes">
+                    <?= $block->escapeHtml(__('Yes')) ?>
+                </label>
+            </div>
+            <div class="sub-control">
+                <input type="radio" class="radio" id="no" data-validate="{'validate-one-required-by-name':true}" name="accept_offer" value="0">
+                <label class="label" for="no">
+                    <?= $block->escapeHtml(__('No')) ?>
+                </label>
+            </div>
+        </div>
+        <div class="actions-toolbar" id="accept_offer_cancel">
+            <div class="primary">
+                <button type="submit" title="<?= $block->escapeHtml(__('Submit')) ?>" class="action submit primary">
+                    <span><?= $block->escapeHtml(__('Submit')) ?></span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,99 @@
+<?php $collection = $block->getCollection(); ?>
+<?php if (count($collection) > 0): ?>
+    <div class="products-grid">
+        <div class="custom-sell-display-list grid product-items">
+            <?php foreach ($collection as $item): ?>
+                <div class="custom-sell-item-group">
+                    <div class="infor-section">
+                        <div class="custom-sell-item-image">
+                            <?php if ($url = $block->getImage($item)): ?>
+                                <div class='certimage imagepreview_<?= $item->getSellId() ?>'>
+                                    <img src="<?= $block->escapeHtml($url); ?>" />
+                                    <?php if ($block->IsNotQulify($item)): ?>
+                                        <span class="notqualify" style="color:red">no</span>
+                                    <?php endif; ?>
+                                </div>
+                            <?php endif; ?>
+                        </div>
+                        <div class="custom-sell-item-details-group">
+                            <div class="custom-sell-status-viewlink">
+                                <div class="custom-sell-status">
+                                    <span class="status-head"><?= __("Status:")?> <?= __($block->getItemStatus($item)) ?></span>
+                                </div>
+                            </div>
+                            <div class="custom-sell-information">
+                                <div class="information-details">
+                                    <div class="custom-sell-details-group">
+                                        <div class="title"> <?= $block->escapeHtml(__('Date')); ?></div>
+                                        <div class="description"><?= $block->formatDate($item->getCreatedAt(), 2);?></div>
+                                    </div>
+                                    <div class="custom-sell-details-group">
+                                        <div class="title"> <?= $block->escapeHtml(__('Ref.Id')); ?></div>
+                                        <div class="description"><?= $block->escapeHtml($item->getQuote()); ?></div>
+                                    </div>
+                                </div>
+                                <?php if ($price = $block->getPrice($item)): ?>
+                                    <div class="information-details">
+                                        <div class="custom-sell-details-group">
+                                            <div class="title"> <?= $block->escapeHtml(__('Price')); ?></div>
+                                            <div class="description"><?= $price ?></div>
+                                        </div>
+                                        <div class="custom-sell-details-group">
+                                            <div class="title"> <?= $block->escapeHtml(__('Certificate')); ?></div>
+                                            <div class="description"><?= $block->escapeHtml(__($item->getCertificate()==1 ? 'Yes' : 'No')); ?></div>
+                                        </div>
+                                    </div>
+                                <?php else:?>
+                                    <div class="information-details">
+                                        <div class="custom-sell-details-group">
+                                            <div class="title"> <?= $block->escapeHtml(__('Price')); ?></div>
+                                            <div class="description"><?= __("N/A") ?></div>    
+                                        </div>
+                                        <div class="custom-sell-details-group">
+                                            <div class="title"> <?= $block->escapeHtml(__('Certificate')); ?></div>
+                                            <div class="description"><?= $block->escapeHtml(__($item->getCertificate()==1 ? 'Yes' : 'No')); ?></div>
+                                        </div>
+                                    </div>
+                                <?php endif;?>
+                                <div class="information-details">
+                                    <div class="custom-sell-details-group">
+                                        <div class="title"> <?= $block->escapeHtml(__('Quoted Items')); ?></div>
+                                        <div class="description"><?= $block->escapeHtml(__($item->getJewelleryType())); ?></div>
+                                    </div>
+                                    <div class="custom-sell-item-viewlink">
+                                        <a href="<?= $block->escapeHtml($block->getViewUrl($item)); ?>">
+                                            <?= __("View")?>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>    
+                        </div>
+                    </div>   
+                </div>
+                <?php if($url = $block->getImage($item)): ?>
+                    <script>
+                        require(['jquery', 'imagePreview'], function($, ImgPreviewer) {
+                            jQuery(document).ready(function() {
+                                const myViewer = new ImgPreviewer('.imagepreview_<?= $item->getSellId() ?>',{
+                                  ratio: 0.9,
+                                  scrollbar: false,
+                                  zoom: { 
+                                    min: 0.1,
+                                    max: 5,
+                                    step: 0.1
+                                }});
+                            });
+                        });
+                    </script>
+                <?php endif; ?>
+            <?php endforeach; ?>
+        </div>  
+    </div>  
+    <div class="order-products-toolbar toolbar bottom" id="sell-diamond-pager">    
+        <?php if ($block->getPagerHtml()): ?>
+            <?php echo $block->getPagerHtml(); ?>
+        <?php endif ?>
+    </div>
+<?php else: ?>
+    <div class="message info empty"><span><?php echo __('No Record(s) Found.'); ?></span></div>
+    <?php endif ?>

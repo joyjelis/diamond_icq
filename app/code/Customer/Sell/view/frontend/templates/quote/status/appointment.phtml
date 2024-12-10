@@ -1,0 +1,44 @@
+<?php
+$item = $block->getSellitem();
+$appointmentDate = $item->getScheduleDate();
+$offerPrice = $item->getOfferPrice();
+$price = $item->getPrice();
+?>
+<div class="status-details appointmentbook">
+    <div class="item-status-desc">
+        <span>
+            <?= $block->escapeHtml(__("Your Item :")); ?>
+        </span>
+        <strong>
+            <?= $block->escapeHtml(__("Qualified.")); ?>
+        </strong>
+    </div>
+    <div class='field note no-label'>
+        <span>
+            <?= $block->escapeHtml(__('Offer Price')) ?> :
+        </span>
+        <strong>
+            <?= $block->formatSellPrice($price); ?>
+        </strong>
+    </div>
+    <?php if ($offerPrice) { ?>
+        <div class='field note no-label'>
+            <span>
+                <?= $block->escapeHtml(__('New Offer Price')) ?> :
+            </span>
+            <strong>
+                <?= $block->formatSellPrice($offerPrice); ?>
+            </strong>
+        </div>
+    <?php } ?>
+
+    <p class="detailsofapp"><?= __('Appointment Detail') ?><span><?= $block->formatDate($appointmentDate, \IntlDateFormatter::MEDIUM, true); ?></span></p>
+    <div class="actions-toolbar">
+        <div class="primary inlinebuttons">
+            <a class="action reschedule" href="https://koalendar.com/e/<?= $item->getData('booking_appintment_url_slug') ?>/reschedule/<?= $item->getData('booking_appintment_id') ?>" target="_blank" style="display: inline-block;"><span><?= __("Reschedule Appointment") ?></span></a>
+        </div>
+        <div class="primary inlinebuttons">
+            <a class="action cancel" href="<?= $block->getCancel($item->getData('sell_id')) ?>" target="_blank" ><span><?= __("Cancel Appointment") ?></span></a>
+        </div>
+    </div>
+</div>

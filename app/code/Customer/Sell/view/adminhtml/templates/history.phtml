@@ -1,0 +1,42 @@
+<?php $history = $block->getHistory(); ?>
+<div data-role="grid-wrapper">
+    <table class="data-grid data-grid-draggable" data-role="grid">
+        <thead>
+            <tr>
+                <th class="data-grid-th">
+                    <span class="data-grid-cell-content"><?= __("Date")?></span>
+                </th>
+                <th class="data-grid-th">
+                    <span class="data-grid-cell-content"><?= __("Time")?></span>
+                </th>
+                <th class="data-grid-th">
+                    <span class="data-grid-cell-content"><?= __("Status")?></span>
+                </th>
+                <th class="data-grid-th">
+                    <span class="data-grid-cell-content"><?= __("Remark")?></span>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($history as $key => $value): ?>
+            <tr class="data-row">
+                <td>
+                    <div class="data-grid-cell-content" ><?= __($value['date'])?></div>
+                </td>
+                <td>
+                    <div class="data-grid-cell-content" ><?= __($value['time'])?></div>
+                </td>
+                <td>
+                    <div class="data-grid-cell-content" ><?= __($value['status'])?></div>
+                </td>
+                <td>
+                    <div class="data-grid-cell-content" ><?= __($value['remarks'])?></div>
+                </td>
+            </tr>
+            <?php endforeach; ?>
+            <?php if (!$history): ?>
+                <tr class="data-row"><?= __("No History Record(s)") ?></tr>
+            <?php endif; ?>
+        </tbody>
+    </table>
+</div>

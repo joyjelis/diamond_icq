@@ -1,0 +1,231 @@
+      <?php $diamond = $block->getDiamond(); ?>
+      <div class="printdiv cls-for-hide" id="printdiv">
+         <div class="print-header" style="background: #1979c3 !important; color: #fff !important;">
+            <div class="header-container">
+               <div class="header-title">
+                  <h2 style="color: #fff !important;"><?php echo __('Diamond Detail'); ?></h2>
+               </div>
+               <div class="header-date">
+                  <h4 style="color: #fff !important;"><?php echo date("d/m/Y"); ?></h4>
+               </div>
+            </div>
+         </div>
+         <section class="diamonds-search with-specification diamond-page">
+            <div class="d-container">
+               <div class="d-row">
+                  <div class="diamonds-print-preview no-padding" style="background: #f7f7f7 !important;      border: 1px solid #e8e8e8 !important;">
+                     <div class="diamond-info-one">
+                        <img src="<?php echo $diamond['diamondData']['image2'] ?>" style="height: 100px;width: 100px;" />
+                     </div>
+                     <div class="diamond-info-two">
+                        <img src="<?php echo $diamond['diamondData']['image1'] ?>" style="height: 100px;width: 165px;"/>
+                     </div>
+                     <div class="print-info">
+                        <p>SKU# <span><?php echo $diamond['diamondData']['diamondId'] ?></span></p>
+                     </div>
+                  </div>
+                  <div class="print-diamond-certifications">
+                     <div class="diamonds-grade">
+                        <img src="<?php echo $diamond['diamondData']['certificateIconUrl'] ?>" style="height: 75px;width: 75px;"/>
+                     </div>
+                     <div class="diamonds-grade-info">
+                        <p><?php echo $diamond['diamondData']['subHeader']; ?></p>
+                     </div>
+                  </div>
+                  <div class="print-details">
+                     <div class="diamond-title">
+                        <div class="diamond-name">
+                           <h2><?php echo $diamond['diamondData']['mainHeader']; ?></h2>
+                           <p><?php echo $diamond['diamondData']['subHeader']; ?></p>
+                        </div>
+                        <?php if(isset($diamond['diamondData']['fltPrice'])) { ?>
+                        <div class="diamond-price">
+                           <span><?php if($diamond['diamondData']['currencyFrom'] != 'USD'){ echo $diamond['diamondData']['currencyFrom']; } echo $diamond['diamondData']['currencySymbol'].$diamond['diamondData']['fltPrice']; ?></span>
+                        </div>
+                     <?php } else { ?>
+                        <div class="diamond-price">
+                           <span><?php echo __('Call For Price'); ?></span>
+                        </div>
+                     <?php } ?>
+                     </div>
+                     <div class="diamond-inner-details">
+                        <ul>
+                           <?php if(isset($diamond['diamondData']['diamondId'])) { ?>
+                           <li>
+                              <div class="diamond-specifications">
+                                 <p><?php echo __('Stock Number') ?></p>
+                              </div>
+                              <div class="diamond-quality">
+                                 <p><?php echo $diamond['diamondData']['diamondId'] ?></p>
+                              </div>
+                           </li>
+                           <?php } ?>
+                           <?php if(isset($diamond['diamondData']['fltPrice'])) { ?>
+                           <li>
+                              <div class="diamond-specifications">
+                                 <p><?php echo __('Price') ?></p>
+                              </div>
+                              <?php if($diamond['diamondData']['showPrice']){ ?>
+                              <div class="diamond-quality">
+                                 <p><?php if($diamond['diamondData']['currencyFrom'] != 'USD') { echo $diamond['diamondData']['currencyFrom']; } echo $diamond['diamondData']['currencySymbol'].$diamond['diamondData']['fltPrice']; ?></p>
+                              </div>
+                              <?php } else { ?>
+                              <div class="diamond-quality">
+                                 <p><?php echo __('Call For Price'); ?></p>
+                              </div>
+                              <?php } ?>
+                           </li>
+                           <?php } ?>
+                           <?php if(isset($diamond['diamondData']['fltPrice'])) { ?>
+                           <li>
+                              <div class="diamond-specifications">
+                                 <p><?php echo __('Price Per Carat') ?></p>
+                              </div>
+                              <?php if($diamond['diamondData']['showPrice']){ ?>
+                              <div class="diamond-quality">
+                                 <p><?php if($diamond['diamondData']['currencyFrom'] !='USD'){ echo $diamond['diamondData']['currencyFrom']; } echo $diamond['diamondData']['currencySymbol'].number_format(str_replace(',', '', $diamond['diamondData']['fltPrice'])/$diamond['diamondData']['caratWeight']); ?></p>
+                              </div>
+                              <?php } else { ?>
+                              <div class="diamond-quality">
+                                 <p><?php echo __('Call For Price'); ?></p>
+                              </div>
+                              <?php } ?>
+                           </li>
+                           <?php } ?>
+                           <?php if(isset($diamond['diamondData']['caratWeight'])) { ?>
+                           <li>
+                              <div class="diamond-specifications">
+                                 <p><?php echo __('Carat Weight') ?></p>
+                              </div>
+                              <div class="diamond-quality">
+                                 <p><?php echo $diamond['diamondData']['caratWeight'] ?></p>
+                              </div>
+                           </li>
+                           <?php } ?>
+                           <?php if(isset($diamond['diamondData']['cut'])) { ?>
+                           <li>
+                              <div class="diamond-specifications">
+                                 <p><?php echo __('Cut') ?></p>
+                              </div>
+                              <div class="diamond-quality">
+                                 <p><?php echo $diamond['diamondData']['cut'] ?></p>
+                              </div>
+                           </li>
+                           <?php } ?>
+                           <?php if(isset($diamond['diamondData']['color'])) { ?>
+                           <li>
+                              <div class="diamond-specifications">
+                                 <p><?php echo __('Color') ?></p>
+                              </div>
+                              <div class="diamond-quality">
+                                 <p><?php echo $diamond['diamondData']['color'] ?></p>
+                              </div>
+                           </li>
+                           <?php } ?>
+                           <?php if(isset($diamond['diamondData']['clarity'])) { ?>
+                           <li>
+                              <div class="diamond-specifications">
+                                 <p><?php echo __('Clarity') ?></p>
+                              </div>
+                              <div class="diamond-quality">
+                                 <p><?php echo $diamond['diamondData']['clarity'] ?></p>
+                              </div>
+                           </li>
+                           <?php } ?>
+                           <?php if(isset($diamond['diamondData']['certificate'])) { ?>
+                           <li>
+                              <div class="diamond-specifications">
+                                 <p><?php echo __('Report') ?></p>
+                              </div>
+                              <div class="diamond-quality">
+                                 <span><?php echo $diamond['diamondData']['certificate']; ?></span>
+                              </div>
+                           </li>
+                           <?php } ?>
+                           <?php if(isset($diamond['diamondData']['depth'])) { ?>
+                           <li>
+                              <div class="diamond-specifications">
+                                 <p><?php echo __('Depth %') ?></p>
+                              </div>
+                              <div class="diamond-quality">
+                                 <p><?php echo $diamond['diamondData']['depth'].'%'; ?></p>
+                              </div>
+                           </li>
+                           <?php } ?>
+                           <?php if(isset($diamond['diamondData']['table'])) { ?>
+                           <li>
+                              <div class="diamond-specifications">
+                                 <p><?php echo __('Table %') ?></p>
+                              </div>
+                              <div class="diamond-quality">
+                                 <p><?php echo $diamond['diamondData']['table'].'%'; ?></p>
+                              </div>
+                           </li>
+                           <?php } ?>
+                           <?php if(isset($diamond['diamondData']['polish'])) { ?>
+                           <li>
+                              <div class="diamond-specifications">
+                                 <p><?php echo __('Polish') ?></p>
+                              </div>
+                              <div class="diamond-quality">
+                                 <p><?php echo $diamond['diamondData']['polish']; ?></p>
+                              </div>
+                           </li>
+                           <?php } ?>
+                           <?php if(isset($diamond['diamondData']['symmetry'])) { ?>
+                           <li>
+                              <div class="diamond-specifications">
+                                 <p><?php echo __('Symmetry') ?></p>
+                              </div>
+                              <div class="diamond-quality">
+                                 <p><?php echo $diamond['diamondData']['symmetry']; ?></p>
+                              </div>
+                           </li>
+                           <?php } ?>
+                           <?php if(isset($diamond['diamondData']['gridle'])) { ?>
+                           <li>
+                              <div class="diamond-specifications">
+                                 <p><?php echo __('Girdle') ?></p>
+                              </div>
+                              <div class="diamond-quality">
+                                 <p><?php echo $diamond['diamondData']['gridle']; ?></p>
+                              </div>
+                           </li>
+                           <?php } ?>
+                           <?php if(isset($diamond['diamondData']['culet'])) { ?>
+                           <li>
+                              <div class="diamond-specifications">
+                                 <p><?php echo __('Culet') ?></p>
+                              </div>
+                              <div class="diamond-quality">
+                                 <p><?php echo $diamond['diamondData']['culet']; ?></p>
+                              </div>
+                           </li>
+                           <?php } ?>
+                           <?php if(isset($diamond['diamondData']['fluorescence'])) { ?>
+                           <li>
+                              <div class="diamond-specifications">
+                                 <p><?php echo __('Fluorescence') ?></p>
+                              </div>
+                              <div class="diamond-quality">
+                                 <p><?php echo $diamond['diamondData']['fluorescence']; ?></p>
+                              </div>
+                           </li>
+                           <?php } ?>
+                           <?php if(isset($diamond['diamondData']['measurement'])) { ?>
+                           <li>
+                              <div class="diamond-specifications">
+                                 <p><?php echo __('Measurement') ?></p>
+                              </div>
+                              <div class="diamond-quality">
+                                 <p><?php echo $diamond['diamondData']['measurement']; ?></p>
+                              </div>
+                           </li>
+                           <?php } ?>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </section>
+      </div>

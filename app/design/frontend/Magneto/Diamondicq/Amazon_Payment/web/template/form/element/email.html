@@ -1,0 +1,84 @@
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<!-- ko ifnot: isCustomerLoggedIn() -->
+
+<!-- ko foreach: getRegion('before-login-form') -->
+<!-- ko template: getTemplate() --><!-- /ko -->
+<!-- /ko -->
+<form
+    class="form form-login"
+    data-role="email-with-possible-login"
+    data-bind="submit:login"
+    method="post"
+>
+    <fieldset
+        id="customer-email-fieldset"
+        class="fieldset"
+        data-bind="blockLoader: isLoading"
+    >
+        <div class="field required customemail placeholder1">
+            <!-- <div class="control _with-tooltip"> -->
+            <input
+                class="input-text email-input"
+                type="email"
+                data-bind="
+                            textInput: email,
+                            hasFocus: emailFocused,
+                            afterRender: emailHasChanged,
+                            mageInit: {'mage/trim-input':{}}"
+                name="username"
+                data-validate="{required:true, 'validate-email':true}"
+                id="customer-email"
+                required
+            />
+            <label class="label floating-label1 emailLabel" for="customer-email"
+                ><span data-bind="i18n: 'Email Address'"></span
+            ></label>
+            <!-- ko template: 'ui/form/element/helper/tooltip' --><!-- /ko -->
+
+            <span
+                class="note"
+                data-bind="fadeVisible: isPasswordVisible() == false"
+                ><!-- ko i18n: 'You can create an account after checkout.'--><!-- /ko --></span
+            >
+
+            <!-- </div> -->
+        </div>
+
+        <!--Hidden fields -->
+        <fieldset
+            class="fieldset hidden-fields"
+            data-bind="fadeVisible: isPasswordVisible"
+        >
+            <div class="field custompassword placeholder1">
+                <!-- <div class="control"> -->
+                <span
+                    class="note"
+                    data-bind="i18n: 'You already have an account with us. Sign in or continue as guest.'"
+                ></span>
+
+                <!-- </div> -->
+            </div>
+            <!-- ko foreach: getRegion('additional-login-form-fields') -->
+            <!-- ko template: getTemplate() --><!-- /ko -->
+            <!-- /ko -->
+            <div class="actions-toolbar">
+                <div class="primary">
+                    <button
+                        class="action login primary"
+                        type="button"
+                        onclick="jQuery('#guestcustomer.social-login-btn').trigger('click');"
+                    >
+                        <span data-bind="i18n: 'Login'"></span>
+                    </button>
+                </div>
+            </div>
+        </fieldset>
+        <!--Hidden fields -->
+    </fieldset>
+</form>
+<!-- /ko -->

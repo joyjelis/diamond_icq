@@ -1,0 +1,36 @@
+<?php 
+$_product = $block->getProduct();
+$productViewModel = $block->getData('custom_product_details_view_model');
+$productDeliveryDate = $productViewModel->getProductDeliveryDate($_product);
+$productOrderByTime = $productViewModel->getOrderByTime();
+$productShippingMethod = $productViewModel->getShippingMethod();
+?>
+<div class="product-shipping">
+	<div class="container">
+		<div class="maincontent">
+			<div class="title"><?php echo __('Shipping  Details'); ?></div>
+			<div class="main">
+				<?php if(trim($productOrderByTime)!=''){ ?>
+				<div class="tab">
+					<div class="label"><?php echo __('Order By'); ?></div>
+					<div class="value"><?php echo trim($productOrderByTime); ?></div>
+				</div>
+
+				<?php }?>
+				<?php if(trim($productDeliveryDate)!=''){ ?>
+				<div class="tab">
+					<div class="label"><?php echo __('Shipping Date'); ?></div>
+					<div class="value"><?php echo $block->formatDate($productDeliveryDate,2); ?></div>
+				</div>
+				<?php }?>
+				<?php if(trim($productShippingMethod)!=''){ ?>
+				<div class="tab">
+					<div class="label"><?php echo __('Shipping Via'); ?></div>
+					<div class="value"><?php echo $productShippingMethod; ?></div>
+				</div>
+				<?php }?>
+				
+			</div>
+		</div>
+	</div>
+</div>

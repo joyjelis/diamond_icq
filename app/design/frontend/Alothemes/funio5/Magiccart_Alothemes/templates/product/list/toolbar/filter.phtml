@@ -1,0 +1,23 @@
+<a href="#" class="sidebar-filters-toggle">
+    <span class="title-filter-toggle"><?php echo __('Filter') ?></span>
+    <img src="<?= $block->getViewFileUrl('images/hide-filter-icon.png'); ?>" />
+</a>
+<a href="#" class="hide-filter-toggle" id="hide-filter">
+    <span class="hide-filter-title"><?php echo __('Hide Filter') ?></span>
+    <img src="<?= $block->getViewFileUrl('images/hide-filter-icon.png'); ?>" />
+</a>
+<script>
+require(['jquery'], function($) {
+    $(document).ready(function() {
+        $('#hide-filter').click(function() {
+            $(this).toggleClass('active');
+            var labelElement = $(this).find('.hide-filter-title');
+            if ($(this).hasClass('active')) {
+                labelElement.text('<?php echo __('Hide Filter') ?>');
+            } else {
+                labelElement.text('<?php echo __('Filter') ?>');
+            }
+        });
+    });
+});
+</script>

@@ -1,0 +1,62 @@
+<?php
+$item = $block->getSellitem();
+$status = $item->getStatus();
+$tradeType = $item->getTradetype();
+?>
+<div class="status-details offerconsig">
+    <fieldset class="fieldset <?= $status == 5 ? '' : 'hidden' ?>">
+        <div class="field trade required">
+            <label class="head label" for="name">
+                <span>
+                    <?= $block->escapeHtml(__('Appointment Detail')) ?>
+                </span>
+            </label>
+            <label class="label sub" for="name">
+                <span>
+                    <?= $block->escapeHtml(__('Get the best price for selling your diamond(s) by directly selling them into the market with our guidance. There is a 10% commission charge for this premium service.')) ?>
+                </span>
+            </label>
+            <div class="control" style="display:none;"> 
+                <div class="sub-control">
+                    <input type="radio" class="radio" id="admin_yes" data-validate="{'validate-one-required-by-name':true}" name="admin_accept_offer" value="1">
+                    <label class="label" for="online">
+                        <?= $block->escapeHtml(__('Yes')) ?>
+                    </label>
+                </div>
+                <div class="sub-control">
+                    <input type="radio" class="radio" id="admin_no" data-validate="{'validate-one-required-by-name':true}" name="admin_accept_offer" value="0">
+                    <label class="label" for="inperson">
+                        <?= $block->escapeHtml(__('No')) ?>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="actions-toolbar">
+            <div class="primary">
+                <button type="button" title="<?= $block->escapeHtml(__('Accept')) ?>" id="acceptadminoffer" class="action submit primary">
+                    <span><?= $block->escapeHtml(__('Accept')) ?></span>
+                </button>
+            </div>
+            <div class="second primary">
+                <button type="button" title="<?= $block->escapeHtml(__('Reject')) ?>" id="rejectadminoffer" class="action reject primary">
+                    <span><?= $block->escapeHtml(__('Reject')) ?></span>
+                </button>
+            </div>
+        </div>
+    </fieldset>
+</div>
+<script>
+    require(['jquery'], function($) {
+        jQuery(document).ready(function() { 
+            $('#acceptadminoffer').click(function(){
+                $('#admin_yes').click();
+                $('#sell-form').submit();
+            });
+
+            $('#rejectadminoffer').click(function(){
+                $('#admin_no').click();
+                $('#sell-form').submit();
+            });
+        });
+    });
+</script>

@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+    <update handle="customer_account"/>
+    <head>
+        <css src="Customer_Sell::css/Image-preview.css"/>
+    </head>
+    <body>
+        <referenceBlock name="page.main.title" remove="true"/>
+        <referenceContainer name="content">
+            <block class="Customer\Sell\Block\Quote\Filter" 
+                cacheable="false" name="customer_items_header" 
+                template="Customer_Sell::quote/filter.phtml" />
+                <container name="sell-diamond-main-div" as="sell-diamond-main-div" htmlTag="div" htmlClass="sell-diamond-main-div">
+                    <block class="Customer\Sell\Block\Quote\Items" name="customer_items" />
+                </container>
+            </referenceContainer>
+        </body>
+    </page>

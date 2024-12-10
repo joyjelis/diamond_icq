@@ -1,0 +1,2014 @@
+<?php
+use Magento\Cms\Block\Block;
+
+$priceHelper = $this->helper('Magneto\RingBuilder\ViewModel\PriceHelper');
+$ringbuilderHelper = $this->helper(Gemfind\Ringbuilder\Helper\Data::class);
+$diamond = $block->getProduct();
+$settingcoockieval = [];
+$labsettings = false;
+if ($block->getRingCookieData()) {
+    $settingcoockieval = $block->getRingCookieData();
+    if ($settingcoockieval->Filtermode == 'labsettings') {
+        $labsettings = true;
+    } else {
+        $labsettings = false;
+    }
+} else {
+    $labsettings = false;
+} ?>
+<?php if (count($diamond['diamondData']) > 0) {
+
+    $diamondid = $diamond['diamondData']['diamondId'];
+
+    $hasvideo = $type = 0;
+
+    if (isset($diamond['diamondData']['videoFileName']) && $diamond['diamondData']['videoFileName'] != '') {
+
+        $headers = 0;
+
+        if (!$headers) {
+            $url = $block->zendUri->parse($diamond['diamondData']['videoFileName']);
+            if (isset($url['scheme']) && $url['scheme'] == 'https') {
+                $hasvideo = 1;
+                if (strpos($diamond['diamondData']['videoFileName'], '.mp4') !== false) {
+                    $type = 1;
+                } else {
+                    $type = 2;
+                }
+            }
+        }
+
+    } else {
+
+        $hasvideo = 0;
+
+    }
+
+    ?>
+
+    <?php if (isset($diamond['diamondData']['image1'])) {
+
+        $imgurl = $diamond['diamondData']['image1'];
+
+    }
+
+    ?>
+
+    <?php if ($diamond['diamondData']['fancyColorMainBody']) {
+
+        if (!$block->is_404($diamond['diamondData']['colorDiamond'])) {
+
+            $imageurl = $diamond['diamondData']['colorDiamond'];
+
+        } elseif ($diamond['diamondData']['defaultDiamondImage']) {
+            $imageurl = $diamond['diamondData']['defaultDiamondImage'];
+        } else {
+
+            $imageurl = $block->getViewFileUrl('Gemfind_Ringbuilder::images/no-image.jpg');
+
+        }
+
+    } else {
+
+        if (!$block->is_404($diamond['diamondData']['image2'])) {
+
+            $imageurl = $diamond['diamondData']['image2'];
+
+        } elseif ($diamond['diamondData']['defaultDiamondImage']) {
+            $imageurl = $diamond['diamondData']['defaultDiamondImage'];
+        } else {
+            $imageurl = $block->getViewFileUrl('Gemfind_Diamondsearch::images/no-image.jpg');
+        }
+
+    } ?>
+
+    <div class="loading-mask gemfind-loading-mask" id="gemfind-loading-mask" style="display: none;">
+
+        <div class="loader gemfind-loader">
+
+            <p>Please wait...</p>
+
+        </div>
+
+    </div>
+    <div class="main-ringbuilder-banner">
+        <?= $block->getLayout()->createBlock(Block::class)->setBlockId('ring-builder-main-banner')->toHtml(); ?>
+    </div>
+    <section class="diamonds-search with-specification diamond-page flow-tabs">
+
+        <div class="tab-section">
+            <ul class="tab-ul">
+                <?php if ($block->checkRingCookie()) { ?>
+                    <?php if ($labsettings) { ?>
+                        <li class="tab-li">
+                            <div>
+                                <a href="<?= $block->escapeHtmlAttr($block->getUrl('ringbuilder/settings') . 'type/labsettings'); ?>">
+                                    <span class="tab-title"><p>s<?= $block->escapeHtmlAttr(__('2')); ?></p><?= $block->escapeHtmlAttr(__('Choose Setting')); ?></span>
+                                    <div class="img"><img
+                                        src="<?= $block->escapeHtmlAttr($block->getViewFileUrl('images/setting.png')); ?>" alt="choose-setting">
+                                    </div>
+                                </a>
+                            </div>
+                        </li>
+                    <?php } else { ?>
+                        <li class="tab-li">
+                            <div>
+                                <a href="<?= $block->escapeHtmlAttr($block->getUrl('ringbuilder/settings')); ?>">
+                                    <span class="tab-title">
+                                        <p><?= $block->escapeHtmlAttr(__('1')); ?></p>
+                                        <?= $block->escapeHtmlAttr(__('Choose Setting')); ?>
+                                    </span>
+                                    <div class="img">
+                                        <img src="<?= $block->escapeHtmlAttr($block->getViewFileUrl('images/setting.png')); ?>" alt="choose-setting">
+                                    </div>
+                                </a>
+                            </div>
+                        </li>
+                    <?php } ?>
+                <?php } else { ?>
+                    <li class="tab-li active">
+                        <div>
+                            <a href="<?= $block->escapeHtmlAttr($block->getUrl('ringbuilder/diamond')); ?>">
+                                <span class="tab-title">
+                                    <p class="desktop"><?= $block->escapeHtmlAttr(__('1')); ?></p>
+                                    <p class="responsive">
+                                        <img src="<?= $block->escapeHtmlAttr($block->getViewFileUrl('images/Group562.svg')); ?>" alt="flow-tabs">
+                                    </p><?= $block->escapeHtmlAttr(__('Choose Diamond')); ?>
+                                </span>
+                                <div class="img">
+                                    <img src="<?= $block->escapeHtmlAttr($block->getViewFileUrl('images/choosediamond.png')); ?>" alt="choose-diamond">
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                <?php } ?>
+                <?php if (!$block->checkRingCookie()) { ?>
+                    <?php if ($labsettings) { ?>
+                        <li class="tab-li">
+                            <div>
+                                <a href="<?= $block->escapeHtmlAttr($block->getUrl('ringbuilder/settings') . 'type/labsettings'); ?>">
+                                    <span class="tab-title">
+                                        <p class="desktop"><?= $block->escapeHtmlAttr(__('2')); ?></p>
+                                        <p class="responsive">
+                                            <img src="<?= $block->escapeHtmlAttr($block->getViewFileUrl('images/Group563.svg')); ?>" alt="flow-tabs">
+                                        </p><?= $block->escapeHtmlAttr(__('Choose Diamond')); ?>
+                                    </span>
+                                    <div class="img">
+                                        <img src="<?= $block->escapeHtmlAttr($block->getViewFileUrl('images/choosediamond.png')); ?>" alt="choose-diamond">
+                                    </div>
+                                </a>
+                            </div>
+                        </li>
+                    <?php } else { ?>
+                        <li class="tab-li">
+                            <div>
+                                <a href="<?= $block->escapeHtmlAttr($block->getUrl('ringbuilder/settings')); ?>">
+                                    <span class="tab-title"><p><?= $block->escapeHtmlAttr(__('2')); ?></p><?= $block->escapeHtmlAttr(__('Choose Setting')); ?></span>
+                                    <div class="img">
+                                        <img src="<?= $block->escapeHtmlAttr($block->getViewFileUrl('images/setting.png')); ?>" alt="choose-setting">
+                                    </div>
+                                </a>
+                            </div>
+                        </li>
+                    <?php } ?>
+                <?php } else { ?>
+                    <li class="tab-li active">
+                        <div>
+                            <a href="<?= $block->escapeHtmlAttr($block->getUrl('ringbuilder/diamond')); ?>">
+                                <span class="tab-title">
+                                    <p class="desktop"><?= $block->escapeHtmlAttr(__('2')); ?></p>
+                                    <p class="responsive">
+                                        <img src="<?= $block->escapeHtmlAttr($block->getViewFileUrl('images/Group563.svg')); ?>" alt="flow-tabs">
+                                    </p><?= $block->escapeHtmlAttr(__('Choose Diamond')); ?>
+                                </span>
+                                <div class="img">
+                                    <img src="<?= $block->escapeHtmlAttr($block->getViewFileUrl('images/choosediamond.png')); ?>" alt="choose-diamond">
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                <?php } ?>
+                <li class="tab-li">
+                    <div>
+                        <a href="javascript:;">
+                            <span class="tab-title"><p><?= $block->escapeHtmlAttr(__('3')); ?></p><?= $block->escapeHtmlAttr(__('Completed Ring')); ?></span>
+                            <div class="img"><img src="<?= $block->escapeHtmlAttr($block->getViewFileUrl('images/cring.png')); ?>" alt="completed-ring"></div>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="d-container container">
+            <div class="d-row back-container">
+                <a class="action back" href="<?= $block->escapeHtmlAttr($block->getUrl('ringbuilder/diamond')); ?>">&lt; <?= $block->escapeHtmlAttr(__('Return to Search Results')); ?></a>
+            </div>
+            <div class="d-row">
+
+                <div class="diamonds-preview no-padding">
+
+                    <div class="diamond-info">
+
+                        <div class="diamond-grade">
+
+                            <div class="grade-logo">
+
+                                <img src="<?= $block->escapeHtmlAttr($diamond['diamondData']['certificateIconUrl']); ?>"
+                                     style="width:94px; height: 94px; max-width:inherit;"
+                                     alt="<?= $block->escapeHtmlAttr($diamond['diamondData']['mainHeader']); ?>"
+                                     title="<?= $block->escapeHtmlAttr($diamond['diamondData']['mainHeader']); ?>">
+
+                            </div>
+
+                            <div class="grade-info">
+
+                                <p><?= $block->escapeHtmlAttr($diamond['diamondData']['subHeader']); ?></p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="diamond-image">
+
+                            <div class="diamondvideo"
+                                 id="diamondvideo" <?php if (!$hasvideo) { ?> style="display: none;" <?php } ?>>
+
+                                <?php if ($type == 1) { ?>
+                                    <video playsinline="" autoplay="" loop="" muted="" width="" height=""
+                                           src="<?= $block->escapeHtmlAttr($diamond['diamondData']['videoFileName']); ?>"
+                                           type="video/mp4"></video>
+
+                                <?php } elseif ($type == 2) { ?>
+
+                                    <iframe src="<?= $block->escapeHtmlAttr($diamond['diamondData']['videoFileName']); ?>"
+                                            id="iframevideo" scrolling="no"></iframe>
+
+                                <?php } else {
+
+                                    echo $block->escapeHtmlAttr(__('No Video'));
+
+                                } ?>
+
+                            </div>
+
+                            <div class="diamondimg"
+                                 id="diamondimg" <?php if ($hasvideo) { ?> style="display: none;" <?php } ?>>
+
+                                <img
+                                    src="<?= $block->escapeHtmlAttr($block->getViewFileUrl('Gemfind_Diamondsearch::images/loader-2.gif')); ?>"
+                                    data-src="<?= $block->escapeHtmlAttr($imageurl); ?>" id="diamondmainimage"
+                                    alt="<?= $block->escapeHtmlAttr($diamond['diamondData']['mainHeader']); ?>"
+                                    title="<?= $block->escapeHtmlAttr($diamond['diamondData']['mainHeader']); ?>">
+
+                            </div>
+
+                        </div>
+
+                        <h2><?= $block->escapeHtmlAttr(__('SKU#')); ?><span><?= $block->escapeHtmlAttr($diamond['diamondData']['diamondId']); ?></span></h2>
+
+                        <div class="diamond-report">
+                            <div class="view_text">
+                                <a href="javascript:void(0);"
+                                   onclick="javascript:window.open('<?= $block->escapeHtmlAttr($diamond['diamondData']['certificateUrl']); ?>','CERTVIEW','scrollbars=yes,resizable=yes,width=860,height=550')"><?= $block->escapeHtmlAttr(__('View Diamond Grading Report')); ?></a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="product-thumb">
+
+                        <?php if (isset($diamond['diamondData']['image1'])) { ?>
+
+                            <div class="thumg-img diamention">
+
+                                <a href="javascript:;" onclick="Imageswitch1(event);">
+
+                                    <img
+                                        src="<?= $block->escapeHtmlAttr($block->getViewFileUrl('Gemfind_Diamondsearch::images/loader-2.gif')); ?>"
+                                        data-src="<?= $block->escapeHtmlAttr($diamond['diamondData']['image1']); ?>"
+                                        style="width:80px; height: 80px;"
+                                        alt="<?= $block->escapeHtmlAttr($diamond['diamondData']['mainHeader']); ?>"
+                                        title="<?= $block->escapeHtmlAttr($diamond['diamondData']['mainHeader']); ?>" class="thumbimg"
+                                        id="thumbimg1"/>
+
+                                </a>
+
+                            </div>
+
+                        <?php } ?>
+
+                        <div class="thumg-img" id="thumbdiamondimg">
+
+                            <a href="javascript:;" onclick="Imageswitch2(event);">
+
+                                <img
+                                    src="<?= $block->escapeHtmlAttr($block->getViewFileUrl('Gemfind_Diamondsearch::images/loader-2.gif')); ?>"
+                                    data-src="<?= $block->escapeHtmlAttr($imageurl); ?>" style="width:80px; height: 80px;"
+                                    alt="<?= $block->escapeHtmlAttr($diamond['diamondData']['mainHeader']); ?>"
+                                    title="<?= $block->escapeHtmlAttr($diamond['diamondData']['mainHeader']); ?>" class="thumbimg"
+                                    id="thumbimg2"/>
+
+                            </a>
+
+                        </div>
+
+                        <?php if ($hasvideo) { ?>
+
+                            <?php if ($type == 1) { ?>
+
+                                <div class="thumg-img">
+
+                                    <a href="javascript:;" onclick="Videorun(event);">
+
+                                        <img style="height: 80px;"
+                                             src="<?= $block->escapeHtmlAttr($block->getViewFileUrl('Gemfind_Ringbuilder::images/360-view.png')); ?>"
+                                             id="img1iframe" class="video"/>
+
+                                    </a>
+
+                                </div>
+
+                            <?php } else { ?>
+
+                                <div class="thumg-img">
+
+                                    <a href="javascript:;" onclick="Videorun(event);">
+
+                                        <img style="height: 80px;"
+                                             src="<?= $block->escapeHtmlAttr($block->getViewFileUrl('Gemfind_Ringbuilder::images/360-view.png')); ?>"
+                                             id="img1iframe" class="iframe">
+
+                                    </a>
+
+                                </div>
+
+                            <?php } ?>
+
+                        <?php } ?>
+
+                    </div>
+
+                </div>
+
+                <div class="diamonds-details no-padding diamond-request-form">
+
+                    <div class="diamond-data" id="diamond-data">
+
+                        <div class="ring-specification-title">
+                            <div class="mainsec-name">
+                                <h2><?= $block->escapeHtmlAttr($diamond['diamondData']['mainHeader']); ?></h2>
+
+                            </div>
+                            <h4 class="ring-spec-header">
+
+                                <a href="javascript:;" id="spcfctn" onclick="CallSpecification();">
+
+                                    <div class="img"><img
+                                            src="<?= $block->escapeHtmlAttr($block->getViewFileUrl('images/bx_bx-edit.svg')); ?>"
+                                            alt="choose-diamond"></div>
+                                    <span class="diamond_spec"
+                                          onclick="CallSpecification();"><?= $block->escapeHtmlAttr(__('Diamond Specification')); ?></span>
+                                </a>
+
+                            </h4>
+
+                        </div>
+
+                        <div class="diamond-content-data" id="diamond-content-data">
+
+                            <div class="diamond-desc">
+
+                                <p><?= $block->escapeHtmlAttr($diamond['diamondData']['subHeader']); ?></p>
+
+                            </div>
+
+                            <div class="form-field diamonds-info">
+
+                                <div class="intro-field">
+                                    <div class="mainintro">
+                                        <div class="subsec">
+                                            <div class="content">
+                                                <strong><?= $block->escapeHtmlAttr(__('Color:')); ?></strong>
+                                                <p>
+                                                    <?php if ($diamond['diamondData']['color'] != '') {
+                                                        if ($diamond['diamondData']['fancyColorMainBody']) {
+                                                            $color_overtone = $diamond['diamondData']['fancyColorOvertone']=='' ? '' : ucfirst(strtolower($diamond['diamondData']['fancyColorOvertone'])).' ';
+                                                            $color_to_display = ucwords(strtolower($diamond['diamondData']['fancyColorIntensity'])).' '.$color_overtone.ucfirst(strtolower($diamond['diamondData']['fancyColorMainBody']));
+                                                        } else {
+                                                            $color_to_display = ucwords(strtolower($diamond['diamondData']['color']));
+                                                        }
+                                                        echo $block->escapeHtmlAttr($color_to_display);
+                                                    } else {
+                                                        echo $block->escapeHtmlAttr(__('NA'));
+                                                    }
+                                                    ?>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="subsec">
+
+                                            <div class="content">
+                                                <strong><?= $block->escapeHtmlAttr(__('Clarity:')); ?></strong>
+
+                                                <p><?php if ($diamond['diamondData']['clarity'] != '') {
+                                                        echo $block->escapeHtmlAttr($diamond['diamondData']['clarity']);
+                                                   } else {
+                                                       echo $block->escapeHtmlAttr(__('NA'));
+                                                   } ?></p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="mainintro">
+
+                                        <div class="subsec">
+
+                                            <div class="content">
+                                                <strong><?= $block->escapeHtmlAttr(__('Report:')); ?></strong>
+
+                                                <p><?php if ($diamond['diamondData']['certificate'] != '') {
+                                                        echo $block->escapeHtmlAttr($diamond['diamondData']['certificate']);
+                                                   } else {
+                                                       echo $block->escapeHtmlAttr(__('NA'));
+                                                   } ?></p>
+                                            </div>
+                                        </div>
+
+                                        <div class="subsec">
+
+                                            <div class="content">
+                                                <strong><?= $block->escapeHtmlAttr(__('Cut:')); ?></strong>
+
+                                                <p><?php if ($diamond['diamondData']['cut'] != '') {
+                                                        echo $block->escapeHtmlAttr($diamond['diamondData']['cut']);
+                                                   } else {
+                                                       echo $block->escapeHtmlAttr(__('NA'));
+                                                   } ?></p>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="product-controler">
+
+                                    <ul>
+
+                                        <?php if ($block->isHintEnabled() == 1): ?>
+
+                                            <li><a href="javascript:;" class="showForm" onclick="CallShowform(event);"
+                                                   data-target="drop-hint-main"><?= $block->escapeHtmlAttr(__('Drop A Hint')); ?></a>
+                                            </li>
+
+                                        <?php endif; ?>
+
+                                        <?php if ($block->isScheduleViewingEnabled() == 1): ?>
+
+                                            <li><a href="javascript:;" class="showForm" onclick="CallShowform(event);"
+                                                   data-target="schedule-view-main"><?= $block->escapeHtmlAttr(__('Schedule Viewing')); ?></a>
+                                            </li>
+
+                                        <?php endif; ?>
+                                        <?php if ($block->isPrintDetailEnabled() == 1): ?>
+
+                                            <li><a href="javascript:;"
+                                                   data="<?= $block->escapeHtmlAttr($block->getViewFileUrl('Gemfind_Ringbuilder::images/print_icon.gif')); ?>"
+                                                   class="prinddia" id="prinddia"><?= $block->escapeHtmlAttr(__('Print Details')); ?></a>
+                                            </li>
+
+                                        <?php endif; ?>
+
+                                        <?php if ($block->isEmailtoFriendEnabled() == 1): ?>
+
+                                            <li><a href="javascript:;" class="showForm" onclick="CallShowform(event);"
+                                                   data-target="email-friend-main"><?= $block->escapeHtmlAttr(__('E-Mail A Friend')); ?></a>
+                                            </li>
+
+                                        <?php endif; ?>
+                                        <?php if ($block->isMoreInfoEnabled() == 1): ?>
+
+                                            <li><a href="javascript:;" class="showForm" onclick="CallShowform(event);"
+                                                   data-target="req-info-main"><?= $block->escapeHtmlAttr(__('Request More Info')); ?></a>
+                                            </li>
+
+                                        <?php endif; ?>
+
+                                    </ul>
+
+                                </div>
+
+                                <div class="diamond-action">
+                                    <?php if ($diamond['diamondData']['showPrice']) { ?>
+                                        <span><?= $priceHelper->convertToBaseCurrency($diamond['diamondData']['fltPrice']); ?></span>
+                                    <?php } else { ?>
+                                        <span><?= $block->escapeHtmlAttr(__('Call For Price')); ?></span>
+                                    <?php } ?>
+                                    <?php
+                                    if ($block->getRingCaratCookieData()) {
+                                        $setting = $block->getRingCaratCookieData();
+
+                                        if ($setting->caratmin > '0.00') {
+
+                                            $TempCaratMin = ($setting->caratmin * 10) / 100;
+
+                                            $CaratMin = ($setting->caratmin - $TempCaratMin);
+
+                                        } else {
+                                            $CaratMin = $diamond['diamondData']['caratWeight'];
+
+                                        }
+
+                                        if ($setting->caratmax > '0.00') {
+
+                                            $TempCaratMax = ($setting->caratmax * 10) / 100;
+
+                                            $CaratMax = ($setting->caratmax + $TempCaratMax);
+
+                                        } else {
+
+                                            $CaratMax = $setting->caratmax;
+
+                                        }
+
+                                        if ($diamond['diamondData']['caratWeight'] > $CaratMax || $diamond['diamondData']['caratWeight'] < $CaratMin) { ?>
+                                            <div class="validate-msg"><p
+                                                    style="color: red;"><?= $block->escapeHtmlAttr(__('This diamond will not properly fit with selected setting.')); ?></p>
+                                            </div>
+                                        <?php }
+                                    } ?>
+                                    <?php if ($isDiamondSold = $ringbuilderHelper->isDiamondSold("dl-".$diamond['diamondData']['diamondId'])): ?>
+                                        <div class="validate-msg"><p style="color: red;"><?= $block->escapeHtmlAttr(__('This item is no longer available.')); ?></p></div>
+                                    <?php endif; ?>
+                                    <form
+                                        action="<?= $block->escapeHtmlAttr($block->getSubmitUrl($diamond['diamondData']['diamondId'])); ?>"
+                                        method="post" id="product_addtocart_form">
+                                        <input name="form_key" type="hidden"
+                                               value="<?= $block->escapeHtmlAttr($block->getFormKey()); ?>">
+                                        <?php if (isset($diamond['diamondData']['type'])) { ?>
+                                            <input type="hidden" name="type"
+                                                   value="<?= $block->escapeHtmlAttr($diamond['diamondData']['type']); ?>">
+                                        <?php } ?>
+                                        <?php if ($diamond['diamondData']['showPrice'] && $diamond['diamondData']['dsEcommerce']) { ?>
+                                            <div class="box-tocart">
+
+                                                <button type="submit" title="Buy Diamond Only" class="addtocart tocart" <?= $block->escapeHtmlAttr($isDiamondSold?"disabled":""); ?>
+                                                        onclick="showLoader();"
+                                                        id="product-addtocart-button"><?= $block->escapeHtmlAttr(__('Buy Diamond Only')); ?></button>
+
+                                            </div>
+                                        <?php } ?>
+                                    </form>
+
+                                    <form
+                                        action="<?= $block->escapeHtmlAttr($block->getAddDiamondUrl($diamond['diamondData']['diamondId'])); ?>"
+                                        method="post" id="completering_addtocart_form">
+                                        <input name="form_key" type="hidden"
+                                               value="<?= $block->escapeHtmlAttr($block->getFormKey()); ?>">
+                                        <div class="box-tocart">
+                                            <input type="hidden" name="centerstone" id="centerstone"
+                                                   value="<?= $block->escapeHtmlAttr($diamond['diamondData']['shape']); ?>"/>
+                                            <input type="hidden" name="carat" id="carat"
+                                                   value="<?= $block->escapeHtmlAttr($diamond['diamondData']['caratWeight']); ?>"/>
+                                            <?php if (isset($diamond['diamondData']['type'])) { ?>
+                                                <input type="hidden" name="type"
+                                                       value="<?= $block->escapeHtmlAttr($diamond['diamondData']['type']); ?>">
+                                            <?php } ?>
+                                            <?php if ($block->checkRingCookie()) { ?>
+                                                <button type="submit" title="Complete Your Ring"
+                                                        class="addtocart tocart" onclick="showLoader();" <?= $block->escapeHtmlAttr($isDiamondSold?"disabled":""); ?>
+                                                        id="completering_addtocart_button"><?= $block->escapeHtmlAttr(__('Complete Your Ring')); ?></button>
+                                            <?php } else { ?>
+                                                <?php
+                                                    $caratWeight = 0;
+                                                if (isset($diamond['diamondData']['caratWeight'])) {
+                                                    $caratWeight = (float) $diamond['diamondData']['caratWeight'];
+                                                }
+                                                ?>
+                                                <?php if ($caratWeight >= 0.3): ?>
+                                                    <button type="submit" title="Add Your Setting" class="addtocart tocart"
+                                                            onclick="showLoader();" <?= $block->escapeHtmlAttr($isDiamondSold?"disabled":""); ?>
+                                                            id="completering_addtocart_button"><?= $block->escapeHtmlAttr(__('Add Your Setting')); ?></button>
+                                                <?php endif; ?>
+                                            <?php } ?>
+
+                                        </div>
+
+                                    </form>
+
+                                </div>
+                                <?php
+                                if (isset($diamond['diamondData']['shape'])) {
+                                    $urlshape = str_replace(' ', '-', $diamond['diamondData']['shape']) . '-shape-';
+                                } else {
+                                    $urlshape = '';
+                                }
+                                if (isset($diamond['diamondData']['caratWeight'])) {
+                                    $urlcarat = str_replace(
+                                        ' ',
+                                        '-',
+                                        $diamond['diamondData']['caratWeight']
+                                    ) . '-carat-';
+                                } else {
+                                    $urlcarat = '';
+                                }
+                                if (isset($diamond['diamondData']['color'])) {
+                                    $urlcolor = str_replace(' ', '-', $diamond['diamondData']['color']) . '-color-';
+                                } else {
+                                    $urlcolor = '';
+                                }
+                                if (isset($diamond['diamondData']['clarity'])) {
+                                    $urlclarity = str_replace(
+                                        ' ',
+                                        '-',
+                                        $diamond['diamondData']['clarity']
+                                    ) . '-clarity-';
+                                } else {
+                                    $urlclarity = '';
+                                }
+                                if (isset($diamond['diamondData']['cut'])) {
+                                    $urlcut = str_replace(' ', '-', $diamond['diamondData']['cut']) . '-cut-';
+                                } else {
+                                    $urlcut = '';
+                                }
+                                if (isset($diamond['diamondData']['certificate'])) {
+                                    $urlcert = str_replace(
+                                        ' ',
+                                        '-',
+                                        $diamond['diamondData']['certificate']
+                                    ) . '-certificate-';
+                                } else {
+                                    $urlcert = '';
+                                }
+                                $urlstring = strtolower($urlshape . $urlcarat . $urlcolor . $urlclarity . $urlcut . $urlcert . 'sku-' . $diamond['diamondData']['diamondId']);
+                                $diamondviewurl = '';
+                                if (isset($diamond['diamondData']['type'])) {
+                                    $dimaondtype = 'type/labcreated';
+                                } else {
+                                    $dimaondtype = '';
+                                }
+                                $diamondviewurl = $block->getDiamondUrl($urlstring) . $dimaondtype;
+
+                                ?>
+                                <ul class="list-inline social-share">
+                                    <div id="fb-root"></div>
+                                    <script async defer crossorigin="anonymous"
+                                            src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v9.0"
+                                            nonce="rmlivbf3"></script>
+                                    <script async 
+                                            src="https://assets.pinterest.com/js/pinit_main.js?0.6285343628670037"></script>
+                                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                                    <li class="share_pinterest">
+                                        <div class="pinterest-share-button" data-href="<?= $block->escapeHtmlAttr($diamondviewurl); ?>" data-layout="button" data-size="small">
+                                            <a target="_blank" href="http://pinterest.com/pin/create/button/?media=<?= $block->escapeHtmlAttr($imageurl); ?>&url=<?= $block->escapeHtmlAttr($diamondviewurl); ?>" class="pinterest-xfbml-parse-ignore">Share</a>
+                                        </div>
+                                    </li>
+                                    <li class="share_twitter">
+                                        <div class="twitter-share-button" data-href="<?= $block->escapeHtmlAttr($diamondviewurl); ?>" data-layout="button" data-size="small">
+                                             <a target="_blank" href="https://twitter.com/intent/tweet?text=<?= $block->escapeHtmlAttr($diamondviewurl); ?>" class="twitter-hashtag-button" data-show-count="false">Share</a>
+                                        </div>
+                                    </li>
+                                    <li class="share_fb">
+                                        <div class="fb-share-button" data-href="<?= $block->escapeHtmlAttr($diamondviewurl); ?>" data-layout="button" data-size="small">
+                                             <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<?= $block->escapeHtmlAttr($diamondviewurl); ?>" class="fb-xfbml-parse-ignore">Share</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+
+                        <div class="diamond-forms">
+
+                            <?php if ($block->isHintEnabled() == 1): ?>
+
+                                <div class="form-main no-padding diamond-request-form cls-for-hide" id="drop-hint-main">
+
+                                    <div class="requested-form">
+
+                                        <h2><?= $block->escapeHtmlAttr(__('Drop A Hint')); ?></h2>
+
+                                        <p><?= $block->escapeHtmlAttr(__('Because you deserve this.')); ?></p>
+
+                                    </div>
+
+                                    <div class="note" style="display: none;"></div>
+
+                                    <form method="post" enctype="multipart/form-data"
+
+                                          data-hasrequired="<?= $block->escapeHtmlAttr(__('* Required Fields')); ?>"
+
+                                          data-mage-init='{"validation":{}}' class="form-drop-hint" id="form-drop-hint">
+                                        <input name="form_key" type="hidden"
+                                               value="<?= $block->escapeHtmlAttr($block->getFormKey()); ?>">
+                                        <input name="diamondurl" type="hidden"
+                                               value="<?= $block->escapeHtmlAttr($block->getRequest()->getUriString()); ?>">
+                                        <?php if (isset($diamond['diamondData']['type'])) { ?>
+                                            <input type="hidden" name="type"
+                                                   value="<?= $block->escapeHtmlAttr($diamond['diamondData']['type']); ?>">
+                                        <?php } ?>
+                                        <input name="diamondid" type="hidden"
+                                               value="<?= $block->escapeHtmlAttr($diamond['diamondData']['diamondId']); ?>">
+
+                                        <div class="form-field">
+
+                                            <div class="placeholder1">
+                                                <input name="name" id="drophint_name" onfocus="focusFunction(this)"
+                                                       onfocusout="focusoutFunction(this)" type="text" class=""
+                                                       data-validate="{required:true}" required="">
+
+                                                <label
+                                                    class="floating-label1 label"><?= $block->escapeHtmlAttr(__('Your Name')); ?></label>
+                                            </div>
+
+                                            <div class="field placeholder1">
+
+                                                <input name="email" id="drophint_email" onfocus="focusFunction(this)"
+                                                       onfocusout="focusoutFunction(this)" type="text" class=""
+                                                       data-validate="{required:true, 'validate-email':true}" required>
+
+                                                <label
+                                                    class="floating-label1 label"><?= $block->escapeHtmlAttr(__('Your E-mail')); ?></label>
+                                            </div>
+                                            <div class="field placeholder1">
+                                                <input name="recipient_name" id="drophint_rec_name"
+                                                       onfocus="focusFunction(this)" onfocusout="focusoutFunction(this)"
+                                                       type="text" class="" data-validate="{required:true}" required>
+
+                                                <label
+                                                    class="floating-label1 label"><?= $block->escapeHtmlAttr(__('Hint Recipient\'s Name')); ?></label>
+
+                                            </div>
+                                            <div class="field placeholder1">
+                                                <input name="recipient_email" id="drophint_rec_email"
+                                                       onfocus="focusFunction(this)" onfocusout="focusoutFunction(this)"
+                                                       type="text" class=""
+                                                       data-validate="{required:true, 'validate-email':true}" required>
+                                                <label
+                                                    class="floating-label1 label"><?= $block->escapeHtmlAttr(__('Hint Recipient\'s E-mail')); ?></label>
+
+                                            </div>
+
+                                            <div class="field placeholder1">
+                                                <input name="gift_reason" id="gift_reason" onfocus="focusFunction(this)"
+                                                       onfocusout="focusoutFunction(this)" type="text" class=""
+                                                       data-validate="{required:true}" required>
+
+                                                <label
+                                                    class="floating-label1 label"><?= $block->escapeHtmlAttr(__('Reason For This Gift')); ?></label>
+                                            </div>
+
+                                            <div class="field placeholder1">
+                                                <input name="hint_message" id="drophint_message" type="text" class=""
+                                                       data-validate="{required:true}" required>
+
+                                                <label
+                                                    class="floating-label1 label"><?= $block->escapeHtmlAttr(__('Add A Personal Message Here ...')); ?></label>
+                                            </div>
+
+                                            <div class="has-datepicker--icon field placeholder1">
+
+                                                <input name="gift_deadline" id="gift_deadline" autocomplete="false"
+                                                       readonly title="Gift Deadline" class="floatingLabelObserver"
+                                                       value="" type="text" data-validate="{required:true}" required>
+                                                <label class="floating-label1 label"
+                                                       for="gift_deadline"><?= $block->escapeHtmlAttr(__('Gift Deadline')); ?></label>
+                                            </div>
+
+                                            <div class="prefrence-action">
+
+                                                <div class=" prefrence-action action">
+
+                                                    <button type="button"
+                                                            onclick="formSubmit(event,'<?= $block->escapeHtmlAttr($block->getFormAction()); ?>','form-drop-hint')"
+                                                            title="Submit" class="preference-btn">
+
+                                                        <span><?= $block->escapeHtmlAttr(__('Drop Hint')); ?></span>
+
+                                                    </button>
+                                                    <button type="button" data-target="drop-hint-main"
+                                                            onclick="Closeform(event);"
+                                                            class="cancel preference-btn btn-cencel">
+                                                        <span><?= $block->escapeHtmlAttr(__('Cancel')); ?></span></button>
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                    </form>
+
+                                </div>
+
+                            <?php endif; ?>
+
+                            <?php if ($block->isEmailtoFriendEnabled() == 1): ?>
+
+                                <div class="form-main no-padding diamond-request-form cls-for-hide"
+                                     id="email-friend-main">
+
+                                    <div class="requested-form">
+
+                                        <h2><?= $block->escapeHtmlAttr(__('E-Mail A Friend')); ?></h2>
+
+                                    </div>
+
+                                    <div class="note" style="display: none;"></div>
+
+                                    <form method="post" enctype="multipart/form-data"
+
+                                          data-hasrequired="<?= $block->escapeHtmlAttr(__('* Required Fields')); ?>"
+
+                                          data-mage-init='{"validation":{}}' class="form-email-friend"
+                                          id="form-email-friend">
+                                        <input name="form_key" type="hidden"
+                                               value="<?= $block->escapeHtmlAttr($block->getFormKey()); ?>">
+                                        <input name="diamondurl" type="hidden"
+                                               value="<?= $block->escapeHtmlAttr($block->getRequest()->getUriString()); ?>">
+                                        <?php if (isset($diamond['diamondData']['type'])) { ?>
+                                            <input type="hidden" name="type"
+                                                   value="<?= $block->escapeHtmlAttr($diamond['diamondData']['type']); ?>">
+                                        <?php } ?>
+                                        <input name="diamondid" type="hidden"
+                                               value="<?= $block->escapeHtmlAttr($diamond['diamondData']['diamondId']); ?>">
+
+                                        <div class="form-field">
+
+                                            <div class="field placeholder1">
+
+                                                <input id="email_frnd_name" name="name" onfocus="focusFunction(this)"
+                                                       onfocusout="focusoutFunction(this)" type="text" class=""
+                                                       data-validate="{required:true}" required>
+
+                                                <label class="floating-label1 label"
+                                                       for="email_frnd_name"><?= $block->escapeHtmlAttr(__('Your Name')); ?></label>
+                                            </div>
+                                            <div class="field placeholder1">
+                                                <input name="email" type="text" onfocus="focusFunction(this)"
+                                                       onfocusout="focusoutFunction(this)" id="email_frnd_email"
+                                                       class="" data-validate="{required:true,'validate-email':true}"
+                                                       required>
+
+                                                <label class="floating-label1 label"
+                                                       for="email_frnd_email"><?= $block->escapeHtmlAttr(__('Your E-mail')); ?></label>
+                                            </div>
+
+                                            <div class="field placeholder1">
+                                                <input name="friend_name" type="text" onfocus="focusFunction(this)"
+                                                       onfocusout="focusoutFunction(this)" id="email_frnd_fname"
+                                                       class="" data-validate="{required:true}" required>
+                                                <label class="floating-label1 label"
+                                                       for="email_frnd_fname"><?= $block->escapeHtmlAttr(__("Your Friend's Name")); ?></label>
+                                            </div>
+
+                                            <div class="field placeholder1">
+                                                <input name="friend_email" type="text" onfocus="focusFunction(this)"
+                                                       onfocusout="focusoutFunction(this)" id="email_frnd_femail"
+                                                       class="" data-validate="{required:true,'validate-email':true}"
+                                                       required>
+
+                                                <label
+                                                    class="floating-label1 label"><?= $block->escapeHtmlAttr(__("Your Friend's E-mail")); ?></label>
+
+                                            </div>
+
+                                            <div class="field placeholder1">
+
+                                                <input name="message" type="text" id="email_frnd_message" class=""
+                                                       data-validate="{required:true}" required>
+                                                <label
+                                                    class="floating-label1 label"><?= $block->escapeHtmlAttr(__("Add A Personal Message Here ...")); ?></label>
+                                            </div>
+
+                                            <div class="prefrence-action">
+
+                                                <div class=" prefrence-action action">
+
+                                                    <button type="button"
+                                                            onclick="formSubmit(event,'<?= $block->escapeHtmlAttr($block->getEmailFrndFormAction()); ?>','form-email-friend')"
+                                                            title="Submit" class="preference-btn">
+
+                                                        <span><?= $block->escapeHtmlAttr(__('Send To Friend')); ?></span>
+
+                                                    </button>
+                                                    <button type="button" data-target="email-friend-main"
+                                                            onclick="Closeform(event);"
+                                                            class="cancel preference-btn btn-cencel">
+                                                        <span><?= $block->escapeHtmlAttr(__('Cancel')); ?></span></button>
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                    </form>
+
+                                </div>
+
+                            <?php endif; ?>
+
+                            <?php if ($block->isMoreInfoEnabled() == 1): ?>
+
+                            <div class="form-main no-padding diamond-request-form cls-for-hide" id="req-info-main">
+
+                                <div class="requested-form">
+
+                                    <h2><?= $block->escapeHtmlAttr(__('Request More Information')); ?></h2>
+
+                                    <p><?= $block->escapeHtmlAttr(__('Our specialists will contact you.')); ?></p>
+
+                                </div>
+
+                                <div class="note" style="display: none;"></div>
+
+                                <form method="post" enctype="multipart/form-data"
+
+                                      data-hasrequired="<?= $block->escapeHtmlAttr(__('* Required Fields')); ?>"
+
+                                      data-mage-init='{"validation":{}}' class="form-request-info"
+                                      id="form-request-info">
+                                    <input name="form_key" type="hidden" value="<?= $block->escapeHtmlAttr($block->getFormKey()); ?>">
+                                    <input name="diamondurl" type="hidden"
+                                           value="<?= $block->escapeHtmlAttr($block->getRequest()->getUriString()); ?>">
+                                    <?php if (isset($diamond['diamondData']['type'])) { ?>
+                                        <input type="hidden" name="type"
+                                               value="<?= $block->escapeHtmlAttr($diamond['diamondData']['type']); ?>">
+                                    <?php } ?>
+                                    <input name="diamondid" type="hidden"
+                                           value="<?= $block->escapeHtmlAttr($diamond['diamondData']['diamondId']); ?>">
+
+                                    <div class="form-field">
+
+                                        <div class="field placeholder1">
+
+                                            <input name="name" type="text" onfocus="focusFunction(this)"
+                                                   onfocusout="focusoutFunction(this)" id="reqinfo_name" class=""
+                                                   data-validate="{required:true}" required>
+                                            <label class="floating-label1"><?= $block->escapeHtmlAttr(__('Your Name')); ?></label>
+                                        </div>
+
+                                        <div class="field placeholder1">
+                                            <input name="email" type="text" onfocus="focusFunction(this)"
+                                                   onfocusout="focusoutFunction(this)" id="reqinfo_email" placeholder=""
+                                                   class="" data-validate="{required:true,'validate-email':true}">
+
+                                            <label
+                                                class="floating-label1"><?= $block->escapeHtmlAttr(__('Your E-mail Address')); ?></label>
+
+                                        </div>
+
+                                        <div class="field placeholder1">
+
+                                            <input name="phone" type="tel" onfocus="focusFunction(this)"
+                                                   onfocusout="focusoutFunction(this)" id="reqinfo_phone"
+                                                   class="init_tel" data-validate="{required:true}" required>
+                                            <label
+                                                class="floating-label1 ring-phone"><?= $block->escapeHtmlAttr(__('Your Phone Number')); ?></label>
+                                        </div>
+
+                                        <div class="field placeholder1">
+
+                                            <input name="hint_message" type="text" id="reqinfo_message" class=""
+                                                   data-validate="{required:true}" required>
+                                            <label
+                                                class="floating-label1"><?= $block->escapeHtmlAttr(__('Add A Personal Message Here ...')); ?></label>
+                                        </div>
+
+                                        <div class="prefrence-area field placeholder1">
+
+                                            <p><?= $block->escapeHtmlAttr(__('Contact Preference:')); ?></p>
+
+                                            <ul>
+
+                                                <li>
+
+                                                    <input type="radio"
+                                                           data-validate="{'validate-one-required-by-name':true}"
+                                                           class="radio required-entry" name="contact_pref"
+                                                           value="By Email">
+
+                                                    <label><?= $block->escapeHtmlAttr(__('By Email')); ?></label>
+
+                                                </li>
+
+                                                <li>
+
+                                                    <input type="radio"
+                                                           data-validate="{'validate-one-required-by-name':true}"
+                                                           class="radio required-entry" name="contact_pref"
+                                                           value="By Phone">
+
+                                                    <label><?= $block->escapeHtmlAttr(__('By Phone')); ?></label>
+
+                                                </li>
+
+                                            </ul>
+                                        </div>
+                                        <div class="prefrence-action">
+
+                                            <div class=" prefrence-action action">
+
+                                                <button type="button"
+                                                        onclick="formSubmit(event,'<?= $block->escapeHtmlAttr($block->getReqInfoFormAction()); ?>','form-request-info')"
+                                                        title="Submit" class="preference-btn">
+
+                                                    <span><?= $block->escapeHtmlAttr(__('Request')); ?></span>
+
+                                                </button>
+                                                <button type="button" data-target="req-info-main"
+                                                        onclick="Closeform(event);"
+                                                        class="cancel preference-btn btn-cencel">
+
+                                                    <span><?= $block->escapeHtmlAttr(__('Cancel')); ?></span>
+
+                                                </button>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                            </div>
+
+                            </form>
+
+                        </div>
+
+                        <?php endif; ?>
+
+                        <?php if ($block->isScheduleViewingEnabled() == 1): ?>
+                            <div class="diamond-forms">
+                                <div class="form-main no-padding diamond-request-form cls-for-hide"
+                                     id="schedule-view-main">
+
+                                    <div class="requested-form">
+
+                                        <h2><?= $block->escapeHtmlAttr(__('Schedule A Viewing')); ?></h2>
+
+                                        <p><?= $block->escapeHtmlAttr(__('See This Item & More In Our Store')); ?></p>
+
+                                    </div>
+
+                                    <div class="note" style="display: none;"></div>
+
+                                    <form method="post" enctype="multipart/form-data"
+
+                                          data-hasrequired="<?= $block->escapeHtmlAttr(__('* Required Fields')); ?>"
+
+                                          data-mage-init='{"validation":{}}' class="form-schedule-view"
+                                          id="form-schedule-view">
+                                        <input name="form_key" type="hidden"
+                                               value="<?= $block->escapeHtmlAttr($block->getFormKey()); ?>">
+                                        <input name="diamondurl" type="hidden"
+                                               value="<?= $block->escapeHtmlAttr($block->getRequest()->getUriString()); ?>">
+                                        <?php if (isset($diamond['diamondData']['type'])) { ?>
+                                            <input type="hidden" name="type"
+                                                   value="<?= $block->escapeHtmlAttr($diamond['diamondData']['type']); ?>">
+                                        <?php } ?>
+                                        <input name="diamondid" type="hidden"
+                                               value="<?= $block->escapeHtmlAttr($diamond['diamondData']['diamondId']); ?>">
+
+                                        <div class="form-field">
+
+                                            <div class="field placeholder1">
+                                                <input name="name" type="text" onfocus="focusFunction(this)"
+                                                       onfocusout="focusoutFunction(this)" id="schview_name"
+                                                       placeholder="" class="" data-validate="{required:true}" required>
+                                                <label
+                                                    class="floating-label1 label"><?= $block->escapeHtmlAttr(__('Your Name')); ?></label>
+                                            </div>
+                                            <div class="field placeholder1">
+                                                <input name="email" type="text" onfocus="focusFunction(this)"
+                                                       onfocusout="focusoutFunction(this)" id="schview_email"
+                                                       placeholder="" class=""
+                                                       data-validate="{required:true,'validate-email':true}" required>
+                                                <label
+                                                    class="floating-label1 label"><?= $block->escapeHtmlAttr(__('Your E-mail Address')); ?></label>
+                                            </div>
+
+                                            <div class="field placeholder1">
+                                                <input name="phone" type="tel" onfocus="focusFunction(this)"
+                                                       onfocusout="focusoutFunction(this)" id="schview_phone"
+                                                       data-validate="{required:true}" class="init_tel" required>
+                                                <label
+                                                    class="floating-label1 ring-phone"><?= $block->escapeHtmlAttr(__('Your Phone Number')); ?></label>
+
+                                            </div>
+                                            <div class="field placeholder1">
+                                                <input name="hint_message" type="text" id="schview_message" class=""
+                                                       data-validate="{required:true}" required>
+                                                <label
+                                                    class="floating-label1"><?= $block->escapeHtmlAttr(__('Add A Personal Message Here ...')); ?></label>
+                                            </div>
+
+                                            <div class="field placeholder1">
+                                                <select data-validate="{required:true}" name="location" placeholder=""
+                                                        id="schview_loc">
+                                                    <option value=""><?= $block->escapeHtmlAttr(__('--Location--')); ?></option>
+                                                    <?php $retailerInfo = (array)$diamond['diamondData']['retailerInfo'];
+                                                    $addressList = (array)$retailerInfo['addressList']; ?>
+                                                    <?php foreach ($addressList as $value) {
+                                                        $value = (array)$value; ?>
+                                                        <option data-locationid="<?= $block->escapeHtmlAttr($value['locationID']); ?>"
+                                                                value="<?= $block->escapeHtmlAttr($value['locationName']); ?>"><?= $block->escapeHtmlAttr($value['locationName']); ?></option>
+                                                    <?php } ?>
+                                                </select>
+                                            </div>
+                                            <div class="has-datepicker--icon field placeholder1">
+                                                <input name="avail_date" id="avail_date"
+                                                       class="floatingLabelObserver"
+                                                       readonly autocomplete="false" title="When are you available?"
+                                                       value="" type="text" data-validate="{required:true}">
+                                                <label
+                                                    class="floating-label1"><?= $block->escapeHtmlAttr(__('When are you available?')); ?></label>
+                                            </div>
+                                            <?php
+                                            $timingListArr = (array)$retailerInfo['timingList'];
+                                            if (empty($timingListArr)) {
+                                                ?>
+                                                <label class="timing_not_avail" style="display:none;">Slots not
+                                                    available on selected date</label>
+                                                <?php
+                                            } else {
+                                                $timingDays = $dayStatusArr = [];
+                                                foreach ($timingListArr as $key => $timingList) {
+                                                    $timingDays[0] = [
+                                                        "sundayStart" => $timingList->sundayStart,
+                                                        "sundayEnd" => $timingList->sundayEnd
+                                                    ];
+                                                    $timingDays[1] = [
+                                                        "mondayStart" => $timingList->mondayStart,
+                                                        "mondayEnd" => $timingList->mondayEnd
+                                                    ];
+                                                    $timingDays[2] = [
+                                                        "tuesdayStart" => $timingList->tuesdayStart,
+                                                        "tuesdayEnd" => $timingList->tuesdayEnd
+                                                    ];
+                                                    $timingDays[3] = [
+                                                        "wednesdayStart" => $timingList->wednesdayStart,
+                                                        "wednesdayEnd" => $timingList->wednesdayEnd
+                                                    ];
+                                                    $timingDays[4] = [
+                                                        "thursdayStart" => $timingList->thursdayStart,
+                                                        "thursdayEnd" => $timingList->thursdayEnd
+                                                    ];
+                                                    $timingDays[5] = [
+                                                        "fridayStart" => $timingList->fridayStart,
+                                                        "fridayEnd" => $timingList->fridayEnd
+                                                    ];
+                                                    $timingDays[6] = [
+                                                        "saturdayStart" => $timingList->saturdayStart,
+                                                        "saturdayEnd" => $timingList->saturdayEnd
+                                                    ];
+                                                    if ($timingList->storeClosedSun == "Yes") {
+                                                        $dayStatusArr[0] = 0;
+                                                    }
+                                                    if ($timingList->storeClosedMon == "Yes") {
+                                                        $dayStatusArr[1] = 1;
+                                                    }
+                                                    if ($timingList->storeClosedTue == "Yes") {
+                                                        $dayStatusArr[2] = 2;
+                                                    }
+                                                    if ($timingList->storeClosedWed == "Yes") {
+                                                        $dayStatusArr[3] = 3;
+                                                    }
+                                                    if ($timingList->storeClosedThu == "Yes") {
+                                                        $dayStatusArr[4] = 4;
+                                                    }
+                                                    if ($timingList->storeClosedFri == "Yes") {
+                                                        $dayStatusArr[5] = 5;
+                                                    }
+                                                    if ($timingList->storeClosedSat == "Yes") {
+                                                        $dayStatusArr[6] = 6;
+                                                    }
+
+                                                    ?>
+                                                    <span class="timing_days"
+                                                          data-location="<?= $block->escapeHtmlAttr($timingList->locationID); ?>"
+                                                          style="display:none;"><?= $block->escapeHtmlAttr(json_encode($timingDays)); ?></span>
+                                                    <?php
+                                                    foreach ($dayStatusArr as $key => $value) {
+                                                        ?>
+                                                        <span style="display:none;"
+                                                              class="day_status_arr"><?= $block->escapeHtmlAttr($value); ?></span>
+                                                        <?php
+                                                    }
+                                                }
+                                                ?>
+                                                <div class="floatingLabelObserver field placeholder1">
+                                                    <select id="appnt_time" class="diamond" placeholder=""
+                                                            name="appnt_time" style="display:none;"></select>
+                                                </div>
+                                                <?php
+                                                ?>
+                                            <?php } ?>
+
+                                            <div class="prefrence-action">
+
+                                                <div class=" prefrence-action action">
+
+                                                    <button type="button"
+                                                            onclick="formSubmit(event,'<?= $block->escapeHtmlAttr($block->getScheViewFormAction()); ?>','form-schedule-view')"
+                                                            title="Submit" class="preference-btn">
+
+                                                        <span><?= $block->escapeHtmlAttr(__('Request')); ?></span>
+
+                                                    </button>
+                                                    <button type="button" data-target="schedule-view-main"
+                                                            onclick="Closeform(event);"
+                                                            class="cancel preference-btn btn-cencel">
+                                                        <span><?= $block->escapeHtmlAttr(__('Cancel')); ?></span></button>
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                    </form>
+
+                                </div>
+                            </div>
+                        <?php endif; ?>
+
+                    </div>
+
+                </div>
+
+                <div class="diamond-specification cls-for-hide" id="diamond-specification">
+
+                    <div class="specification-info">
+
+                        <div class="specification-title">
+
+                            <h2><?= $block->escapeHtmlAttr(__('Diamond Details')); ?></h2>
+
+                            <h4 class="close">
+
+                                <a href="javascript:;" id="dmnddtl" onclick="CallDiamondDetail();">
+
+                                    <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                                         xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                         viewBox="0 0 52 52" width="20px" height="20px"
+                                         style="enable-background:new 0 0 52 52;display: inline;vertical-align: text-bottom;"
+                                         xml:space="preserve">
+                              <g>
+                                  <path d="M26,0C11.664,0,0,11.663,0,26s11.664,26,26,26s26-11.663,26-26S40.336,0,26,0z M26,50C12.767,50,2,39.233,2,26
+                                       S12.767,2,26,2s24,10.767,24,24S39.233,50,26,50z"/>
+                                  <path d="M35.707,16.293c-0.391-0.391-1.023-0.391-1.414,0L26,24.586l-8.293-8.293c-0.391-0.391-1.023-0.391-1.414,0
+                                    s-0.391,1.023,0,1.414L24.586,26l-8.293,8.293c-0.391,0.391-0.391,1.023,0,1.414C16.488,35.902,16.744,36,17,36
+                                    s0.512-0.098,0.707-0.293L26,27.414l8.293,8.293C34.488,35.902,34.744,36,35,36s0.512-0.098,0.707-0.293
+                                    c0.391-0.391,0.391-1.023,0-1.414L27.414,26l8.293-8.293C36.098,17.316,36.098,16.684,35.707,16.293z"/>
+                              </g>
+                           </svg>
+                                </a>
+
+                            </h4>
+
+                        </div>
+
+                        <ul>
+
+                            <?php if (isset($diamond['diamondData']['diamondId'])) { ?>
+
+                                <li>
+
+                                    <div class="diamonds-details-title">
+
+                                        <p><?= $block->escapeHtmlAttr(__('Stock Number')); ?></p>
+
+                                    </div>
+
+                                    <div class="diamonds-info">
+
+                                        <p><?= $block->escapeHtmlAttr($diamond['diamondData']['diamondId']); ?></p>
+
+                                    </div>
+
+                                </li>
+
+                            <?php } ?>
+
+                            <?php if (isset($diamond['diamondData']['fltPrice'])) { ?>
+
+                                <li>
+
+                                    <div class="diamonds-details-title">
+
+                                        <p><?= $block->escapeHtmlAttr(__('Price')); ?></p>
+
+                                    </div>
+
+                                    <div class="diamonds-info">
+
+                                        <?php if ($diamond['diamondData']['showPrice']) { ?>
+                                            <p><?= $priceHelper->convertToBaseCurrency($diamond['diamondData']['fltPrice']); ?></p>
+                                        <?php } else { ?>
+                                            <p><?= $block->escapeHtmlAttr(__('Call For Price')); ?></p>
+                                        <?php } ?>
+                                    </div>
+
+                                </li>
+
+                            <?php } ?>
+                            <?php if ($diamond['diamondData']['showPrice']) { ?>
+                                <?php if (isset($diamond['diamondData']['fltPrice'])) { ?>
+
+                                    <li>
+
+                                        <div class="diamonds-details-title">
+
+                                            <p><?= $block->escapeHtmlAttr(__('Price Per Carat')); ?></p>
+
+                                        </div>
+
+                                        <div class="diamonds-info">
+
+                                            <?php if (isset($diamond['diamondData']['caratWeight'])) {
+
+                                                $percarat = str_replace(
+                                                    ',',
+                                                    '',
+                                                    $diamond['diamondData']['fltPrice']
+                                                ) / $diamond['diamondData']['caratWeight'];
+
+                                                ?>
+
+                                                <p><?= $priceHelper->convertToBaseCurrency($percarat); ?></p>
+
+                                            <?php } else { ?>
+
+                                                <p><?= $priceHelper->convertToBaseCurrency($diamond['diamondData']['fltPrice']); ?></p>
+                                            <?php } ?>
+
+                                        </div>
+
+                                    </li>
+
+                                <?php } ?>
+                            <?php } else { ?>
+                                <li>
+
+                                    <div class="diamonds-details-title">
+
+                                        <p><?= $block->escapeHtmlAttr(__('Price Per Carat')); ?></p>
+
+                                    </div>
+
+                                    <div class="diamonds-info">
+
+                                        <p><?= $block->escapeHtmlAttr(__('Call For Price')); ?></p>
+
+                                    </div>
+
+                                </li>
+                            <?php } ?>
+
+                            <?php if (isset($diamond['diamondData']['caratWeight'])) { ?>
+
+                                <li>
+
+                                    <div class="diamonds-details-title">
+
+                                        <p><?= $block->escapeHtmlAttr(__('Carat Weight')); ?></p>
+
+                                    </div>
+
+                                    <div class="diamonds-info">
+
+                                        <p><?= $block->escapeHtmlAttr($diamond['diamondData']['caratWeight']); ?></p>
+
+                                    </div>
+
+                                </li>
+
+                            <?php } ?>
+                            <?php if (isset($diamond['diamondData']['inhouse'])) { ?>
+                                <li>
+                                    <div class="diamonds-details-title">
+                                        <p><?= $block->escapeHtmlAttr(__('In House')); ?></p>
+                                    </div>
+                                    <div class="diamonds-info">
+                                        <p><?= $block->escapeHtmlAttr($diamond['diamondData']['inhouse']); ?></p>
+                                    </div>
+                                </li>
+                            <?php } ?>
+
+                            <?php if (isset($diamond['diamondData']['cut'])) { ?>
+
+                                <li>
+
+                                    <div class="diamonds-details-title">
+
+                                        <p><?= $block->escapeHtmlAttr(__('Cut')); ?></p>
+
+                                    </div>
+
+                                    <div class="diamonds-info">
+
+                                        <p><?= $block->escapeHtmlAttr($diamond['diamondData']['cut']); ?></p>
+
+                                    </div>
+
+                                </li>
+
+                            <?php } ?>
+
+                            <?php if (isset($diamond['diamondData']['color'])) { ?>
+
+                                <li>
+
+                                    <div class="diamonds-details-title">
+
+                                        <p><?= $block->escapeHtmlAttr(__('Color')); ?></p>
+
+                                    </div>
+
+                                    <div class="diamonds-info">
+                                        <?php
+                                        if ($diamond['diamondData']['fancyColorMainBody']) {
+                                            $color_to_display = $diamond['diamondData']['fancyColorIntensity'] . ' ' . $diamond['diamondData']['fancyColorMainBody'];
+                                        } else {
+                                            $color_to_display = $diamond['diamondData']['color'];
+                                        }
+                                        ?>
+                                        <p><?= $block->escapeHtmlAttr($color_to_display); ?></p>
+                                    </div>
+
+                                </li>
+
+                            <?php } ?>
+
+                            <?php if (isset($diamond['diamondData']['clarity'])) { ?>
+
+                                <li>
+
+                                    <div class="diamonds-details-title">
+
+                                        <p><?= $block->escapeHtmlAttr(__('Clarity')); ?></p>
+
+                                    </div>
+
+                                    <div class="diamonds-info">
+
+                                        <p><?= $block->escapeHtmlAttr($diamond['diamondData']['clarity']); ?></p>
+
+                                    </div>
+
+                                </li>
+
+                            <?php } ?>
+
+                            <?php if (isset($diamond['diamondData']['depth'])) { ?>
+
+                                <li>
+
+                                    <div class="diamonds-details-title">
+
+                                        <p><?= $block->escapeHtmlAttr(__('Depth %')); ?></p>
+
+                                    </div>
+
+                                    <div class="diamonds-info">
+
+                                        <p><?= $block->escapeHtmlAttr(($diamond['diamondData']['depth']) ? $diamond['diamondData']['depth'] . '%' : '-'); ?></p>
+
+                                    </div>
+
+                                </li>
+
+                            <?php } ?>
+
+                            <?php if (isset($diamond['diamondData']['table'])) { ?>
+
+                                <li>
+
+                                    <div class="diamonds-details-title">
+
+                                        <p><?= $block->escapeHtmlAttr(__('Table %')); ?></p>
+
+                                    </div>
+
+                                    <div class="diamonds-info">
+
+                                        <p><?= $block->escapeHtmlAttr(($diamond['diamondData']['table']) ? $diamond['diamondData']['table'] . '%' : '-'); ?></p>
+
+                                    </div>
+
+                                </li>
+
+                            <?php } ?>
+
+                            <?php if (isset($diamond['diamondData']['polish'])) { ?>
+
+                                <li>
+
+                                    <div class="diamonds-details-title">
+
+                                        <p><?= $block->escapeHtmlAttr(__('Polish')); ?></p>
+
+                                    </div>
+
+                                    <div class="diamonds-info">
+
+                                        <p><?= $block->escapeHtmlAttr(($diamond['diamondData']['polish']) ? $diamond['diamondData']['polish'] : '-'); ?></p>
+
+                                    </div>
+
+                                </li>
+
+                            <?php } ?>
+
+                            <?php if (isset($diamond['diamondData']['symmetry'])) { ?>
+
+                                <li>
+
+                                    <div class="diamonds-details-title">
+
+                                        <p><?= $block->escapeHtmlAttr(__('Symmetry')); ?></p>
+
+                                    </div>
+
+                                    <div class="diamonds-info">
+
+                                        <p><?= $block->escapeHtmlAttr(($diamond['diamondData']['symmetry']) ? $diamond['diamondData']['symmetry'] : '-'); ?></p>
+
+                                    </div>
+
+                                </li>
+
+                                <li>
+
+                                    <div class="diamonds-details-title">
+
+                                        <p><?= $block->escapeHtmlAttr(__('Origin')); ?></p>
+
+                                    </div>
+
+                                    <div class="diamonds-info">
+
+                                        <p><?= $block->escapeHtmlAttr(($diamond['diamondData']['origin']) ? $diamond['diamondData']['origin'] : '-'); ?></p>
+
+                                    </div>
+
+                                </li>
+
+                            <?php } ?>
+
+                            <?php if (isset($diamond['diamondData']['gridle'])) { ?>
+
+                                <li>
+
+                                    <div class="diamonds-details-title">
+
+                                        <p><?= $block->escapeHtmlAttr(__('Girdle')); ?></p>
+
+                                    </div>
+
+                                    <div class="diamonds-info">
+
+                                        <p><?= $block->escapeHtmlAttr(($diamond['diamondData']['gridle']) ? $diamond['diamondData']['gridle'] : '-'); ?></p>
+
+                                    </div>
+
+                                </li>
+
+                            <?php } ?>
+
+                            <?php if (isset($diamond['diamondData']['culet'])) { ?>
+
+                                <li>
+
+                                    <div class="diamonds-details-title">
+
+                                        <p><?= $block->escapeHtmlAttr(__('Culet')); ?></p>
+
+                                    </div>
+
+                                    <div class="diamonds-info">
+
+                                        <p><?= $block->escapeHtmlAttr(($diamond['diamondData']['culet']) ? $diamond['diamondData']['culet'] : '-'); ?></p>
+
+                                    </div>
+
+                                </li>
+
+                            <?php } ?>
+
+                            <?php if (isset($diamond['diamondData']['fluorescence'])) { ?>
+
+                                <li>
+
+                                    <div class="diamonds-details-title">
+
+                                        <p><?= $block->escapeHtmlAttr(__('Fluorescence')); ?></p>
+
+                                    </div>
+
+                                    <div class="diamonds-info">
+
+                                        <p><?= $block->escapeHtmlAttr(($diamond['diamondData']['fluorescence']) ? $diamond['diamondData']['fluorescence'] : '-'); ?></p>
+
+                                    </div>
+
+                                </li>
+
+                            <?php } ?>
+
+                            <?php if (isset($diamond['diamondData']['measurement'])) { ?>
+
+                                <li>
+
+                                    <div class="diamonds-details-title">
+
+                                        <p><?= $block->escapeHtmlAttr(__('Measurement')); ?></p>
+
+                                    </div>
+
+                                    <div class="diamonds-info">
+
+                                        <p><?= $block->escapeHtmlAttr(($diamond['diamondData']['measurement']) ? $diamond['diamondData']['measurement'] : '-'); ?></p>
+
+                                    </div>
+
+                                </li>
+
+                            <?php } ?>
+
+                        </ul>
+                        <?php if (count((array)$diamond['diamondData']['diamondDeatilAdditionalInfo'])) {
+                            $additional_data = [] ?>
+                            <div class="specification-title"><h2><?= $block->escapeHtmlAttr(__('Additional information')); ?></h2></div>
+                            <ul>
+                                <?php $additional_data = (array)$diamond['diamondData']['diamondDeatilAdditionalInfo'];
+                                foreach ($additional_data as $field => $value) {
+                                    if ($field != '$id') { ?>
+                                        <li>
+                                            <div class="diamonds-details-title">
+                                                <p><?= $block->escapeHtmlAttr($field); ?></p>
+                                            </div>
+                                            <div class="diamonds-info">
+                                                <p><?= $block->escapeHtmlAttr(($value) ? $value : '-'); ?></p>
+                                            </div>
+                                        </li>
+                                    <?php }
+                                } ?>
+                            </ul>
+                        <?php } ?>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        </div>
+
+        <div class="search-form">
+
+            <form id="search-diamonds-form" method="post"
+                  action="<?= $block->escapeHtmlAttr($block->escapeUrl($block->getSearchFormAction())); ?>">
+                <input name="form_key" type="hidden" value="<?= $block->escapeHtmlAttr($block->getFormKey()); ?>">
+                <input name="submitby" id="submitby" type="hidden" value="">
+
+                <input name="viewmode" id="viewmode" type="hidden" value="list"/>
+
+                <input type="hidden" name="orderby" id="orderby" value="FltPrice"/>
+
+                <input type="hidden" name="direction" id="direction" value="ASC"/>
+
+                <input type="hidden" name="currentpage" id="currentpage" value="1"/>
+
+                <?php if ($diamond['diamondData']['fancyColorMainBody']) { ?>
+
+                    <input type="hidden" name="filtermode" id="filtermode" value="navfancycolored">
+
+                <?php } elseif ($diamond['diamondData']['certificate'] == 'GCAL') { ?>
+
+                    <input type="hidden" name="filtermode" id="filtermode" value="navlabgrown">
+
+                <?php } else { ?>
+
+                    <input type="hidden" name="filtermode" id="filtermode" value="navstandard">
+
+                <?php } ?>
+
+                <?php
+                if ($block->getRingCaratCookieData()) {
+
+                    $setting = $block->getRingCaratCookieData();
+
+                    if ($setting->caratmin > '0.00') {
+
+                        /*               $TempCaratMin = ($setting->caratmin * 10) / 100;*/
+
+                        $CaratMin = ($setting->caratmin);
+
+                    }
+
+                    if ($setting->caratmax > '0.00') {
+
+                        $CaratMax = ($setting->caratmax);
+
+                    }
+
+                } else {
+
+                    if ($diamond['diamondData']['caratWeight'] > '0.00') {
+
+                        $CaratMin = ($diamond['diamondData']['caratWeight']);
+
+                        $CaratMax = ($diamond['diamondData']['caratWeight']);
+
+                    } else {
+                        $CaratMin = $diamond['diamondData']['caratWeight'];
+
+                        $CaratMax = $diamond['diamondData']['caratWeight'];
+
+                    }
+                }
+
+                ?>
+
+                <input type="hidden" name="diamond_shape[]" id="diamond_shape"
+                       value="<?= $block->escapeHtmlAttr($diamond['diamondData']['shape']); ?>"/>
+
+                <input type="hidden" name="diamond_certificates[]" id="diamond_certificates"
+                       value="<?= $block->escapeHtmlAttr($diamond['diamondData']['certificate']); ?>"/>
+
+                <input type="hidden" name="diamond_carats[from]" value="<?= $block->escapeHtmlAttr($CaratMin); ?>"/>
+
+                <input type="hidden" name="diamond_carats[to]" value="<?= $block->escapeHtmlAttr($CaratMax); ?>"/>
+
+                <input type="hidden" name="price[from]" value="0"/>
+
+                <input type="hidden" name="price[to]" value="100000"/>
+
+                <input type="hidden" name="diamond_table[from]" value="0"/>
+
+                <input type="hidden" name="diamond_table[to]" value="100"/>
+
+                <input type="hidden" name="diamond_depth[from]" value="0"/>
+
+                <input type="hidden" name="diamond_depth[to]" value="100"/>
+
+                <input name="itemperpage" id="itemperpage" type="hidden" value="<?= $block->escapeHtmlAttr($block->getResultsPerPage()); ?>"/>
+
+                <input type="hidden" name="gemfind_diamond_origin" value=""/>
+
+                <input type="submit" name="Submit" id="submit" style="visibility: hidden;">
+
+            </form>
+
+        </div>
+
+        <div class="result filter-advanced">
+
+            <div style="text-align: center; margin: 50px; font-size: 16px;">
+                <b><?= $block->escapeHtmlAttr(__('Loading Similar Diamonds...')); ?></b></div>
+
+        </div>
+
+    </section>
+
+    <script>
+        <?php
+
+
+
+        $dtime = new DateTime("now");
+        $dtime->setTimezone(new DateTimeZone('Asia/Hong_Kong'));
+
+        ?>
+
+        var serverDate = '<?= $block->escapeHtmlAttr($dtime->format('Y-m-d')); ?>';
+        var serverHTime = '<?= $block->escapeHtmlAttr($dtime->format('H')); ?>';
+        var minSDate = <?= $block->escapeHtmlAttr($dtime->format('H') > 19 ? 1 : 0); ?>;
+        var minuteSDate = '<?= $block->escapeHtmlAttr($dtime->format('i')); ?>';
+        require([
+
+            'jquery'], function ($) {
+
+            $(window).bind("load", function () {
+                $(".prinddia").attr('href', '<?= $block->escapeHtmlAttr($block->getUrl('ringbuilder/diamond/printdiamond') . 'id/' . $diamond['diamondData']['diamondId']); ?>');
+                $(".prinddia").printPage();
+
+            });
+
+        });
+
+        function showLoader() {
+
+            document.getElementById("gemfind-loading-mask").style.display = "block";
+
+        }
+
+    </script>
+
+    <script>
+
+        require([
+
+            "jquery"
+
+        ], function ($) {
+
+            var src = $('div.diamention img').attr("data-src");
+            var mainimgsrc = $('div#diamondimg img').attr("data-src");
+
+            imageExists1(src, function (exists) {
+
+                if (exists) {
+
+                    $('div.diamention img').attr('src', src);
+
+                } else {
+
+                    $('div.diamention img').attr('src', '<?= $block->escapeHtmlAttr($block->getViewFileUrl('Gemfind_Diamondsearch::images/no-image.jpg')); ?>');
+
+                }
+
+            });
+            imageExists1(mainimgsrc, function (exists) {
+                if (exists) {
+                    $('div#diamondimg img').attr('src', mainimgsrc);
+                    $('div#thumbdiamondimg img').attr('src', mainimgsrc);
+                } else {
+                    $('div#diamondimg img').attr('src', '<?= $block->escapeHtmlAttr($block->getViewFileUrl('Gemfind_Diamondsearch::images/no-image.jpg')); ?>');
+                    $('div#thumbdiamondimg img').attr('src', '<?= $block->escapeHtmlAttr($block->getViewFileUrl('Gemfind_Diamondsearch::images/no-image.jpg')); ?>');
+                }
+            });
+
+            function imageExists1(url, callback) {
+
+                var img = new Image();
+
+                img.onload = function () {
+                    callback(true);
+                };
+
+                img.onerror = function () {
+                    callback(false);
+                };
+
+                img.src = url;
+
+            }
+
+        });
+
+        require(['jquery', 'Magento_Ui/js/modal/modal'], function ($, modal) {
+
+            var options1 = {
+
+                type: 'popup',
+
+                responsive: true,
+
+                innerScroll: true,
+
+                modalClass: 'internalusemodel'
+
+            };
+
+            var options2 = {
+
+                type: 'popup',
+
+                responsive: true,
+
+                innerScroll: true,
+
+                title: 'Vendor Infromation',
+
+                modalClass: 'dealerinfopopup'
+
+            };
+
+            if ($('#auth-section').length) {
+                var popup = modal(options1, $('#auth-section'));
+            }
+
+            if ($('#dealer-info-section').length) {
+                var popup = modal(options2, $('#dealer-info-section'));
+            }
+
+            $("#internaluselink").on('click', function () {
+
+                $('#msg').html('');
+
+                $('#internaluseform input').val('');
+
+                $("#auth-section").modal("openModal");
+
+            });
+
+        });
+
+        function internaluselink() {
+
+            require([
+
+                "jquery", 'Magento_Ui/js/modal/modal'
+
+            ], function ($) {
+
+                $.ajax({
+
+                    url: '<?= $block->escapeHtmlAttr($block->getBaseurl()); ?>' + "ringbuilder/diamond/authenticate",
+
+                    data: $('#internaluseform').serialize(),
+
+                    type: 'POST',
+
+                    dataType: 'json',
+
+                    cache: true,
+
+                    beforeSend: function (settings) {
+
+                        $('.loading-mask.gemfind-loading-mask').css('display', 'block');
+
+                    },
+
+                    success: function (response) {
+
+                        if (response.output.status == 1) {
+
+                            $('#msg').html('<span class="success">' + response.output.msg + '</span>');
+
+                            $("#auth-section").modal("closeModal");
+
+                            $("#dealer-info-section").modal("openModal");
+
+                        } else {
+
+                            $('#msg').html('<span class="error">' + response.output.msg + '</span>');
+
+                        }
+
+                        $('.loading-mask.gemfind-loading-mask').css('display', 'none');
+
+                    }
+
+                });
+
+            });
+
+        }
+
+    </script>
+    <style>
+        .list-inline.social-share::before {
+            content: "";
+            display: block;
+            clear: both;
+            padding: 0;
+        }
+        ul.list-inline.social-share {
+            padding: 11px 0 0;
+            overflow: hidden;
+            float: none;
+            width: 100%;
+        }
+        ul.list-inline.social-share li {
+            list-style: none;
+            display: inline-block;
+            vertical-align: middle;
+            margin: 0;
+            padding-right: 5px;
+        }
+        ul.list-inline.social-share li span {
+            position: relative;
+            opacity: 1;
+            padding: 0px 15px;
+        }
+        ul.list-inline.social-share li span {
+            position: relative;
+            opacity: 1;
+            padding: 0;
+        }
+        ul.list-inline.social-share li a {
+            height: 19px;
+            font-size: 11px !important;
+            line-height: 20px !important;
+            background-size: 13px 18px !important;
+        }
+        .list-inline.social-share li {
+            height: 20px;
+        }
+    </style>
+<?php } else { ?>
+    <div class="diamond-nf">
+        <?= $block->escapeHtmlAttr(__('Diamond not found. Please try again after some time.')); ?>
+    </div>
+<?php } ?>
+<div id="popup-modal">
+    <div class="note" style="display: none;"></div>
+</div>

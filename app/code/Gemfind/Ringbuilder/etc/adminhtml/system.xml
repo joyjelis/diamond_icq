@@ -1,0 +1,235 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="gemfind" translate="label" sortOrder="990">
+            <label>Gemfind</label>
+        </tab>
+        <section id="gemfindringbuilder" translate="label" type="text" sortOrder="999" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Ring Builder</label>
+            <tab>gemfind</tab>
+            <resource>Gemfind_Ringbuilder::config_ringbuilder</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General Configuration</label>
+                <field id="enable_in_frontend" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                 <field id="username" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Gemfind UserId</label>
+                    <validate>required-entry</validate>
+                </field>
+                <field id="adminemail" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Admin Email</label>
+                    <comment>If this field will be empty then email's will go to Dealers email.</comment>
+                </field>
+                <field id="admindealername" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Dealer Name</label>
+                </field>
+                <field id="enable_powered_by" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enable Powered By</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="enable_sticky_header" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enable Sticky Header</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="enable_tryon" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enable Tryon for Rings</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="api_timeout" translate="label" type="text" sortOrder="3" showInDefault="1" showInStore="1" showInWebsite="1" canRestore="1">
+                    <label>API Timeout (seconds)</label>
+                    <comment>set to 0 for infinite wait</comment>
+                </field>
+                <field id="dealerauthapi" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Dealer Authentication API URL</label>
+                    <validate>required-entry</validate>
+                </field>
+                <field id="getringfilterapi" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Get Ring's Filters API URL</label>
+                    <validate>required-entry</validate>
+                </field>
+                <field id="getmountinglistapi" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>GetMountinglist API URL</label>
+                    <validate>required-entry</validate>
+                </field>
+                <field id="getmountingdetailapi" translate="label" type="text" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>GetMountingDetail API URL(Fancy Diamonds)</label>
+                    <validate>required-entry</validate>
+                </field>
+                <field id="getringstylesettingapi" translate="label" type="text" sortOrder="7" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Get Ring's Style Settings API URL</label>
+                    <validate>required-entry</validate>
+                </field>
+                <field id="getnavigationapi" translate="label" type="text" sortOrder="8" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>GetNavigation API URL</label>
+                    <validate>required-entry</validate>
+                </field>
+                <field id="getfilterapi" translate="label" type="text" sortOrder="9" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>GetFilters API URL</label>
+                    <validate>required-entry</validate>
+                </field>
+                <field id="getfilterapifancy" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>GetFilters API URL(Fancy Diamonds)</label>
+                    <validate>required-entry</validate>
+                </field>
+                <field id="getdiamondlistapi" translate="label" type="text" sortOrder="11" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>GetDiamond List API URL</label>
+                    <validate>required-entry</validate>
+                </field>
+                <field id="getdiamondlistapifancy" translate="label" type="text" sortOrder="12" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>GetDiamond List API URL (Fancy Diamonds)</label>
+                    <validate>required-entry</validate>
+                </field>
+                <field id="getdiamonddetailapi" translate="label" type="text" sortOrder="13" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>GetDiamondDetail API URL</label>
+                    <validate>required-entry</validate>
+                </field>
+                <field id="getdiamondshapeapi" translate="label" type="text" sortOrder="14" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>GetDiamondShape API URL</label>
+                    <validate>required-entry</validate>
+                </field>
+                <field id="getstylesettingapi" translate="label" type="text" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>GetStyleSetting API URL</label>
+                    <validate>required-entry</validate>
+                </field>
+                <field id="jsoptionsapi" translate="label" type="text" sortOrder="16" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Diamonds JC Options API URL</label>
+                    <validate>required-entry</validate>
+                </field>                
+                <field id="enable_hint" translate="label" type="select" sortOrder="16" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enable Drop A Hint</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="enable_email_friend" translate="label" type="select" sortOrder="17" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enable E-Mail A Friend</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="enable_schedule_viewing" translate="label" type="select" sortOrder="18" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enable Schedule Viewing</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="enable_more_info" translate="label" type="select" sortOrder="19" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enable Request More Info</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="enable_print" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enable Print Details</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="default_view" translate="label" type="select" sortOrder="21" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Diamond Listing Default View</label>
+                    <source_model>Gemfind\Ringbuilder\Model\Config\Source\Defaultview</source_model>
+                </field>
+                <field id="carat_range" translate="label comment" type="textarea" sortOrder="22" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Settings Carat Ranges</label>
+                </field>
+                <field id="captcha" translate="label comment" type="text" sortOrder="23" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Google Captcha Website Key</label>
+                    <comment>Enter Google CaptchaV2 website key here.</comment>
+                </field>
+            </group>
+            <group id="design" translate="label" type="text" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Design Configuration</label>
+                <field id="additionl_css" translate="label comment" type="textarea" sortOrder="12" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Additional CSS</label>
+                    <comment>No need to add style tag, You can directly write your custom CSS here.</comment>
+                </field>          
+            </group>
+            <group id="email" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Email Configuration</label>
+                <field id="identity" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Email Sender</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Identity</source_model>
+                </field>
+
+                 <field id="ringdrop_hint_email_template_receiver" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Ring: Drop a Hint Email Template (Receiver)</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                </field>
+                <field id="ringdrop_hint_email_template_sender" translate="label" type="select" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Ring: Drop a Hint Email Template (Sender)</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                </field>
+                <field id="ringdrop_hint_email_template_retailer" translate="label" type="select" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Ring: Drop a Hint Email Template (Retailer)</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                </field>
+                <field id="ringrequest_info_email_template_admin" translate="label" type="select" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Ring: Request More Info Email Template (Retailer)</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                </field>
+                <field id="ringrequest_info_email_template_sender" translate="label" type="select" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Ring: Request More Info Email Template (Sender)</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                </field>
+                <field id="ringemail_friend_email_template_receiver" translate="label" type="select" sortOrder="7" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Ring: Email To Friend Email Template (Receiver)</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                </field>
+                <field id="ringemail_friend_email_template_admin" translate="label" type="select" sortOrder="8" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Ring: Email To Friend Email Template (Retailer)</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                </field>
+                <field id="ringemail_friend_email_template_sender" translate="label" type="select" sortOrder="9" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Ring: Email To Friend Email Template (Sender)</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                </field>
+                <field id="ringschedule_view_email_template_admin" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Ring: Schedule View Email Template (Retailer)</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                </field>
+
+
+                 <field id="drop_hint_email_template_receiver" translate="label" type="select" sortOrder="11" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Diamonds: Drop a Hint Email Template (Receiver)</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                </field>
+                <field id="drop_hint_email_template_sender" translate="label" type="select" sortOrder="12" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Diamonds: Drop a Hint Email Template (Sender)</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                </field>
+                <field id="drop_hint_email_template_retailer" translate="label" type="select" sortOrder="13" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Diamonds: Drop a Hint Email Template (Retailer)</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                </field>
+                <field id="request_info_email_template_admin" translate="label" type="select" sortOrder="14" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Diamonds: Request More Info Email Template (Retailer)</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                </field>
+                <field id="request_info_email_template_sender" translate="label" type="select" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Diamonds: Request More Info Email Template (Sender)</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                </field>
+                <field id="email_friend_email_template_receiver" translate="label" type="select" sortOrder="16" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Diamonds: Email To Friend Email Template (Receiver)</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                </field>
+                <field id="email_friend_email_template_admin" translate="label" type="select" sortOrder="17" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Diamonds: Email To Friend Email Template (Retailer)</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                </field>
+                <field id="email_friend_email_template_sender" translate="label" type="select" sortOrder="18" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Diamonds: Email To Friend Email Template (Sender)</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                </field>
+                <field id="schedule_view_email_template_admin" translate="label" type="select" sortOrder="19" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Diamonds: Schedule View Email Template (Retailer)</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                </field>                                                                                        
+            </group>
+			<group id="feed" translate="label" type="text" sortOrder="25" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Google Feed Configuration</label>
+				 <field id="path" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>CSV Path</label>
+                    <validate>required-entry</validate>
+                </field>
+                <field id="generatefeed" translate="label comment" type="button" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <frontend_model>Gemfind\Ringbuilder\Block\System\Config\Collect</frontend_model>
+                    <label>Generate CSV</label>
+                </field>                                                                                        
+            </group>
+        </section>
+    </system>
+</config>

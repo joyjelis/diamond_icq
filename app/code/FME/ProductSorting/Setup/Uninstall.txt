@@ -1,0 +1,45 @@
+<?php
+/**
+ *
+ * @category : FME
+ * @Package  : FME_ProductSorting
+ * @Author   : Athar Ali <support@fmeextensions.com>
+ * @copyright Copyright 2018 © fmeextensions.com All right reserved
+ * @license https://fmeextensions.com/LICENSE.txt
+ */
+namespace FME\ProductSorting\Setup;
+
+use Magento\Catalog\Model\Product;
+class Uninstall implements \Magento\Framework\Setup\UninstallInterface
+    {
+
+        protected $eavSetupFactory;
+
+        public function __construct(\Magento\Eav\Setup\EavSetupFactory $eavSetupFactory)
+        {
+            $this->eavSetupFactory = $eavSetupFactory;
+        }
+
+
+
+        public function uninstall(\Magento\Framework\Setup\SchemaSetupInterface $setup, \Magento\Framework\Setup\ModuleContextInterface $context)
+        {
+            $setup->startSetup();
+
+            $eavSetup = $this->eavSetupFactory->create();
+
+            $entityTypeId = 4; // Find these in the eav_entity_type table
+            $eavSetup->removeAttribute(\Magento\Catalog\Model\Product::ENTITY, 'review_count');
+            $eavSetup->removeAttribute(\Magento\Catalog\Model\Product::ENTITY, 'best_seller');
+            $eavSetup->removeAttribute(\Magento\Catalog\Model\Product::ENTITY, 'top_rated');
+            $eavSetup->removeAttribute(\Magento\Catalog\Model\Product::ENTITY, 'most_viewed');
+            $eavSetup->removeAttribute(\Magento\Catalog\Model\Product::ENTITY, 'wished');
+            $eavSetup->removeAttribute(\Magento\Catalog\Model\Product::ENTITY, 'stockquantity');
+            $eavSetup->updateAttribute( \Magento\Catalog\Model\Product::ENTITY, 'created_at', 'used_for_sort_by', 0);
+
+            $setup->endSetup();
+
+        }
+    }
+
+// }

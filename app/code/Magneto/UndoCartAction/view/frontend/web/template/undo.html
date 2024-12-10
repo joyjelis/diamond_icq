@@ -1,0 +1,10 @@
+<div class="rootUndoRemovedProduct" data-bind="foreach: restoreItems, afterRender: loadJsAfterKoRender">
+	<div class="hideafterload" data-bind="attr: {'data-url': remove_url, 'data-id': productId}">
+		<p class="productDesc">
+			<span class="remove-head" data-bind="i18n: 'Removed:'"></span><span class="remove-name" data-bind="text: b_restore_product_name_text"></span>
+		</p>
+		<a id="restoreaction" class="restoreaction" href="#" data-bind="attr: { 'data-id': productId, 'data-post': data_post }">
+			<span data-bind="text: b_restore_text"></span><div class="progressBar"></div>
+		</a>
+	</div>
+</div>

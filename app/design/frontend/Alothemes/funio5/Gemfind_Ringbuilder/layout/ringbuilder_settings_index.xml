@@ -1,0 +1,67 @@
+<?xml version="1.0" ?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+
+    <head>
+	
+        <title>Ringbuilder</title>
+
+        <css src="Gemfind_Ringbuilder::css/nouislider.css"/>
+
+        <css src="Gemfind_Ringbuilder::css/custom.css"/>
+
+        <!-- <link src="Gemfind_Ringbuilder::js/touchit.js"/> -->
+
+        <link src="Gemfind_Ringbuilder::js/ringbuilder.js"/>
+
+        <link src="Gemfind_Ringbuilder::js/ringmain.js"/>
+        
+
+    </head>
+
+	<body>
+
+        <referenceBlock name="page.main.title" remove="true"/>
+
+        <referenceBlock name="head.additional">
+
+            <block class="Gemfind\Ringbuilder\Block\Settings\Index" cacheable="false" ifconfig="gemfindringbuilder/general/enable_in_frontend" name="setting.index"  template="Gemfind_Ringbuilder::settings/head.phtml" after="-"/>
+			
+			<container name="canonical.ringbuilder.settings.page.container">
+				<block class="Magento\Framework\View\Element\Text" name="canonical.ringbuilder.settings.page">
+					<arguments>
+						<argument name="label" xsi:type="string">Adding canonical tag with base URL</argument>
+						<argument name="text" xsi:type="helper" helper="Travash\Customization\Helper\Canonical::getCanonicalTag"/>
+					</arguments>
+				</block>
+			</container>
+
+        </referenceBlock>
+
+		 <referenceContainer name="content">
+
+            <block class="Gemfind\Ringbuilder\Block\Settings\Index"  cacheable="false" ifconfig="gemfindringbuilder/general/enable_in_frontend" name="index.index" template="Gemfind_Ringbuilder::settings/index.phtml"/>
+
+        </referenceContainer>
+
+       <referenceBlock name="breadcrumbs">
+            <action method="addCrumb">
+                <argument name="crumbName" xsi:type="string">rings</argument>
+                <argument name="crumbInfo" xsi:type="array">
+                    <item name="title" xsi:type="string" translate="true">Engagement Rings</item>
+                    <item name="label" xsi:type="string" translate="true">Engagement Rings</item>
+                </argument>
+            </action>
+            <action method="addCrumb">
+                <argument name="crumbName" xsi:type="string">settings</argument>
+                <argument name="crumbInfo" xsi:type="array">
+                    <item name="title" xsi:type="string" translate="true">Start with Settings</item>
+                    <item name="label" xsi:type="string" translate="true">Start with Settings</item>
+                </argument>
+            </action>
+        </referenceBlock>
+
+	</body>
+
+</page>
+

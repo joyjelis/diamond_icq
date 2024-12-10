@@ -1,0 +1,194 @@
+<fieldset class='online hidden'>
+    <fieldset class='online' data-bind="visible:step() == 1">
+        <div class="hidden">
+            <div class="top-block">
+                <span class="head-bank" data-bind="i18n: 'Bank Details:'"></span>
+                <span data-bind="i18n: 'Step 1 of 2'"></span>
+            </div>
+            <div class="sub-div">
+                <div class="head-control">
+                    <div class="field bankname required">
+                        <div class="control placeholder1">
+                            <input 
+                            name="bank_name" 
+                            data-validate="{required:true}" 
+                            value="" 
+                            data-bind="attr:{ title: $t('Bank Name')}, value: bank_name" 
+                            class="input-text" 
+                            type="text" required/>
+                        <label class="label floating-label1" for="bankname"><span data-bind="i18n: 'Bank Name'"></span></label>
+                        </div>
+                    </div>
+                    <div class="field accountname required">
+                        <div class="control placeholder1">
+                            <input 
+                            name="account_name" 
+                            data-validate="{required:true}"
+                            data-bind="attr:{ title: $t('Account Name')}, value: account_name"
+                            class="input-text" type="text" required/>
+                        <label class="label floating-label1" for="accountname"><span data-bind="i18n: 'Account Name'"></span></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="head-control">
+                    <div class="field accountno required">
+                        <div class="control placeholder1">
+                            <input 
+                            name="account_no" 
+                            data-validate="{required:true,'validate-number':true}" 
+                            data-bind="attr:{ title: $t('Account No.')  }, value: account_no"
+                            class="input-text" type="text" required/>
+                        <label class="label floating-label1" for="accountno"><span data-bind="i18n: 'Account No.'"></span></label>
+                        </div>
+                    </div>
+                    <div class="field swift required">
+                        <div class="control placeholder1">
+                            <input 
+                            name="swift_code" 
+                            data-validate="{required:true}" 
+                            data-bind="attr:{ title: $t('Swift Code')  }, value: swift_code"
+                            class="input-text" type="text" required/>
+                        <label class="label floating-label1" for="country"><span data-bind="i18n: 'Swift Code'"></span></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="field country required">
+                    <label class="label" for="country"><span data-bind="i18n: 'Country'"></span></label>
+                    <div class="control" data-bind="html: bank_country_html"></div>
+                </div>
+                <div class="actions-toolbar">
+                    <div class="primary">
+                        <button 
+                        type="button" 
+                        data-bind="attr:{ title: $t('Submit')  }, click: next"
+                        class="action submit primary">
+                        <span data-bind="i18n: 'Save and Continue'"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</fieldset>
+<fieldset class='shipping-details online' data-bind="visible:step() == 2">
+    <div class="hidden">
+        <div class="top-block">
+            <span class="head-bank" data-bind="i18n: 'Sender Details'"></span>
+            <span data-bind="i18n: 'Step 2 of 2'"></span>
+        </div>
+        <div class="sub-div">
+            <div class="head-control">
+                <div class="field firstname required">
+                    <div class="control placeholder1">
+                        <input 
+                        name="first_name" 
+                        data-validate="{required:true}"
+                        data-bind="attr:{ title: $t('First Name')  }, value: first_name"
+                        class="input-text" type="text" required/>
+                    <label class="label floating-label1" for="bankname"><span data-bind="i18n: 'First Name'"></span></label>
+                    </div>
+                </div>
+                <div class="field Lastname required">
+                    <div class="control placeholder1">
+                        <input 
+                        name="last_name" 
+                        data-validate="{required:true}" 
+                        data-bind="attr:{ title: $t('Last Name')  }, value: last_name"
+                        class="input-text" type="text" required/>
+                    <label class="label floating-label1" for="lastname"><span data-bind="i18n: 'Last Name'"></span></label>
+                    </div>
+                </div>
+            </div>
+            <div class="head-control">
+                <div class="field email required">
+                    <div class="control placeholder1">
+                        <input 
+                        name="email" 
+                        data-validate="{required:true,'validate-email':true}"
+                        data-bind="attr:{ title: $t('Email')  }, value: email"
+                        class="input-text" type="text" required/>
+                    <label class="label floating-label1" for="email"><span data-bind="i18n: 'Email'"></span></label>
+                    </div>
+                </div>
+                <div class="field mobno required">
+                    <div class="control">
+                        <input 
+                        name="mobile" 
+                        data-validate="{required:true}" 
+                        placeholder="Mobile Number" 
+                        data-bind="attr:{ title: $t('Mobile Number')  }, value: mobile"
+                        class="input-text init_tel" type="text" required/>
+                    </div>
+                </div>
+            </div>
+            <div class="head-control address">
+                <div class="field email required">
+                    <div class="control placeholder1">
+                        <input 
+                        name="address_line_1" 
+                        data-bind="attr:{ title: $t('Address Line 1')  }, value: street"
+                        data-validate="{required:true}" 
+                        class="input-text" type="text" required/>
+                    <label class="label floating-label1" for="address_line_1"><span data-bind="i18n: 'Address Line 1'"></span></label>
+                    </div>
+                </div>
+            </div>
+            <div class="head-control">
+                <div class="field email required">
+                    <div class="control placeholder1">
+                        <input 
+                        name="post_code" 
+                        data-validate="{required:true,'validate-number':true}"
+                        data-bind="attr:{ title: $t('Postal Code')  }, value: postcode"
+                        class="input-text" type="text" required/>
+                    <label class="label floating-label1" for="post_code"><span data-bind="i18n: 'Postal Code'"></span></label>
+                    </div>
+                </div>
+                <div class="field landmark required">
+                    <div class="control placeholder1">
+                        <input 
+                        name="landmark" 
+                        data-validate="{required:true}" 
+                        data-bind="attr:{ title: $t('Landmark')  }, , value: landmark"
+                        class="input-text" type="text" required/>
+                    <label class="label floating-label1" for="Landmark"><span data-bind="i18n: 'Landmark'"></span></label>
+                    </div>
+                </div>
+            </div>
+            <div class="head-control">
+                <div class="field city required">
+                    <div class="control placeholder1">
+                        <input 
+                        name="city" 
+                        data-validate="{required:true}"
+                        data-bind="attr:{ title: $t('City / Subrubs')  }, value: city"
+                        class="input-text" type="text" required/>
+                    <label class="label floating-label1" for="city"><span data-bind="i18n: 'City / Subrubs'"></span></label>
+                    </div>
+                </div>
+                <div class="field country required">
+                    <label class="label" for="country"><span data-bind="i18n: 'State / Province /Country'"></span></label>
+                    <div class="control">
+                        <div class="control" data-bind="html: country_html"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="actions-toolbar">
+                <div class="primary">
+                    <button 
+                    type="button" 
+                    data-bind="attr:{ title: $t('Previous')  }, click: previous"
+                    class="action prev primary">
+                    <span data-bind="i18n: 'Previous'"></span>
+                </button>
+                <button type="submit" 
+                title="<?= $block->escapeHtml(__('Submit')) ?>"
+                data-bind="attr:{ title: $t('Submit')  }, click: submit" 
+                class="action submit primary">
+                <span data-bind="i18n: 'Submit'"></span>
+            </button>
+        </div>
+    </div>
+</div>
+</div>
+</fieldset>
+</fieldset>

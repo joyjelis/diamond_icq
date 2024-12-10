@@ -1,0 +1,122 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+<?php
+/**
+ * Category layered navigation
+ *
+ * @var $block \Magento\LayeredNavigation\Block\Navigation
+ */
+?>
+<?php if ($block->canShowBlock()) : ?>
+    <div class="block filter" id="layered-filter-block" data-mage-init='
+    {
+        "collapsible":
+        {
+            "openedState": "active",
+            "collapsible": true,
+            "active": false,
+            "collateral":
+            {
+                "openedState": "filter-active",
+                "element": "body"
+            }
+        }
+    }'>
+        <?php $filtered = count($block->getLayer()->getState()->getFilters()) ?>
+        <div class="block-title filter-title" data-count="<?= /* @noEscape */ $filtered ?>">
+            <strong data-role="title"><?= $block->escapeHtml(__('Filters')); ?></strong>
+        </div>
+        <div class="block-content filter-content">
+            <?= $block->getChildHtml('state') ?>
+
+            <?php if ($block->getLayer()->getState()->getFilters()) : ?>
+                <div class="block-actions filter-actions">
+                    <a href="<?= $block->escapeUrl($block->getClearUrl()) ?>" class="action clear filter-clear">
+                        <span><?= $block->escapeHtml(__('Clear All')) ?></span>
+                    </a>
+                </div>
+            <?php endif; ?>
+            <?php $wrapOptions = false; ?>
+            <?php foreach ($block->getFilters() as $filter) : ?>
+                <?php if ($filter->getItemsCount()) : ?>
+                    <?php if (!$wrapOptions) : ?>
+                        <strong role="heading" aria-level="2" class="block-subtitle filter-subtitle"><?= $block->escapeHtml(__('Filtered By')) ?></strong>
+                        <div class="filter-options" id="narrow-by-list" data-role="content" data-mage-init='
+                        {
+                            "accordion":
+                            {
+                                "openedState": "active",
+                                "collapsible": true,
+                                "active": false,
+                                "multipleCollapsible": false
+                            }
+                        }'>
+                        <div class="actions filter-actions for-mobile filter-subtitle">
+                            <div class="button-toolbar">
+                                <a href="<?= $block->escapeUrl($block->getClearUrl()) ?>" class="action clear filter-clear" id="custom-btn-filter-clear-all">
+                                    <span><?= $block->escapeHtml(__('Clear All')) ?></span>
+                                </a>
+                                <a href="javascript:void(0);" class="action apply filter-apply" id="custom-btn-filter-apply">
+                                    <span><?= $block->escapeHtml(__('Apply')) ?></span>
+                                </a>
+                            </div>
+                            <script>
+                                require([
+                                    'jquery',
+                                    'Magento_Ui/js/lib/view/utils/dom-observer',
+                                    'Amasty_Shopby/js/amShopby',
+                                    ], function ($) {
+                                        domObserver = require('Magento_Ui/js/lib/view/utils/dom-observer');
+                                        $(document).ready(function(){
+                                            
+                                             domObserver.get('.amshopby-remove', function(elem){
+                                                $(elem).on('click',function(){
+                                                    var RemoveFilter = setInterval(function() {
+                                                        if ($('.am_shopby_apply_filters .am-show-button .am-items').length) {
+                                                            $(".am_shopby_apply_filters .am-show-button > .amshopby-button").click();
+                                                            clearInterval(RemoveFilter);
+                                                        }
+                                                    }, 100);
+                                                }); 
+                                            });
+
+                                             domObserver.get('#custom-btn-filter-apply', function(elem){
+                                                $(elem).on('click',function(){
+                                                    $(".am_shopby_apply_filters .amshopby-button").click();
+                                                    $(".sidebar-main .filter-title strong").click()
+                                                }); 
+                                            });
+
+                                        });
+                                    });
+                                </script>
+                        </div>
+                        <?php $wrapOptions = true;
+                        endif; ?>
+                        
+                    <div data-role="collapsible" class="filter-options-item">
+                        <div data-role="title" class="filter-options-title"><?= $block->escapeHtml(__($filter->getName())) ?></div>
+                        <div data-role="content" class="filter-options-content"><?= /* @noEscape */ $block->getChildBlock('renderer')->render($filter) ?></div>
+                    </div>
+                <?php endif; ?>
+            <?php endforeach; ?>
+            <?php if ($wrapOptions) : ?>
+                </div>
+                
+            <?php else : ?>
+                <script>
+                    require([
+                        'jquery'
+                    ], function ($) {
+                        $('#layered-filter-block').addClass('filter-no-options');
+                    });
+
+                </script>
+            <?php endif; ?>
+        </div>
+    </div>
+<?php endif; ?>

@@ -1,0 +1,40 @@
+<!--@subject {{var data.status}} @-->
+
+{{template config_path="design/email/header_template"}}
+
+<table cellspacing="0" cellpadding="0" border="0" width="100%">
+    <tr>
+        <td align="center" valign="top" style="padding:20px 0 20px 0">
+            <table bgcolor="#FFFFFF" cellspacing="0" cellpadding="10" border="0" width="800" style="border:1px solid #E0E0E0;">
+                <tr>
+                    <td valign="top">
+                        <h1 style="font-size:20px;font-weight:normal;line-height:22px;margin:0 0 11px 0;">{{trans "Hello"}} ,</h1>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table cellspacing="0" cellpadding="0" border="0" width="780">
+                            <tbody>
+                                <tr>
+                                    <td colspan="2" valign="top" style="font-size:14px;padding:7px 9px 9px 9px;border:1px solid #EAEAEA;">
+                                        <p>
+                                            {{trans "Quote ID:"}}{{var data.quote}}. <br> {{trans "Email:"}} {{var data.email}}. <br>
+                                            {{trans "Customer name:"}} {{var data.name}}. <br> {{trans "Contact number:"}} {{var data.mobile}}. <br>
+                                            {{depend data.created_at}}
+                                            {{trans "Form submission date:"}} {{var data.created_at}}. <br>
+                                            {{/depend}}
+                                            {{trans "Customer Status:"}} {{var data.status}}
+                                            <br> {{trans "Please Check Backend For Details"}}
+                                        </p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+{{template config_path="design/email/footer_template"}}

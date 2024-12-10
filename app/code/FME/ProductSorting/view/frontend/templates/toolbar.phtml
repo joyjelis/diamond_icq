@@ -1,0 +1,49 @@
+<?php
+/**
+ * FME Extensions
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the fmeextensions.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.fmeextensions.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category  FME Calalog
+ * @author    FME extensions <support@fmeextensions.com
+>
+ * @package   FME_ProductSorting
+ * @copyright Copyright (c) 2021 FME (http://fmeextensions.com/
+)
+ * @license   https://fmeextensions.com/LICENSE.txt
+ */
+$blockObj= $block->getLayout()->createBlock('FME\ProductSorting\Block\Product\ProductList\Toolbar');
+$currentOrder = $blockObj->checkCurrentOrder();
+$helpers = $this->helper('FME\ProductSorting\Helper\Data');
+$sortBy = $helpers->getConfig('sorting_default/category_sort');
+$sortVal = $sortBy."/direction";
+$sortDirection = $helpers->getConfig($sortVal);
+
+
+?>
+<script type="text/javascript">
+    require(['jquery'], function($) {
+        var currentOrder = '<?php echo $currentOrder; ?>';
+        var currentDirection = '<?php echo $sortDirection; ?>';
+        $(document).ready(function() {
+
+            if( currentOrder == 'price_asc' ) {
+                $('.sort-desc').hide();
+                $('.sort-asc').hide();
+            }
+            if( currentOrder == 'price_desc' ) {
+                $('.sort-desc').hide();
+                $('.sort-asc').hide();
+            }
+        });
+    });
+</script>

@@ -1,0 +1,52 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// phpcs:disable Magento2.Templates.ThisInTemplate
+
+/** @var \Magento\Sales\Block\Order\Items $block */
+$orderId = $block->getOrder()->getRealOrderId();
+$customOrderHelper = $this->helper("Magneto\MyAccountOrderCustomization\Helper\Data");
+//$_order = $customOrderHelper->getOrderDetails();
+//echo "comes here now from override";
+?>
+<div class="order-details-heading">
+    <a class="action back" href="<?= /* @noEscape */ $this->getUrl('*/*/history');?>">
+        <span><?= /* @noEscape */ __('Back to My Orders')?></span>
+    </a>
+    <div class="order-details-title"><h3><?= /* @noEscape */ __('Order Details')?></h3></div>
+</div>    
+<div class="order-items">
+
+    <div class="order-history-block" id="my-orders-table">
+         <div class="order-history-summary">
+            <div class="order-id" >
+                <?= $block->escapeHtml(__('Order Id:')) ?>&nbsp;
+                <?= $block->escapeHtml($block->getOrder()->getRealOrderId()) ?>
+            </div>
+            <div class="order-date">
+                <?= $block->formatDate($block->getOrder()->getCreatedAt(),2);?>
+                <?php //$currentOrderDate = $block->getOrder()->getCreatedAt(); ?>
+                <?php /* @noEscape */ //$customOrderHelper->showOrderCreatedAtDateFormat($currentOrderDate);?>
+            </div>
+        </div> 
+        <div class="order-history-items">
+            <?php $items = $block->getItems(); ?>
+            <?php foreach ($items as $item):
+                if ($item->getParentItem()):
+                    continue;
+                    endif;
+                ?>
+                <?= $block->getItemHtml($item) ?>
+             <?php endforeach; ?>
+        </div>
+        <?php if ($block->isPagerDisplayed()): ?>
+            <div data-block="order-items-pager-bottom" class="order-pager-wrapper order-pager-wrapper-bottom">
+                <?= $block->getPagerHtml() ?>
+            </div>
+        <?php endif ?>
+            <?= $block->getChildHtml('order_totals') ?>
+    </div>
+</div>    

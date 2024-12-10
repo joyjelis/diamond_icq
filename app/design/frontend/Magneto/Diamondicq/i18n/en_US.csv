@@ -1,0 +1,5 @@
+"You used coupon code ""%1"".","You used promo code ""%1""."
+"The coupon code ""%1"" is not valid.","The promo code ""%1"" is not valid."
+"You canceled the coupon code.","You canceled the promo code."
+"We cannot apply the coupon code.","We cannot apply the promo code."
+"We received too many requests for password resets. Please wait and try again later or contact %1.","We received too many requests for password resets. Please wait after 2 minutes or contact %1."

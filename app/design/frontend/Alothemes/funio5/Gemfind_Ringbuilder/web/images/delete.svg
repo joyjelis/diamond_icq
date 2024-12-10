@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>62F6241A-6B3B-483F-B994-FD5234C52F12</title>
+    <g id="Pages" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="UI-Style-Guide" transform="translate(-819.000000, -2435.000000)">
+            <g id="Icons" transform="translate(0.000000, 2303.000000)">
+                <g id="delete" transform="translate(819.000000, 132.000000)">
+                    <polygon id="Path" points="0 0 24 0 24 24 0 24"></polygon>
+                    <polyline id="Path" stroke="#919EAB" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" points="5 7.2 6.6 7.2 19.4 7.2"></polyline>
+                    <path d="M17.8,7.2 L17.8,18.4 C17.8,19.2836556 17.0836556,20 16.2,20 L8.2,20 C7.3163444,20 6.6,19.2836556 6.6,18.4 L6.6,7.2 M9,7.2 L9,5.6 C9,4.7163444 9.7163444,4 10.6,4 L13.8,4 C14.6836556,4 15.4,4.7163444 15.4,5.6 L15.4,7.2" id="Shape" stroke="#919EAB" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

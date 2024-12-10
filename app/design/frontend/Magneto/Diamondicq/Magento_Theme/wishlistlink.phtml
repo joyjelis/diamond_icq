@@ -1,0 +1,24 @@
+<?php
+		// $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+		// $customerSession = $objectManager->get('Magento\Customer\Model\Session');
+		// $customerID = $customerSession->getCustomerId();
+		// $customerObj = $objectManager->create('Magento\Customer\Model\Customer')
+  //           ->load($customerID);
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$customerSession = $objectManager->get('Magento\Framework\App\Http\Context');
+$isLoggedIn = $customerSession->getValue(\Magento\Customer\Model\Context::CONTEXT_AUTH);
+?>
+<div class="rightsec">
+	<div class="livechat-header">
+	<a href="https://api.whatsapp.com/send/?phone=85266887759&text=Website+enquiry+-+sell+diamond&app_absent=0" target="_blank" title="Live Chat"></a>
+	</div>
+	<div class="wishlistlink-header">
+		<?php if($isLoggedIn): ?>
+			<a href="<?php echo $this->getUrl('wishlist') ?>"></a>
+		<?php else: ?>
+			<div class="header-custom-upper-wishlist">
+				<a href="<?php echo $this->getUrl('wishlist') ?>" class="for-login" title="Wishlist"></a>
+			</div>
+		<?php endif; ?>
+	</div>
+</div>

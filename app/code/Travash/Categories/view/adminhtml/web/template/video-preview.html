@@ -1,0 +1,30 @@
+<div class="file-uploader-summary">
+    <div class="file-uploader-preview">
+        <a attr="href: $parent.getFilePreview($file)" target="_blank">
+            <video width="320" height="240" controls class="preview-image"
+            tabindex="0"
+            event="load: $parent.onPreviewLoad.bind($parent)">
+                <source attr="
+                src: $parent.getFilePreview($file),
+                alt: $file.name" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>>
+        </a>
+
+        <div class="actions">
+            <button
+                type="button"
+                class="action-remove"
+                data-role="delete-button"
+                attr="title: $t('Delete Video')"
+                click="$parent.removeFile.bind($parent, $file)">
+                <span translate="'Delete Video'"/>
+            </button>
+        </div>
+    </div>
+
+    <div class="file-uploader-filename" text="$file.name"/>
+    <div class="file-uploader-meta">
+        <text args="$file.previewWidth"/>x<text args="$file.previewHeight"/>
+    </div>
+</div>

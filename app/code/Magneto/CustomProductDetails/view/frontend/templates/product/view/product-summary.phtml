@@ -1,0 +1,48 @@
+<?php
+$_product = $block->getProduct();
+//echo "come here";
+$productViewModel = $block->getData('custom_product_details_view_model');
+$productAttributeGroupsDetails = $productViewModel->getProductAttributeGroupsDetail($_product);
+//echo "<pre>";print_r($productAttributeGroupsDetails);exit;
+?>
+<div class="product-summary">
+	<div class="container">
+		<div class="maincontent">
+			<div class="title"><?php echo __('Product Summary'); ?></div>
+			<div class="title sub"><?php echo $_product->getName(); ?></div>
+			<?php if(!empty($productAttributeGroupsDetails)){
+				$i = 0;
+			foreach($productAttributeGroupsDetails as $attrbgroupdetails){
+				$alignClass = "left";
+				if($i%2 != 0){
+					$alignClass = "right";
+				}
+
+				if(isset($attrbgroupdetails['attribute_group_options']) && !empty($attrbgroupdetails['attribute_group_options'])){
+				?>
+				<div class="<?=$alignClass;?>">
+				<div class="title"><?php echo $attrbgroupdetails['attribute_group_name']; ?></div>
+				<?php
+					foreach ($attrbgroupdetails['attribute_group_options'] as $attribute) {
+					 ?>
+					    	<div class="tab">
+								<div class="label"><?php echo $attribute['label']; ?></div>
+								<div class="value"><?php echo $attribute['value']; ?></div>
+							</div>
+					<?php }
+					?>
+				</div>	
+
+
+				<?php	
+				}
+			 ?>
+				
+			<?php
+				$i++;
+				}	
+			}?>
+			
+		</div>
+	</div>
+</div>

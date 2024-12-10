@@ -1,0 +1,132 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+<?php /** @var $block \Magento\Sales\Block\Order\Info */ ?>
+<?php $_order = $block->getOrder() ?>
+<div class="block block-order-details-view" id="order-shipping-custom-block">
+    <div class="block-title">
+        <strong><?= $block->escapeHtml(__('Shipping Details')) ?></strong>
+    </div>
+    <div class="block-content">
+        <?php if (!$_order->getIsVirtual()): ?>
+            <div class="box box-order-shipping-address">
+                <strong class="box-title" style="display:none !important;">
+                    <span><?= $block->escapeHtml(__('Shipping Address')) ?></span>
+                </strong>
+                <div class="box-content">
+                    <?php
+                        $shippingAddress = $_order->getShippingAddress();
+                        $strShippingAddress  = implode(', ', $shippingAddress->getStreet());
+                        $strShippingAddress .= ",<br> {$shippingAddress->getCity()}";
+                        $strShippingAddress .= ($shippingAddress->getPostcode() === '') ? '' : ", {$shippingAddress->getPostcode()}";
+                        $strShippingAddress .= ($shippingAddress->getRegion() === '') ? '' : ", {$shippingAddress->getRegion()}";
+                        $strShippingAddress .= ", {$shippingAddress->getCountryId()}";
+
+                        $billingAddress = $_order->getBillingAddress();
+                        $strBillingAddress  = implode(', ', $billingAddress->getStreet());
+                        $strBillingAddress .= ",<br> {$billingAddress->getCity()}";
+                        $strBillingAddress .= ($billingAddress->getPostcode() === '') ? '' : ", {$billingAddress->getPostcode()}";
+                        $strBillingAddress .= ($billingAddress->getRegion() === '') ? '' : ", {$billingAddress->getRegion()}";
+                        $strBillingAddress .= ", {$billingAddress->getCountryId()}";
+
+                        $shipmentNumbers = [];
+                    foreach ($_order->getShipmentsCollection() as $shipment) {
+                        $shipmentNumbers[] = "#".$shipment->getIncrementId();
+                    }
+                    ?>
+
+                    <p><strong><?php echo __("Name"); ?>:</strong> <?= $shippingAddress->getFirstname() ?> <?= $shippingAddress->getLastname() ?></p>
+                    <p><strong><?php echo __("Shipping Address"); ?>:</strong> <?= $strShippingAddress ?></p>
+                    <p><strong><?php echo __("Billing Address"); ?>:</strong> <?= $strBillingAddress ?></p>
+
+                    <?php foreach ($_order->getShipmentsCollection() as $_shipment): ?>
+                        <?php $tracks = $_shipment->getTracksCollection(); ?>
+
+                        <?php if ($tracks->count()): ?>
+                            <?php
+                                $shippedBys = [];
+                            foreach ($tracks as $track) {
+                                $shippedBys[] .= $track->getTitle();
+                            }
+                            ?>
+                            <p><strong>Shipped By:</strong> <?= implode(", ", $shippedBys) ?></p>
+                        <?php endif; ?>
+
+                        <p><strong>Shipment Number:</strong> <?= $_shipment->getIncrementId(); ?></p>
+
+                        <?php  if ($tracks->count()): ?>
+                            <p>
+                                <strong>Tracking Number:&nbsp;
+                                    <?php
+                                    $i = 1;
+                                    $_size = $tracks->count();
+                                    foreach ($tracks as $track): ?>
+                                        <?php if ($track->isCustom()): ?>
+                                            <?= $block->escapeHtml($track->getNumber()) ?>
+                                        <?php else: ?>
+                                            <a href="#"
+                                                data-mage-init='{"popupWindow": {"windowURL":"<?= $block->escapeUrl($this->helper(Magento\Shipping\Helper\Data::class)->getTrackingPopupUrlBySalesModel($track)) ?>","windowName":"trackorder","width":800,"height":600,"left":0,"top":0,"resizable":1,"scrollbars":1}}'
+                                                class="action track"><span><?= $block->escapeHtml($track->getNumber()) ?></span>
+                                            </a>
+                                        <?php endif; ?>
+                                        <?php if ($i != $_size): ?>, <?php endif; ?>
+                                        <?php $i++;
+                                    endforeach;
+                                    ?>
+                                </strong>
+                            </p>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                </div>
+
+                
+            </div>
+
+            <div class="box box-order-shipping-method" style="display:none !important;">
+                <strong class="box-title">
+                    <span><?= $block->escapeHtml(__('Shipping Method')) ?></span>
+                </strong>
+                <div class="box-content">
+                <?php if ($_order->getShippingDescription()): ?>
+                    <?= $block->escapeHtml($_order->getShippingDescription()) ?>
+                <?php else: ?>
+                    <?= $block->escapeHtml(__('No shipping information available')) ?>
+                <?php endif; ?>
+                </div>
+            </div>
+        <?php endif; ?>
+
+        <div class="box box-order-billing-address"  style="display:none !important;">
+            <strong class="box-title">
+                <span><?= $block->escapeHtml(__('Billing Address')) ?></span>
+            </strong>
+            <div class="box-content">
+                <address><?= /* @noEscape */ $block->getFormattedAddress($_order->getBillingAddress()) ?></address>
+            </div>
+        </div>
+        <div class="box box-order-billing-method" style="display:none !important;">
+            <strong class="box-title"  >
+                <span><?= $block->escapeHtml(__('Payment Method')) ?></span>
+            </strong>
+            <div class="box-content">
+                <?= $block->escapeHtml(__('Payment Mode:')) ?>&nbsp;<?= $block->getPaymentInfoHtml() ?>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="customPaymentMethod" style="display:none !important;">
+    <?= $block->escapeHtml(__('Payment Mode:')) ?>&nbsp;<?= $block->getPaymentInfoHtml() ?>
+</div>
+<script>
+require(['jquery'], function($){ 
+    var customhtml = $("#customPaymentMethod").html();
+    var customtablerow = "<div class='custom-payment-method'>"+customhtml+"</div>";
+    $("div.custom-order-totals").append(customtablerow);
+
+    //$('#my-orders-table > tfoot:last-child').insertAdjacentHTML('afterend', customtablerow)
+    $("#order-shipping-custom-block").insertAfter( $( "#my-orders-table > div.order-history-items" ) );
+})
+</script> 

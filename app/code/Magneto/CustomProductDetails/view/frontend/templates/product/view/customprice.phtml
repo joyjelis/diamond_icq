@@ -1,0 +1,21 @@
+<?php 
+$_product = $block->getProduct();
+$productViewModel = $block->getData('custom_product_details_view_model');
+$productPrices = $productViewModel->getProductPrice($_product);
+
+
+?>
+<div class="custom-price">
+	<div class="original">
+		<p><?= __('Original Price:')?></p>
+		<p class="price"><?= $productPrices['regular-price'];?></p>
+		<p class="discount-per">(<?= __("Discount %1",$productPrices['discount-percentage'])?>)</p>
+	</div>
+	<div class="special">
+		<p><?= __("Special Price:")?></p>
+		<p class="price"><?= $productPrices['special-price'];?></p>
+	</div>
+</div>
+<div class="stock-available">
+<p>Number of stock available:</p><p class="value">2</p>
+</div>

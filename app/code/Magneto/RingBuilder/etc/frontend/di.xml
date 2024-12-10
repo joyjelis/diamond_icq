@@ -1,0 +1,33 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <preference for="Gemfind\Ringbuilder\Block\Diamond\Index" type="Magneto\RingBuilder\Block\Override\Diamond\Index" />
+    
+    <preference for="Gemfind\Ringbuilder\Block\Settings\Index" type="Magneto\RingBuilder\Block\Override\Settings\Index" />
+    
+    <preference for="Gemfind\Ringbuilder\Controller\Diamond\Completepurchase" type="Magneto\RingBuilder\Controller\Override\Diamond\Completepurchase" />
+
+    <preference for="Gemfind\Ringbuilder\Controller\Diamond\Add" type="Magneto\RingBuilder\Controller\Override\Diamond\Add" />
+
+    <preference for="Magento\Checkout\Controller\Cart\Index"
+            type="Magneto\RingBuilder\Controller\Override\Checkout\Cart\Index" />
+
+    <preference for="Gemfind\Ringbuilder\Controller\Settings\Ringsearch" type="Magneto\RingBuilder\Controller\Override\Settings\Ringsearch" />
+
+    <preference for="Gemfind\Ringbuilder\Controller\Diamond\Diamondsearch" type="Magneto\RingBuilder\Controller\Override\Diamond\Diamondsearch" />
+
+    <preference for="Magento\UrlRewrite\Model\Storage\DbStorage" type="Magneto\RingBuilder\Model\ProductUrlFix" />
+
+    <type name="Gemfind\Ringbuilder\Helper\Data">
+        <plugin name="correct_email_template_path" type="Magneto\RingBuilder\Plugin\Email"/>
+    </type>
+
+    <type name="Magento\Quote\Model\Quote">
+        <plugin name="restict_setting_diamond_removal" type="Magneto\RingBuilder\Plugin\RestictSettingDiamond" />
+    </type>
+
+    <type name="Magento\Wishlist\Helper\Data">
+        <plugin name="Magneto_RingBuilder_plugin_WishlistHelperData" type="Magneto\RingBuilder\Plugin\WishlistHelperData"/>
+    </type>
+</config>

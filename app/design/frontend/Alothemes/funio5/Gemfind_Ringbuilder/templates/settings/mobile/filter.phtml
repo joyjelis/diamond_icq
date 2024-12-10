@@ -1,0 +1,158 @@
+<?php
+// Currency Changes
+$priceHelper = $this->helper('Magneto\RingBuilder\ViewModel\PriceHelper');
+
+$loadfilter = $block->getData('mobileloadfilterdata');
+if ($block->getSaveRingFilterCookieData()) {
+    $savedfilter = json_decode($block->getSaveRingFilterCookieData());
+} elseif ($block->getSaveRingFilterBackCookieData()) {
+    $savedfilter = json_decode($block->getSaveRingFilterBackCookieData());
+} else {
+    $savedfilter = "";
+}
+// Responsive filter section start
+?>
+<div class="responsive-filter">
+   <div class="mainbtn" id="ringbuilderfilter">
+    <?php echo __('Add Filter'); ?>
+ </div>
+<div class="content" id="mobilefiltercontent">
+ <div class="mainsec">
+   <div class="block-title filter-title">
+      <strong><?php echo __('Filters'); ?></strong>
+      <div class="img" id="closefilter"><img src="<?php echo $this->getViewFileUrl('images/closefilter.svg'); ?>" alt="closefilter"></div>
+   </div>
+   <div class="filter-content">
+     <div class="filter-options">
+        <div class="actions filter-actions for-mobile">
+         <div class="button-toolbar">
+          <a class="action clear filter-clear" id="mringbuilder_step1_clear_call">
+           <span><?php echo __('Clear All'); ?></span>
+        </a>
+        <a class="action apply filter-apply" id="mringbuilder_step1_apply_call">
+           <span><?php echo __('Apply'); ?></span>
+        </a>
+     </div>
+  </div>
+  <div class="filter-options-item">
+     <?php $collectionsOptions = (array) $loadfilter['collections'];?>
+     <?php if (isset($collectionsOptions)): ?>
+       <div class="accordian1">
+       <div class="filter-options-title"><?php echo __('Ring Style'); ?><div class="img-info"><img src="<?php echo $this->getViewFileUrl('images/information.svg'); ?>" alt="info"></div></div>
+      </div>
+<div class="panel">
+       <div class="filter-options-content">
+        <div class="color-filter shape-bg" id="ringfilter">
+           <ul>
+             <?php foreach ($collectionsOptions as $options): ?>
+               <li class="multirow">
+                  <div class="collection-type">
+                     <img src="<?= $options->collectionImage ?>" class="mobile_filter_ring_style" data-value="<?= $options->collectionName ?>"  alt="<?= $options->collectionName ?>" height="64" width="64">
+                  </div>
+                  <label><?= __($options->collectionName) ?></label>
+               </li>
+            <?php endforeach; ?>
+         </ul>
+      </div>
+   </div>
+ </div>
+<?php endif; ?>
+</div>
+<div class="filter-options-item">
+   <?php $shapeOptions = (array) $loadfilter['shapes']; ?>
+   <?php if (isset($shapeOptions)): ?>
+    <div class="accordian1">
+    <div class="filter-options-title"><?php echo __('Shape'); ?><div class="img-info"><img src="<?php echo $this->getViewFileUrl('images/information.svg'); ?>" alt="info"></div></div>
+    </div>
+    <div class="panel">
+    <div class="filter-options-content">
+     <div class="color-filter shape-bg" id="shapefilter">
+        <ul>
+          <?php foreach ($shapeOptions as $options): ?>
+            <li class="multirow">
+               <div class="collection-type">
+                  <img src="<?= $this->getViewFileUrl('Magneto_RingBuilder::images/'.strtolower(str_replace(' ', '_', $options->shapeName))).'.png' ?>" class="mobile_filter_shape_filter" data-value="<?= $options->shapeName ?>"  alt="<?= $options->shapeName ?>" >
+               </div>
+               <label><?= __($options->shapeName) ?></label>
+            </li>
+         <?php endforeach; ?>
+      </ul>
+   </div>
+</div>
+</div>
+<?php endif; ?>
+</div>
+<div class="filter-options-item">
+  <?php $metalTypeOptions = (array) $loadfilter['metalType'];?>
+  <?php if (isset($metalTypeOptions)): ?>
+    <div class="accordian1">
+    <div class="filter-options-title"><?php echo __('Metal'); ?><div class="img-info"><img src="<?php echo $this->getViewFileUrl('images/information.svg'); ?>" alt="info"></div></div>
+    </div>
+    <div class="panel">
+    <div class="filter-options-content">
+       <div class="color-filter shape-bg" id="metalfilter">
+        <div class="main">
+         <?php foreach ($metalTypeOptions as $metalTypevalue):
+                $atributes = explode(" ", $metalTypevalue->metalType);
+                ?>
+            <div class="one <?php echo strpos($metalTypevalue->metalType, 'Rose') ? "rose": "";?><?php echo strpos($metalTypevalue->metalType, 'Yellow') ? "yellow": "";?>">
+                <?php if (isset($atributes[0])) { ?>
+                    <?php if (strlen($atributes[0])>3) { ?>
+                     <div class="option mobile_filter_metal_type" data-value="<?= $metalTypevalue->metalType ?>" data-name="<?= $metalTypevalue->metalType ?>"><?= strtoupper(substr($atributes[0], 0, 2)); ?></div>
+                     <label><?= __($atributes[0]) ?></label>
+                  <?php } else { ?>      
+                     <div class="option mobile_filter_metal_type" data-value="<?= $metalTypevalue->metalType ?>" data-name="<?= $metalTypevalue->metalType ?>"><?= $atributes[0] ?></div>
+                  <?php } ?>
+               <?php } ?>
+                <?php if (isset($atributes[1]) && isset($atributes[2])) { ?>
+                  <label><?= __($atributes[1]. " " .$atributes[2]) ?></label>
+               <?php } ?>
+            </div>
+         <?php endforeach; ?>
+      </div>
+   </div>
+</div>
+</div>
+<?php endif; ?>
+</div>
+<div class="filter-options-item">
+   <?php $pricerange = (array) $loadfilter['priceRange'][0]; ?>
+   <?php $minprice = isset($savedfilter->PriceMin) ? $savedfilter->PriceMin : $priceHelper->convertToBaseCurrency($pricerange['minPrice'], 0) ?>
+   <?php $maxprice = isset($savedfilter->PriceMax) ? $savedfilter->PriceMax : $priceHelper->convertToBaseCurrency($pricerange['maxPrice'], 0) ?>
+   <div class="accordian1">
+   <div class="filter-options-title"><?php echo __('Price'); ?><div class="img-info"><img src="<?php echo $this->getViewFileUrl('images/information.svg'); ?>" alt="info"></div></div>
+   </div>
+   <div class="panel">
+   <div class="filter-options-content">
+      <div class="color-filter shape-bg">
+        <div class="maininput"> 
+          <div class="input-field"><input type="text" id="ringstep1_price_min" data-original="<?= $minprice ?>" value="<?= $minprice ?>"></div>
+          <div class="middle input-field"><?php echo __('to'); ?></div>
+          <div class="input-field"><input type="text" id="ringstep1_price_max" data-original="<?= $maxprice ?>" value="<?= $maxprice ?>"></div>
+       </div>
+    </div>
+ </div>
+ </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<script>
+   var acc = document.getElementsByClassName("accordian1");
+   var i;
+
+   for (i = 0; i < acc.length; i++) {
+     acc[i].addEventListener("click", function() {
+       this.classList.toggle("active");
+       var panel = this.nextElementSibling;
+       if (panel.style.display === "block") {
+         panel.style.display = "none";
+      } else {
+         panel.style.display = "block";
+      }
+   });
+  }
+</script>

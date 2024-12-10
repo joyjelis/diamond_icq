@@ -1,0 +1,68 @@
+<?php
+namespace Travash\Education\Block\Adminhtml\Educationcat;
+
+/**
+ * Class Edit
+ * @package Travash\Education\Block\Adminhtml\Educationcat
+ */
+class Edit extends \Magento\Backend\Block\Widget\Form\Container
+{
+
+    /**
+     * @var \Magento\Framework\Registry
+     */
+    protected $_coreRegistry;
+
+    /**
+     * Edit constructor.
+     * @param \Magento\Backend\Block\Widget\Context $context
+     * @param \Magento\Framework\Registry $registry
+     */
+    public function __construct(
+        \Magento\Backend\Block\Widget\Context $context,
+        \Magento\Framework\Registry $registry
+    ) {
+        $this->_coreRegistry = $registry;
+        parent::__construct($context);
+    }
+
+    /**
+     *
+     */
+    protected function _construct()
+    {
+        $this->_objectId = 'education_cat_id';
+        $this->_blockGroup = 'Travash_Education';
+        $this->_controller = 'adminhtml_educationcat';
+        parent::_construct();
+        $this->buttonList->update('save', 'label', __('Save Category'));
+        $this->buttonList->update('delete', 'label', __('Delete'));
+        $this->buttonList->add(
+            'save_and_continue',
+            [
+                'label' => __('Save and Continue Edit'),
+                'class' => 'save',
+                'data_attribute' => [
+                    'mage-init' => [
+                        'button' => [
+                            'event' => 'saveAndContinueEdit',
+                            'target' => '#edit_form'
+                        ],
+                    ],
+                ],
+            ],
+            10
+        );
+    }
+
+    /**
+     * @return mixed
+     */
+    protected function _getSaveAndContinueUrl()
+    {
+        return $this->getUrl(
+            '*/*/save',
+            ['_current' => true, 'back' => 'edit', 'tab' => '{{tab_id}}']
+        );
+    }
+}

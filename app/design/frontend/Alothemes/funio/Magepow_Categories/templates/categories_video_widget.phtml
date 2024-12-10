@@ -1,0 +1,68 @@
+<?php
+/*
+ * @category: Magepow
+ * @copyright: Copyright (c) 2014 Magepow (http://www.magepow.com/)
+ * @licence: http://www.magepow.com/license-agreement
+ * @author: MichaelHa
+ * @create date: 2019-11-29 17:19:50
+ * @LastEditors: MichaelHa
+ * @LastEditTime: 2019-12-04 11:07:49
+ */
+?>
+<?php
+/**
+ * Categories Video slider block
+ *
+ * @var $block \Magepow\Categories\Block\Categories
+ */
+
+$categories  = $block->getCategories();
+$heading     = $block->getHeading();
+if (empty($categories)) { return;
+}
+$selector     = 'alo-content-'.uniqid();
+?>
+ 
+<div class="secGap magepow--category text-center <?php echo $selector ?>">
+    <div class="container">
+        <div class="secHead block-title">
+        <?php if ($heading): ?>
+            <h3 class="title m-0"><?= __($heading); ?></h3>
+            <p class="text"><span><?= __($this->getData('subtitle')); ?></span></p>
+        <?php endif; ?>             
+        </div>
+        <div class="secbody">
+            <div class="swiper shapeSwiper">
+                <ul class="swiper-wrapper">
+                <?php foreach ($categories as $key => $cat): ?>
+                    <?php $_cat = $this->getCategoryData($cat); ?>
+                    <li class="swiper-slide">
+                        <div class="shape-box">                            
+                            <a class="home_shape_slider" data-shape="<?php echo $cat->getMagicLabel() ?>">
+                                <video muted loop preload="metadata" playsinline>
+                                    <source src="<?php echo $this->getVideoUrl($_cat['category_video']) ?>#t=0.001" type="video/mp4">
+                                    <?= __("Your browser does not support the video tag."); ?>
+                                </video>
+                             </a>
+                            <div class="caption">
+                                <a class="home_shape_slider" data-shape="<?php echo $cat->getMagicLabel() ?>" >
+                                <?php if ($cat['name']): ?>
+                                    <h6 class="mb-0" key="ShapeRound"><?= __($cat['name']); ?></h6>
+                                <?php endif; ?>
+                                <?php if ($_cat['category_short_description']): ?>
+                                    <p class="fw3" key="ShapeRoundsm"><?= __($_cat['category_short_description']); ?></p>
+                                <?php endif; ?>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    <?php endforeach; ?>
+                </ul>
+                <div class="swiper-navigation">
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 

@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Directory\Controller\Currency\SwitchAction">
+        <plugin name="afterCurrencySwitchAction" type="Magneto\CurrencyChangeTab\Plugin\AfterCurrencySwitch" sortOrder="10"/>
+    </type>
+    <preference for="Amasty\GeoipRedirect\Plugin\Action" type="Magneto\CurrencyChangeTab\Plugin\AmastyAction" />
+    <type name="Magento\Framework\App\FrontControllerInterface">
+        <plugin name="Magneto_CurrencyChangeTab::dispatch" type="Magneto\CurrencyChangeTab\Plugin\Action" sortOrder="10"/>
+    </type>
+</config>

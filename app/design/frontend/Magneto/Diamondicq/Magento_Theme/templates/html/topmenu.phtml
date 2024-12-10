@@ -1,0 +1,99 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/**
+ * Top menu for store
+ *
+ * @var $block \Magento\Theme\Block\Html\Topmenu
+ */
+
+$columnsLimit = $block->getColumnsLimit() ?: 0;
+$_menuHtml = $block->getHtml('level-top', 'submenu', $columnsLimit);
+
+$is_blog_enabled = false;
+$blog_helper = $this->helper("Magefan\Blog\Helper\Data");
+if ($blog_helper && (int)$blog_helper->getConfig('mfblog/general/enabled')) {
+    $is_blog_enabled = true;
+}
+?>
+
+<nav class="navigation" data-action="navigation">
+    <ul data-mage-init='{"menu":{"responsive":true, "expanded":true, "position":{"my":"left top","at":"left bottom"}}}' class="megnetoresmenu">
+        <li class="for-logo"> <img src="<?= $this->getViewFileUrl('images/Logo.svg'); ?>" alt="logo">
+            <div class="close-icon"></div>
+        </li>
+        <li class="res-list"><div class="title-menures nonesub"><a href="<?php echo $block->getUrl('', ['_direct' =>'sell-your-jewellery-with-diamondicq']); ?>" class="maincatres"><?= __('Sell Diamonds') ?></a></div></li>
+        <li class="res-list">
+            <div class="title-menures">
+                <a href="<?= $block->getUrl('', ['_direct' => 'ringbuilder/diamond']); ?>" class="maincatres"><?= __('Buy Diamonds') ?></a>
+            </div>
+        </li>
+        <li class="res-list"><div class="title-menures nonesub"><a href="<?= $block->getUrl('', ['_direct' => 'faq']); ?>" class="maincatres"><?= __('FAQ') ?></a></div></li>
+        <?php if ($is_blog_enabled): ?>
+        <li class="res-list"><div class="title-menures nonesub"><a href="<?= $block->getUrl('', ['_direct' => 'blog']); ?>" class="maincatres"><?= __('Blog') ?></a></div></li>
+        <?php endif; ?>
+        <li class="res-list"><div class="title-menures nonesub"><a href="<?= $block->getUrl('', ['_direct' => 'about-us']); ?>" class="maincatres"><?= __('About Diamond ICQ') ?></a></div></li>
+        <li class="res-list"><div class="title-menures nonesub"><a href="https://api.whatsapp.com/send/?phone=85266887759&text=Website+enquiry+-+sell+diamond&app_absent=0" target="_blank" class="maincatres livechaticon"><?= __('Live Chat') ?></a></div></li>
+        <li class="res-list"><div class="title-menures nonesub"><a href="<?= $block->getUrl('', ['_direct' => 'wishlist']); ?>" class="maincatres wishlisticon"><?= __('Wishlist') ?></a></div></li>
+        <li class="res-list lang-switch">
+            <div class="title-menures">
+                <a class="maincatres"><?= __('Language') ?></a>
+                <span class="menures-icon plus"></span>
+            </div>
+            <div class="menu-sun-ct" style="display: none;" >
+                <div class="mobile menulist-container" id="mobile_lang_switcher"></div>
+            </div>
+        </li>
+    </ul>
+</nav>
+
+
+<script>
+require(['jquery', 'jquery/ui'], function($){
+    jQuery(document).ready(function($){
+
+        if($('#switcher-language').length){
+            $('#mobile_lang_switcher').append($('#switcher-language').clone());
+        }
+
+        jQuery(".megnetoresmenu a").click(function(){
+            jQuery(".menuloader").appendTo(jQuery(this).parent());
+            jQuery(".navigation").addClass("overlayloader");
+            jQuery(".menuloader").css('display','inline-block');
+        });
+        var viewport = jQuery(window).width();
+        if(viewport <= 1024){
+            window.setInterval(function(){
+                jQuery(".megnetoresmenu li").removeClass("ui-menu-item");
+            }, 1000);
+        }
+        jQuery(".megnetoresmenu .menures-icon").click(function(){
+            if(jQuery(this).hasClass("plus")){
+                jQuery(".menures-icon").removeClass("minus");
+                jQuery(".menures-icon").addClass("plus");
+                jQuery(this).addClass("minus");
+                jQuery(this).removeClass("plus");
+                jQuery(".menu-sun-ct").css('display','none');
+                jQuery(this).parent().parent().find(".menu-sun-ct").css('display','inline-block');
+            }else{
+                //jQuery(".menu-sun-ct").removeClass("plus");
+                jQuery(this).addClass("plus");
+                jQuery(this).removeClass("minus");
+                jQuery(this).parent().parent().find(".menu-sun-ct").css('display','none');
+            }
+        });
+        jQuery(".mobile-submenu-header").click(function($){
+             jQuery(this).parent().find(".submenu-sun-ct").toggleClass("menuopen");
+        });
+
+        jQuery('.close-icon').on("click", function() {
+            $("html").removeClass("nav-open");
+            $("html").removeClass("nav-before-open");
+        });
+
+    });
+});
+</script>

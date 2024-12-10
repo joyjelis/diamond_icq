@@ -1,0 +1,50 @@
+<?php if (!$block->getCollection()->count()): ?>
+<div class="message info empty">
+    <div><?= $escaper->escapeHtml(__('We can\'t find products matching the selection.')) ?></div>
+</div>
+<?php else: ?>
+    <?php $type = 'widget-product-grid'; ?>
+    <?php
+    $customblock = $block->getLayout()->createBlock('Magneto\Custom\Block\Addtocart');
+    $wishlistItems = $customblock->getWishlistItems();
+
+    foreach ($block->getCollection() as $key => $value): 
+        $productId = $value->getId();
+        $productClass = 'product-wishlist-'.$productId;
+        $wishlistClass = '';
+        if (array_key_exists($productId, $wishlistItems)) {
+            $wishlistClass = 'already-in-wishlist';
+            $wishlistParams = $block->getWishlistHelper()->getRemoveParams($wishlistItems[$productId]);
+        } else {
+            $wishlistParams = $block->getAddToWishlistParams($value);
+        }
+    ?>
+        <div class="productsec">
+            <li class="product-item">                        
+                <div class="product-item-info">
+                    <a href="<?= $value->getProductUrl() ?>" class="product-item-photo">
+                        <span class="product-image-container " >
+                            <span class="product-image-wrapper">
+                                <img class="product-image-photo" src="<?= $block->getProductImage($value) ?>">
+                            </span>
+                        </span>
+                    </a>
+                    <div class="actions-secondary" data-role="add-to-links">
+                        <?php if ($this->helper(\Magento\Wishlist\Helper\Data::class)->isAllow()): ?>
+                        <a href="#" data-post='<?= /* @noEscape */ $wishlistParams ?>' class="action towishlist <?php  echo $wishlistClass.' '.$productClass; ?>" data-action="add-to-wishlist" title="<?= $block->escapeHtmlAttr(__('Add to Wish List')) ?>"></a>
+                    <?php endif; ?>
+                </div>
+                <div class="product-item-details">
+                    <strong class="product-item-name"><a title="<?= $value->getName() ?>" href="<?= $value->getProductUrl() ?>" class="product-item-link"><?= $value->getName() ?></a></strong>
+                    <?= $block->getProductPriceHtml($value, $type) ?>
+                    <?php $class='no-display';
+                     if($value->getData('setting_price')){
+                        $class = '';
+                    } ?>
+                    <div class="static-text <?php echo $class; ?>"><span><?= __("(Setting Price)") ?></span></div>
+                </div>
+            </div>
+        </li>
+    </div>
+<?php endforeach; ?>
+<?php endif; ?>

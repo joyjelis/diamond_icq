@@ -1,0 +1,19 @@
+<?php $items = $block->getMenuItems(); ?>
+<div class="<?= $block->getClassnames() ?>">
+	<a class="twolevel"><?= __($block->getMenuTitle()); ?></a>
+	<ul class="innermenu-list">
+		<?php foreach ($items as $key => $value) : ?>
+			<li><a href="<?= $value['url']?>"><?= $value['label']?></a></li>
+		<?php endforeach; ?>
+	</ul>
+</div>
+<div class="<?= $block->getMobileClassnames() ?>">
+	<span class="mobile-submenu-header"><?= __($block->getMenuTitle()); ?></span>
+	<div class="submenu-sun-ct">
+		<ul class="innermenu-list">
+			<?php foreach ($items as $key => $value) : ?>
+				<li><a href="<?= $value['url']?>"><?= $value['label']?></a></li>
+			<?php endforeach; ?>
+		</ul>
+	</div>
+</div>

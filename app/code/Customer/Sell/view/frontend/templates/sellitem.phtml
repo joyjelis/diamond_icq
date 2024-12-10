@@ -1,0 +1,128 @@
+<div class="sell-item-btm">
+	<div class="main-cnt" id="sell-your-jewellery-section">
+		<div class="container">
+			<div class="form-main">
+				<div class="leftsec">
+					<div class="maincont">
+						<div class="tabsec">
+							<div class="left-tag active" id="in_person"><a><?= __('in-person')?></a></div>
+							<div class="left-tag" id="online"><a><?= __('online')?></a></div>
+						</div>
+						<div class="contentsec desktop inperson">
+							<h2><?= __('In-Person')?></h2>
+							<div class="queans">
+								<h4><?= __('Step 1: Upload certificate and product Image')?></h4>
+								<h5><?= __('Upload the image of your diamond certificate to get an estimated price quote. (only for GIA / IGI certified diamonds)')?></h5>
+							</div>
+							<div class="queans">
+								<h4><?= __('Step 2: Schedule A Meeting')?></h4>
+								<h5><?= __('Schedule a convenient date and time to visit Diamond ICQ.')?></h5>
+							</div>
+							<div class="queans">
+								<h4><?= __('Step 3: Meet with a Specialist')?></h4>
+								<h5><?= __('Come to Diamond ICQ and meet a highly trained diamond specialist, who will evaluate the jewellery pieces you are interested in selling right in front of you.')?></h5>
+							</div>
+							<div class="queans">
+								<h4><?= __('Step 4: Receive an offer')?></h4>
+								<h5><?= __('Diamond ICQ will provide a competitive offer upon review of your diamonds.')?></h5>
+							</div>
+							<div class="queans">
+								<h4><?= __('Step 5: Receive your Payment')?></h4>
+								<h5><?= __('Upon acceptance, you will receive your payment directly.')?></h5>
+							</div>
+						</div>
+						<div class="contentsec desktop online">
+							<h2><?= __('Online')?></h2>
+							<div class="queans">
+								<h4><?= __('Step 1: Upload certificate and product Image')?></h4>
+								<h5><?= __('Upload the image of your diamond certificate to get an estimated price. (only for GIA / IGI certified diamonds)')?></h5>
+							</div>
+							<div class="queans">
+								<h4><?= __('Step 2: Receive a Quotation')?></h4>
+								<h5><?= __('An estimated offer range will be provided based on your submitted information.')?></h5>
+							</div>
+							<div class="queans">
+								<h4><?= __('Step 3: Send us Your Jewellery')?></h4>
+								<h5><?= __('Send us your item.We will arrange FedEx to pick up your jewelry.')?></h5>
+							</div>
+							<div class="queans">
+								<h4><?= __('Step 4: Receive your payment')?></h4>
+								<h5><?= __('A final offer will be provided after reviewing your diamonds. Upon acceptance, you will receive your payment immediately. Otherwise, we will deliver your items back to you. Shipping/delivery cost, insurance and surcharge is borne by the seller.')?></h5>
+							</div>
+						</div>
+						<div class="contentsec mobile step1" id="step1">
+			                <h4><?= __('Upload Certificate and Product Image')?></h4>
+			                <h5><?= __('Upload certificate images for your diamonds to get an estimated quote from online.(GIA / IGI certified diamonds only)')?></h5>
+			                <div class="rightsec">
+    							<div class="maincont">
+			                		<h1><?= __('Get Your Quote Now')?></h1>
+									<p><?= __('GIA/IGI Certified Diamond')?></p>
+								</div>
+							</div>
+			            </div>
+			            <div class="contentsec mobile step2-inperson" id="step2inperson" style="display:none;">
+			                <h4><?= __('Meet with a Specialist')?></h4>
+			                <h5><?= __('Come to Diamond ICQ and meet a highly trained diamond specialist, who will evaluate the jewellery pieces you are interested in selling right in front of you.')?></h5>
+			            </div>
+			            <div class="contentsec mobile step2-online" id="step2online" style="display:none;">
+			                <h4><?= __('Receive a Quotation')?></h4>
+			                <h5><?= __('An estimated offer range will be provided based on your submitted information.')?></h5>
+			            </div>
+			            <div class="contentsec mobile step3" id="step3" style="display:none;">
+			                <h4><?= __('Receive Your Payment')?></h4>
+			                <h5><?= __('A final offer will be provided after reviewing your diamonds. Upon acceptance, you will receive your payment immediately. Otherwise, we will deliver your items back to you. Shipping/delivery cost, insurance and surcharge is borne by the seller.')?></h5>
+			            </div>
+					</div>
+				</div>
+				<div class="rightsec">
+					<div class="maincont">
+						<div class="showonlystep1only">
+							<h1 class="desktopstep1"><?= __('Get Your Quote Now')?></h1>
+							<p class="desktopstep1"><?= __('GIA/IGI Certified Diamond')?></p>
+						</div>
+						<div class="sell_item_form" id="sell_item_form" data-bind="scope:'sell_item_form'">
+							<!-- ko template: getTemplate() --><!-- /ko -->
+							<script type="text/x-magento-init">
+								{
+									"#sell_item_form": {
+										"Magento_Ui/js/core/app": {
+											"components": {
+												"sell_item_form": {
+													"component": "Customer_Sell/js/sell_item_form",
+													"template" : "Customer_Sell/sell_item_form",
+													"close_file": "<?=$block->getViewFileUrl('Customer_Sell::images/close.svg');?>",
+													"newimage": "<?=$block->getViewFileUrl('Customer_Sell::images/new.jpg');?>",
+													"linkimage": "<?=$block->getViewFileUrl('Customer_Sell::images/link.svg');?>",
+													"utilsScript": "<?=$block->getViewFileUrl('Customer_Sell::js/utils.js');?>",
+													"saveData": "<?=$block->getUrl('sell-your-jewellery/index/savedata');?>",
+													"checkappointmenturl": "<?=$block->getUrl('sell-your-jewellery/index/checkappointment');?>",
+													"jsconfig": "<?=base64_encode($block->getJsConfig());?>"
+												}
+											}
+										}
+									}
+								}
+							</script>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+	require(['jquery'], function($) {
+		$('#sell-your-jewellery-section .left-tag').click(function() {
+			$('#sell-your-jewellery-section .left-tag').removeClass('active');
+			$(this).addClass('active');
+			var tab = $(this).attr('id');
+			if(tab == "in_person"){
+				$('#sell-your-jewellery-section').removeClass('online');
+				$('#sell-your-jewellery-section').addClass('main-cnt');
+			}else if(tab == "online"){
+				$('#sell-your-jewellery-section').addClass('main-cnt');
+				$('#sell-your-jewellery-section').addClass('online');
+			}
+		});
+	});
+</script>

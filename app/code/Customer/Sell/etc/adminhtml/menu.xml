@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Customer_Sell::sell" title="Diamond Sell" module="Customer_Sell" 
+            sortOrder="10" action="sell-your-jewellery/sell/index" 
+            resource="Customer_Sell::index"/>
+    </menu>
+</config>

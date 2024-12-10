@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * @author Magneto Team
+ * @copyright Copyright (c) 2021 Magneto (https://www.magnetoitsolutions.com)
+ * @package Magneto_UndoCartAction
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="mistab" translate="label" class="mistab" sortOrder="100">
+            <label>Magneto</label>
+        </tab>
+        <section id="undocart_action" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1"
+           showInStore="1">
+           <class>separator-top</class>
+           <label>Undo CartAction</label>
+           <tab>mistab</tab>
+           <resource>Magneto_UndoCartAction::undocart_action</resource>
+           <group id="general" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1"
+             showInStore="1">
+             <label>Configuration</label>
+             <field id="enabled" translate="label" type="select" sortOrder="3" showInDefault="1" showInStore="1" showInWebsite="1">
+                <label>Enable</label>
+                <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+             </field>
+             <field id="exclude_minicart" translate="label" type="select" sortOrder="3" showInDefault="1" showInStore="1" showInWebsite="1">
+                <label>Enable Restore for Minicart?</label>
+                <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+             </field>
+             <field id="undo_seconds" translate="label" type="text" sortOrder="3" showInDefault="1" showInStore="1" showInWebsite="1">
+                <label>Timeout(in sec)</label>
+                <comment>set to 0 for infinite wait(may lost data if session expires)</comment>
+            </field>
+        </group>
+    </section>    
+</system>
+</config>

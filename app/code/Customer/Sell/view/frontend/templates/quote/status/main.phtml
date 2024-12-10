@@ -1,0 +1,127 @@
+<?php $item = $block->getSellitem(); ?>
+<div id="booking_appointment_sell" class="calendar-layer"></div>
+<div class="top-block">
+    <a class="action back" href="<?= $block->getBackUrl() ?>"><span><?= $block->escapeHtml(__('Back')) ?></span></a>
+    <div class="block-title"><h3><?= __("Quote Details")?></h3></div>
+</div>
+<div class="product-details-section">
+    <div id="image-gallery" class="certimage images left-section"></div>
+    <div class="desc right-tsection">
+        <div class="custom-sell-status">
+            <span class="status-head"><?= __("Status:")?> <?= __($block->getItemStatus()) ?></span>
+        </div>
+        <div class="sub-information desktop">
+            <div class="details-group">
+                <div class="custom-sell-details-group odd">
+                    <div class="title"> <?= $block->escapeHtml(__('Date')); ?></div>
+                    <div class="description"><?= $block->formatDate($item->getCreatedAt(), 2);?></div>    
+                </div>
+                <div class="custom-sell-details-group even">
+                    <div class="title"> <?= $block->escapeHtml(__('Quoted Items')); ?></div>
+                    <div class="description"><?= $block->escapeHtml(__($item->getJewelleryType())); ?></div>    
+                </div>
+            </div>
+            <div class="details-group">
+                <div class="custom-sell-details-group odd">
+                    <div class="title"> <?= $block->escapeHtml(__('Ref.Id')); ?></div>
+                    <div class="description"><?= $block->escapeHtml($item->getQuote()); ?></div>    
+                </div>
+                <div class="custom-sell-details-group even">
+                    <div class="title"> <?= $block->escapeHtml(__('Useful Information')); ?></div>
+                    <div class="description">
+                        <span><?= $block->getFAQHtml();?></span>
+                    </div>    
+                </div>
+            </div>
+            <div class="details-group">
+                <div class="custom-sell-details-group odd">
+                    <div class="title"> <?= $block->escapeHtml(__('Name')); ?></div>
+                    <div class="description"><?= $block->escapeHtml($item->getName()); ?></div>
+                    <div class="go-quote-producturl"><a href="<?= $block->getQuoteUrl() ?>"> <?= $block->escapeHtml(__('Goto Product Detail Page')); ?></a></div> 
+                    <div class="product-history">
+                        <a class="action history" href="<?= $block->getHistoryUrl() ?>"><span><?= $block->escapeHtml(__('Product History')) ?></span></a>
+                    </div>
+                </div>
+                <div class="custom-sell-details-group even">
+                    <div class="title"> <?= $block->escapeHtml(__('What is Next Step')); ?></div>
+                    <div class="description"><?= __($block->getNextStep());?></div>
+                </div>
+            </div>
+        </div>
+        <div class="sub-information responsive">
+            <div class="details-group">
+                <div class="custom-sell-details-group odd">
+                    <div class="title"> <?= $block->escapeHtml(__('Date')); ?></div>
+                    <div class="description"><?= $block->formatDate($item->getCreatedAt(), 2);?></div>    
+                </div>
+                <div class="custom-sell-details-group even">
+                    <div class="title"> <?= $block->escapeHtml(__('Ref.Id')); ?></div>
+                    <div class="description"><?= $block->escapeHtml($item->getQuote()); ?></div>    
+                </div>
+                <div class="custom-sell-details-group odd">
+                    <div class="title"> <?= $block->escapeHtml(__('Name')); ?></div>
+                    <div class="description"><?= $block->escapeHtml($item->getName()); ?></div>    
+                </div>
+                <div class="custom-sell-details-group even">
+                    <div class="title"> <?= $block->escapeHtml(__('Quoted Items')); ?></div>
+                    <div class="description"><?= $block->escapeHtml(__($item->getJewelleryType())); ?></div>    
+                </div>
+                <div class="custom-sell-details-group odd">
+                    <div class="title"> <?= $block->escapeHtml(__('Next Step')); ?></div>
+                    <div class="description"><?= __($block->getNextStep());?></div>
+                </div>
+                <div class="custom-sell-details-group even">
+                    <div class="title"> <?= $block->escapeHtml(__('Useful Information')); ?></div>
+                    <div class="description">
+                        <span><?= $block->getFAQHtml();?></span>
+                    </div>    
+                </div>
+                  <div class="go-quote-producturl"><a href="<?= $block->getQuoteUrl() ?>"> <?= $block->escapeHtml(__('Goto Product Detail Page')); ?></a></div> 
+                  <div class="product-history">
+                        <a class="action history" href="<?= $block->getHistoryUrl() ?>"><span><?= $block->escapeHtml(__('Product History')) ?></span></a>
+                    </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+<script>
+require ([
+    'jquery',
+    'mage/gallery/gallery'
+], function ($, gallery) {
+    $(function () {
+        $('#image-gallery').each(function (index, element) {
+            gallery({
+                "data": <?= $block->getGalleryImages() ?>,
+                "options": {
+                    "nav": "thumbs",
+                    "loop": true,
+                    "keyboard": true,
+                    "arrows": false,
+                    "allowfullscreen": true,
+                    "showCaption": true,
+                    "width":232,
+                    "thumbwidth": 42,
+                    "thumbheight": 42,
+                    "height": 232,
+                    "transition": "slide",
+                    "navarrows": true,
+                    "navtype": "thumbs",
+                    "navdir": "horizontal"
+                },
+                "fullscreen": {
+                    "nav": "dots",
+                    "loop": true,
+                    "navdir": "horizontal",
+                    "navarrows": true,
+                    "navtype": "thumbs",
+                    "arrows": true,
+                    "showCaption": true,
+                    "transition": "slide"
+                }
+            }, element);
+        });
+    });
+});
+</script>

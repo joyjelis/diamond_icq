@@ -1,0 +1,66 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var $block \Magento\Framework\View\Element\Template */
+?>
+<form class="form quote-popup" action="<?= $this->getUrl('sell-your-jewellery-with-diamondicq-form') ?>" id="quote-popup-form" method="post" 
+    data-hasrequired="<?= $block->escapeHtmlAttr(__('* Required Fields')) ?>" data-mage-init='{"validation":{}}'>
+    
+    <fieldset class="fieldset">
+        <div class="field note no-label" id="field-header">
+            <legend class="legend"><span><?= $block->escapeHtml(__('Select Jewellery Type')) ?></span></legend>
+            <p class="short-desc"><?= $block->escapeHtml(__('Specify which piece you are considering selling.')) ?></p>
+        </div>
+        
+        <div class="field jewellery_type">
+            <div class="control loose-diamond">
+                <input type="radio" name="jewellery_type" id="jewellery_type2" class="radio" 
+                    value="Loose Diamond" />
+                <label class="label" for="jewellery_type2"><span><?= $block->escapeHtml(__('Loose Diamond')) ?></span></label>
+            </div>
+            <div class="control diamond-ring">
+                <input type="radio" name="jewellery_type" id="jewellery_type1" class="radio" 
+                    value="Diamond Ring" />
+                <label class="label" for="jewellery_type1"><span><?= $block->escapeHtml(__('Diamond Ring')) ?></span></label>
+            </div>
+            <div class="control diamond-pendant">
+                <input type="radio" name="jewellery_type" id="jewellery_type3" class="radio" 
+                    value="Diamond Pendant" />
+                <label class="label" for="jewellery_type3"><span><?= $block->escapeHtml(__('Diamond Pendant')) ?></span></label>
+            </div>
+            <div class="control diamond-earring">
+                <input type="radio" name="jewellery_type" id="jewellery_type4" class="radio" 
+                    value="Diamond Earring" />
+                <label class="label" for="jewellery_type4"><span><?= $block->escapeHtml(__('Diamond Earring')) ?></span></label>
+            </div>
+            <div class="control diamond-bracelet">
+                <input type="radio" name="jewellery_type" id="jewellery_type5" class="radio" 
+                    value="Diamond Bracelet" />
+                <label class="label" for="jewellery_type5"><span><?= $block->escapeHtml(__('Diamond Bracelet')) ?></span></label>
+            </div>
+            <div class="control diamond-bangle">
+                <input type="radio" name="jewellery_type" id="jewellery_type6" class="radio" 
+                    value="Diamond Bangle" />
+                <label class="label" for="jewellery_type6"><span><?= $block->escapeHtml(__('Diamond Bangle')) ?></span></label>
+            </div>
+            <div class="control others">
+                <input type="radio" name="jewellery_type" id="jewellery_type7" class="radio" 
+                    value="Others" />
+                <label class="label" for="jewellery_type7"><span><?= $block->escapeHtml(__('Others')) ?></span></label>
+            </div>
+        </div>
+    </fieldset>
+    <div class="actions-toolbar">
+        <div class="primary">
+            <button type="submit" title="<?= $block->escapeHtmlAttr(__('Get Started')) ?>" class="action submit primary">
+                <span><?= $block->escapeHtml(__('Get Started')) ?></span>
+            </button>
+        </div>
+    </div>
+</form>
+<script type="text/javascript">
+require(['jquery','getQuote']);
+</script>

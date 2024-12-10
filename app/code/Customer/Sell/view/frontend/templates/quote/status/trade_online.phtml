@@ -1,0 +1,36 @@
+<?php
+$item = $block->getSellitem();
+$tradeType = $item->getTradetype();
+$bankName = $item->getBankName();
+$accountName = $item->getAccountName();
+$accountNumber = $item->getAccountNo();
+$swiftCode = $item->getSwiftCode();
+$trackingNumber = $item->getTracking();
+$pickupCountry = empty($item->getPickupCountry()) ? null : $item->getPickupCountry();
+$country = empty($item->getCountry()) ? null : $item->getCountry();
+$shipBy = $item->getShipBy();
+?>
+<div class="field online required hidden" id="quoteonline" data-bind="scope:'onlinecomponent'">
+    <!-- ko template: getTemplate() --><!-- /ko -->
+    <script type="text/x-magento-init">
+        {
+            "#quoteonline": {
+                "Magento_Ui/js/core/app": {
+                   "components": {
+                    "onlinecomponent": {
+                        "component": "Customer_Sell/js/quote/tradeonline",
+                        "template" : "Customer_Sell/quote/tradeonline",
+                        "country_html": <?php echo json_encode($block->getCountries($pickupCountry)) ?>,
+                        "bank_country_html": <?php echo json_encode($block->getCountries($country, 'country_id_hidden', 'country_bank', 'Country')); ?>,
+                        "country_url": "<?php echo $block->getCountryUrl(); ?>",
+                        "save_url": "<?php echo $block->getAddressSave(); ?>",
+                        "save_url_quote": "<?php echo $block->getSaveQuote(); ?>",
+                        "error_msg": "<?php echo __("This is a required field.") ?>",
+                        "sell_data": <?= $block->getJsConfig(); ?>
+                    }
+                }
+            }
+        }
+    }
+</script>
+</div>

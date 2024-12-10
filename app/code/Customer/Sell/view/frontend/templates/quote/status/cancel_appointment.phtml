@@ -1,0 +1,44 @@
+<?php
+$item = $block->getSellitem();
+$price = $item->getPrice();
+$offerPrice = $item->getOfferPrice();
+?>
+<div class="status-details qualified appo-cancel">
+    <?= __("Appointment Cancelled. Your item is qualified.") ?>
+    <div class='field note no-label'>
+        <div class='field note no-label'>
+            <span>
+                <?= $block->escapeHtml(__('Offer Price')) ?> :
+            </span>
+            <strong>
+                <?= $block->formatSellPrice($price); ?>
+            </strong>
+        </div>
+    </div>
+    <?php if ($offerPrice) { ?>
+        <div class='field note no-label'>
+            <span>
+                <?= $block->escapeHtml(__('New Offer Price')) ?> :
+            </span>
+            <strong>
+                <?= $block->formatSellPrice($price); ?>
+            </strong>
+        </div>
+    <?php } ?>
+</div>
+<?= $this->getLayout()->createBlock("Customer\Sell\Block\Quote\View")
+->setTemplate("Customer_Sell::quote/status/tradeType.phtml")->toHtml(); ?>
+
+<?= $this->getLayout()->createBlock("Customer\Sell\Block\Quote\View")
+->setTemplate("Customer_Sell::quote/status/trade_online.phtml")->toHtml(); ?>
+
+<?= $this->getLayout()->createBlock("Customer\Sell\Block\Quote\View")
+->setTemplate("Customer_Sell::quote/status/trade_in_person.phtml")->toHtml(); ?>
+
+<script>
+    require(['jquery', 'jquery/ui'], function($) {
+        jQuery(document).ready(function() { 
+            jQuery('.tradefieldset').removeClass('hidden');
+        });
+    });
+</script>

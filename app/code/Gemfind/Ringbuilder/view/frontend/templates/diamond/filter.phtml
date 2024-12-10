@@ -1,0 +1,1042 @@
+<?php
+   $ringmaxmincaratdata = $block->getRingCaratCookieData();
+   $loadfilter        = $block->getDiamondFilters();
+   if(isset($loadfilter['caratRange'][0])){
+   $activeFilter      = $block->getActiveFilter();
+   $diamondAttributes = $block->getDiamondAttributes();
+   $shapeArray        = $symmArray = $polishArray = $fluorArray = $cutArray = $clarityArray = $colorArray = $certiArray = $fancycolorArray = $intintensityArray = $overtoneArray = array();
+   $originval         = $defaultview = '';
+   $defaultview = $block->getDefaultView();
+   if ($block->getSaveFilterCookieData()) {
+       $savedfilter = json_decode($block->getSaveFilterCookieData());
+   } elseif($block->getSaveBackValueCookieData()) {
+         $savedfilter = json_decode($block->getSaveBackValueCookieData());
+   }  else {
+       $savedfilter = "";
+   }
+   if($block->getShapedefaultfilter()){
+     $shapeArray = array($block->getShapedefaultfilter(),);
+   }
+   $slider_start = 1;
+   if (isset($savedfilter)) {
+       if (isset($savedfilter->shapeList)) {
+           $shapeArray = explode(',', $savedfilter->shapeList);
+       }
+       if (isset($savedfilter->SymmetryList)) {
+           $symmArray = explode(',', $savedfilter->SymmetryList);
+       }
+       if (isset($savedfilter->polishList)) {
+           $polishArray = explode(',', $savedfilter->polishList);
+       }
+       if (isset($savedfilter->FluorescenceList)) {
+           $fluorArray = explode(',', $savedfilter->FluorescenceList);
+       }
+       if (isset($savedfilter->CutGradeList)) {
+           $cutArray = explode(',', $savedfilter->CutGradeList);
+       }
+       if (isset($savedfilter->ColorList)) {
+           $colorArray = explode(',', $savedfilter->ColorList);
+       }
+       if (isset($savedfilter->ClarityList)) {
+           $clarityArray = explode(',', $savedfilter->ClarityList);
+       }
+       if (isset($savedfilter->FancycolorList)) {
+           $fancycolorArray = explode(',', $savedfilter->FancycolorList);
+       }
+       if (isset($savedfilter->IntintensityList)) {
+           $intintensityArray = explode(',', $savedfilter->IntintensityList);
+       }
+       if (isset($savedfilter->OvertoneList)) {
+           $overtoneArray = explode(',', $savedfilter->OvertoneList);
+       }
+       if (isset($savedfilter->certificate)) {
+           $certiArray = explode(',', $savedfilter->certificate);
+       }
+       if (isset($savedfilter->SOrigin)) {
+           $originval = $savedfilter->SOrigin;
+       }
+   }
+   
+   if(isset($ringmaxmincaratdata->centerstonefit)){
+     $shapeArray = explode(',', $ringmaxmincaratdata->centerstonefit);
+     $shapeArray = array_map('trim', $shapeArray);
+   }
+   $carat_filledminvalue = $carat_filledvalue = '';
+   ?>
+<div class="filter-details">
+   <input name="viewmode" id="viewmode" type="hidden" value="<?=isset($savedfilter->viewmode) ? $savedfilter->viewmode : $defaultview ?>" />
+   <input name="itemperpage" id="itemperpage" type="hidden" value="<?=isset($savedfilter->itemperpage) ? $savedfilter->itemperpage : $block->getResultsPerPage(); ?>" />
+   <input type="hidden" name="orderby" id="orderby" value="<?=isset($savedfilter->orderBy) ? $savedfilter->orderBy : 'Size'?>" />
+   <input type="hidden" name="direction" id="direction" value="<?=isset($savedfilter->direction) ? $savedfilter->direction : 'ASC'?>" />
+   <input type="hidden" name="currentpage" id="currentpage" value="<?=isset($savedfilter->currentPage) ? $savedfilter->currentPage : '1'?>" />
+   <input type="hidden" name="did" id="did" value="<?=isset($savedfilter->did) ? $savedfilter->did : ''?>" />
+   <?php if(isset($savedfilter->backdiamondid)){ 
+      if(!is_array($savedfilter->backdiamondid)){ ?>
+        <input type="hidden" name="backdiamondid" id="backdiamondid" value="<?php echo $savedfilter->backdiamondid; ?>" />
+    <?php  }
+    } else { ?>
+    <input type="hidden" name="backdiamondid" id="backdiamondid" value="" /> 
+   <?php } ?>
+   
+   <div class="shape-container ">
+      <?php if(isset($loadfilter['shapes'])){ ?>  
+      <div class="filter-main filter-alignment-right">
+         <div class="filter-for-shape shape-bg">
+            <h4><?php echo __('Shape');?> <span class="show-filter-info kendana" id="shape" ><svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+   viewBox="0 0 23.625 23.625" style="enable-background:new 0 0 23.625 23.625;" xml:space="preserve">
+<g>
+  <path style="" d="M11.812,0C5.289,0,0,5.289,0,11.812s5.289,11.813,11.812,11.813s11.813-5.29,11.813-11.813
+    S18.335,0,11.812,0z M14.271,18.307c-0.608,0.24-1.092,0.422-1.455,0.548c-0.362,0.126-0.783,0.189-1.262,0.189
+    c-0.736,0-1.309-0.18-1.717-0.539s-0.611-0.814-0.611-1.367c0-0.215,0.015-0.435,0.045-0.659c0.031-0.224,0.08-0.476,0.147-0.759
+    l0.761-2.688c0.067-0.258,0.125-0.503,0.171-0.731c0.046-0.23,0.068-0.441,0.068-0.633c0-0.342-0.071-0.582-0.212-0.717
+    c-0.143-0.135-0.412-0.201-0.813-0.201c-0.196,0-0.398,0.029-0.605,0.09c-0.205,0.063-0.383,0.12-0.529,0.176l0.201-0.828
+    c0.498-0.203,0.975-0.377,1.43-0.521c0.455-0.146,0.885-0.218,1.29-0.218c0.731,0,1.295,0.178,1.692,0.53
+    c0.395,0.353,0.594,0.812,0.594,1.376c0,0.117-0.014,0.323-0.041,0.617c-0.027,0.295-0.078,0.564-0.152,0.811l-0.757,2.68
+    c-0.062,0.215-0.117,0.461-0.167,0.736c-0.049,0.275-0.073,0.485-0.073,0.626c0,0.356,0.079,0.599,0.239,0.728
+    c0.158,0.129,0.435,0.194,0.827,0.194c0.185,0,0.392-0.033,0.626-0.097c0.232-0.064,0.4-0.121,0.506-0.17L14.271,18.307z
+     M14.137,7.429c-0.353,0.328-0.778,0.492-1.275,0.492c-0.496,0-0.924-0.164-1.28-0.492c-0.354-0.328-0.533-0.727-0.533-1.193
+    c0-0.465,0.18-0.865,0.533-1.196c0.356-0.332,0.784-0.497,1.28-0.497c0.497,0,0.923,0.165,1.275,0.497
+    c0.353,0.331,0.53,0.731,0.53,1.196C14.667,6.703,14.49,7.101,14.137,7.429z"/>
+</g>
+</svg></span></h4>
+            <ul id="shapeul">
+               <?php $shapeOptions = (array) $loadfilter['shapes']; ?>
+               <?php foreach ($shapeOptions as $options) : ?>
+               <li class="<?=strtolower($options->shapeName) ?> <?=($options == end($shapeOptions)) ? 'last' : ''?>" title="<?=$options->shapeName ?>">
+                  <div class="shape-type <?=(in_array(strtolower($options->shapeName), $shapeArray)) ? 'selected active' : ''?>">
+                     <input type="checkbox" class="input-assumpte" id="diamond_shape_<?=strtolower($options->shapeName)?>" name="diamond_shape[]" value="<?=strtolower($options->shapeName)?>" <?=(in_array(strtolower($options->shapeName), $shapeArray)) ? 'checked="checked"' : ''?>/>
+                  </div>
+                  <label for="diamond_shape_<?=$options->shapeName?>"><?=$options->shapeName?></label>
+               </li>
+               <?php endforeach; ?>
+            </ul>
+         </div>
+      </div>
+      <?php } ?>
+      <?php if(isset($loadfilter['cutRange'])){ ?>
+      <div class="filter-main filter-alignment-left">
+         <div class="filter-for-shape shape-bg">
+            <h4><?php echo __('Cut');?> <span class="show-filter-info kendana" id="cut" ><svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+   viewBox="0 0 23.625 23.625" style="enable-background:new 0 0 23.625 23.625;" xml:space="preserve">
+<g>
+  <path style="" d="M11.812,0C5.289,0,0,5.289,0,11.812s5.289,11.813,11.812,11.813s11.813-5.29,11.813-11.813
+    S18.335,0,11.812,0z M14.271,18.307c-0.608,0.24-1.092,0.422-1.455,0.548c-0.362,0.126-0.783,0.189-1.262,0.189
+    c-0.736,0-1.309-0.18-1.717-0.539s-0.611-0.814-0.611-1.367c0-0.215,0.015-0.435,0.045-0.659c0.031-0.224,0.08-0.476,0.147-0.759
+    l0.761-2.688c0.067-0.258,0.125-0.503,0.171-0.731c0.046-0.23,0.068-0.441,0.068-0.633c0-0.342-0.071-0.582-0.212-0.717
+    c-0.143-0.135-0.412-0.201-0.813-0.201c-0.196,0-0.398,0.029-0.605,0.09c-0.205,0.063-0.383,0.12-0.529,0.176l0.201-0.828
+    c0.498-0.203,0.975-0.377,1.43-0.521c0.455-0.146,0.885-0.218,1.29-0.218c0.731,0,1.295,0.178,1.692,0.53
+    c0.395,0.353,0.594,0.812,0.594,1.376c0,0.117-0.014,0.323-0.041,0.617c-0.027,0.295-0.078,0.564-0.152,0.811l-0.757,2.68
+    c-0.062,0.215-0.117,0.461-0.167,0.736c-0.049,0.275-0.073,0.485-0.073,0.626c0,0.356,0.079,0.599,0.239,0.728
+    c0.158,0.129,0.435,0.194,0.827,0.194c0.185,0,0.392-0.033,0.626-0.097c0.232-0.064,0.4-0.121,0.506-0.17L14.271,18.307z
+     M14.137,7.429c-0.353,0.328-0.778,0.492-1.275,0.492c-0.496,0-0.924-0.164-1.28-0.492c-0.354-0.328-0.533-0.727-0.533-1.193
+    c0-0.465,0.18-0.865,0.533-1.196c0.356-0.332,0.784-0.497,1.28-0.497c0.497,0,0.923,0.165,1.275,0.497
+    c0.353,0.331,0.53,0.731,0.53,1.196C14.667,6.703,14.49,7.101,14.137,7.429z"/>
+</g>
+</svg></span></h4>
+            <div class="cut-main slider_wrapper">
+               <ul>
+                <?php  $cutRangeOptions = (array) $loadfilter['cutRange']; ?>
+                  <?php /*foreach ($cutRangeOptions as $options) : ?>
+                  <li class="<?=(in_array(strtolower($options->cutId), $cutArray)) ? 'selected active' : ''?>">
+                     <input type="checkbox" class="input-assumpte" id="diamond_cut_<?=$options->cutId?>" name="diamond_cut[]" value="<?=$options->cutId?>" <?=(in_array(strtolower($options->cutId), $cutArray)) ? 'checked="checked"' : ''?> />
+                     <?=$options->cutName?>
+                  </li>
+                  <?php endforeach; */?>
+               </ul>
+			   <div id="cut-r-slider" class="cut-slider right-block ui-slider">
+				  <?php 
+					foreach ($cutRangeOptions as $optionsValues) : 
+						$options = (array) $optionsValues;
+						$cuts_attr[]  = array('cutName' => $options['cutName'], 'cutId' => $options['cutId']);
+						$cuts_Idattr[]  = $options['cutId'];
+            if( !next( $cutRangeOptions ) ) {
+              $cuts_attr[]  = array('cutName' => 'Last', 'cutId' => '000');
+            }
+						endforeach; 
+						//rangeslider($savedfilter->CutGradeList,$savedfilter->CutStart,$savedfilter->CutStop,$cuts_attr,$cuts_Idattr);
+						if (isset($savedfilter->CutGradeList)) {
+							$CutGradeList = $savedfilter->CutGradeList;
+						}
+						else
+						{
+							$CutGradeList = "";
+						}
+						if (isset($savedfilter->CutStart)) {
+							$cutStart = $savedfilter->CutStart;
+						}
+						else
+						{
+							$cutStart = $slider_start;
+						}
+						if (isset($savedfilter->CutStop)) {
+							$cutStop = $savedfilter->CutStop;
+						}
+						else
+						{
+							$cutStop = count($cuts_attr);
+						}				  
+				  ?>
+				  <input type="hidden" class="diamond_cut" name="diamond_cut[]" value="<?php echo $CutGradeList;?>" data-start="<?php echo $cutStart;?>" data-stop="<?php echo $cutStop;?>" />
+				  <div id="cut-slider" class="input-assumpte" data-steps="<?php echo count($cuts_attr);?>"></div>                            
+			  </div>
+            </div>
+         </div>
+      </div>
+      <?php } ?>
+   </div>
+   <div class="shape-container shape-flex">
+      <?php if(isset($loadfilter['caratRange'])){ ?>
+      <div class="filter-main filter-alignment-right">
+         <div class="filter-for-shape shape-bg">
+            <h4 class="title"><?= /* @escapeNotVerified */ __('Carat') ?> <span class="show-filter-info kendana" id="carat" ><svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+   viewBox="0 0 23.625 23.625" style="enable-background:new 0 0 23.625 23.625;" xml:space="preserve">
+<g>
+  <path style="" d="M11.812,0C5.289,0,0,5.289,0,11.812s5.289,11.813,11.812,11.813s11.813-5.29,11.813-11.813
+    S18.335,0,11.812,0z M14.271,18.307c-0.608,0.24-1.092,0.422-1.455,0.548c-0.362,0.126-0.783,0.189-1.262,0.189
+    c-0.736,0-1.309-0.18-1.717-0.539s-0.611-0.814-0.611-1.367c0-0.215,0.015-0.435,0.045-0.659c0.031-0.224,0.08-0.476,0.147-0.759
+    l0.761-2.688c0.067-0.258,0.125-0.503,0.171-0.731c0.046-0.23,0.068-0.441,0.068-0.633c0-0.342-0.071-0.582-0.212-0.717
+    c-0.143-0.135-0.412-0.201-0.813-0.201c-0.196,0-0.398,0.029-0.605,0.09c-0.205,0.063-0.383,0.12-0.529,0.176l0.201-0.828
+    c0.498-0.203,0.975-0.377,1.43-0.521c0.455-0.146,0.885-0.218,1.29-0.218c0.731,0,1.295,0.178,1.692,0.53
+    c0.395,0.353,0.594,0.812,0.594,1.376c0,0.117-0.014,0.323-0.041,0.617c-0.027,0.295-0.078,0.564-0.152,0.811l-0.757,2.68
+    c-0.062,0.215-0.117,0.461-0.167,0.736c-0.049,0.275-0.073,0.485-0.073,0.626c0,0.356,0.079,0.599,0.239,0.728
+    c0.158,0.129,0.435,0.194,0.827,0.194c0.185,0,0.392-0.033,0.626-0.097c0.232-0.064,0.4-0.121,0.506-0.17L14.271,18.307z
+     M14.137,7.429c-0.353,0.328-0.778,0.492-1.275,0.492c-0.496,0-0.924-0.164-1.28-0.492c-0.354-0.328-0.533-0.727-0.533-1.193
+    c0-0.465,0.18-0.865,0.533-1.196c0.356-0.332,0.784-0.497,1.28-0.497c0.497,0,0.923,0.165,1.275,0.497
+    c0.353,0.331,0.53,0.731,0.53,1.196C14.667,6.703,14.49,7.101,14.137,7.429z"/>
+</g>
+</svg></span> </h4>
+            <div class="slider_wrapper">
+<!--                <div class="carat-main ui-slider price-range-block" id="carat_slider">
+   <div id="slider-range" class="price-filter-range" name="rangeInput"></div> -->
+                  <?php 
+                     $caratrange = (array) $loadfilter['caratRange'][0];
+                     $caratmaxval = $caratminval = $carat_filledvalue = $carat_filledminvalue = 0;
+                      if(isset($ringmaxmincaratdata->caratmin)){ 
+                       $caratminval = $ringmaxmincaratdata->caratmin;
+                      } 
+                      if(isset($ringmaxmincaratdata->caratmax)){ 
+                       $caratmaxval = $ringmaxmincaratdata->caratmax;
+                      }
+                     
+                      if($caratmaxval != 0){
+                    
+                       $CaratMin = ($caratminval);
+                     
+                       $CaratMax = ($caratmaxval);
+                     
+                      }
+                     
+                     if($caratminval){ 
+                       $carat_from = $CaratMin; 
+                       $carat_filledminvalue = $CaratMin;
+                       } else {
+                        if(isset($savedfilter->caratMin)){
+                            $carat_filledminvalue = $savedfilter->caratMin;
+                            $carat_from = $caratrange['minCarat']; 
+                        } else{
+                          $carat_filledminvalue = $caratrange['minCarat'];
+                          $carat_from = $caratrange['minCarat']; 
+                        }   
+                       }
+					   
+                       ?>
+                  <?php 
+                     if($caratmaxval){ 
+                       $carat_to = $CaratMax;
+                       $carat_filledvalue = $CaratMax;
+                     } else {
+                      if(isset($savedfilter->caratMax)){
+                          $carat_filledvalue = $savedfilter->caratMax;
+                          $carat_to = $caratrange['maxCarat']; 
+                      } else{
+                        $carat_filledvalue = $caratrange['maxCarat'];
+                        $carat_to = $caratrange['maxCarat']; 
+                      }
+                     } 
+                     if($carat_from == ''){
+                      $carat_from = 0;
+                     }
+					 
+                     ?>
+<!--                   <div style="">
+   <input type="text" min="<?php /*echo $carat_from; ?>" max="<?php echo $carat_to; ?>" oninput="validity.valid||(value='<?php echo $carat_from; ?>');" id="diamond_carats[from]" name="diamond_carats[from]" class="carat-range-field ui-slider-val slider-left" value="<?php echo $carat_from; ?>"/>
+   <input type="text" min='<?php echo $carat_from; ?>' max="<?php echo $carat_to; ?>" oninput="validity.valid||(value='<?php echo $carat_filledvalue; ?>');" id="diamond_carats[to]" name="diamond_carats[to]" class="carat-range-field  ui-slider-val slider-right" value="<?php echo $carat_filledvalue;*/ ?>"/>
+</div>
+               </div> --> 
+               <div class="carat-main ui-slider" id="noui_carat_slider" data-min="<?php echo $caratminval ?>" data-max="<?php if($caratmaxval==0){echo "100";}elseif($caratmaxval==$caratminval){ echo "20";}else{ echo $caratmaxval; } ?>">
+                  <input type="text" class="ui-slider-val slider-left" name="diamond_carats[from]" inputmode="numeric" pattern="[-+]?[0-9]*[.,]?[0-9]+" value="<?php echo $carat_from ?>" data-type="min">
+                  <input type="text" class="ui-slider-val slider-right" name="diamond_carats[to]" inputmode="numeric" pattern="[-+]?[0-9]*[.,]?[0-9]+" value="<?php echo $carat_to ?>" data-type="max">
+                  <input type="hidden" name="caratto" class="slider-right-val" value="<?php echo $caratrange['maxCarat'] ?>">
+                </div>
+<!--                <script> 
+   require([
+     'jquery',
+     'jquery/ui',
+   ], function($) {
+   $(document).ready(function(){
+   $(".carat-range-field.slider-left,.carat-range-field.slider-right").on('change', function () {
+   
+       var min_carats_range = $(".carat-range-field.slider-left").val();
+
+       var max_carats_range = $(".carat-range-field.slider-right").val();
+   
+       if(min_carats_range > <?php /*echo $carat_from; ?>){
+           $(".carat-range-field.slider-left").val(<?php echo $carat_from; ?>);
+       }
+   
+       if(max_carats_range < <?php echo $carat_to; ?>){
+           $(".carat-range-field.slider-right").val(<?php echo $carat_to; ?>);
+       }
+       if (min_carats_range > max_carats_range) {
+         $('.carat-range-field.slider-right').val(min_carats_range);
+       }
+   
+       $("#slider-range").slider({
+       values: [min_carats_range, max_carats_range]
+       });
+       $("#search-diamonds-form #submit").trigger("click");
+   });
+   $(".carat-range-field.slider-left,.carat-range-field.slider-right").on("paste keyup", function () {                                        
+   
+     var min_carats_range = $(".carat-range-field.slider-left").val();
+   
+     var max_carats_range = $(".carat-range-field.slider-right").val();
+   
+     if(min_carats_range > <?php echo $carat_from; ?>){
+           $(".carat-range-field.slider-left").val(<?php echo $carat_from; ?>);
+       }
+   
+       if(max_carats_range < <?php echo $carat_to; ?>){
+           $(".carat-range-field.slider-right").val(<?php echo $carat_to; ?>);
+       }
+     
+     if(min_carats_range == max_carats_range){
+   
+       max_carats_range = min_carats_range;
+       
+       $(".carat-range-field.slider-left").val(min_carats_range);   
+       $(".carat-range-field.slider-right").val(max_carats_range);
+     }
+   
+     $("#slider-range").slider({
+     values: [min_carats_range, max_carats_range]
+     });
+     $("#search-diamonds-form #submit").trigger("click");
+   });
+   $("#slider-range").slider({
+   range: true,
+   orientation: "horizontal",
+   min: <?php echo $carat_from; ?>,
+   max: <?php echo $carat_to; ?>,
+   values: [<?php echo $carat_filledminvalue; ?>, <?php echo $carat_filledvalue;*/ ?>],
+   step: 0.001,
+   
+   slide: function (event, ui) {
+     if (ui.values[0] == ui.values[1]) {
+       return false;
+     }
+     
+     $(".carat-range-field.slider-left").val(ui.values[0]);
+     $(".carat-range-field.slider-right").val(ui.values[1]);
+   },
+   stop: function(){
+     $("#search-diamonds-form #submit").trigger("click");
+   }
+   });
+   
+   $(".carat-range-field.slider-left").val($("#slider-range").slider("values", 0));
+   $(".carat-range-field.slider-right").val($("#slider-range").slider("values", 1));
+   });
+   });
+</script> -->
+            </div>
+         </div>
+      </div>
+      <?php } ?>
+      <?php if(isset($loadfilter['priceRange'])){ ?>
+      <div class="filter-main filter-alignment-left">
+         <div class="filter-for-shape shape-bg">
+            <h4 class="title"><?= /* @escapeNotVerified */ __('Price') ?></h4>
+            <div class="slider_wrapper">
+              <?php $pricerange = (array) $loadfilter['priceRange'][0]; ?>
+              <?php $price_from = isset($savedfilter->PriceMin) ? $savedfilter->PriceMin : 0 ?>
+              <?php $price_to = isset($savedfilter->PriceMax) ? $savedfilter->PriceMax : $pricerange['maxPrice'] ?>
+              <div id="noui_price_slider" class="price-main ui-slider" data-min="<?php echo str_replace( ',', '', $pricerange['minPrice']); ?>" data-max="<?php echo str_replace( ',', '', $pricerange['maxPrice']); ?>"> 
+                <div class="price-left">
+                  <span class="currency-icon"><?php echo $loadfilter['currencyFrom'].$loadfilter['currencySymbol']; ?></span>
+                  <input class="ui-slider-val slider-left" id="rb_min_price" type="text" inputmode="numeric" pattern="[-+]?[0-9]*[.,]?[0-9]+" data-type="min" name="price[from]" value="<?php echo str_replace( ',', '', $price_from); ?>">
+                </div>
+                <div class="price-right">
+                  <span class="currency-icon"><?php echo $loadfilter['currencyFrom'].$loadfilter['currencySymbol']; ?></span>
+                  <input class="ui-slider-val slider-right" id="rb_max_price" type="text" inputmode="numeric" pattern="[-+]?[0-9]*[.,]?[0-9]+" data-type="max" name="price[to]" value="<?php echo str_replace( ',', '', $price_to ); ?>" >
+                </div>
+              </div>
+            </div>
+            <!-- <div class="slider_wrapper">
+               <div class="price-main" id="price_slider">
+                  <?php /*$pricerange = (array) $loadfilter['priceRange'][0]; ?>
+                  <?php $price_from = isset($savedfilter->PriceMin) ? $savedfilter->PriceMin : 0 ?>
+                  <div class="price-left">
+                     <span class="currency-icon"><?php echo $loadfilter['currencyFrom'].$loadfilter['currencySymbol']; ?></span>
+                     <input type="text"
+                        class="ui-slider-val slider-left"
+                        name="price[from]"
+                        value="<?php echo $price_from; ?>" />
+                  </div>
+                  <?php $price_to = isset($savedfilter->PriceMax) ? $savedfilter->PriceMax : $pricerange['maxPrice'] ?>
+                  <div class="price-right">
+                     <span class="currency-icon"><?php echo $loadfilter['currencyFrom'].$loadfilter['currencySymbol']; ?></span>
+                     <input type="text"
+                        class="ui-slider-val slider-right"
+                        name="price[to]"
+                        value="<?php echo $price_to; ?>" />
+                     <input type="hidden" name="priceto" class="slider-right-val" value="<?php echo $pricerange['maxPrice']*/ ?>">
+                  </div>
+               </div>
+            </div> -->
+         </div>
+      </div>
+      <?php } ?>
+   </div>
+   <?php if($activeFilter != "navfancycolored") { ?>
+   <?php if(isset($loadfilter['colorRange'])){ ?>
+   <div class="color-filter shape-bg" id="norcolor">
+      <h4><?php echo __('Color');?> <span class="show-filter-info kendana" id="color" ><svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+   viewBox="0 0 23.625 23.625" style="enable-background:new 0 0 23.625 23.625;" xml:space="preserve">
+<g>
+  <path style="" d="M11.812,0C5.289,0,0,5.289,0,11.812s5.289,11.813,11.812,11.813s11.813-5.29,11.813-11.813
+    S18.335,0,11.812,0z M14.271,18.307c-0.608,0.24-1.092,0.422-1.455,0.548c-0.362,0.126-0.783,0.189-1.262,0.189
+    c-0.736,0-1.309-0.18-1.717-0.539s-0.611-0.814-0.611-1.367c0-0.215,0.015-0.435,0.045-0.659c0.031-0.224,0.08-0.476,0.147-0.759
+    l0.761-2.688c0.067-0.258,0.125-0.503,0.171-0.731c0.046-0.23,0.068-0.441,0.068-0.633c0-0.342-0.071-0.582-0.212-0.717
+    c-0.143-0.135-0.412-0.201-0.813-0.201c-0.196,0-0.398,0.029-0.605,0.09c-0.205,0.063-0.383,0.12-0.529,0.176l0.201-0.828
+    c0.498-0.203,0.975-0.377,1.43-0.521c0.455-0.146,0.885-0.218,1.29-0.218c0.731,0,1.295,0.178,1.692,0.53
+    c0.395,0.353,0.594,0.812,0.594,1.376c0,0.117-0.014,0.323-0.041,0.617c-0.027,0.295-0.078,0.564-0.152,0.811l-0.757,2.68
+    c-0.062,0.215-0.117,0.461-0.167,0.736c-0.049,0.275-0.073,0.485-0.073,0.626c0,0.356,0.079,0.599,0.239,0.728
+    c0.158,0.129,0.435,0.194,0.827,0.194c0.185,0,0.392-0.033,0.626-0.097c0.232-0.064,0.4-0.121,0.506-0.17L14.271,18.307z
+     M14.137,7.429c-0.353,0.328-0.778,0.492-1.275,0.492c-0.496,0-0.924-0.164-1.28-0.492c-0.354-0.328-0.533-0.727-0.533-1.193
+    c0-0.465,0.18-0.865,0.533-1.196c0.356-0.332,0.784-0.497,1.28-0.497c0.497,0,0.923,0.165,1.275,0.497
+    c0.353,0.331,0.53,0.731,0.53,1.196C14.667,6.703,14.49,7.101,14.137,7.429z"/>
+</g>
+</svg></span></h4>
+		<?php $colorOptions = (array) $loadfilter['colorRange'];?>
+      <div class="cut-main slider_wrapper">
+		  <div id="color-r-slider" class="color-slider right-block ui-slider">
+			  <?php 
+			  foreach ($colorOptions as $optionsValues) : 
+				$options = (array) $optionsValues;
+				$colors_attr[]  = array('colorName' => $options['colorName'], 'colorId' => $options['colorId']);
+        if( !next( $colorOptions ) ) {
+            $colors_attr[]  = array('colorName' => 'Last', 'colorId' => '000');
+          }
+				$colors_Idattr[]  = $options['colorId'];
+			  endforeach; 
+				if (isset($savedfilter->ColorList)) {
+					$GradeList = $savedfilter->ColorList;
+				}
+				else
+				{
+					$GradeList = "";
+				}
+				if (isset($savedfilter->ColorStart)) {
+					$Start = $savedfilter->ColorStart;
+				}
+				else
+				{
+					$Start = $slider_start;
+				}
+				if (isset($savedfilter->ColorStop)) {
+					$Stop = $savedfilter->ColorStop;
+				}
+				else
+				{
+					$Stop = count($colors_attr);
+				}
+
+			  ?>
+			  <input type="hidden" class="diamond_color" name="diamond_color[]" value="<?php $GradeList; ?>" data-start="<?php echo $Start;?>" data-stop="<?php echo $Stop;?>"/>
+			  <div id="color-slider" class="input-assumpte" data-steps="<?php echo count($colors_attr);?>"></div>                            
+		  </div>
+	  </div>
+   </div>
+   <?php } ?>
+   <?php } else { ?>
+   <div id="fancydiv">
+      <?php if(isset($loadfilter['diamondColorRange'])){ ?>
+      <div class="color-filter fancy-color-filter shape-bg">
+         <h4><?php echo __('Color');?> <span class="show-filter-info kendana" id="color" ><svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+   viewBox="0 0 23.625 23.625" style="enable-background:new 0 0 23.625 23.625;" xml:space="preserve">
+<g>
+  <path style="" d="M11.812,0C5.289,0,0,5.289,0,11.812s5.289,11.813,11.812,11.813s11.813-5.29,11.813-11.813
+    S18.335,0,11.812,0z M14.271,18.307c-0.608,0.24-1.092,0.422-1.455,0.548c-0.362,0.126-0.783,0.189-1.262,0.189
+    c-0.736,0-1.309-0.18-1.717-0.539s-0.611-0.814-0.611-1.367c0-0.215,0.015-0.435,0.045-0.659c0.031-0.224,0.08-0.476,0.147-0.759
+    l0.761-2.688c0.067-0.258,0.125-0.503,0.171-0.731c0.046-0.23,0.068-0.441,0.068-0.633c0-0.342-0.071-0.582-0.212-0.717
+    c-0.143-0.135-0.412-0.201-0.813-0.201c-0.196,0-0.398,0.029-0.605,0.09c-0.205,0.063-0.383,0.12-0.529,0.176l0.201-0.828
+    c0.498-0.203,0.975-0.377,1.43-0.521c0.455-0.146,0.885-0.218,1.29-0.218c0.731,0,1.295,0.178,1.692,0.53
+    c0.395,0.353,0.594,0.812,0.594,1.376c0,0.117-0.014,0.323-0.041,0.617c-0.027,0.295-0.078,0.564-0.152,0.811l-0.757,2.68
+    c-0.062,0.215-0.117,0.461-0.167,0.736c-0.049,0.275-0.073,0.485-0.073,0.626c0,0.356,0.079,0.599,0.239,0.728
+    c0.158,0.129,0.435,0.194,0.827,0.194c0.185,0,0.392-0.033,0.626-0.097c0.232-0.064,0.4-0.121,0.506-0.17L14.271,18.307z
+     M14.137,7.429c-0.353,0.328-0.778,0.492-1.275,0.492c-0.496,0-0.924-0.164-1.28-0.492c-0.354-0.328-0.533-0.727-0.533-1.193
+    c0-0.465,0.18-0.865,0.533-1.196c0.356-0.332,0.784-0.497,1.28-0.497c0.497,0,0.923,0.165,1.275,0.497
+    c0.353,0.331,0.53,0.731,0.53,1.196C14.667,6.703,14.49,7.101,14.137,7.429z"/>
+</g>
+</svg></span></h4>
+         <ul>
+            <?php $diamondColorOptions = (array) $loadfilter['diamondColorRange'];
+               foreach ($diamondColorOptions as $diamondColorvalue) {
+               $diamondColorvalue = (array) $diamondColorvalue; 
+               $img = $diamondColorvalue['diamondColorImagePath'];
+               ?>
+            <li class="<?=(in_array($diamondColorvalue['diamondColorId'], $fancycolorArray)) ? 'selected active' : ''?> <?=$diamondColorvalue['diamondColorId']?>">
+               <img src="<?=$img?>" name="<?=$diamondColorvalue['diamondColorName']?>" title="<?=$diamondColorvalue['diamondColorName']?>" alt="<?=$diamondColorvalue['diamondColorName']?>" />
+               <input type="checkbox" class="input-assumpte" id="diamond_fancycolor_<?=$diamondColorvalue['diamondColorId']?>" name="diamond_fancycolor[]" value="<?=$diamondColorvalue['diamondColorId']?>" <?=(in_array($diamondColorvalue['diamondColorId'], $fancycolorArray)) ? 'checked="checked"' : ''?> title="<?=$diamondColorvalue['diamondColorId']?>"/>
+               <?=$diamondColorvalue['diamondColorName']?>
+            </li>
+            <?php } ?>
+         </ul>
+      </div>
+      <?php } ?>
+      <?php if(isset($loadfilter['intensity'])){ ?>
+      <div class="color-filter fancy-IntIntensity-filter shape-bg">
+         <h4><?php echo __('Fancy Intensity');?> <span class="show-filter-info kendana" id="fancy_intensity" ><svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+   viewBox="0 0 23.625 23.625" style="enable-background:new 0 0 23.625 23.625;" xml:space="preserve">
+<g>
+  <path style="" d="M11.812,0C5.289,0,0,5.289,0,11.812s5.289,11.813,11.812,11.813s11.813-5.29,11.813-11.813
+    S18.335,0,11.812,0z M14.271,18.307c-0.608,0.24-1.092,0.422-1.455,0.548c-0.362,0.126-0.783,0.189-1.262,0.189
+    c-0.736,0-1.309-0.18-1.717-0.539s-0.611-0.814-0.611-1.367c0-0.215,0.015-0.435,0.045-0.659c0.031-0.224,0.08-0.476,0.147-0.759
+    l0.761-2.688c0.067-0.258,0.125-0.503,0.171-0.731c0.046-0.23,0.068-0.441,0.068-0.633c0-0.342-0.071-0.582-0.212-0.717
+    c-0.143-0.135-0.412-0.201-0.813-0.201c-0.196,0-0.398,0.029-0.605,0.09c-0.205,0.063-0.383,0.12-0.529,0.176l0.201-0.828
+    c0.498-0.203,0.975-0.377,1.43-0.521c0.455-0.146,0.885-0.218,1.29-0.218c0.731,0,1.295,0.178,1.692,0.53
+    c0.395,0.353,0.594,0.812,0.594,1.376c0,0.117-0.014,0.323-0.041,0.617c-0.027,0.295-0.078,0.564-0.152,0.811l-0.757,2.68
+    c-0.062,0.215-0.117,0.461-0.167,0.736c-0.049,0.275-0.073,0.485-0.073,0.626c0,0.356,0.079,0.599,0.239,0.728
+    c0.158,0.129,0.435,0.194,0.827,0.194c0.185,0,0.392-0.033,0.626-0.097c0.232-0.064,0.4-0.121,0.506-0.17L14.271,18.307z
+     M14.137,7.429c-0.353,0.328-0.778,0.492-1.275,0.492c-0.496,0-0.924-0.164-1.28-0.492c-0.354-0.328-0.533-0.727-0.533-1.193
+    c0-0.465,0.18-0.865,0.533-1.196c0.356-0.332,0.784-0.497,1.28-0.497c0.497,0,0.923,0.165,1.275,0.497
+    c0.353,0.331,0.53,0.731,0.53,1.196C14.667,6.703,14.49,7.101,14.137,7.429z"/>
+</g>
+</svg></span> </h4>
+         <ul>
+            <?php $diamondColorOptions = (array) $loadfilter['intensity']; ?>
+            <?php foreach ($diamondColorOptions as $options) : ?>
+            <li class="<?=(in_array(strtolower($options->intensityName), $intintensityArray)) ? 'selected active' : ''?>"><input type="checkbox" class="input-assumpte" id="diamond_intintensity_<?=strtolower($options->intensityName)?>" name="diamond_intintensity[]" value="<?=strtolower($options->intensityName)?>" <?=(in_array(strtolower($options->intensityName), $intintensityArray)) ? 'checked="checked"' : ''?>/>
+               <?=$options->intensityName?>
+            </li>
+            <?php endforeach; ?>
+         </ul>
+      </div>
+      <?php } ?>
+   </div>
+   <?php } ?>
+   <?php if(isset($loadfilter['clarityRange'])){ ?>
+   <div class="color-filter clarity-filter shape-bg">
+      <h4><?php echo __('Clarity');?> <span class="show-filter-info kendana" id="clarity" ><svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+   viewBox="0 0 23.625 23.625" style="enable-background:new 0 0 23.625 23.625;" xml:space="preserve">
+<g>
+  <path style="" d="M11.812,0C5.289,0,0,5.289,0,11.812s5.289,11.813,11.812,11.813s11.813-5.29,11.813-11.813
+    S18.335,0,11.812,0z M14.271,18.307c-0.608,0.24-1.092,0.422-1.455,0.548c-0.362,0.126-0.783,0.189-1.262,0.189
+    c-0.736,0-1.309-0.18-1.717-0.539s-0.611-0.814-0.611-1.367c0-0.215,0.015-0.435,0.045-0.659c0.031-0.224,0.08-0.476,0.147-0.759
+    l0.761-2.688c0.067-0.258,0.125-0.503,0.171-0.731c0.046-0.23,0.068-0.441,0.068-0.633c0-0.342-0.071-0.582-0.212-0.717
+    c-0.143-0.135-0.412-0.201-0.813-0.201c-0.196,0-0.398,0.029-0.605,0.09c-0.205,0.063-0.383,0.12-0.529,0.176l0.201-0.828
+    c0.498-0.203,0.975-0.377,1.43-0.521c0.455-0.146,0.885-0.218,1.29-0.218c0.731,0,1.295,0.178,1.692,0.53
+    c0.395,0.353,0.594,0.812,0.594,1.376c0,0.117-0.014,0.323-0.041,0.617c-0.027,0.295-0.078,0.564-0.152,0.811l-0.757,2.68
+    c-0.062,0.215-0.117,0.461-0.167,0.736c-0.049,0.275-0.073,0.485-0.073,0.626c0,0.356,0.079,0.599,0.239,0.728
+    c0.158,0.129,0.435,0.194,0.827,0.194c0.185,0,0.392-0.033,0.626-0.097c0.232-0.064,0.4-0.121,0.506-0.17L14.271,18.307z
+     M14.137,7.429c-0.353,0.328-0.778,0.492-1.275,0.492c-0.496,0-0.924-0.164-1.28-0.492c-0.354-0.328-0.533-0.727-0.533-1.193
+    c0-0.465,0.18-0.865,0.533-1.196c0.356-0.332,0.784-0.497,1.28-0.497c0.497,0,0.923,0.165,1.275,0.497
+    c0.353,0.331,0.53,0.731,0.53,1.196C14.667,6.703,14.49,7.101,14.137,7.429z"/>
+</g>
+</svg></span></h4>
+      <div class="cut-main slider_wrapper">
+	  <div id="clarity-r-slider" class="clarity-slider right-block ui-slider">
+		  <?php 
+		  $clarityOptions = (array) $loadfilter['clarityRange'];
+		  foreach ($clarityOptions as $optionsValues) : 
+			$options = (array) $optionsValues;
+			$claritys_attr[]  = array('clarityName' => $options['clarityName'], 'clarityId' => $options['clarityId']);
+      if( !next( $clarityOptions ) ) { 
+        $claritys_attr[]  = array('clarityName' => 'Last', 'clarityId' => '000');
+      }
+			$claritys_Idattr[]  = $options['clarityId'];
+		  endforeach; 
+			if (isset($savedfilter->ClarityList)) {
+				$GradeList = $savedfilter->ClarityList;
+			}
+			else
+			{
+				$GradeList = "";
+			}
+			if (isset($savedfilter->ClarityStart)) {
+				$Start = $savedfilter->ClarityStart;
+			}
+			else
+			{
+				$Start = $slider_start;
+			}
+			if (isset($savedfilter->ClarityStop)) {
+				$Stop = $savedfilter->ClarityStop;
+			}
+			else
+			{
+				$Stop = count($claritys_attr);
+			}
+		  ?>
+		  <input type="hidden" class="diamond_clarity" name="diamond_clarity[]" value="<?php echo $GradeList;?>" data-start="<?php echo $Start;?>" data-stop="<?php echo $Stop;?>">
+		  <div id="clarity-slider" class="input-assumpte" data-steps="<?php echo count($claritys_attr);?>"></div>                            
+	  </div>
+	  </div>
+   </div>
+   <?php } ?>
+   <div class="filter-advanced shape-bg">
+      <button class="accordion"><?php echo __('Advanced Search');?></button>
+      <div class="panel cls-for-hide">
+        <div class="shape-container shape-flex">
+         <?php if(isset($loadfilter['depthRange'])){ ?>
+         <div class="filter-main filter-alignment-left">
+            <div class="filter-for-shape shape-bg">
+               <h4 class="title"><?= /* @escapeNotVerified */ __('Depth') ?> <span class="show-filter-info kendana" id="depth" ><svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+   viewBox="0 0 23.625 23.625" style="enable-background:new 0 0 23.625 23.625;" xml:space="preserve">
+<g>
+  <path style="" d="M11.812,0C5.289,0,0,5.289,0,11.812s5.289,11.813,11.812,11.813s11.813-5.29,11.813-11.813
+    S18.335,0,11.812,0z M14.271,18.307c-0.608,0.24-1.092,0.422-1.455,0.548c-0.362,0.126-0.783,0.189-1.262,0.189
+    c-0.736,0-1.309-0.18-1.717-0.539s-0.611-0.814-0.611-1.367c0-0.215,0.015-0.435,0.045-0.659c0.031-0.224,0.08-0.476,0.147-0.759
+    l0.761-2.688c0.067-0.258,0.125-0.503,0.171-0.731c0.046-0.23,0.068-0.441,0.068-0.633c0-0.342-0.071-0.582-0.212-0.717
+    c-0.143-0.135-0.412-0.201-0.813-0.201c-0.196,0-0.398,0.029-0.605,0.09c-0.205,0.063-0.383,0.12-0.529,0.176l0.201-0.828
+    c0.498-0.203,0.975-0.377,1.43-0.521c0.455-0.146,0.885-0.218,1.29-0.218c0.731,0,1.295,0.178,1.692,0.53
+    c0.395,0.353,0.594,0.812,0.594,1.376c0,0.117-0.014,0.323-0.041,0.617c-0.027,0.295-0.078,0.564-0.152,0.811l-0.757,2.68
+    c-0.062,0.215-0.117,0.461-0.167,0.736c-0.049,0.275-0.073,0.485-0.073,0.626c0,0.356,0.079,0.599,0.239,0.728
+    c0.158,0.129,0.435,0.194,0.827,0.194c0.185,0,0.392-0.033,0.626-0.097c0.232-0.064,0.4-0.121,0.506-0.17L14.271,18.307z
+     M14.137,7.429c-0.353,0.328-0.778,0.492-1.275,0.492c-0.496,0-0.924-0.164-1.28-0.492c-0.354-0.328-0.533-0.727-0.533-1.193
+    c0-0.465,0.18-0.865,0.533-1.196c0.356-0.332,0.784-0.497,1.28-0.497c0.497,0,0.923,0.165,1.275,0.497
+    c0.353,0.331,0.53,0.731,0.53,1.196C14.667,6.703,14.49,7.101,14.137,7.429z"/>
+</g>
+</svg></span></h4>
+               <div class="slider_wrapper">
+                     <?php $depthMinval = (array) $loadfilter['depthRange']; ?>
+                     <?php $depthFrom = isset($savedfilter->depthMin) ? $savedfilter->depthMin : $depthMinval[0]->minDepth ?>
+                     <?php $depthMaxval = (array) $loadfilter['depthRange']; ?>
+                     <?php $depthTo = isset($savedfilter->depthMax) ? $savedfilter->depthMax : $depthMinval[0]->maxDepth ?>
+                <div class="depth-main ui-slider" id="noui_depth_slider" data-min="<?php echo $depthMinval[0]->minDepth ?>" data-max="<?php echo $depthMaxval[0]->maxDepth; ?>">
+                  <div class="depth-left">
+                    <input type="number" class="ui-slider-val slider-left" name="diamond_depth[from]" value="<?=$depthFrom?>" data-type="min">
+                    <span class="currency-icon">%</span>
+                  </div>
+                  <div class="depth-right">
+                    <input type="number" class="ui-slider-val slider-right" name="diamond_depth[to]" value="<?=$depthTo?>" data-type="max">
+                    <span class="currency-icon">%</span>
+                    <input type="hidden" name="depthtomax" class="slider-right-val" value="<?php echo $depthMaxval[0]->maxDepth; ?>"> 
+                  </div>                     
+                </div>
+              </div>
+               <!-- <div class="slider_wrapper">
+                  <div class="depth-main" id="depth_slider">
+                     <?php /*$depthMinval = (array) $loadfilter['depthRange']; ?>
+                     <?php $depthFrom = isset($savedfilter->depthMin) ? $savedfilter->depthMin : $depthMinval[0]->minDepth ?>
+                     <div class="depth-left">
+                        <input type="text" class="ui-slider-val slider-left" name="diamond_depth[from]" value="<?=$depthFrom?>" />
+                        <span class="currency-icon">%</span>
+                     </div>
+                     <?php $depthMaxval = (array) $loadfilter['depthRange']; ?>
+                     <?php $depthTo = isset($savedfilter->depthMax) ? $savedfilter->depthMax : $depthMinval[0]->maxDepth ?>
+                     <div class="depth-right">
+                        <input type="text" class="ui-slider-val slider-right" name="diamond_depth[to]" value="<?=$depthTo?>" />
+                        <span class="currency-icon">%</span>
+                        <input type="hidden" name="depthtomax" class="slider-right-val" value="<?php echo $depthMaxval[0]->maxDepth;*/ ?>">
+                     </div>
+                  </div>
+               </div> -->
+            </div>
+         </div>
+         <?php } ?>
+         <?php if(isset($loadfilter['tableRange'])){ ?>
+         <div class="filter-main filter-alignment-left">
+            <div class="filter-for-shape shape-bg">
+               <h4 class="title"><?= /* @escapeNotVerified */ __('Table') ?> <span class="show-filter-info kendana" id="table" ><svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+   viewBox="0 0 23.625 23.625" style="enable-background:new 0 0 23.625 23.625;" xml:space="preserve">
+<g>
+  <path style="" d="M11.812,0C5.289,0,0,5.289,0,11.812s5.289,11.813,11.812,11.813s11.813-5.29,11.813-11.813
+    S18.335,0,11.812,0z M14.271,18.307c-0.608,0.24-1.092,0.422-1.455,0.548c-0.362,0.126-0.783,0.189-1.262,0.189
+    c-0.736,0-1.309-0.18-1.717-0.539s-0.611-0.814-0.611-1.367c0-0.215,0.015-0.435,0.045-0.659c0.031-0.224,0.08-0.476,0.147-0.759
+    l0.761-2.688c0.067-0.258,0.125-0.503,0.171-0.731c0.046-0.23,0.068-0.441,0.068-0.633c0-0.342-0.071-0.582-0.212-0.717
+    c-0.143-0.135-0.412-0.201-0.813-0.201c-0.196,0-0.398,0.029-0.605,0.09c-0.205,0.063-0.383,0.12-0.529,0.176l0.201-0.828
+    c0.498-0.203,0.975-0.377,1.43-0.521c0.455-0.146,0.885-0.218,1.29-0.218c0.731,0,1.295,0.178,1.692,0.53
+    c0.395,0.353,0.594,0.812,0.594,1.376c0,0.117-0.014,0.323-0.041,0.617c-0.027,0.295-0.078,0.564-0.152,0.811l-0.757,2.68
+    c-0.062,0.215-0.117,0.461-0.167,0.736c-0.049,0.275-0.073,0.485-0.073,0.626c0,0.356,0.079,0.599,0.239,0.728
+    c0.158,0.129,0.435,0.194,0.827,0.194c0.185,0,0.392-0.033,0.626-0.097c0.232-0.064,0.4-0.121,0.506-0.17L14.271,18.307z
+     M14.137,7.429c-0.353,0.328-0.778,0.492-1.275,0.492c-0.496,0-0.924-0.164-1.28-0.492c-0.354-0.328-0.533-0.727-0.533-1.193
+    c0-0.465,0.18-0.865,0.533-1.196c0.356-0.332,0.784-0.497,1.28-0.497c0.497,0,0.923,0.165,1.275,0.497
+    c0.353,0.331,0.53,0.731,0.53,1.196C14.667,6.703,14.49,7.101,14.137,7.429z"/>
+</g>
+</svg></span></h4>
+               <div class="slider_wrapper">
+                <?php $minTableval = (array) $loadfilter['tableRange']; ?>                    
+                <?php $tableFrom = isset($savedfilter->tableMin) ? $savedfilter->tableMin : $minTableval[0]->minTable ?>
+                <?php $minTableval = (array) $loadfilter['tableRange']; ?>                     
+                <?php $tableTo = isset($savedfilter->tableMax) ? $savedfilter->tableMax : $minTableval[0]->maxTable ?>
+                <div class="tableper-main ui-slider" id="noui_tableper_slider" data-min="<?php echo $minTableval[0]->minTable; ?>" data-max="<?php echo $minTableval[0]->maxTable; ?>">
+                  <div class="table-left">
+                    <input type="number" class="ui-slider-val slider-left" name="diamond_table[from]" value="<?=$tableFrom?>" data-type="min">
+                    <span class="currency-icon">%</span>
+                  </div>
+                  <div class="table-right">
+                    <input type="number" class="ui-slider-val slider-right" name="diamond_table[to]" value="<?=$tableTo?>" data-type="max">
+                    <span class="currency-icon">%</span>
+                    <input type="hidden" name="tableTo" class="slider-right-val" value="<?php echo $minTableval[0]->maxTable; ?>"> 
+                  </div>                     
+                </div>
+              </div>
+               <!-- <div class="slider_wrapper">
+                  <div  class="tableper-main" id="tableper_slider">
+                     <?php /*$minTableval = (array) $loadfilter['tableRange']; ?>                    
+                     <?php $tableFrom = isset($savedfilter->tableMin) ? $savedfilter->tableMin : $minTableval[0]->minTable ?>
+                     <div class="table-left">
+                        <input type="text" class="ui-slider-val slider-left" name="diamond_table[from]" value="<?=$tableFrom?>" />
+                        <span class="currency-icon">%</span>
+                     </div>
+                     <?php $minTableval = (array) $loadfilter['tableRange']; ?>                     
+                     <?php $tableTo = isset($savedfilter->tableMax) ? $savedfilter->tableMax : $minTableval[0]->maxTable ?>
+                     <div class="table-right">
+                        <input type="text" class="ui-slider-val slider-right" name="diamond_table[to]" value="<?=$tableTo?>" />
+                        <span class="currency-icon">%</span>
+                        <input type="hidden" name="tablemax" class="slider-right-val" value="<?php echo $minTableval[0]->maxTable;*/ ?>">
+                     </div>
+                  </div>
+               </div> -->
+            </div>
+         </div>
+         <?php } ?>
+        </div>
+         <div class="filter-advanced-main advance-left">
+            <?php if(isset($loadfilter['polishRange'])){ ?>
+            <div class="polish-depth">
+               <h4><?php echo __('Polish');?> <span class="show-filter-info kendana" id="polish" ><svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+   viewBox="0 0 23.625 23.625" style="enable-background:new 0 0 23.625 23.625;" xml:space="preserve">
+<g>
+  <path style="" d="M11.812,0C5.289,0,0,5.289,0,11.812s5.289,11.813,11.812,11.813s11.813-5.29,11.813-11.813
+    S18.335,0,11.812,0z M14.271,18.307c-0.608,0.24-1.092,0.422-1.455,0.548c-0.362,0.126-0.783,0.189-1.262,0.189
+    c-0.736,0-1.309-0.18-1.717-0.539s-0.611-0.814-0.611-1.367c0-0.215,0.015-0.435,0.045-0.659c0.031-0.224,0.08-0.476,0.147-0.759
+    l0.761-2.688c0.067-0.258,0.125-0.503,0.171-0.731c0.046-0.23,0.068-0.441,0.068-0.633c0-0.342-0.071-0.582-0.212-0.717
+    c-0.143-0.135-0.412-0.201-0.813-0.201c-0.196,0-0.398,0.029-0.605,0.09c-0.205,0.063-0.383,0.12-0.529,0.176l0.201-0.828
+    c0.498-0.203,0.975-0.377,1.43-0.521c0.455-0.146,0.885-0.218,1.29-0.218c0.731,0,1.295,0.178,1.692,0.53
+    c0.395,0.353,0.594,0.812,0.594,1.376c0,0.117-0.014,0.323-0.041,0.617c-0.027,0.295-0.078,0.564-0.152,0.811l-0.757,2.68
+    c-0.062,0.215-0.117,0.461-0.167,0.736c-0.049,0.275-0.073,0.485-0.073,0.626c0,0.356,0.079,0.599,0.239,0.728
+    c0.158,0.129,0.435,0.194,0.827,0.194c0.185,0,0.392-0.033,0.626-0.097c0.232-0.064,0.4-0.121,0.506-0.17L14.271,18.307z
+     M14.137,7.429c-0.353,0.328-0.778,0.492-1.275,0.492c-0.496,0-0.924-0.164-1.28-0.492c-0.354-0.328-0.533-0.727-0.533-1.193
+    c0-0.465,0.18-0.865,0.533-1.196c0.356-0.332,0.784-0.497,1.28-0.497c0.497,0,0.923,0.165,1.275,0.497
+    c0.353,0.331,0.53,0.731,0.53,1.196C14.667,6.703,14.49,7.101,14.137,7.429z"/>
+</g>
+</svg></span></h4>
+                <?php $polishOptions = (array) $loadfilter['polishRange'];?>
+            <div class="cut-main slider_wrapper">
+			  <div id="polish-r-slider" class="polish-slider right-block ui-slider">
+				  <?php 
+				  foreach ($polishOptions as $optionsValues) : 
+					$options = (array) $optionsValues;
+					$polishs_attr[]  = array('polishName' => $options['polishName'], 'polishId' => $options['polishId']);
+          if( !next( $polishOptions ) ) {
+            $polishs_attr[]  = array('clarityName' => 'Last', 'clarityId' => '000');
+          }
+					$polishs_Idattr[]  = $options['polishId'];
+				  endforeach; 
+					if (isset($savedfilter->polishList)) {
+						$GradeList = $savedfilter->polishList;
+					}
+					else
+					{
+						$GradeList = "";
+					}
+					if (isset($savedfilter->PolishStart)) {
+						$Start = $savedfilter->PolishStart;
+					}
+					else
+					{
+						$Start = $slider_start;
+					}
+					if (isset($savedfilter->PolishStop)) {
+						$Stop = $savedfilter->PolishStop;
+					}
+					else
+					{
+						$Stop = count($polishs_attr);
+					}
+				  ?>
+				  <input type="hidden" class="diamond_polish" name="diamond_polish[]" value="<?php echo $GradeList;?>" data-start="<?php echo $Start;?>" data-stop="<?php echo $Stop;?>" />
+				  <div id="polish-slider" class="input-assumpte" data-steps="<?php echo count($polishs_attr);?>"></div>                            
+			  </div>
+			</div>
+            </div>
+            <?php } ?>
+            <?php if(isset($loadfilter['fluorescenceRange'])){ ?>
+            <div class="polish-depth filter-Fluoroscence">
+               <h4><?php echo __('Fluorescence');?> <span class="show-filter-info kendana" id="fluorescence" ><svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+   viewBox="0 0 23.625 23.625" style="enable-background:new 0 0 23.625 23.625;" xml:space="preserve">
+<g>
+  <path style="" d="M11.812,0C5.289,0,0,5.289,0,11.812s5.289,11.813,11.812,11.813s11.813-5.29,11.813-11.813
+    S18.335,0,11.812,0z M14.271,18.307c-0.608,0.24-1.092,0.422-1.455,0.548c-0.362,0.126-0.783,0.189-1.262,0.189
+    c-0.736,0-1.309-0.18-1.717-0.539s-0.611-0.814-0.611-1.367c0-0.215,0.015-0.435,0.045-0.659c0.031-0.224,0.08-0.476,0.147-0.759
+    l0.761-2.688c0.067-0.258,0.125-0.503,0.171-0.731c0.046-0.23,0.068-0.441,0.068-0.633c0-0.342-0.071-0.582-0.212-0.717
+    c-0.143-0.135-0.412-0.201-0.813-0.201c-0.196,0-0.398,0.029-0.605,0.09c-0.205,0.063-0.383,0.12-0.529,0.176l0.201-0.828
+    c0.498-0.203,0.975-0.377,1.43-0.521c0.455-0.146,0.885-0.218,1.29-0.218c0.731,0,1.295,0.178,1.692,0.53
+    c0.395,0.353,0.594,0.812,0.594,1.376c0,0.117-0.014,0.323-0.041,0.617c-0.027,0.295-0.078,0.564-0.152,0.811l-0.757,2.68
+    c-0.062,0.215-0.117,0.461-0.167,0.736c-0.049,0.275-0.073,0.485-0.073,0.626c0,0.356,0.079,0.599,0.239,0.728
+    c0.158,0.129,0.435,0.194,0.827,0.194c0.185,0,0.392-0.033,0.626-0.097c0.232-0.064,0.4-0.121,0.506-0.17L14.271,18.307z
+     M14.137,7.429c-0.353,0.328-0.778,0.492-1.275,0.492c-0.496,0-0.924-0.164-1.28-0.492c-0.354-0.328-0.533-0.727-0.533-1.193
+    c0-0.465,0.18-0.865,0.533-1.196c0.356-0.332,0.784-0.497,1.28-0.497c0.497,0,0.923,0.165,1.275,0.497
+    c0.353,0.331,0.53,0.731,0.53,1.196C14.667,6.703,14.49,7.101,14.137,7.429z"/>
+</g>
+</svg></span></h4>
+               <?php $fluorescenceOptions = (array) $loadfilter['fluorescenceRange']; ?>
+			<div class="cut-main slider_wrapper">
+			  <div id="fluorescence-r-slider" class="fluorescence-slider right-block ui-slider">
+				  <?php 
+				  foreach ($fluorescenceOptions as $optionsValues) : 
+					$options = (array) $optionsValues;
+					$fluorescences_attr[]  = array('fluorescenceName' => $options['fluorescenceName'], 'fluorescenceId' => $options['fluorescenceId']);
+          if( !next( $fluorescenceOptions ) ) {
+            $fluorescences_attr[]  = array('fluorescenceName' => 'Last', 'fluorescenceId' => '000');
+          }
+				    $fluorescences_Idattr[]  = $options['fluorescenceId'];
+				  endforeach; 
+					if (isset($savedfilter->FluorescenceList)) {
+						$GradeList = $savedfilter->FluorescenceList;
+					}
+					else
+					{
+						$GradeList = "";
+					}
+					if (isset($savedfilter->FluorescenceStart)) {
+						$Start = $savedfilter->FluorescenceStart;
+					}
+					else
+					{
+						$Start = $slider_start;
+					}
+					if (isset($savedfilter->FluorescenceStop)) {
+						$Stop = $savedfilter->FluorescenceStop;
+					}
+					else
+					{
+						$Stop = count($fluorescences_attr);
+					}
+				  ?>
+				  <input type="hidden" class="diamond_fluorescence" name="diamond_fluorescence[]" value="<?php echo $GradeList;?>" data-start="<?php echo $Start;?>" data-stop="<?php echo $Stop;?>"/>
+				  <div id="fluorescence-slider" class="input-assumpte" data-steps="<?php echo count($fluorescences_attr);?>"></div>                            
+			  </div>
+			</div>
+            </div>
+            <?php } ?>
+         </div>
+         <div class="filter-advanced-main advance-right">
+            <?php if(isset($loadfilter['symmetryRange'])){ ?>
+            <div class="polish-depth">
+               <h4><?php echo __('Symmetry');?> <span class="show-filter-info kendana" id="symmetry" ><svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+   viewBox="0 0 23.625 23.625" style="enable-background:new 0 0 23.625 23.625;" xml:space="preserve">
+<g>
+  <path style="" d="M11.812,0C5.289,0,0,5.289,0,11.812s5.289,11.813,11.812,11.813s11.813-5.29,11.813-11.813
+    S18.335,0,11.812,0z M14.271,18.307c-0.608,0.24-1.092,0.422-1.455,0.548c-0.362,0.126-0.783,0.189-1.262,0.189
+    c-0.736,0-1.309-0.18-1.717-0.539s-0.611-0.814-0.611-1.367c0-0.215,0.015-0.435,0.045-0.659c0.031-0.224,0.08-0.476,0.147-0.759
+    l0.761-2.688c0.067-0.258,0.125-0.503,0.171-0.731c0.046-0.23,0.068-0.441,0.068-0.633c0-0.342-0.071-0.582-0.212-0.717
+    c-0.143-0.135-0.412-0.201-0.813-0.201c-0.196,0-0.398,0.029-0.605,0.09c-0.205,0.063-0.383,0.12-0.529,0.176l0.201-0.828
+    c0.498-0.203,0.975-0.377,1.43-0.521c0.455-0.146,0.885-0.218,1.29-0.218c0.731,0,1.295,0.178,1.692,0.53
+    c0.395,0.353,0.594,0.812,0.594,1.376c0,0.117-0.014,0.323-0.041,0.617c-0.027,0.295-0.078,0.564-0.152,0.811l-0.757,2.68
+    c-0.062,0.215-0.117,0.461-0.167,0.736c-0.049,0.275-0.073,0.485-0.073,0.626c0,0.356,0.079,0.599,0.239,0.728
+    c0.158,0.129,0.435,0.194,0.827,0.194c0.185,0,0.392-0.033,0.626-0.097c0.232-0.064,0.4-0.121,0.506-0.17L14.271,18.307z
+     M14.137,7.429c-0.353,0.328-0.778,0.492-1.275,0.492c-0.496,0-0.924-0.164-1.28-0.492c-0.354-0.328-0.533-0.727-0.533-1.193
+    c0-0.465,0.18-0.865,0.533-1.196c0.356-0.332,0.784-0.497,1.28-0.497c0.497,0,0.923,0.165,1.275,0.497
+    c0.353,0.331,0.53,0.731,0.53,1.196C14.667,6.703,14.49,7.101,14.137,7.429z"/>
+</g>
+</svg></span> </h4>
+               <?php $symmetryOptions = (array) $loadfilter['symmetryRange'];?>
+					<div class="cut-main slider_wrapper">
+				  <div id="symmetry-r-slider" class="symmetry-slider right-block ui-slider">
+					  <?php 
+					  foreach ($symmetryOptions as $optionsValues) : 
+						$options = (array) $optionsValues;
+						$symmetrys_attr[]  = array('symmetryName' => $options['symmteryName'], 'symmetryId' => $options['symmetryId']);
+            if( !next( $symmetryOptions ) ) {
+              $symmetrys_attr[]  = array('symmetryName' => 'Last', 'symmetryId' => '000');
+            }
+						$symmetrys_Idattr[]  = $options['symmetryId'];
+					 endforeach; 
+						if (isset($savedfilter->SymmetryList)) {
+							$GradeList = $savedfilter->SymmetryList;
+						}
+						else
+						{
+							$GradeList = "";
+						}
+						if (isset($savedfilter->SymmetryStart)) {
+							$Start = $savedfilter->SymmetryStart;
+						}
+						else
+						{
+							$Start = $slider_start;
+						}
+						if (isset($savedfilter->SymmetryStop)) {
+							$Stop = $savedfilter->SymmetryStop;
+						}
+						else
+						{
+							$Stop = count($symmetrys_attr);
+						}
+					  ?>
+					  <input type="hidden" class="diamond_symmetry" name="diamond_symmetry[]" value="<?php echo $GradeList;?>" data-start="<?php echo $Start;?>" data-stop="<?php echo $Stop;?>"/>
+					  <div id="symmetry-slider" class="input-assumpte" data-steps="<?php echo count($symmetrys_attr);?>"></div>                            
+				  </div>
+				</div>
+            </div>
+            <?php } ?>
+            <?php if(isset($loadfilter['certificateRange'])){ ?>
+            <div class="certificate-div">
+              <?php if(isset($block->diamondReport()['data']['show_Certificate_in_Diamond_Search']) && $block->diamondReport()['data']['show_Certificate_in_Diamond_Search']!='') {?>
+               <h4 class="certificates-formobile" style="display: none;"><?php echo __('Certificates');?></h4>
+               <select name="diamond_certificates[]" multiple="multiple" id="certi-dropdown" placeholder="Certificates" class="testSelAll">
+                  <?php $certificatesOptions = (array) $loadfilter['certificateRange'];
+                     foreach ($certificatesOptions as $value) {
+                        $certificatevalue = (array) $value; 
+                        if($certificatevalue['certificateName'] != 'Show All Cerificate' && $certificatevalue['certificateName'] != ''){ ?>
+                  <?php if($activeFilter == "navstandard") {  ?>
+                  <option value="<?=str_replace(' ', '_', $certificatevalue['certificateName'])?>" <?=(in_array($certificatevalue['certificateName'], $certiArray)) ? 'selected="selected"' : ''?>><?=$certificatevalue['certificateName']?></option>
+                  <?php } if($activeFilter == "navfancycolored") {  ?>
+                  <option value="<?=str_replace(' ', '_', $certificatevalue['certificateName'])?>" <?=(in_array($certificatevalue['certificateName'], $certiArray)) ? 'selected="selected"' : ''?>><?=$certificatevalue['certificateName']?></option>
+                  <?php } if($activeFilter == "navlabgrown") { ?>
+                  <option value="<?=str_replace(' ', '_', $certificatevalue['certificateName'])?>" <?=(in_array($certificatevalue['certificateName'], $certiArray)) ? 'selected="selected"' : ''?>><?=$certificatevalue['certificateName']?></option>
+                  <?php } } } ?>
+               </select>
+               <?php } ?>
+               <!-- <h4 class="origin-formobile" style="display: none;"><?php /*echo __('Origin');?></h4>
+               <select name="gemfind_diamond_origin" class="SlectBox" plceholder="Origin" id="gemfind_diamond_origin">
+                  <?php $originOptions = (array) $loadfilter['originRange'];
+                     foreach ($originOptions as $originvalue) {
+                        $originvalue = (array) $originvalue; ?>
+                  <?php if($activeFilter == "navstandard" && $originvalue['originName'] == 'LAB-CREATED') { ?>
+                  <?php } else { ?>
+                  <option value="<?=str_replace(' ', '_', $originvalue['originId'])?>" <?=($originvalue['originId'] == $originval) ? 'selected="selected"' : ''?>><?=$originvalue['originName']?></option>
+                  <?php } ?>
+                  <?php }*/ ?>
+               </select> -->
+            </div>
+            <?php } ?>
+         </div>
+      </div>
+   </div>
+</div>
+<?php include("range_pipe_slider.php"); ?>
+<script>
+require(['jquery', 'Magento_Ui/js/modal/modal'], function($, modal){
+
+	$(document).on("click",".show-filter-info-nav", function() {
+            showfilterinfo($(this).parents('li').attr('id'));
+    });
+	$(document).on("click",".show-filter-info", function() {
+            showfilterinfo($(this).attr('id'));
+    });
+	
+	
+	var options = {
+        type: 'popup',
+        responsive: true,
+        innerScroll: true,
+        title: '',
+        modalClass: 'rbdl-popup'       
+    };
+
+    var popup = modal(options, $('#popup-modal'));
+	var filtertype = '';
+
+	function showfilterinfo(filtertype)
+	{
+		var info_html = '';
+		var baseurl = '<?php echo $this->getBaseUrl();?>'
+		var shopname = '<?php echo ($this->getBaseUrl() == 'bylu.myshopify.com' ? 'Our site' : 'Our site'); ?>';
+		console.log(filtertype);
+		if (typeof filtertype !== 'undefined' && (filtertype == 'navstandard' || filtertype == 'natural_diamonds' || filtertype == 'mined'))
+		{
+			info_html = 'Formed over billions of years, natural diamonds are mined from the earth. Diamonds are the hardest mineral on earth, which makes them an ideal material for daily wear over a lifetime. Our natural diamonds are conflict-free and GIA certified.';
+		}
+		if (typeof filtertype !== 'undefined' && (filtertype == 'navfancycolored' || filtertype == 'colored_diamonds'))
+		{
+			info_html = 'Also known as fancy color diamonds, these are diamonds with colors that extend beyond GIA’s D-Z color grading scale. They fall all over the color spectrum, with a range of intensities and saturation. The most popular colors are pink and yellow.';
+		}
+		if (typeof filtertype !== 'undefined' && (filtertype == 'navlabgrown' || filtertype == 'lab_grown_diamonds'))
+		{
+			info_html = 'Lab-grown diamonds are created in a lab by replicating the high heat and high pressure environment that causes a natural diamond to form. They are compositionally identical to natural mined diamonds (hardness, density, light refraction, etc), and the two look exactly the same. A lab-grown diamond is an attractive alternative for those seeking a product with less environmental footprint.';
+		}
+		if (typeof filtertype !== 'undefined' && filtertype == 'shape')
+		{
+			info_html = '<p>A diamond’s shape is not the same as a diamond’s cut. The shape refers to the general outline of the stone, and not its light refractive qualities. Look for a shape that best suits the ring setting you have chosen, as well as the recipient’s preference and personality. Here are some of the more common shapes that  offers:</p><div class="popup-Diamond-Table" style="height:160px;"><ol class="list-unstyled"><li><span class="popup-Dimond-Sketch"></span><span>Round</span></li><li><span class="popup-Dimond-Sketch"></span><span>Asscher</span></li><li><span class="popup-Dimond-Sketch"></span><span>Marquise</span></li><li><span class="popup-Dimond-Sketch"></span><span>Oval</span></li><li><span class="popup-Dimond-Sketch"></span><span>Cushion</span></li><li><span class="popup-Dimond-Sketch"></span><span>Radiant</span></li><li><span class="popup-Dimond-Sketch"></span><span>Pear</span></li><li><span class="popup-Dimond-Sketch"></span><span>Emerald</span></li><li><span class="popup-Dimond-Sketch"></span><span>Heart</span></li><li><span class="popup-Dimond-Sketch"></span><span>Princess</span></li></ol></div>';
+		}
+		if (typeof filtertype !== 'undefined' && filtertype == 'cut')
+		{
+			info_html = '<p>Not to be confused with shape, a diamond’s cut rating tells you how well its proportions interact with light. By evaluating the angles and proportions of the diamond, the cut grade is designed to tell you how sparkly and brilliant your stone is. Cut grading is usually not available for fancy shapes (any shape that is not round), because the mathematical formula that determines light return becomes less reliable when different length to width ratios are factored in.</p>';
+		}
+		if (typeof filtertype !== 'undefined' && filtertype == 'carat')
+		{
+			info_html = '<p>Carat is a unit of measurement to determine a diamond’s weight. Typically, a higher carat weight means a larger looking diamond, but that is not always the case. Look for the mm measurements of the diamond to determine its visible size.</p><img src="https://shopifygemtools.gemfind.com/diamondlink/assets/images/carat.jpg" alt="Carat">';
+		}
+		if (typeof filtertype !== 'undefined' && filtertype == 'price')
+		{
+			info_html = 'Filter By Price';
+		}
+		if (typeof filtertype !== 'undefined' && filtertype == 'color')
+		{
+			info_html = '<p>The color scale measures the degree of colorlessness in a diamond. D is the highest and most colorless grade, but also the most expensive. To get the most value for your budget, look for an eye colorless stone. For most diamonds, this is in the F-H range.</p><img src="https://shopifygemtools.gemfind.com/diamondlink/assets/images/color.jpg" alt="Color">';
+		}
+		if (typeof filtertype !== 'undefined' && filtertype == 'clarity')
+		{
+			info_html = '<p>A diamond’s clarity refers to the tiny traces of natural elements that are trapped inside the stone. 99% of diamonds contain inclusions or flaws. You do not need a flawless diamond - they are very rare and expensive - but you want to look for one that is perfect to the naked eye. Depending on the shape of the diamond, the sweet spot for clarity is usually between VVS2 to SI1.</p>';
+		}
+		if (typeof filtertype !== 'undefined' && filtertype == 'depth')
+		{
+			info_html = '<p>Depth percentage is the height of the diamond measured from the culet to the table, divided by the width of the diamond. The lower the depth %, the larger the diamond will appear (given the same weight), but if this number is too low then the brilliance of the diamond will be sacrificed. The depth percentage is one of the elements that determines the Cut grading. </p>';
+		}
+		if (typeof filtertype !== 'undefined' && filtertype == 'table')
+		{
+			info_html = '<p>Table percentage is the width of a diamond’s largest facet (the table) divided by its overall width. It tells you how big the “face” of a diamond is.</p>';
+		}
+		if (typeof filtertype !== 'undefined' && filtertype == 'polish')
+		{
+			info_html = '<p>Polish describes how smooth the surface of a diamond is. Aim for an Excellent or Very Good polish rating.</p>';
+		}
+		if (typeof filtertype !== 'undefined' && filtertype == 'symmetry')
+		{
+			info_html = '<p>Symmetry describes how symmetrical the diamond is cut all the way around, which is a contributing factor to a diamond’s sparkle and brilliance. Aim for an Excellent or Very Good symmetry rating for round brilliant shapes, and Excellent to Good for fancy shapes.</p>';
+		}
+		if (typeof filtertype !== 'undefined' && filtertype == 'fluorescence')
+		{
+			info_html = '<p>Fluorescence tells you how a diamond responds to ultraviolet light - does it glow under a black light? Diamonds with no fluorescence are generally priced higher on the market, but it is rare for fluorescence to have any visual impact on the diamond; some fluorescence can even enhance the look of the stone. ' + shopname + ' recommends searching for diamonds with none to medium fluorescence, and keeping open the option of strong fluorescence for additional value.</p>';
+		}
+		if (typeof filtertype !== 'undefined' && filtertype == 'fancy_color')
+		{
+			info_html = 'Filter By Fancy Color';
+		}
+		if (typeof filtertype !== 'undefined' && filtertype == 'fancy_intensity')
+		{
+			info_html = 'Filter By Fancy Intensity';
+
+		}
+
+		if (typeof filtertype == 'undefined')
+		{
+			info_html = "";
+		}
+		$('#popup-modal').html(info_html);
+
+		$("#popup-modal").modal('openModal');
+	}
+});
+</script>
+<?php } else {
+   echo __('Something went wrong, please try after Sizee!');  
+   } ?>
+   
+<style>
+.noUi-horizontal .noUi-tooltip {
+    display: none;
+}
+input, input:before, input:after {
+      -webkit-user-select: initial !important;
+      -khtml-user-select: initial !important;
+      -moz-user-select: initial !important;
+      -ms-user-select: initial !important;
+      user-select: initial !important;
+}
+</style>

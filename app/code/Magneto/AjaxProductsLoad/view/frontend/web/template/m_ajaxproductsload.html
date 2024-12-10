@@ -1,0 +1,45 @@
+<div class="home-jewellerysec mobile">
+	<div id="loader" class="hidden"></div>
+	<div class="container">
+		<div class="title" data-bind="text: category_name">
+		</div>
+		<div class="maincat-content">
+			<div class="maincat-load">
+				<select 
+				id        = "sidebarcategories"   
+				name      = "sidebarcategories"
+				class 	  = "sidebarcategories" 
+				data-bind = "
+				value: activesidebarcategory,
+				options:        sidebarcategories,
+				optionsText:    'name', 
+				optionsValue:   'id'
+				"
+				></select>
+				<div class="arrowsec"><i class="fas fa-arrow-down"></i></div>
+				<div class="arrowsec"><i class="fas fa-arrow-up"></i></div>
+			</div>
+			<div class="subcat-content">
+				<div class="subcat-load">
+					<select 
+					id        = "filtercategories"   
+					name      = "filtercategories"
+					class 	  = "filtercategories" 
+					data-bind = "
+					value: activefiltercategory,
+					options:        filtercategories,
+					optionsText:    'name', 
+					optionsValue:   'id',
+					optionsCaption: $t('Choose Category')"
+					></select>
+				</div>
+				<div class="arrowsec"><i class="fas fa-arrow-down"></i></div>
+				<div class="arrowsec"><i class="fas fa-arrow-up"></i></div>
+			</div>
+			<div class="content-product">
+				<div class="products" data-bind="html: producthtml"></div>
+			</div>
+			<div class="view-morebtn" data-bind="visible: viewmore"><a data-bind="attr:{ href: activecategorylink() }">
+				<span translate="'View More'"/></a></div>
+		</div>
+	</div>

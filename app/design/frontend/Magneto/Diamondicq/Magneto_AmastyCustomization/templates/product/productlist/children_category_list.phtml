@@ -1,0 +1,290 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_Shopby
+ */
+?>
+<?php
+/**
+ * @var \Amasty\Shopby\Block\Product\ProductList\ChildrenCategoryList $block
+ * @var \Magento\Catalog\Model\Category[] $categories
+ * @var \Magento\Framework\Escaper $escaper
+ */
+
+$categories = $block->getChildrenCategories();
+$size = $block->getImageSize();
+$swiperPrefix = $block->isSliderEnabled() ? 'swiper-' : '';
+$customHelpers = $block->getData('category_child_view_model');
+$helper = $this->helper('Magneto\AmastyCustomization\Helper\Data');
+
+$cat = "";
+$activeCat = [];
+if(!empty($block->getRequest()->getParam('cat'))){
+    $cat = $block->getRequest()->getParam('cat');
+    $activeCat = explode(",", $cat);
+}
+
+?>
+<?php if (count($categories)): ?>
+    <div class="amslider-container <?= /* @noEscape */ $block->isSliderEnabled() ? 'am-swiper-slider' : '' ?>">
+        <div class="amslider amshopby-categories-slider" id="category-carousel">
+            <?php if ((count($categories) > $block->getItemsCountPerSlide()) && $block->isSliderEnabled()): ?>
+            <button class="swiper-button-prev"
+            data-amshopby-js="children-category-swiper-prev"
+            aria-label="<?= $escaper->escapeHtmlAttr(__('Previous')) ?>"
+            title="<?= $escaper->escapeHtmlAttr(__('Previous')) ?>"></button>
+            <button class="swiper-button-next"
+            data-amshopby-js="children-category-swiper-next"
+            aria-label="<?= $escaper->escapeHtmlAttr(__('Next')) ?>"
+            title="<?= $escaper->escapeHtmlAttr(__('Next')) ?>"></button>
+        <?php endif; ?>
+        <div class="children-category-container <?= /* @noEscape */ $swiperPrefix ?>container"
+         <?php if ($block->isSliderEnabled()): ?>
+             data-mage-init='{"amShopbySwiperSlider":{
+                "slidesPerView": "<?= /* @noEscape */ $block->getItemsCountPerSlide()?>",
+                "loop": true,
+                "simulateTouch": true,
+                "breakpoints": {
+                    "320": {
+                        "slidesPerView": 1,
+                        "spaceBetween": 10
+                    },
+                    "480": {
+                        "slidesPerView": 2,
+                        "spaceBetween": 20
+                    }
+                },
+                "nextButton": "[data-amshopby-js=\"children-category-swiper-next\"]",
+                "prevButton": "[data-amshopby-js=\"children-category-swiper-prev\"]",
+                "spaceBetween": 30
+            }}'
+        <?php endif; ?>
+        >
+        <form data-amshopby-filter="attr_category_ids" id="cat_filter" data-amshopby-filter-request-var="cat" style="display:none;">
+            <button type="submit" id="custom_cat_btn" data-am-js="filter-item-default" title="submit" class="action search am-filter-go"></button>
+        </form>
+        <div class="<?= /* @noEscape */ $swiperPrefix ?>wrapper <?= count($categories) > 6 ? "morethen" : "" ?>">
+            <?php 
+            $parentCats = [];
+            $parentactive = "";
+            foreach ($categories as $category): ?>
+                <?php 
+                if ($category->getThumbnail() == '' && $category->getImage() == '') {
+                
+                    $imgUrl = $helper->getPlaceHolderImage($category,$size);
+                }
+                else{
+                    $imgUrl = $block->getCategoryImageUrl($category, $size);
+                }
+                
+                ?>
+                <?php $categoryUrl = $escaper->escapeUrl($category->getUrl()) ?>
+                <?php if ($imgUrl): ?>
+                    <?php $parentCats[] = $category->getId(); $active = "";?>
+                    <?php 
+                    if(in_array($category->getId(), $activeCat)){
+                        $active = "active";
+                        $parentactive = $category->getId();                                 
+                    }
+                    ?>
+                    <a title="<?= $escaper->escapeHtmlAttr($category->getName()) ?>"
+                       href="javascript:void(0);"
+                       class="<?= /* @noEscape */ $swiperPrefix; ?>slide parentCatsClass <?= $active ?>" id="parentCat_<?=$category->getId()?>" data-category-id="<?=$category->getId()?>">
+                       <div class="<?= /* @noEscape */ $swiperPrefix ?>category-item
+                        <?= /* @noEscape */ ($block->showLabels()) ? ' category-item-label' : '' ?>">
+                        <?php if (!$block->isOnlyLabels()): ?>
+                            <img height="<?= /* @noEscape */ $size ?>"
+                            width="<?= /* @noEscape */ $size ?>"
+                            src="<?= $escaper->escapeUrl($imgUrl) ?>"/>
+                        <?php endif; ?>
+
+                        <?php if ($block->showLabels() || $block->isOnlyLabels()): ?>
+                        <div class="category-item-title"
+                        <?php $style = 'style="max-width: ' . $size . 'px"' ?>
+                        <?= /* @noEscape */ $block->isSliderEnabled() ? '' : $style ?>
+                        >
+                        <span class="innershadow-category-title"><?= $escaper->escapeHtml($category->getName()) ?></span>
+                        <?= $escaper->escapeHtml($category->getName()) ?>
+                    </div>
+                <?php endif; ?>
+            </div>
+        </a>
+    <?php endif; ?>
+<?php endforeach; ?>
+<?php if(!empty($parentactive)):?>
+    <input type="hidden" name="parentactive" id="parentactive" value="<?= $parentactive ?>">
+<?php else:?>
+    <input type="hidden" name="parentactive" id="parentactive" value="">
+<?php endif;?>
+
+</div>
+<!-- after selection of subcategory list of child category -->
+<div class="child-catsub">
+    <?php 
+    $childactive = [];
+    if(!empty($parentCats) && count($parentCats)>0){
+        foreach($parentCats as $prcatid){
+            $active = 'style="display: none;"';
+            $getChildCategories = $customHelpers->getAllSubCategoryDetails($prcatid);
+            if(!empty($getChildCategories) && count($getChildCategories)){
+                if(in_array($prcatid, $activeCat)){
+                    $active = "";
+                }
+                ?>
+                <div class="secsuper childCatsClass" id="childCatsof_<?=$prcatid?>" <?= $active ?>>
+                    <?php    
+                    
+                    foreach($getChildCategories as $catkey=>$catvalue){ ?>
+                        <?php 
+                        $active = "";
+                        if(in_array($catkey, $activeCat)){
+                            $active = "active";
+                            $childactive[] = $catkey;                                 
+                        }
+                        ?>
+                        <div class="catname">
+                            <a href="javascript:void(0);" class="childCatsLink <?= $active ?>" id="childCatsLinkId_<?php echo $catkey; ?>" data-category-id="<?php echo $catkey; ?>"><?php echo $catvalue; ?></a></div>
+                            <?php
+                        }?>
+                    </div>
+                    <?php    
+                }
+            }
+        }
+        ?>
+        <?php if(!empty($childactive)):?>
+            <input type="hidden" name="childactive" id="childactive" value="<?= implode(',', $childactive) ?>">
+        <?php else:?>
+            <input type="hidden" name="childactive" id="childactive" value="">
+        <?php endif;?>
+    </div>
+</div>
+</div>
+</div>
+<script>
+    var maincategoryId =""; 
+    var childcategoryId = [];
+    var combineCategories = [];
+    require(['jquery'],function ($) {
+        $(document).ready( function() {
+            if($('.parentCatsClass.active').length){
+                $.each($('.parentCatsClass.active'), function(i, el){
+                    var cateid = $(el).attr('data-category-id');
+                    $(".childCatsClass").hide();
+                    $("#childCatsof_"+cateid).show();
+                    var cat = $("<input type=\"hidden\" class=\"activecategory\" name=\"amshopby[cat][]\" value="+ cateid +" />");
+                    $('#cat_filter').append(cat);
+                    maincategoryId = cateid;
+                });
+            }
+
+            $(".amshopby-items li[data-container='cat'] .amshopby-remove").click(function(){ 
+                if(maincategoryId == $(this).parent().data('value')){
+                    maincategoryId = "";
+                    childcategoryId = [];
+                    updateCats();
+                }
+            });
+
+            if($('.childCatsLink.active').length){
+                childcategoryId = [];
+                $.each($('.childCatsLink.active'), function(i, el){
+                    var cateid = $(el).attr('data-category-id');
+                    var cat = $("<input type=\"hidden\" class=\"activecategory\" name=\"amshopby[cat][]\" value="+ cateid +" />");
+                    $('#cat_filter').append(cat);
+                    childcategoryId.push(cateid);
+                });
+            }
+
+            function updateCats(){
+                $('.activecategory').remove();
+                combineCategories = [];
+                combineCategories.push(maincategoryId);
+                var newArray = combineCategories.concat(childcategoryId);
+                $.each(newArray, function(i, el){
+                    if(el != ""){
+                        var cat = $("<input type=\"hidden\" class=\"activecategory\" name=\"amshopby[cat][]\" value="+ el +" />");
+                        $('#cat_filter').append(cat);
+                    }
+                });
+
+                $.mage.amShopbyAjax.cacheKey = null;
+                if ($(window).width() < 1025) {
+                    $("#custom_cat_btn").click();
+                    var RemoveFilter = setInterval(function() {
+                        if ($('.am_shopby_apply_filters .am-show-button .am-items').length) {
+                            $(".am_shopby_apply_filters .am-show-button > .amshopby-button").click();
+                            clearInterval(RemoveFilter);
+                        }
+                    }, 100);
+                }else{
+                    $("#custom_cat_btn").click();
+                }
+            }
+
+            $(".parentCatsClass").click(function(){
+                if($.active == 0){
+                    var cateid = $(this).attr('data-category-id');
+                    $(".childCatsClass").hide();
+                    $("#childCatsof_"+cateid).show();
+                    $(this).addClass('active');
+
+                    if(maincategoryId == ""){
+                        maincategoryId = $.trim(cateid);
+                        updateCats();
+                    }else{
+                        if(maincategoryId != cateid){
+                            maincategoryId = $.trim(cateid);
+                            childcategoryId = []; 
+                            $(".parentCatsClass").removeClass("active");
+                            $(this).addClass("active");
+                            updateCats();
+                        }else if(maincategoryId == cateid){
+                            maincategoryId = "";
+                            childcategoryId = [];
+                            $("#childCatsof_"+cateid).hide(); 
+                            $(".parentCatsClass").removeClass("active");
+                            updateCats();
+                        }
+                    }
+
+                    $("#parentactive").val(maincategoryId);
+                }
+            });
+
+            $(".childCatsLink").click(function(){
+                var cateid = $(this).attr('data-category-id');
+                $(".childCatsLink.active").removeClass("active");
+                const exists = childcategoryId.includes(cateid);
+                if (exists) {
+                    childcategoryId = [];
+                    updateCats();
+                    return;
+                }else{
+                    
+                    childcategoryId = [];
+                    if (exists) {
+                        childcategoryId = childcategoryId.filter((c) => { 
+                            return c !== cateid 
+                        })
+                    } else {
+                        childcategoryId.push(cateid)
+                    }
+
+                    $.each(childcategoryId, function(i, el){
+                        if(el != ""){
+                            $('*[data-category-id="'+ el +'"]').addClass("active");
+                        }
+                    });
+
+                    updateCats();
+                }
+            });
+        });
+    });
+</script>    
+
+<?php endif; ?>
+
+

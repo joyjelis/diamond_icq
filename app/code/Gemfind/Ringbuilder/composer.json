@@ -1,0 +1,24 @@
+{
+  "name": "gemfind/module-ringbuilder",
+  "description": "Gemfind Ringbuilder Extension",
+  "license": [
+        "OSL-3.0",
+        "AFL-3.0"
+    ],
+  "require": {},
+  "type": "magento2-module",
+  "authors": [
+        {
+            "name": "Gemfind"
+        }
+    ],
+   "version": "1.0.0",
+   "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Gemfind\\Ringbuilder\\": ""
+        }
+    }
+}

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>	
+		<css src="css/fontawesome.min.css" />
+		<css src="css/brands.min.css" />
+		<css src="css/regular.min.css" />
+		<css src="css/solid.min.css" />
+
+		<css src="fonts/funio/funio.css" />		
+		<css src="fonts/elegant/style.css" />		
+		<css src="fonts/custom-font/style.css" />
+		<css src="css/custom.css" />
+        <css src="css/custom_style.css" rel="stylesheet" type="text/css" />
+		<css src="fonts/bookFLF/style.css" />
+     	<css src="https://fonts.googleapis.com/css2?family=Italiana&amp;family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" src_type="url" />
+     	<css src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" src_type="url" />
+    </head>
+</page>

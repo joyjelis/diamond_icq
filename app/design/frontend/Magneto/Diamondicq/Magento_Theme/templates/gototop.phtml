@@ -1,0 +1,49 @@
+<style>
+    #mfbacktop {
+        background: #e8dbd3;
+        border: 0 solid white;
+        border-radius: 100%;
+        -webkit-box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.3);
+        box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.3);
+        color: #000;
+        cursor: pointer;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 40px;
+        font-weight: 600;
+        height: 50px;
+        line-height: 43px;
+        padding: 2px;
+        position: fixed;
+        right: 30px;
+        bottom: 95px;
+        text-align: center;
+        text-transform: uppercase;
+        width: 50px;
+        z-index: 9999;
+        display: none;
+        text-decoration: none;
+    }
+    #mfbacktop span {display: block}   
+    #mfbacktop .gt-arrow {padding-top: 10px;}
+</style>
+
+<a href="#" rel="nofollow" onclick="javascript:void(0);" id="mfbacktop"><span class="gt-arrow">^</span></a>
+
+<script>
+    require(['jquery', 'domReady!'], function($){
+        var $bt = $('#mfbacktop');
+        function ManageGoToTop() {
+            if($(this).scrollTop() > 300) {
+                $bt.fadeIn();
+            } else {
+                $bt.fadeOut();
+            }
+        }
+        ManageGoToTop();
+        $(window).scroll(ManageGoToTop);
+        $bt.on('click touch',function() {
+            $('body,html').animate({scrollTop:0},500);
+            return false;
+        })
+    });
+</script>

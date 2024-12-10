@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Gemfind_Ringbuilder::gemfind_ringbuilder" title="Gemfind Ringbuilder" module="Gemfind_Ringbuilder" sortOrder="40"  translate="title" resource="Gemfind_Ringbuilder::config_ringbuilder" />
+        <add id="Gemfind_Ringbuilder::configuration" title="Configuration" translate="title"
+             module="Gemfind_Ringbuilder" sortOrder="20" parent="Gemfind_Ringbuilder::gemfind_ringbuilder"
+             action="adminhtml/system_config/edit/section/gemfindringbuilder"
+             resource="Gemfind_Ringbuilder::configuration" />
+    </menu>
+</config>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <menu>
+        <update id="Travash_Core::core" title="Travash" module="Travash_Education" sortOrder="80"
+                resource="Travash_Education::educationadmin"/>
+        <add id="Travash_Education::educationadmin" title="Education" module="Travash_Education" sortOrder="10"
+             parent="Travash_Core::core" dependsOnModule="Travash_Education" resource="Travash_Education::educationadmin"/>
+        <add id="Travash_Education::education" title="Educations" module="Travash_Education" sortOrder="20" resource="Travash_Education::education"
+             action="education/education" parent="Travash_Education::educationadmin"/>
+        <add id="Travash_Education::educationcat" title="Categories" module="Travash_Education" sortOrder="30"
+             resource="Travash_Education::educationcat" action="education/educationcat" parent="Travash_Education::educationadmin"/>
+        <add id="Travash_Education::settings"
+             title="Settings"
+             module="Travash_Education"
+             sortOrder="50"
+             resource="Travash_Education::settings"
+             action="adminhtml/system_config/edit/section/education"
+             parent="Travash_Education::educationadmin"/>
+    </menu>
+</config>

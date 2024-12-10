@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>FF5916AF-0E95-4F15-AC50-60B224C692E3</title>
+    <g id="Pages" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="UI-Style-Guide" transform="translate(-771.000000, -2435.000000)">
+            <g id="Icons" transform="translate(0.000000, 2303.000000)">
+                <g id="move-wishlist" transform="translate(771.000000, 132.000000)">
+                    <polygon id="Path" points="0 0 24 0 24 24 0 24"></polygon>
+                    <path d="M19.6120318,5.41451605 C18.7237702,4.50883952 17.5187786,4 16.262292,4 C15.0058055,4 13.8008138,4.50883952 12.9125522,5.41451605 L11.9997697,6.3447575 L11.0869871,5.41451605 C9.23697693,3.52912055 6.23751781,3.52912057 4.38750764,5.4145161 C2.53749747,7.29991163 2.53749745,10.3567417 4.38750759,12.2421373 L5.30029015,13.1723788 L11.9997697,20 L18.6992492,13.1723788 L19.6120318,12.2421373 C20.5007104,11.3368858 21,10.1088462 21,8.82832667 C21,7.54780716 20.5007104,6.31976753 19.6120318,5.41451605 Z" id="Path" stroke="#919EAB" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,195 @@
+<?xml version="1.0"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">customer_sell_sell_listing.customer_sell_sell_listing_data_source</item>
+        </item>
+    </argument>
+    <settings>
+		<spinner>customer_sell_sell_columns</spinner>
+		<deps>
+			<dep>customer_sell_sell_listing.customer_sell_sell_listing_data_source</dep>
+		</deps>
+		<!-- <buttons>
+			<button name="add">
+				<url path="*/*/new"/>
+				<class>primary</class>
+				<label translate="true">Add new sell</label>
+			</button>
+		</buttons> -->
+	</settings>
+    <dataSource name="customer_sell_sell_listing_data_source" component="Magento_Ui/js/grid/provider">
+        <settings>
+            <storageConfig>                
+				<param name="indexField" xsi:type="string">sell_id</param>
+            </storageConfig>
+            <updateUrl path="mui/index/render"/>
+        </settings>
+        <aclResource>Customer_Sell::index</aclResource>
+        <dataProvider class="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider" name="customer_sell_sell_listing_data_source">
+            <settings>
+                <requestFieldName>id</requestFieldName>
+				<primaryFieldName>sell_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <listingToolbar name="listing_top">
+		<settings>
+			<sticky>true</sticky>
+		</settings>
+		<bookmark name="bookmarks"/>
+		<columnsControls name="columns_controls"/>
+		<filters name="listing_filters"/>
+		<paging name="listing_paging"/>
+	</listingToolbar>
+    <columns name="customer_sell_sell_columns">
+		<settings>
+			<editorConfig>
+				<param name="selectProvider" xsi:type="string">customer_sell_sell_listing.customer_sell_sell_listing.customer_sell_sell_columns.ids</param>
+				<param name="enabled" xsi:type="boolean">true</param>
+				<param name="indexField" xsi:type="string">sell_id</param>
+				<param name="clientConfig" xsi:type="array">
+					<item name="saveUrl" path="*/sell/inlineEdit" xsi:type="url"/>
+					<item name="validateBeforeSave" xsi:type="boolean">false</item>
+				</param>
+			</editorConfig>
+			<childDefaults>
+				<param name="fieldAction" xsi:type="array">
+					<item name="provider" xsi:type="string">customer_sell_sell_listing.customer_sell_sell_listing.customer_sell_sell_columns_editor</item>
+					<item name="target" xsi:type="string">startEdit</item>
+					<item name="params" xsi:type="array">
+						<item name="0" xsi:type="string">${ $.$data.rowIndex }</item>
+						<item name="1" xsi:type="boolean">true</item>
+					</item>
+				</param>
+			</childDefaults>
+		</settings>
+		<selectionsColumn name="ids">
+			<settings>
+				<indexField>sell_id</indexField>
+			</settings>
+		</selectionsColumn>
+		<column name="sell_id">
+			<settings>
+				<filter>textRange</filter>
+				<sorting>asc</sorting>
+				<label translate="true">ID</label>				
+			</settings>
+		</column>
+		<column name="quote">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">Quote</label>
+			</settings>
+		</column>
+		<column name="trade" class="Customer\Sell\Ui\Component\Listing\Column\Trade">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">Trade-in</label>
+				<editor>
+					<editorType>text</editorType>
+					<validation>
+						<rule name="required-entry" xsi:type="boolean">false</rule>
+					</validation>
+				</editor>
+			</settings>
+		</column>
+		<column name="certificate" class="Customer\Sell\Ui\Component\Listing\Column\Certificate">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">Certificate</label>
+				<editor>
+					<editorType>text</editorType>
+					<validation>
+						<rule name="required-entry" xsi:type="boolean">false</rule>
+					</validation>
+				</editor>
+			</settings>
+		</column>
+		<column name="customer_id">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">Customer ID</label>
+			</settings>
+		</column>
+		<column name="email">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">Email</label>
+				<editor>
+					<editorType>text</editorType>
+					<validation>
+						<rule name="required-entry" xsi:type="boolean">true</rule>
+					</validation>
+				</editor>
+			</settings>
+		</column>
+		<column name="mobile">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">Mobile</label>
+				<editor>
+					<editorType>text</editorType>
+					<validation>
+						<rule name="required-entry" xsi:type="boolean">true</rule>
+					</validation>
+				</editor>
+			</settings>
+		</column>
+		<column name="name">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">Name</label>
+				<editor>
+					<editorType>text</editorType>
+					<validation>
+						<rule name="required-entry" xsi:type="boolean">true</rule>
+					</validation>
+				</editor>
+			</settings>
+		</column>
+		<column name="status" component="Magento_Ui/js/grid/columns/select">
+			<settings>
+				<filter>select</filter>
+				<dataType>select</dataType>
+				<options class="Customer\Sell\Ui\Component\Listing\Filter\Status"/>
+				<label translate="true">Status</label>
+				<editor>
+					<editorType>select</editorType>
+					<validation>
+						<rule name="required-entry" xsi:type="boolean">true</rule>
+					</validation>
+				</editor>
+			</settings>
+		</column>
+		<column name="created_at" class="Magento\Ui\Component\Listing\Columns\Date">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="filter" xsi:type="string">dateRange</item>
+					<item name="component" xsi:type="string">Magento_Ui/js/grid/columns/date</item>
+					<item name="dataType" xsi:type="string">date</item>
+					<item name="label" xsi:type="string" translate="true">Created At</item>
+					<item name="sortOrder" xsi:type="number">60</item>
+				</item>
+			</argument>
+		</column>
+		<column name="updated_at" class="Magento\Ui\Component\Listing\Columns\Date">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="filter" xsi:type="string">dateRange</item>
+					<item name="component" xsi:type="string">Magento_Ui/js/grid/columns/date</item>
+					<item name="dataType" xsi:type="string">date</item>
+					<item name="label" xsi:type="string" translate="true">Modified At</item>
+					<item name="sortOrder" xsi:type="number">70</item>
+				</item>
+			</argument>
+		</column>
+		<actionsColumn class="Customer\Sell\Ui\Component\Listing\Column\SellActions" name="actions">
+			<settings>
+				<indexField>sell_id</indexField>
+				<resizeEnabled>false</resizeEnabled>
+				<resizeDefaultWidth>107</resizeDefaultWidth>
+			</settings>
+		</actionsColumn>
+	</columns>
+</listing>

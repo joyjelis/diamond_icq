@@ -1,0 +1,38 @@
+<?php if($block->isEnabled()): ?>
+<div class="ajax_products_load" id="ajax_products_load" data-bind="scope:'ajax_products_load'">
+	<!-- ko template: getTemplate() --><!-- /ko -->
+	<script type="text/x-magento-init">
+		{
+			"#ajax_products_load": {
+				"Magento_Ui/js/core/app": {
+					"components": {
+						"ajax_products_load": {
+							"component": "Magneto_AjaxProductsLoad/js/ajax_products_load",
+							"template" : "Magneto_AjaxProductsLoad/ajaxproductsload",
+							"jsconfig": "<?php echo base64_encode($block->getJsConfig()); ?>"
+						}
+					}
+				}
+			}
+		}
+	</script>
+</div>
+<div class="m_ajax_products_load" id="m_ajax_products_load" data-bind="scope:'m_ajax_products_load'">
+	<!-- ko template: getTemplate() --><!-- /ko -->
+	<script type="text/x-magento-init">
+		{
+			"#m_ajax_products_load": {
+				"Magento_Ui/js/core/app": {
+					"components": {
+						"m_ajax_products_load": {
+							"component": "Magneto_AjaxProductsLoad/js/m_ajax_products_load",
+							"template" : "Magneto_AjaxProductsLoad/m_ajaxproductsload",
+							"jsconfig": "<?php echo base64_encode($block->getJsConfig()); ?>"
+						}
+					}
+				}
+			}
+		}
+	</script>
+</div>
+<?php endif; ?>

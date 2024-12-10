@@ -1,0 +1,1143 @@
+/*custom variable declaration*/
+
+@background_color_one: #faf6f3;
+@eigth_color_text: #5c4e45;
+@secondary_color_text: #ffffff;
+@sixth_color_text: #808080;
+@border_color_six: #cccccc;
+@primary_color_text: #212b36;
+@primart_color_fortext: #000000;
+@sec_color_text: #594e45;
+@sixth_bg_color: #e8dbd3;
+
+@primary_font_size: 24px;
+@secondary_font_size: 20px;
+@third_font_size: 18px;
+@fouth_font_size: 14px;
+@fith_font_size: 12px;
+@sixth_font_size: 10px;
+@seventh_font_size: 16px;
+@main_h1_fontsize: 40px;
+
+@primary_line_height: 23px;
+@secondary_line_height: 22px;
+@third_line_height: 16px;
+@fouth_line_height: 28px;
+@fifth_line_height: 20px;
+@sixth_line_height: 12px;
+@seventh_line_height: 30px;
+@eighth_line_height: 48px;
+
+@first_letterspacing: 0.0025em;
+@second_letterspacing: 0.005em;
+@third_letterspacing: 0.007em;
+@fourth_letterspacing: 0.0125em;
+
+@primary_font_weight: 600;
+@secondary_font_weight: 500;
+@fontfamily_normal: normal;
+@fontweight_bold: bold;
+
+@primary_fontfamily_regular: "Sans Serif Book FLF";
+@secondary_fontfamily_bold: "Sans Serif FLF Demibold";
+
+/* sell-your-jewellery-page design start */
+
+.diamond_sell-index-index,
+.cms-sell-item {
+    .imgsec.mobile {
+        display: none;
+    }
+    .breadcrumbs,
+    .page-title-wrapper {
+        display: none;
+    }
+    .page-main {
+        max-width: 100%;
+        padding: 0;
+    }
+}
+.sell-diamondpage {
+    .sell-item-btm {
+        .main-cnt.online {
+            .contentsec.desktop.inperson {
+                display: none;
+            }
+            .contentsec.desktop.online {
+                display: block;
+            }
+        }
+        .main-cnt {
+            .contentsec.desktop.online {
+                display: none;
+            }
+        }
+    }
+    .imgsec.desktop img {
+        min-height: 680px;
+        background: rgba(153, 71, 7, 0.1);
+    }
+    .iti--allow-dropdown {
+        width: 100%;
+        .iti__flag-container {
+            top: 12px;
+            .iti__selected-flag {
+                padding-left: 0;
+            }
+            &:hover {
+                .iti__selected-flag {
+                    background-color: #ffff;
+                    padding-left: 0;
+                }
+            }
+        }
+    }
+    .sell-item-btm {
+        width: 100%;
+        margin-top: 70px;
+        background: @background_color_one;
+        .main-cnt {
+            background: url(../images/person.png);
+            /*background-size: 50%;*/
+            background-repeat: no-repeat;
+            &.online {
+                background: url(../images/online.jpg);
+                background-repeat: no-repeat;
+            }
+        }
+        .form-main {
+            width: 100%;
+            display: inline-block;
+            height: auto;
+            .leftsec {
+                width: 53%;
+                float: left;
+                .maincont {
+                    .tabsec {
+                        margin: 40px 0;
+                        display: inline-block;
+                        .left-tag {
+                            cursor: pointer;
+                            height: 48px;
+                            width: 200px;
+                            top: 0px;
+                            border: 1px solid @eigth_color_text;
+                            box-sizing: border-box;
+                            float: left;
+                            display: inline-block;
+                            text-transform: uppercase;
+                            text-align: center;
+                            &.active {
+                                background: @eigth_color_text;
+                                a {
+                                    color: @secondary_color_text;
+                                }
+                            }
+                            a {
+                                padding: 11px 0;
+                                display: inline-block;
+                                font-weight: @primary_font_weight;
+                                font-size: @third_line_height;
+                                line-height: @primary_line_height + 1;
+                                letter-spacing: @third_letterspacing;
+                                color: @eigth_color_text;
+                                &:hover {
+                                    text-decoration: none;
+                                }
+                            }
+                        }
+                    }
+                    .contentsec {
+                        width: 100%;
+                        max-width: 65%;
+                        padding-bottom: 40px;
+                        h2 {
+                            margin: 0;
+                            font-family: @secondary_fontfamily_bold;
+                            font-style: @fontfamily_normal;
+                            font-weight: @fontweight_bold;
+                            font-size: @fifth_line_height;
+                            line-height: @primary_line_height + 1;
+                            letter-spacing: @first_letterspacing;
+                            color: @primart_color_fortext;
+                            margin-bottom: 16px;
+                        }
+                        &.mobile {
+                            display: none;
+                        }
+                        .queans {
+                            margin-bottom: 22px;
+                            h4 {
+                                font-size: @fouth_font_size;
+                                line-height: @secondary_line_height;
+                                color: @primart_color_fortext;
+                                font-weight: @fontweight_bold;
+                                margin: 0;
+                            }
+                            h5 {
+                                margin: 0;
+                                font-size: @fouth_font_size;
+                                line-height: @secondary_line_height;
+                                color: @primart_color_fortext;
+                                font-weight: @fontfamily_normal;
+                                margin-top: 2px;
+                            }
+                        }
+                    }
+                }
+            }
+            .rightsec {
+                width: 45%;
+                float: right;
+                .maincont {
+                    max-width: 80%;
+                    margin: 0 auto;
+                    h1 {
+                        margin: 40px 0 12px 0;
+                        font-weight: @fontweight_bold;
+                        font-size: @fifth_line_height;
+                        line-height: @fifth_line_height;
+                        text-align: center;
+                        color: @sec_color_text;
+                        font-family: @secondary_fontfamily_bold;
+                    }
+                    p {
+                        font-size: @fouth_font_size;
+                        line-height: @third_line_height;
+                        color: @sec_color_text;
+                        text-align: center;
+                        padding-bottom: 16px;
+                    }
+                    .formsec {
+                        box-shadow: 0px 2px 4px 4px rgba(31, 26, 22, 0.1);
+                        background: @secondary_color_text;
+                        padding: 27px 23px;
+                        .title {
+                            font-size: @fouth_font_size;
+                            line-height: @primary_line_height + 1;
+                            color: @primart_color_fortext;
+                        }
+                        .selectsec-title {
+                            margin-top: 17px;
+                            label.label {
+                                vertical-align: super;
+                                font-size: @fouth_font_size;
+                                line-height: @secondary_line_height;
+                                letter-spacing: @second_letterspacing;
+                                color: @sixth_color_text;
+                                padding-left: 8px;
+                            }
+                        }
+                        .imgupload {
+                            position: relative;
+                            width: 100%;
+                            margin: 30px 0;
+                            .mage-error {
+                                position: absolute;
+                            }
+                            &.jewellery {
+                                .mainsec {
+                                    margin-top: 0;
+                                    width: 100%;
+                                    border: 1px dashed #000000;
+                                    background-color: white;
+                                    .btn {
+                                        border: 0;
+                                        max-width: 80%;
+                                        margin-left: auto;
+                                        margin-right: auto;
+                                    }
+                                }
+                            }
+                            &.multiple {
+                                .btn {
+                                    background: none;
+                                    padding: 10px 12px;
+                                }
+                            }
+                            .rightimg {
+                                font-size: @fouth_font_size;
+                                line-height: @third_line_height + 3;
+                                color: @sec_color_text;
+                                display: inline-block;
+                                padding-left: 74px;
+                                .s2 {
+                                    color: @sixth_color_text;
+                                    font-weight: @fontfamily_normal;
+                                    width: 100%;
+                                    display: inline-block;
+                                    margin-top: 5px;
+                                }
+                            }
+                            .btn {
+                                border: 1px dashed @primart_color_fortext;
+                                background-color: white;
+                                border-radius: 0;
+                                font-size: @third_line_height;
+                                font-weight: @fontweight_bold;
+                                padding: 46px 12px;
+                                background-position: 9px;
+                                background: url(../images/Group166.svg);
+                                background-repeat: no-repeat;
+                                background-size: 64px;
+                                background-position-x: 10px;
+                                background-position-y: 38px;
+                                line-height: 19px;
+                            }
+                            input[type="file"] {
+                                position: absolute;
+                                left: 0;
+                                top: 0;
+                                opacity: 0;
+                                font-size: 100px;
+                                width: inherit;
+                                display: inline-block;
+                            }
+                            .btn1,
+                            .btn2 {
+                                width: 100%;
+                                display: inline-block;
+                                .imgone {
+                                    width: 100%;
+                                    display: inline-block;
+                                    text-align: center;
+                                    .oneimg {
+                                        width: 20%;
+                                        float: left;
+                                        display: inline-block;
+                                        position: relative;
+                                        img.uploadimg {
+                                            width: 64px;
+                                            height: 64px;
+                                        }
+                                    }
+                                    img.close {
+                                        position: absolute;
+                                        width: 14px;
+                                        height: 14px;
+                                        display: inline-block;
+                                        right: 0;
+                                        cursor: pointer;
+                                    }
+                                }
+                            }
+                        }
+                        .field {
+                            input {
+                                border-bottom: 1px solid @border_color_six;
+                                border-left: 0;
+                                border-right: 0;
+                                border-top: 0;
+                                &::placeholder {
+                                    letter-spacing: @second_letterspacing;
+                                    color: @sixth_color_text;
+                                    font-family: @primary_fontfamily_regular;
+                                }
+                            }
+                        }
+                        .submit-btn {
+                            width: 100%;
+                            margin-top: 22px;
+                            button {
+                                width: 100%;
+                                height: 44px;
+                                background: @sixth_bg_color;
+                                border: 0;
+                                border-radius: 0;
+                                box-shadow: none;
+                                font-size: @third_line_height;
+                                line-height: @primary_line_height + 1;
+                                letter-spacing: @third_letterspacing;
+                                color: @primart_color_fortext;
+                                text-transform: uppercase;
+                                font-family: @primary_fontfamily_regular;
+                            }
+                        }
+                    }
+                }
+                .thankyousec {
+                    h1 {
+                        font-size: 48px;
+                        line-height: @eighth_line_height;
+                    }
+                    .content {
+                        box-shadow: 0px 2px 4px 4px rgba(31, 26, 22, 0.1);
+                        background: @secondary_color_text;
+                        padding: 22px 24px;
+                        p {
+                            font-size: @third_line_height;
+                            line-height: 19px;
+                            color: @sec_color_text;
+                        }
+                        .submit-btn {
+                            width: 100%;
+                            button {
+                                width: 100%;
+                                height: 44px;
+                                background: @sixth_bg_color;
+                                border: 0;
+                                border-radius: 0;
+                                box-shadow: none;
+                                font-size: @third_line_height;
+                                line-height: @primary_line_height + 1;
+                                letter-spacing: @third_letterspacing;
+                                color: @primart_color_fortext;
+                                text-transform: uppercase;
+                                font-family: @primary_fontfamily_regular;
+                            }
+                        }
+                    }
+                }
+                .meeting-sec {
+                    &.main {
+                        .date-apoinmentsec {
+                            p {
+                                margin-bottom: 0;
+                                font-size: 14px;
+                                line-height: 24px;
+                                color: #000000;
+                                text-align: left;
+                            }
+                            .date-apoinment-con {
+                                .calendar-layer.opened-layer {
+                                    position: fixed;
+                                    width: 100%;
+                                    height: 80%;
+                                    top: 50%;
+                                    padding: 0 40px;
+                                    left: 50%;
+                                    z-index: 99;
+                                    transform: translate(-50%, -50%);
+                                    max-width: 875px;
+                                    bottom: inherit;
+                                    margin: 0 auto;
+                                    text-align: center;
+                                    iframe {
+                                        background-color: #fff;
+                                        height: 100%;
+                                        position: relative;
+                                        width: 100%;
+                                        z-index: 99;
+                                    }
+                                    .x-btn {
+                                        position: absolute;
+                                        right: 53px;
+                                        top: 5px;
+                                        z-index: 99;
+                                        &:before {
+                                            content: "×";
+                                            color: rgb(89, 78, 69);
+                                            cursor: pointer;
+                                            font-size: 20px;
+                                            font-weight: 700;
+                                            text-align: center;
+                                        }
+                                    }
+                                }
+                                .mainsec {
+                                    margin-top: 0;
+                                    width: 100%;
+                                    border: 1px dashed #000000;
+                                    background-color: white;
+                                    .btn {
+                                        border: 0;
+                                        max-width: 80%;
+                                        margin-left: auto;
+                                        margin-right: auto;
+                                        padding: 46px 0;
+                                        text-align: center;
+                                        .leftimg {
+                                            width: auto;
+                                            padding-right: 4px;
+                                            display: inline-block;
+                                        }
+                                        .rightimg {
+                                            font-size: 14px;
+                                            line-height: 19px;
+                                            color: #594e45;
+                                            padding-left: 4px;
+                                            position: relative;
+                                            top: -28px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    h2 {
+                        margin: 0;
+                        text-align: center;
+                        font-size: @fifth_line_height;
+                        line-height: @fifth_line_height;
+                        color: @sec_color_text;
+                        margin-top: 40px;
+                        font-family: @secondary_fontfamily_bold;
+                    }
+                    .date-apoinmentsec {
+                        box-shadow: 0px 2px 4px 4px rgba(31, 26, 22, 0.1);
+                        margin-top: 22px;
+                        background: @secondary_color_text;
+                        padding: 24px;
+                        .field {
+                            position: relative;
+                            &:before {
+                                position: absolute;
+                                right: 10px;
+                                top: 12px;
+                                background: url("../images/date.svg");
+                                content: "";
+                                width: 20px;
+                                height: 20px;
+                                display: inline-block;
+                            }
+                        }
+                        input {
+                            border: 0;
+                            border-bottom: 1px solid @border_color_six;
+                            width: 98%;
+                            display: inline-block;
+                            height: 44px;
+                            &::placeholder {
+                                font-size: @fouth_font_size;
+                                line-height: @secondary_line_height;
+                                letter-spacing: @second_letterspacing;
+                                color: @sixth_color_text;
+                                font-family: @primary_fontfamily_regular;
+                            }
+                        }
+                        .submit-btn {
+                            width: 100%;
+                            display: inline-block;
+                            margin-top: 32px;
+                            .leftbtn {
+                                width: 48%;
+                                float: left;
+                                button {
+                                    border: 1px solid @eigth_color_text;
+                                    background: transparent;
+                                }
+                            }
+                            .rightbtn {
+                                width: 48%;
+                                float: right;
+                                button {
+                                    background: @sixth_bg_color;
+                                    border: 0;
+                                    color: @primart_color_fortext;
+                                    padding-left: 0;
+                                }
+                            }
+                            button {
+                                width: 100%;
+                                font-size: @third_line_height;
+                                line-height: @primary_line_height + 1;
+                                letter-spacing: @third_letterspacing;
+                                color: @eigth_color_text;
+                                text-transform: uppercase;
+                                padding: 10px 0;
+                                text-align: center;
+                                box-shadow: none;
+                                border-radius: 0;
+                                font-family: @primary_fontfamily_regular;
+                                height: 44px;
+                            }
+                        }
+                    }
+                }
+                .fom-sec {
+                    h2 {
+                        margin: 0;
+                        text-align: center;
+                        font-size: @fifth_line_height;
+                        line-height: @fifth_line_height;
+                        color: @sec_color_text;
+                        margin-top: 40px;
+                        font-family: @secondary_fontfamily_bold;
+                    }
+                    .form-detail {
+                        margin-top: 22px;
+                        background: #ffff;
+                        padding: 24px;
+                        box-shadow: 0px 2px 4px 4px rgba(31, 26, 22, 0.1);
+                        .full-femail {
+                            margin-top: 22px;
+                        }
+                        .full-methods {
+                            margin-top: 22px;
+                            label {
+                                font-size: 10px;
+                            }
+                        }
+                        .full-field {
+                            width: 100%;
+                            display: inline-block;
+                        }
+                        .field {
+                            width: 100%;
+                            textarea {
+                                border: 0;
+                                border-bottom: 1px solid @border_color_six;
+                                width: 98%;
+                                display: inline-block;
+                                height: 44px;
+                                resize: unset;
+                            }
+                            &.left {
+                                width: 48%;
+                                float: left;
+                            }
+                            &.right {
+                                width: 48%;
+                                float: right;
+                                margin-top: 0;
+                            }
+                            label {
+                                font-size: @fouth_font_size;
+                                line-height: 12px;
+                                letter-spacing: @first_letterspacing;
+                                color: #637381;
+                            }
+                            input,
+                            select {
+                                border: 0;
+                                font-family: "Sans Serif Book FLF";
+                                border-bottom: 1px solid @border_color_six;
+                                width: 100%;
+                                display: inline-block;
+                                height: 44px;
+                                &::placeholder {
+                                    font-size: @fouth_font_size;
+                                    line-height: @secondary_line_height;
+                                    letter-spacing: @second_letterspacing;
+                                    color: @sixth_color_text;
+                                    font-family: @primary_fontfamily_regular;
+                                }
+                            }
+                        }
+                        .submit-btn {
+                            width: 100%;
+                            display: inline-block;
+                            margin-top: 32px;
+                            .leftbtn {
+                                width: 48%;
+                                float: left;
+                                button {
+                                    border: 1px solid @eigth_color_text;
+                                    background: transparent;
+                                }
+                            }
+                            .rightbtn {
+                                width: 48%;
+                                float: right;
+                                button {
+                                    background: @sixth_bg_color;
+                                    border: 0;
+                                    color: @primart_color_fortext;
+                                    padding-left: 0;
+                                }
+                            }
+                            button {
+                                width: 100%;
+                                font-size: @third_line_height;
+                                line-height: @primary_line_height + 1;
+                                letter-spacing: @third_letterspacing;
+                                color: @eigth_color_text;
+                                text-transform: uppercase;
+                                padding: 10px 0;
+                                text-align: center;
+                                box-shadow: none;
+                                border-radius: 0;
+                                font-family: @primary_fontfamily_regular;
+                                height: 44px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .btmbanner {
+        width: 100%;
+        display: inline-block;
+        margin-top: 70px;
+        margin-bottom: 70px;
+        position: relative;
+        .imgsec {
+            background: #e29c70;
+            width: 100%;
+            float: right;
+            img {
+                float: right;
+            }
+        }
+        .textsec {
+            position: absolute;
+            top: 62px;
+            bottom: inherit;
+            h2 {
+                font-family: @secondary_fontfamily_bold;
+                font-style: @fontfamily_normal;
+                font-weight: @fontweight_bold;
+                font-size: @primary_font_size;
+                line-height: @eighth_line_height;
+                color: @primart_color_fortext;
+                margin: 0;
+            }
+            p {
+                margin-bottom: 0;
+                font-size: @fouth_font_size;
+                line-height: @primary_line_height + 1;
+                color: @sixth_color_text;
+            }
+            .read-more {
+                width: 184px;
+                height: 44px;
+                left: 71px;
+                top: 134px;
+                background: @secondary_color_text;
+                text-align: center;
+                margin-top: 16px;
+                display: inline-block;
+                border: 1px solid @eigth_color_text;
+                cursor: pointer;
+                a {
+                    font-weight: @fontweight_bold;
+                    font-size: @fouth_font_size;
+                    line-height: @primary_line_height + 1;
+                    letter-spacing: @third_letterspacing;
+                    color: @primart_color_fortext;
+                    padding: 10px 0;
+                    display: inline-block;
+                    &:hover {
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+    }
+    .bannersec {
+        position: relative;
+        width: 100%;
+        float: left;
+        img {
+            width: 100%;
+        }
+        .imgtext {
+            position: absolute;
+            top: 45%;
+            bottom: inherit;
+            .imgtext-main {
+                p {
+                    margin-bottom: 0;
+                    font-family: @secondary_fontfamily_bold;
+                    font-style: @fontfamily_normal;
+                    font-weight: @fontweight_bold;
+                    font-size: @main_h1_fontsize;
+                    line-height: @eighth_line_height;
+                    color: @eigth_color_text;
+                }
+                .btmtxt {
+                    margin-top: 8px;
+                    border-top: 5px solid @eigth_color_text;
+                    padding-top: 20px;
+                    p {
+                        font-size: @fifth_line_height;
+                        line-height: @seventh_line_height;
+                        align-items: center;
+                        letter-spacing: 0.0015em;
+                        color: @eigth_color_text;
+                        font-weight: @fontfamily_normal;
+                    }
+                }
+            }
+        }
+    }
+    .mainsec {
+        .textsec {
+            width: 100%;
+            display: inline-block;
+            width: 100%;
+            display: inline-block;
+            text-align: center;
+            p {
+                font-size: @third_line_height;
+                line-height: @secondary_line_height;
+                color: @primart_color_fortext;
+                margin-bottom: 4px;
+            }
+            h1 {
+                font-family: @secondary_fontfamily_bold;
+                font-style: @fontfamily_normal;
+                font-weight: @fontweight_bold;
+                font-size: @main_h1_fontsize;
+                line-height: 40px;
+                color: @primart_color_fortext;
+                margin-bottom: 16px;
+            }
+        }
+        .imagesec {
+            width: 100%;
+            display: inline-block;
+            margin-top: 55px;
+            text-align: center;
+            .threesec {
+                width: 33.33%;
+                float: left;
+                display: inline-block;
+                .title {
+                    font-family: @secondary_fontfamily_bold;
+                    font-style: @fontfamily_normal;
+                    font-weight: @fontweight_bold;
+                    font-size: @primary_font_size;
+                    line-height: @primary_line_height + 1;
+                    color: @primart_color_fortext;
+                    margin-top: 8px;
+                    margin-bottom: 16px;
+                }
+                .content {
+                    p {
+                        font-size: @fouth_font_size;
+                        line-height: @primary_line_height + 1;
+                        color: @primart_color_fortext;
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+        display: inline-block;
+        width: 100%;
+        margin-top: 84px;
+    }
+}
+
+/* sell-your-jewellery-page design end */
+
+@media screen and (max-width: 1250px) {
+    .sell-diamondpage {
+        .sell-item-btm {
+            .main-cnt {
+                background-size: 52%;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .sell-diamondpage {
+        .sell-item-btm {
+            .form-main {
+                height: unset;
+            }
+        }
+    }
+
+    .sell-diamondpage {
+        .sell-item-btm {
+            .main-cnt {
+                background: none;
+            }
+            .form-main {
+                .rightsec {
+                    width: 50%;
+                    float: right;
+                }
+                .leftsec {
+                    width: 50%;
+                    float: left;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .sell-diamondpage .iti--allow-dropdown .iti__flag-container {
+        top: 0;
+    }
+    .fom-sec {
+        width: 100%;
+        display: block;
+    }
+    .sell-diamondpage {
+        .mainsec {
+            display: inline-block;
+            width: 100%;
+            margin-top: 32px;
+            .textsec {
+                h1 {
+                    font-size: @primary_font_size;
+                    line-height: @primary_line_height + 1;
+                    margin-bottom: 24px;
+                }
+                p {
+                    font-size: @seventh_font_size;
+                    line-height: @secondary_line_height;
+                    margin-bottom: 0;
+                }
+            }
+            .imagesec {
+                margin-top: 0;
+                .threesec {
+                    width: 100%;
+                    float: none;
+                    margin-top: 24px;
+                    text-align: center;
+                    img {
+                        box-sizing: border-box;
+                    }
+                    .title {
+                        font-size: @fifth_line_height;
+                        line-height: @fifth_line_height;
+                        margin-top: 16px;
+                        margin-bottom: 8px;
+                    }
+                }
+            }
+        }
+    }
+    .sell-diamondpage {
+        .btmbanner {
+            display: inline-block;
+            margin-top: 35px;
+            position: unset;
+            background: #e29c70;
+            .imgsec {
+                display: none;
+            }
+            .textsec {
+                position: unset;
+                top: 0;
+                text-align: center;
+                padding: 48px 16px;
+                h2 {
+                    font-size: @primary_font_size;
+                    line-height: @primary_line_height + 1;
+                }
+                p {
+                    margin-top: 8px;
+                }
+                .read-more {
+                    width: 100%;
+                }
+            }
+        }
+        .bannersec {
+            .imgtext {
+                width: 100%;
+                display: block;
+                text-align: center;
+                left: 0;
+                right: inherit;
+                top: 45%;
+                .imgtext-main {
+                    p {
+                        font-size: 34px;
+                        line-height: 40px;
+                    }
+                    .btmtxt {
+                        p {
+                            font-size: 18px;
+                            line-height: @primary_line_height + 1;
+                        }
+                    }
+                }
+            }
+        }
+        .sell-item-btm {
+            .form-main {
+                .rightsec {
+                    width: 100%;
+                    float: none;
+                    .thankyousec {
+                        .content {
+                            margin-top: 54px;
+                            p {
+                                color: #000000;
+                            }
+                        }
+                    }
+                    .maincont {
+                        max-width: 100%;
+                        padding-bottom: 42px;
+                        p {
+                            color: #000000;
+                        }
+                        h1 {
+                            margin: 32px 0 12px 0;
+                            color: #000000;
+                        }
+                    }
+                    .fom-sec {
+                        .form-detail {
+                            display: block;
+                            width: unset;
+                            padding: 22px;
+                            margin-top: 54px;
+                        }
+                        h2 {
+                            color: @primart_color_fortext;
+                        }
+                    }
+                    .meeting-sec {
+                        h2 {
+                            color: @primart_color_fortext;
+                            margin-top: 32px;
+                        }
+                        .date-apoinmentsec {
+                            .submit-btn {
+                                .leftbtn {
+                                    button {
+                                        border: 1px solid @primart_color_fortext;
+                                        background: transparent;
+                                        color: @primart_color_fortext;
+                                    }
+                                    width: 100%;
+                                    float: left;
+                                    margin-bottom: 16px;
+                                }
+                                .rightbtn {
+                                    width: 100%;
+                                    float: right;
+                                }
+                            }
+                        }
+                        .date-apoinmentsec {
+                            margin-top: 54px;
+                        }
+                    }
+                }
+                .leftsec {
+                    width: 100%;
+                    float: none;
+                    background: none;
+                    .maincont {
+                        .tabsec {
+                            margin: 16px 0 32px 0;
+                            width: 100%;
+                            .left-tag {
+                                width: 50%;
+                            }
+                        }
+                        .contentsec {
+                            max-width: 100%;
+                            padding-bottom: 0;
+                            &.desktop {
+                                display: none;
+                            }
+                            &.mobile {
+                                display: block;
+                                h5 {
+                                    font-size: @fouth_font_size;
+                                    line-height: @primary_line_height + 1;
+                                    text-align: center;
+                                    color: @primart_color_fortext;
+                                    font-weight: normal;
+                                }
+                                h4 {
+                                    font-weight: bold;
+                                    font-size: @primary_font_size;
+                                    line-height: @primary_line_height + 1;
+                                    color: @primart_color_fortext;
+                                    font-family: @secondary_fontfamily_bold;
+                                    text-align: center;
+                                    margin-bottom: 8px;
+                                    margin-top: 0;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .diamond_sell-index-index,
+    .cms-sell-item {
+        .imgsec.mobile {
+            display: block;
+        }
+        .imgsec.desktop {
+            display: none;
+        }
+    }
+    .sell-diamondpage {
+        .btmbanner {
+            display: inline-block;
+            margin-top: 35px;
+            position: unset;
+            background: #e29c70;
+            .imgsec {
+                display: none;
+            }
+            .textsec {
+                position: unset;
+                top: 0;
+                text-align: center;
+                padding: 48px 16px;
+                h2 {
+                    font-size: @primary_font_size;
+                    line-height: @primary_line_height + 1;
+                }
+                p {
+                    margin-top: 8px;
+                }
+                .read-more {
+                    width: 100%;
+                }
+            }
+        }
+        .bannersec {
+            .imgtext {
+                width: auto;
+                display: block;
+                text-align: left;
+                left: 15px;
+                right: inherit;
+                top: 15px;
+                .imgtext-main {
+                    p {
+                        font-size: @secondary_font_size;
+                        line-height: @primary_line_height + 1;
+                    }
+                    .btmtxt {
+                        margin-top: 5px;
+                        border-top: 2px solid @eigth_color_text;
+                        padding-top: 8px;
+                        p {
+                            font-size: @sixth_font_size;
+                            line-height: @sixth_line_height;
+                        }
+                    }
+                }
+            }
+        }
+        .sell-item-btm {
+            .form-main {
+                .rightsec {
+                    width: 100%;
+                    float: none;
+                }
+                .leftsec {
+                    width: 100%;
+                    float: none;
+                    background: none;
+                    .maincont {
+                        .tabsec {
+                            margin: 16px 0 32px 0;
+                            width: 100%;
+                            .left-tag {
+                                width: 50%;
+                            }
+                        }
+                        .contentsec {
+                            max-width: 100%;
+                            padding-bottom: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

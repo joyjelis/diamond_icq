@@ -1,0 +1,54 @@
+<?php
+$_product = $block->getProduct();
+//echo "come here";
+$productViewModel = $block->getData('custom_product_details_view_model');
+$productAttributeGroupsDetails = $productViewModel->getProductAttributeGroupsDetail($_product);
+//echo "<pre>";print_r($productAttributeGroupsDetails); die;
+
+if (!empty($productAttributeGroupsDetails)) { ?>
+<div class="product-summary">
+	<div class="container">
+		<div class="maincontent">
+			<div class="title"><?php echo __('Product Summary'); ?></div>
+			<div class="title sub"><?php echo $_product->getName(); ?></div>
+			<?php if(!empty($productAttributeGroupsDetails)){
+			$i = 0;
+			foreach($productAttributeGroupsDetails as $attrbgroupdetails){
+				
+				if(isset($attrbgroupdetails['attribute_group_options']) && !empty($attrbgroupdetails['attribute_group_options'])){
+
+					$alignClass = "left";
+					if($i%2 != 0){
+						$alignClass = "right";
+					}
+				?>
+				<div class="<?=$alignClass;?>">
+				<div class="title"><?php echo __($attrbgroupdetails['attribute_group_name']); ?></div>
+				<?php foreach ($attrbgroupdetails['attribute_group_options'] as $attribute) { ?>
+					    	<div class="tab">
+					    		<?php if (isset($attribute['store_label'])) { ?>
+					    			<div class="label"><?php echo __($attribute['store_label']); ?></div>
+					    		<?php }
+					    		else{ ?>
+					    			<div class="label"><?php echo __($attribute['label']); ?></div>
+					    		<?php } ?>
+								<div class="value"><?php echo __($attribute['value']); ?></div>
+							</div>
+					<?php }
+					?>
+				</div>	
+
+
+				<?php	
+				$i++; }
+			 ?>
+				
+			<?php
+				
+				}	
+			}?>
+			
+		</div>
+	</div>
+</div>
+<?php } ?>

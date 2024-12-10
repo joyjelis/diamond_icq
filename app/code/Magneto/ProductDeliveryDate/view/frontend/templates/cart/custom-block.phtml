@@ -1,0 +1,13 @@
+<?php
+ //   $helper = $this->helper("Magneto\ProductDeliveryDate\Helper\Data");
+  //  $productDeliveryEstimatedDate = $helper->getMaxDayQuoteProducts();
+$viewModel = $block->getData('view_model');
+$productDeliveryEstimatedDate = $viewModel->getMaxDayQuoteProducts();
+    
+if (trim($productDeliveryEstimatedDate)!='') { ?>
+
+        <div id="cart-estimate-delivery-date" style="display:none;">
+            <b><?= /* @noEscape */ __("Expected Delivery Date :");?> </b>
+            <?= /* @noEscape */ $productDeliveryEstimatedDate?>
+
+<?php } ?>

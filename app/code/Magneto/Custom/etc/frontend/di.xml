@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Magento\Wishlist\Controller\Index\Add" type="Magneto\Custom\Controller\Index\AddWishlist" />
+    <preference for="Magento\Wishlist\Block\Customer\Wishlist" type="Magneto\Custom\Block\Customer\Wishlist" />
+    <preference for="Magento\Customer\Block\Address\Book" type="Magneto\Custom\Block\Address\Book" />
+    <type name="Magento\Contact\Controller\Index\Post">
+        <plugin name="custom_contact_action" type="Magneto\Custom\Plugin\ContactPost"/>
+    </type>
+</config>

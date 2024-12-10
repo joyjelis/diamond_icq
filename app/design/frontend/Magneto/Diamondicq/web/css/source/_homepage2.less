@@ -1,0 +1,452 @@
+/*Home page loading sequence start*/
+div#mageplaza-bannerslider-block-before-content-1 {
+	min-height: 300px;
+	background: @homepage_sec_bgcolor;
+	 .owl-carousel .owl-item img {
+	    width: 99.9%;
+	    margin: 0 auto;
+	    max-height: 450px;
+	}
+}
+.cms-home {
+	.home-jewellerysec {
+		.mainsec {
+			.rightsec {
+				.content-product {
+					.productsec {
+						li.product-item {
+							.product-image-wrapper {
+								img {
+									max-height: 220px;
+								}
+							}
+							.product-item-info{
+								text-align: center;
+							}
+						}
+					}
+				}
+			}
+			.leftsec {
+				.title {
+					font-family: @title_secondary_fontfamily_bold;
+			    	font-weight: @primary_font_weight;
+				}
+			}
+		}
+	}
+	section.jewelry-sec {
+	    min-height: 600px;
+	    background: #FFFF;
+	}
+	.colordiamond-prodsection {
+		min-height: 560px;
+	}
+	.uniquediamonds-prodsection {
+		min-height: 580px;
+	}
+	.setjewellery-prodsection {
+		min-height: 500px;
+		background: @secondary_color_text;
+	}
+	.widget {
+		.block-products-list {
+			.products-grid {
+				.product-items {
+					.product-item {
+						a.product-item-photo {
+							img.product-image-photo {
+								background: @homepage_sec_bgcolor;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+.newslettermain-sec {
+	.leftsec {
+		.content {
+			.rowone {
+				.one {
+					img {
+						min-width: 140px;
+						min-height: 140px;
+						background: @homepage_sec_bgcolor;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+/*Home page loading sequence end*/
+/*Main slider design start*/
+div#mageplaza-bannerslider-block-before-content-2 {
+    display: none;
+}
+.cms-home{
+	.mp-banner-slider {
+		.btntext {
+		    margin-top: 32px;
+		}
+	.owl-dots {
+		top: 94%;
+		margin: 0 !important;
+		left: auto;
+		width: 100%;
+		.owl-dot {
+			span {
+				height: 5px;
+				width: 20px;
+				background-color: @secondary_font_hover_color;
+				display: inline-block;
+				font-size: 0;
+				margin: 0 4px 0;
+			}
+		}
+	}
+}
+.owl-theme {
+	.owl-dots {
+		.owl-dot.active {
+			span {
+				background: @eigth_color_text;
+			}
+		}
+		.owl-dot {
+			&:hover {
+				span {
+					background: @eigth_color_text;
+				}
+			}
+		}
+	}
+}
+
+}
+
+.mainslider{
+	width: 100%;
+	float: left;
+	position: relative;
+	.container{
+		max-width: 1224px;
+	    position: absolute;
+	    left: 0;
+	    right: 0;
+	    margin: auto;
+	    top: 50%;
+	    transform: translateY(-50%);
+	    padding: 0 12px;
+	}
+		.mainsec{
+			margin-top: 20%;
+			p {
+			    font-style: normal;
+			    font-family: @title_secondary_fontfamily_bold;
+			    font-weight: @primary_font_weight;
+			    font-size: @main_h1_fontsize;
+			    line-height: 48px;
+			    color: @primart_color_fortext;
+			    margin-bottom: 0;
+			}
+			a{
+				width: 184px;
+			    height: 44px;
+			    background: @sixth_bg_color;
+			    padding: 10px 44px;
+			    font-style: normal;
+			    font-weight: bold;
+			    font-size: @seventh_font_size;
+			    line-height: @primary_line_height + 1;
+			    letter-spacing: @third_letterspacing;
+			    color: @primart_color_fortext;
+				&:hover {
+				    text-decoration: none;
+				}
+			}
+		}
+		.left {
+		    float: left;
+		    width: 50%;
+		    text-align: left;
+		}
+		.right {
+		    width: 50%;
+		    float: right;
+		    text-align: right;
+		}
+		.left-btm-full {
+		    width: 58%;
+		    margin-top: 6%;
+		    display: inline-block;
+		    padding: 27px;
+		}
+		.center {
+		    margin-top: 28%;
+		    padding-left: 22%;
+		}
+}
+
+@media screen and (max-width: 1200px) {
+
+div#mageplaza-bannerslider-block-before-content-1 {
+	min-height: unset;
+	background: none;
+}
+.cms-home {
+	section.jewelry-sec {
+	    min-height: unset;
+	    background: none;
+	}
+	.colordiamond-prodsection {
+		min-height: unset;
+	}
+	.uniquediamonds-prodsection {
+		min-height: unset;
+	}
+	.setjewellery-prodsection {
+		min-height: unset;
+		background: none;
+	}
+	.widget {
+		.block-products-list {
+			.products-grid {
+				.product-items {
+					.product-item {
+						a.product-item-photo {
+							img.product-image-photo {
+								background: none;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+.newslettermain-sec {
+	.leftsec {
+		.content {
+			.rowone {
+				.one {
+					img {
+						min-width: unset;
+						min-height: unset;
+						background: none;
+					}
+				}
+			}
+		}
+	}
+}
+
+}
+
+@media screen and (max-width: 767px) {
+	.cms-home {
+		.mp-banner-slider {
+			.owl-dots {
+				top: 90%;
+				width: 100%;
+			    text-align: center;
+			    left: auto;
+			}
+		}
+		.mainslider{
+			.left {
+				margin-top: -50%;
+			    width: 100%;
+			    text-align: center;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 1024px) {
+	.mainslider {
+		width: auto;
+		.mainsec {
+			width: 100%;
+			display: inline-block;
+			margin-bottom: 20px;
+		}
+	}
+	.cms-home {
+		.mp-banner-slider {
+			.owl-carousel {
+				.owl-dots {
+					margin-top: -10px !important;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 768px) {
+
+.mainslider {
+		width: auto;
+		.mainsec {
+			width: 100%;
+			display: inline-block;
+			margin-bottom: 40px;
+		}
+		.center,.left-btm-full{margin-top: 0;}
+	}
+	.cms-home {
+		.mp-banner-slider {
+			.owl-carousel {
+				.owl-dots {
+					margin-top: -60px !important;
+				}
+			}
+		}
+	}
+
+
+}
+
+@media screen and (max-width: 767px) {
+
+div#mageplaza-bannerslider-block-before-content-1 {
+    display: none;
+}
+div#mageplaza-bannerslider-block-before-content-2 {
+    display: block;
+}
+.cms-home {
+	.mp-banner-slider {
+		.owl-carousel {
+			.owl-dots {
+				margin-top: 9px !important;
+			}
+		}
+	}
+}
+.mainslider .center, .mainslider .left-btm-full{    margin-top: 45%;}
+.mainslider {
+	width: 100%;
+	.left-btm-full {
+		width: 95%;
+		margin-top: 55%;
+		padding: 8px;
+	}
+	.right {
+		width: 50%;
+		float: right;
+		text-align: right;
+		margin-top: 66%;
+	}
+	.mainsec {
+		p {
+			font-size: 22px;
+			line-height: 28px;
+		}
+	}
+}
+.cms-home {
+	.mainslider {
+		.left {
+			margin-top: 42%;
+			width: 50%;
+			text-align: center;
+			 &.top {
+			    width: 100%;
+			    margin-top: -55%;
+			}
+		}
+	}
+}
+.right.full {
+	width: 100%;
+}
+
+.cms-home {
+	.mp-banner-slider {
+		.owl-dots {
+			.owl-dot {
+				span {
+					height: 2px;
+				}
+			}
+		}
+	}
+}
+
+}
+
+@media screen and (max-width: 300px) {
+
+	.cms-home {
+		.mp-banner-slider {
+			.owl-carousel {
+				.owl-dots {
+					margin-top: 0 !important;
+				}
+			}
+		}
+	}
+	
+	.mainslider {
+		.mainsec {
+			p {
+				font-size: 24px;
+				line-height: 28px;
+			}
+		}
+	}
+
+
+}
+
+@media screen and (max-width: 1023px) and (min-width: 768px) {
+	.mainslider {
+		.mainsec {
+			p {
+				font-size: 32px;
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 768px) {
+	.page-wrapper .page-header .header.content {
+		max-width: unset;
+	}
+	.header .block-search {
+		float: left;
+	}
+
+	div#mageplaza-bannerslider-block-before-content-1 {
+		max-width: 1224px;
+		margin: 0 auto;
+		padding: 0;
+	}
+
+}
+
+@media screen and (max-width: 1250px) and (min-width: 768px) {
+
+	div#mageplaza-bannerslider-block-before-content-1 {
+		padding: 0 15px;
+		background: none;
+	}
+
+	.cms-home .page-main .container {
+		max-width: 1250px;
+		padding: 0 15px;
+	}
+	
+}
+
+@media screen and (max-width: 767px) and (min-width: 240px) {
+
+	div#mageplaza-bannerslider-block-before-content-2 {
+		padding: 0 15px;
+	}
+
+}

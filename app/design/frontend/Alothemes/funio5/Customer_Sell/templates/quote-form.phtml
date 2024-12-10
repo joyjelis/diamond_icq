@@ -1,0 +1,111 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var $block \Magento\Framework\View\Element\Template */
+?>
+<div class="jewllery-image sell-your-jewellery">
+    <div class="progress">
+        <div id="progress-bar" class="progress-bar" role="progressbar" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100" style="width:33%"></div>
+    </div>
+    <div class="top-action">
+        <div class="back-button">
+            <button type="submit" id="back-button" title="<?php echo __('Back') ?>">
+                <span><i class="fa fa-angle-left" aria-hidden="true"></i></span>
+            </button>
+        </div>
+    </div>
+    <form  id="certificate-form" method="post" enctype='multipart/form-data' 
+           action="<?= $block->getUrl('sell-your-jewellery/quote/quotesave'); ?>" 
+           data-hasrequired="<?php echo __('* Required Fields') ?>" data-mage-init='{"validation":{}}'> 
+        <fieldset id="jewllery-type" class="fieldset" data-progress-value="33" style="display:none;">
+            <input type="hidden" name="jewllery_name" />
+        </fieldset>
+        <fieldset id="add-certificate" class="fieldset" data-progress-value="67">
+            <div class="field note no-label qoute_title">
+                <h2><?= $block->escapeHtml(__('Show us your item & certificate.')) ?></h2>
+                <strong><?= $block->escapeHtml(__('Please take or upload at least ONE photo per item.')) ?></strong>
+                <p><?= $block->escapeHtml(__('Clear and well-lit photos recommended.')) ?></p>
+            </div>
+            <div class="field image required">
+                <div id="preview-image" style="position: relative;"></div>
+                <div class="control" id="imageMulti">
+                    <input name="image[]" id="certificate-image" accept="image/*" value="" 
+                    class="input-text" type="file" data-validate="{required:true}" multiple style="display: none;" />
+                    <label class="upload-icon">
+                        <input type="button" value="upload" onclick="document.getElementById('certificate-image').click();" />
+                    </label>
+                </div>
+            </div>
+
+            <div class="field remarks">
+                <div class="control">
+                    <input name="remarks" id="remark" title="<?php echo __('Remark(if any)') ?>" value="" class="input-text" type="text" placeholder="<?php echo __('Remark (if any)') ?>"/>
+                </div>
+            </div>
+                    
+            <div class="actions-toolbar">
+                <div class="primary">
+                    <button type="button" id="next-button" title="<?php echo __('Next') ?>" class="action submit primary">
+                        <span><?php echo __('Next') ?></span>
+                    </button>
+                </div>
+            </div>
+        </fieldset>
+
+        <fieldset id="info-fieldset" class="fieldset" data-progress-value="90" style="display:none;">
+            <div class="field note no-label qoute_title">
+                <h2><?= $block->escapeHtml(__("We're almost done.")) ?></h2>
+                <strong><?= $block->escapeHtml(__('What is your name?')) ?></strong>
+            </div>
+            <div class="field name required">
+                <div class="control">
+                    <select name="title" id="title">
+                        <option value=""><?php echo __('Title') ?></option>
+                        <option value="<?php echo __('Mr') ?>"><?php echo __('Mr') ?></option>
+                        <option value="<?php echo __('Mrs') ?>"><?php echo __('Mrs') ?></option>
+                    </select>
+                    <input name="name" placeholder="<?php echo __('Full Name') ?>" class="input-text required-entry" type="text" data-validate="{required:true}" />
+                </div>
+            </div> 
+            <div class="field phone_number required">
+                <div class="control">
+                    <input name="phone_number" id="phone_number" placeholder="<?php echo __('Phone Number') ?>" value="+852" class="input-text required-entry" type="text" data-validate="{required:true}" />
+                </div>
+            </div> 
+            <div class="actions-toolbar">
+                <div class="primary">
+                    <button type="submit" id="submit-button" title="<?php echo __('Next') ?>" class="action submit primary">
+                        <span><?php echo __('Next') ?></span>
+                    </button>
+                </div>
+            </div>        
+        </fieldset>
+
+    </form>
+</div>
+
+<div class="certificate-preview" id="popup-modal" style="display:none;">
+    <form method="POST" action="" data-hasrequired="<?php echo __('* Required Fields') ?>" data-mage-init='{"validation":{}}'> 
+        <fieldset class="fieldset">
+            <div class="field image required">
+                <div class="image" name="image[]" id="image"></div>
+                <div class="control">
+                    <label class="upload-icon">
+                        <input type="button" value="upload" onclick="document.getElementById('certificate-image').click();" />
+                    </label>
+                </div>
+            </div>
+            <div class="display-img" id="display-img"></div>
+        </fieldset>
+    </form>
+    <div id="image-actions">
+        <button type="submit" id="confirm-button"><?= $block->escapeHtml(__('Confirm')) ?></button>
+    </div>
+</div>
+
+<script>
+require(['jquery','getQuote']);
+</script>

@@ -1,0 +1,18 @@
+<?php
+$item = $block->getSellitem();
+?>
+<div class="status-details track_my_consignment">
+    <div class="field tmc required">
+        <label class="label" for="bankname"><span><?= __("Track My Shipment"); ?></span></label>
+        <div class="control">
+            <input name="track_my_consignment" readonly="readonly" id="track_my_consignmentno" data-validate="{required:true}" title="<?= $block->escapeHtml(__('Track My Shipment')) ?>" value="<?= $item->getTracking() ?>" class="input-text" type="text" />
+        </div>
+    </div>
+    <div class="actions-toolbar">
+        <div class="primary">
+            <button type="button" title="<?= $block->escapeHtml(__('Submit')) ?>" class="action submit primary" onclick="location.href = 'https://www.fedex.com/fedextrack/?trknbr=<?= $item->getTracking() ?>';">
+                <span><?= $block->escapeHtml(__('Track My Shipment')) ?></span>
+            </button>
+        </div>
+    </div>
+</div>

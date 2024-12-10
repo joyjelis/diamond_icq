@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <title>Contact Us</title>
+    </head>
+    <body>
+        <referenceBlock name="head.additional">
+            <container name="canonical.contact.page.container">
+                <block class="Magento\Framework\View\Element\Text" name="canonical.contact.page">
+                    <arguments>
+                        <argument name="label" xsi:type="string">Adding canonical tag with base URL</argument>
+                        <argument name="text" xsi:type="helper" helper="Travash\Customization\Helper\Canonical::getCanonicalTag"/>
+                    </arguments>
+                </block>
+            </container>
+        </referenceBlock>
+        <referenceBlock name="page.main.title">
+            <action method="setPageTitle">
+                <argument translate="true" name="title" xsi:type="string">Contact</argument>
+            </action>
+        </referenceBlock>
+        <referenceBlock name="breadcrumbs">
+            <action method="addCrumb">
+                <argument name="crumbName" xsi:type="string">home</argument>
+                <argument name="crumbInfo" xsi:type="array">
+                    <item name="title" xsi:type="string">Home</item>
+                    <item name="label" xsi:type="string">Home</item>
+                    <!-- <item name="link" xsi:type="string">/</item> -->
+                    <item name="link" xsi:type="string">{{baseUrl}}</item>
+                </argument>
+            </action>
+            <action method="addCrumb">
+                <argument name="crumbName" xsi:type="string">Contact Us</argument>
+                <argument name="crumbInfo" xsi:type="array">
+                    <item name="title" xsi:type="string">Contact Us</item>
+                    <item name="label" xsi:type="string">Contact Us</item>
+                </argument>
+            </action>
+        </referenceBlock>
+        <referenceContainer name="contact_map" remove="true"/>
+        <referenceContainer name="page.top">
+            <container name="static.contact.top" htmlTag="div" htmlClass="cms-contact-top" after="content">
+                <block class="Magento\Cms\Block\Block" name="cms.block.contact.top">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">cms-contact-top</argument>
+                    </arguments>
+                </block>
+            </container>
+        </referenceContainer>
+    </body>
+</page>

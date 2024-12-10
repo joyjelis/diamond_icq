@@ -1,0 +1,212 @@
+<?php
+/**
+ * Copyright © Magefan (support@magefan.com). All rights reserved.
+ * Please visit Magefan.com for license details (https://magefan.com/end-user-license-agreement).
+ *
+ * Glory to Ukraine! Glory to the heroes!
+ */
+?>
+<?php
+/**
+ * Blog post list template
+ *
+ * @var $block \Magefan\Blog\Block\Post\PostList
+ */
+?>
+<?php
+$_postCollection = $block->getPostCollection();
+?>
+<?php if (!$_postCollection->count()): ?>
+    <div class="message info empty">
+        <div>
+            <?= $block->escapeHtml(__('We can\'t find posts matching the selection.')) ?>
+        </div>
+    </div>
+<?php else: ?>
+    <?= $block->getAdditionalHtml() ?>
+    <div class="post-list-wrapper">
+        <?php $iterator = 1; ?>
+        <ol class="post-list">
+            <?php foreach ($_postCollection as $_post): ?>
+                <?= $block->getPostHtml($_post) ?>
+            <?php endforeach; ?>
+            <li class="hidden">
+                <script type="text/javascript">
+                    if (window.addthis) {
+                        addthis.toolbox('.addthis_toolbox');
+                    }
+                </script>
+            </li>
+        </ol>
+    </div>
+
+    <?= $block->getToolbarHtml() ?>
+    <?= $block->getChildHtml('addthisJs'); ?>
+<?php endif; ?>
+
+<style>
+.widget.blog-search input {
+    padding-right: 16px;
+    padding-bottom: 8px;
+}
+
+.post-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.post-holder {
+    width: 50%;
+    display: flex;
+}
+
+.post-content {
+    padding-left: 15px;
+    padding-right: 15px;
+    display: flex;
+}
+
+.post-description {
+    border: 1px solid #e8dbd3;
+}
+
+.blog-page-list .post-holder {
+    border: none;
+}
+
+.post-header {
+    margin-left: 15px;
+    margin-right: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    position: relative;
+    top: -50px;
+    background-color: white;
+}
+
+.post-list .post-content .post-read-more {
+    font-style: normal;
+    font-weight: 550;
+    font-size: 14px;
+    line-height: 13px;
+    color: #333;
+    float: none;
+}
+
+.post-list .post-header .post-title a {
+    font-style: normal;
+    font-weight: 550;
+    font-size: 22px;
+    line-height: 20px;
+
+    color: #333;
+}
+
+.post-box {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.post-info {
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 18px;
+    color: black;
+    display: flex;
+    justify-content: space-between;
+}
+
+.post-holder .post-header .post-info .item {
+    display: flex;
+    align-items: center;
+}
+
+.post-holder .post-header .post-info .item::after {
+    display: inline-block;
+    content: '';
+    color: #b9b9b9;
+}
+
+/* stylelint-disable */
+.dot {
+    height: 5px;
+    width: 5px;
+    background-color: #d9d9d9;
+    border-radius: 100%;
+    display: inline-block;
+    margin-left: 0.5vw;
+    margin-right: 0.5vw;
+}
+
+/* stylelint-enable */
+#blog_search {
+    padding-right: 16px;
+    padding-left: 16px;
+    padding-bottom: 10px;
+}
+
+.post-info .item:nth-child(1) .dot {
+    display: none;
+}
+
+.post-list-wrapper .post-list {
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+.item.post-categories a {
+    color: black;
+    font-weight: bold;
+}
+.item.addthis_toolbox {
+    padding-left: 10px;
+}
+
+@media (max-width: 1024px) {
+    .breadcrumbs {
+        display: block;
+    }
+}
+
+@media (min-width: 768px) {
+    .breadcrumbs {
+        display: block;
+    }
+}
+
+@media (max-width: 767px) {
+
+    .blog-page.blog-post-view .page-title-wrapper .page-title,
+    h1 {
+        font-size: 26px;
+        font-weight: 600;
+        line-height: 1.1;
+        margin-bottom: 40px;
+        margin-top: 0;
+    }
+
+    .post-holder {
+        width: 100%;
+    }
+
+    /* stylelint-disable */
+    .post-list-wrapper .post-list {
+        margin: 0px;
+    }
+
+    /* stylelint-enable */
+}
+
+@media (max-width: 485px) {
+
+    .item.post-categories,
+    .item.post-posed-date,
+    .item.post-author {
+        width: 100%;
+    }
+
+    .dot {
+        display: none;
+    }
+}
+</style>

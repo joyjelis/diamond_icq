@@ -1,0 +1,231 @@
+<?php 
+/**
+* FME Extensions
+*
+* NOTICE OF LICENSE
+*
+* This source file is subject to the fmeextensions.com license that is
+* available through the world-wide-web at this URL:
+* https://www.fmeextensions.com/LICENSE.txt
+*
+* DISCLAIMER
+*
+* Do not edit or add to this file if you wish to upgrade this extension to newer
+* version in the future.
+*
+* @category  FME Calalog
+* @author    FME extensions <support@fmeextensions.com
+>
+* @package   FME_ProductSorting
+* @copyright Copyright (c) 2021 FME (http://fmeextensions.com/
+)
+* @license   https://fmeextensions.com/LICENSE.txt
+*/
+ ?>
+<?php
+$type = 'widget-product-grid';
+$mode = 'grid';
+$image = 'new_products_content_widget_grid';
+$showWishlist = true;
+$showCompare = true;
+$showCart = true;
+$description = false;
+$templateType = \Magento\Catalog\Block\Product\ReviewRendererInterface::SHORT_VIEW;
+$itemss = $this->getCollection();
+$items = array();
+$count = 0;
+$helpers = $this->helper('FME\ProductSorting\Helper\Data');
+$page = $helpers->getConfig('widget/applyPage');
+$option = $helpers->getConfig('widget/option');
+$widgetEnable = $helpers->getConfig('widget/enable');
+$enable = $helpers->getGeneralConfig('enabled');
+$controller = $block->getControllerName();
+// echo $controller;
+if ($option && $enable && $widgetEnable) {
+    if($controller=='category' && ($page == 2 || $page == '1,2,3' || $page == '1,2'  || $page == '2,3' )){
+        foreach ($itemss as $key => $value) {
+            $data = array(    
+                $key => $value,
+                );
+            $count++;
+            if($count <= 4){
+                $items =  array_merge($items, $data);
+            } 
+        }
+    }
+ 
+    if($controller=='result' && ($page == 3 || $page == '1,2,3' || $page == '1,3'  || $page == '2,3')){
+          foreach ($itemss as $key => $value) {
+            $data = array(    
+                $key => $value,
+                );
+            $count++;
+            if($count <= 4){
+                $items =  array_merge($items, $data);
+            } 
+          }
+    }
+
+    if($controller == 'cart' && ($page == 1 || $page == '1,2,3' || $page == '1,2'  || $page == '1,3')){
+           foreach ($itemss as $key => $value) {
+            $data = array(    
+                $key => $value,
+                );
+            $count++;
+            if($count <= 4){
+                $items =  array_merge($items, $data);
+            } 
+           }
+    }
+
+    if($controller == 'cart' && $page == 1 ) {
+        echo "<style>
+    .page-layout-1column .block.widget .products-grid .product-item {
+    margin-left: 2%;
+    width: 100%;
+}
+
+</style>";
+    }
+}
+
+?>
+<?php if (!empty($items)) : ?>
+     <div class="block widget block-viewed-products-grid" style="width:<?php if($controller == 'cart' && $page == 1 ) {
+        echo "75%;";
+    }?>"> 
+            <div class="block-title">
+                <h1 class="heading"><?php echo /* @noEscape */ $block->getTitle(); ?></h1>
+            </div>
+            <div class="block-content">
+                <div class="products-grid">
+                    <?php echo /* @noEscape */ '<!-- ' . $image . '-->' ?>
+                        <ol class="product-items" style="<?php if($controller == 'cart' && $page == 1 ) {
+        echo "display: grid;
+                               grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); grid-gap: 20px;";
+                       }?>" >
+                            <?php $iterator = 1; ?>
+                                <?php foreach ($items as $_item) : ?>
+                                    <?php $postParams = $block->getAddToCartPostParams($_item); ?>
+                                     <?php echo /* @noEscape */ ($iterator++ == 1) ? '<li class="product-item" >' : '</li><li class="product-item" >' ?> 
+                                        <div class="product-item-info">
+                                             <a href="<?php echo $block->escapeUrl($_item->getProductUrl()) ?>" class="product-item-photo">
+                                                <span class="product-image-container" style="width: <?php 
+                                                if($controller == 'cart' 
+                                                    && $page == 1 ) {
+                                                    echo "200px;";
+                                                } else {
+                                                echo "85px;";
+                                                }?>">
+                                                    <span  class="product-image-wrapper" style="padding-bottom: 120%;">
+                                                        <?php if ($_item->getImage()) {?>
+                                                        <img class="product-image-photo" src="<?php echo $block->escapeUrl($block->getImageUrl($_item->getImage()).$_item->getImage()); ?>" >
+                                                        <?php } else { ?>
+                                                        <img class="product-image-photo" src="<?php echo $block->escapeUrl($this->helper(\Magento\Catalog\Helper\Image::class)->getDefaultPlaceholderUrl('image')); ?>">
+                                                        <?php } ?>
+                                                    </span>
+                                                </span>
+                                            </a>
+                                            <div class="product-item-details">
+                                                 <strong class="product-item-name">
+                                                    <a title="<?php echo $block->escapeHtml($_item->getName()) ?>"
+                                                        href="<?php echo $block->escapeUrl($_item->getProductUrl($_item)) ?>"
+                                                        >
+                                                        <?php echo $block->escapeHtml($_item->getName()) ?>
+                                                    </a>
+                                                </strong>
+                                                <?php echo $block->getProductPriceHtml($_item, $type); ?>
+                                                
+                                                
+
+                                                <!-- review star ,count & add New Review Start-->
+                                                <?php $ratingSummary = $block->getRatingSummary($_item); ?>
+                                                <?php $ratingCount = $block->getReviewsCount($_item); ?>
+                                                <?php if ($ratingSummary) { ?>
+                                                <div class="product-reviews-summary short">
+                                                    <div class="rating-summary">
+                                                        <div title="<?php echo (int) $ratingSummary; ?>%" class="rating-result">
+                                                            <span style="width:<?php echo (int) $ratingSummary; ?>%"><span><?php echo (int) $ratingSummary; ?>%</span></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="reviews-actions">
+                                                        <a class="action view" href="<?php echo $block->escapeUrl($_item->getProductUrl($_item)) ?>#reviews">
+                                                            <span itemprop="reviewCount"><?php echo /* @noEscape */ $ratingCount; ?></span>&nbsp;
+                                                            <span>Reviews</span>
+                                                        </a>
+                                                        <a class="action add" href="<?php echo $block->escapeUrl($_item->getProductUrl($_item)) ?>#review-form">Add Your Review</a>
+                                                    </div>
+                                                </div>
+                                                <?php } ?>
+
+                                                
+                                                <?php if ($showWishlist || $showCompare || $showCart) : ?>
+                                                    <?php $cartHelper = $this->helper(\Magento\Checkout\Helper\Cart::class); ?>
+                    <div class="product-item-inner">
+                         <div class="product-item-actions">
+                                <?php if ($showCart) : ?>
+                                     <div class="actions-primary">
+                                            <?php if ($_item->isSaleable()) : ?>
+                            <form data-role="tocart-form" action="<?php echo /* @noEscape */ $postParams['action']; ?>" method="post">
+                              <input type="hidden" name="product" value="<?php echo /* @noEscape */ $postParams['data']['product']; ?>">
+                              <input type="hidden" name="<?php echo $block->escapeHtmlAttr($block->getCartParamNameURLEncoded()); ?>" value="<?php echo $block->escapeHtmlAttr($postParams['data'][$block->getCartParamNameURLEncoded()]); ?>">
+                                     <?php echo $block->getBlockHtml('formkey') ?>
+                                     <button type="submit"
+                    title="<?php echo $block->escapeHtml(__('Add to Cart')); ?>"
+                    class="action tocart primary">
+                    <span><?php echo /* @noEscape */ __('Add to Cart') ?></span>
+                   </button>
+                                            </form>
+                            <?php else : ?>
+                         <?php if ($_item->getIsSalable()) : ?>
+                         <div class="stock available"><span><?php echo $block->escapeHtml(__('In stock')) ?></span></div>
+                                <?php else : ?>
+                                 <div class="stock unavailable"><span><?php echo $block->escapeHtml(__('Out of stock')) ?></span></div>
+                                <?php endif; ?>
+                            <?php endif; ?>
+                                                    </div>
+                                <?php endif; ?>
+
+                                     <?php if ($showWishlist || $showCompare) : ?>
+                                        <div class="actions-secondary" data-role="add-to-links">
+                            <?php if ($this->helper(\Magento\Wishlist\Helper\Data::class)->isAllow() && $showWishlist) : ?>
+                            <a href="#" data-post='<?php echo /* @noEscape */ $this->helper(\Magento\Wishlist\Helper\Data::class)->getAddParams($_item) ?>' class="action towishlist" data-action="add-to-wishlist" title="<?php echo method_exists($block, 'escapeHtmlAttr') ? $block->escapeHtmlAttr(__('Add to Wish List')) : $block->escapeHtml(__('Add to Wish List'));  ?>">
+                                         <span><?php echo $block->escapeHtml(__('Add to Wish List')) ?></span>
+                                                                    </a>
+                            <?php endif; ?>
+
+                                <?php $compareHelper = $this->helper(\Magento\Catalog\Helper\Product\Compare::class);?>
+                                    <?php if ($compareHelper && $showCompare) : ?>
+                            <a href="#" class="action tocompare" data-post='<?php echo /* @noEscape */ $compareHelper->getPostDataParams($_item) ?>' title="<?php echo method_exists($block, 'escapeHtmlAttr') ? $block->escapeHtmlAttr(__('Add to Compare')) : $block->escapeHtml(__('Add to Compare'));  ?>">
+                     <span><?php echo $block->escapeHtml(__('Add to Compare')) ?></span>
+                                                                    </a>
+                                    <?php endif; ?>
+                                                            </div>
+                                     <?php endif; ?>
+                                                    </div>
+                                                <?php endif; ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                      <?php echo ($iterator == count($items) + 1) ? '</li>' : '' ?>
+                                    </li>
+                                <?php endforeach ?>
+                        </ol>
+                    <?php echo $block->getPagerHtml() ?>
+                </div>
+            </div>
+    </div>
+<?php endif; ?>
+
+
+<!-- Add to cart ajax -->
+<script type="text/x-magento-init">
+    {
+        "[data-role=tocart-form], .form.map.checkout": {
+        "catalogAddToCart": {
+        "bindSubmit": true
+    }
+}
+}
+</script>
+

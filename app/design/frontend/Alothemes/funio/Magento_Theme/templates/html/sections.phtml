@@ -1,0 +1,59 @@
+<?php
+
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php
+
+/**
+ *  General template for displaying group of blocks devided into sections
+ */
+
+$group = $block->getGroupName();
+$groupCss = $block->getGroupCss();
+$groupBehavior = $block->getGroupBehaviour() ? $block->getGroupBehaviour() : '{"tabs":{"openedState":"active"}}';
+?>
+<?php if ($detailedInfoGroup = $block->getGroupChildNames($group, 'getChildHtml')) : ?>
+    <?php $layout = $block->getLayout(); ?>
+
+    <div class="sections <?= /* @escapeNotVerified */ $groupCss ?>">
+        <div class="mobile-store-settings close-menu close-menu-nav-open">
+            <div class=" d-flex">
+                <span class="p-0" style=" margin-right: 8rem;"><i class="icon-close pe-7s-close"></i></span>
+                <span class="p-0 d-flex mt-2 mr-4"><?php echo $layout->renderElement('store.settings'); ?></span>
+            </div>
+        </div>
+        <div class="section-items <?= /* @escapeNotVerified */ $groupCss ?>-items" data-mage-init='<?= /* @escapeNotVerified */ $groupBehavior ?>'>
+            <?php   
+            foreach ($detailedInfoGroup as $name) : ?>
+                <?php
+                if ($name != 'store.menu') {
+                    continue;
+                }
+                $html = $layout->renderElement($name);
+                if (!trim($html) && ($block->getUseForce() != true) && $name != 'store.menu') {
+                    continue;
+                }
+                $alias = $layout->getElementAlias($name);
+                $label = $block->getChildData($alias, 'title');
+                ?>
+                <div class="section-item-title d-none <?= /* @escapeNotVerified */ $groupCss ?>-item-title" data-role="collapsible">
+                    <a class="<?= /* @escapeNotVerified */ $groupCss ?>-item-switch" data-toggle="switch" href="#<?= /* @escapeNotVerified */ $alias ?>"><?= /* @escapeNotVerified */ $label ?></a>
+                </div>
+                <div class="section-item-content <?= /* @escapeNotVerified */ $groupCss ?>-item-content" id="<?= /* @escapeNotVerified */ $alias ?>" data-role="content"><?= /* @escapeNotVerified */ $html ?></div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+<?php endif; ?>
+<script type="text/javascript">
+    require(['jquery', 'magiccart/easing', 'magicmenu'], function($) {
+        $('.close-menu.close-menu-nav-open i').on("click", function() {
+            $('.nav-toggle').trigger("click");
+        });
+    });
+</script>

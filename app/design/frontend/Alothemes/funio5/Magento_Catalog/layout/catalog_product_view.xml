@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page layout="1column"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+	<body>
+		<referenceBlock name="content">
+			<block class="Magento\Catalog\Block\Product\View" name="product.details.custom" template="Magento_Catalog::product/product-details.phtml"/>
+		</referenceBlock>	
+		<referenceBlock name="breadcrumbs" template="Magento_Catalog::product/view/breadcrumbs.phtml" />
+		<block class="Magento\Catalog\Block\Breadcrumbs" />
+		<move element="product.details.custom" destination="product.shop.content" after="product.info.mailto"/>
+		<move element="product.info.description" destination="product.details.custom" before="-"/>
+		<move element="product.info.overview" destination="product.details.custom" after="product.info.description"/>
+		<referenceBlock name="reviews.tab" remove="true" />
+		<referenceBlock name="product.info.review" remove="true" />
+		<referenceBlock name="product.attributes" remove="true" />
+		<referenceBlock name="product.attributes.wrapper" remove="true" />
+		<referenceBlock name="product.info.freeengraving" remove="true" />
+		<referenceBlock name="product.info.overview" remove="true"/>
+	</body>
+</page>

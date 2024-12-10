@@ -1,0 +1,58 @@
+<?php
+$customBlock = $this->getLayout()->createBlock('Amasty\Shopby\Block\Navigation\FilterRenderer\Category');
+$customBlockClearUrl = $customBlock->getClearUrl();
+$query = "";
+if(!empty($block->getRequest()->getParam('q'))){
+	$query = $block->getRequest()->getParam('q');
+}
+?>
+<form data-amshopby-filter="custom_search" data-amshopby-filter-request-var="custom_search">
+	<div class="category-search">
+		<div class="searchinput">
+			<input type="text" id="current_category_search" value="<?= $query ?>" class="-from input-text am-filter-item-<?= /* @noEscape */ $escaper->escapeHtmlAttr(uniqid())?>" name="amshopby[q][]"  href="<?=$customBlockClearUrl?>" placeholder="<?php echo __('Search Jewellery...'); ?>" >
+		</div>
+		<div class="actions">
+			<button type="submit" data-am-js="filter-item-default" id="custom_search_submit" title="Search" class="action search am-filter-go"></button>
+		</div>
+	</div>
+
+</form>
+<script>
+	require(['jquery', 'jquery/ui'], function($){
+		$(document).ready( function() {
+			function delay(callback, ms) {
+			  var timer = 0;
+			  return function() {
+			    var context = this, args = arguments;
+			    clearTimeout(timer);
+			    timer = setTimeout(function () {
+			      $('#custom_search_submit').click();
+			    }, ms || 0);
+			  };
+			}
+
+			$('#custom_search_submit').click(function(){
+				if ($(window).width() < 720) {
+					var RemoveFilter = setInterval(function() {
+						if ($('.am_shopby_apply_filters .am-show-button .am-items').length) {
+							$(".am_shopby_apply_filters .am-show-button > .amshopby-button").click();
+							clearInterval(RemoveFilter);
+						}
+					}, 100);
+				}else{
+					return true;
+				}
+			});
+
+			if ($(window).width() > 720) {
+				// Once user stop typing filter the result 
+				$('#current_category_search').keyup(delay(function (e) {}, 500));
+			}
+
+			// Remove Filter from the list
+			$(".amshopby-items li[data-container='q'] .amshopby-remove").click(function(){ 
+				$('#current_category_search').val("");
+			});
+		});
+	});
+</script>

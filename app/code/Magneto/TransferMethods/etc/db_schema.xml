@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+	<table name="transfer_methods" resource="default" engine="innodb" comment="Customer Diamond Sell Table">
+		<column xsi:type="int" name="method_id" padding="11" unsigned="false" nullable="false" identity="true" comment=""/>
+		<constraint referenceId="PRIMARY" xsi:type="primary">
+			<column name="method_id"/>
+		</constraint>
+		<column length="255" name="bank_name" nullable="true" xsi:type="varchar"/>
+		<column length="255" name="account_name" nullable="true" xsi:type="varchar"/>
+		<column length="255" name="account_no" nullable="true" xsi:type="varchar"/>
+		<column length="255" name="swift_code" nullable="true" xsi:type="varchar"/>
+		<column length="255" name="country" nullable="true" xsi:type="varchar"/>
+		<column length="255" name="customer_id" nullable="true" xsi:type="varchar"/>
+		<column name="is_primary" nullable="true" xsi:type="boolean" default="0" />
+		<column name="created_at" nullable="false" xsi:type="datetime" default="CURRENT_TIMESTAMP" on_update="false"/>
+		<column name="updated_at" nullable="true" xsi:type="datetime" default="CURRENT_TIMESTAMP" on_update="true"/>
+	</table>
+</schema>

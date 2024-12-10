@@ -1,0 +1,54 @@
+<?php 
+    $educationSubCategories = [];
+    $_categoryId = $parentCatIfd = $this->getRequest()->getParam("cat");
+    $edu = $this->getRequest()->getParam("edu");
+    if ($_categoryId){
+        $catInfo = $this->getCategoryById($_categoryId);
+        if($catInfo->getParentCatId() > 0){
+            $parentCatIfd = $catInfo->getParentCatId();
+        }
+        $educationSubCategories = $this->getEducationChildCategory($parentCatIfd);
+    }
+    $eduInfo = $this->getEducationByCategoryId($edu,$_categoryId);
+
+?>
+<div class="education-list-wrap">
+    <ul class="main-subcat-list">
+        <?php if(count($educationSubCategories) > 0): ?>
+            <?php foreach ($educationSubCategories as $categoryId => $categoryData): ?>
+            <?php $categoryUrl = $categoryData->getUrlKey(); ?>
+            <?php $categoryName = $categoryData->getName(); ?>
+            <li class="cat-item cat-item-<?php echo $categoryId; ?> <?php echo ($categoryId == $_categoryId) ? 'active' : ''; ?>">
+                <?php
+                if (!empty($categoryUrl)): ?>
+            
+                    <a href="<?php echo $block->getCategoryUrl(
+                        $categoryUrl
+                                ); ?>">
+                        <?php echo $categoryName; ?>
+                    </a>
+                <?php else: ?>
+                    <a href="<?php echo $this->getUrl() .
+                        "/category/categorylist/cat/" .
+                        $categoryId; ?>">
+                        <?php echo $categoryName; ?>
+                    </a>
+                <?php endif; ?>
+            </li>
+            <?php endforeach; ?>
+        <?php endif; ?>
+    </ul>
+    <?php if($eduInfo->getTitle()): ?>    
+        <h1 class="title mt-5">
+            <?php echo $eduInfo->getTitle();?>
+        </h1>
+        <div class="education-content">
+        <?php echo $eduInfo->getDescription();?>
+        </div>
+        <?php echo $eduInfo->geSchemaScript();?>
+    <?php else: ?>
+    <div class="available">
+        <p><?php echo __("There is no data available") ?></p>
+    </div>
+<?php endif; ?>
+</div>

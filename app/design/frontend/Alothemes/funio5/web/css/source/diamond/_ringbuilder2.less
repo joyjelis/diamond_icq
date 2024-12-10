@@ -1,0 +1,968 @@
+/*Ring Builder Step 3 Starts*/
+.main-ringbuilder-banner .main-bannersec.respo {
+    display: none;
+}
+
+.requested-form {
+    h2 {
+        font-size: 24px;
+        line-height: 36px;
+        padding-right: 5px;
+        display: inline-block;
+        font-family: inherit;
+        font-weight: bold;
+    }
+}
+
+.ringbuilder-diamond-completering {
+    font-size: @fouth_font_size;
+    line-height: @secondary_line_height;
+    font-family: inherit;
+
+    .page-main {
+        padding: 0;
+    }
+}
+
+.ringbuilder-diamond-completering {
+    p.textEngravingValue {
+        right: 12px;
+        width: auto;
+    }
+
+    .form-main.no-padding.diamond-request-form {
+        padding-left: 0;
+    }
+
+    .ring-details.no-padding.ring-request-form {
+        padding-left: 24px;
+
+        .ring-data {
+            float: left;
+            width: 100%;
+
+            .diamond-content-data {
+                .form-field.diamonds-info {
+                    .prdctdrpdwn {
+                        .product-info-engraving {
+                            .title {
+                                position: relative;
+                                top: 4px;
+                                padding-left: 4px;
+                                font-size: @fouth_font_size;
+                                line-height: @third_line_height;
+                                text-indent: 20px;
+                                text-transform: uppercase;
+                            }
+
+                            .popup {
+                                top: 48px;
+                                left: 0;
+                            }
+
+                            .textEngravingValue.for-preview {
+                                float: right;
+                                right: 12px;
+                                left: inherit;
+                                width: auto;
+                            }
+
+                            .edit_remove_engraving {
+                                padding-left: 12px;
+
+                                a {
+                                    text-decoration: underline;
+                                    position: relative;
+                                    top: 8px;
+                                }
+                            }
+
+                            .textEngravingValue.js-Times_New_Roman_Italic {
+                                float: right;
+                            }
+
+                            a.edit_engraving.openBtn {
+                                float: left;
+                                position: relative;
+                                top: 8px;
+                                display: inline-block;
+                                padding-left: 0;
+                            }
+
+                            .remove_engraving {
+                                float: left;
+                                position: relative;
+                                top: 5px;
+                                padding-left: 10px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .flow-tabs {
+        .diamond-filter-title.save-reset-filters {
+            margin-bottom: 0;
+
+            .filter-right {
+                li {
+                    a {
+                        font-size: @fouth_font_size;
+                        line-height: @third_line_height;
+                        text-transform: capitalize;
+
+                        &:before {
+                            width: 24px;
+                            height: 24px;
+                            content: "";
+                            display: inline-block;
+                            top: -3px;
+                            left: -32px;
+                            background: url(../images/eva_undo-fill.svg);
+                        }
+                    }
+                }
+            }
+        }
+
+        .tab-content {
+            display: inline-block;
+            float: none;
+            width: 100%;
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        .tab-section {
+            width: 100%;
+            // max-width: 1254px;
+            padding: 0 15px;
+            margin: 0 auto;
+            box-sizing: border-box;
+
+            li.tab-li {
+                height: 96px;
+
+                a {
+                    border-radius: 0;
+                    .tab-title {
+                        font-size: @secondary_font_size;
+                        line-height: 43px;
+                        width: 70%;
+                        display: inline-block;
+
+                        p {
+                            margin: 0;
+                            width: auto;
+                            display: inline-block;
+                            font-size: 40px;
+                            font-weight: 600;
+                            padding-right: 24px;
+                            vertical-align: sub;
+                        }
+                    }
+
+                    .img {
+                        display: inline-block;
+                        float: right;
+                        margin-top: -10px;
+
+                        img {
+                            width: 64px;
+                            height: 64px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .flow-tabs {
+        .tab-ul {
+            margin-bottom: 48px;
+        }
+
+        .tab-content {
+            .diamonds-preview {
+                .diamond-info {
+                    h2 {
+                        font-size: @fouth_font_size;
+                        line-height: @primary_line_height + 1;
+                        opacity: 0.8;
+
+                        span {
+                            font-size: @fouth_font_size;
+                            line-height: @primary_line_height + 1;
+                            opacity: 0.8;
+                        }
+                    }
+
+                    .diamond-image {
+                        border: 1px solid;
+                    }
+
+                    .product-thumb {
+                        margin-top: 24px;
+
+                        a {
+                            border: 1px solid;
+                            padding: 2px;
+                            margin: 0 4px;
+                            margin-right: 0;
+
+                            img {
+                                display: block;
+                            }
+
+                            &:first-child {
+                                margin-left: 0;
+                            }
+
+                            &:last-child {
+                                margin-right: 0;
+                            }
+                        }
+                    }
+                }
+
+                .diamond-content-data {
+                    display: inline-block;
+
+                    .imagenote {
+                        display: none;
+                    }
+                }
+            }
+
+            .ring-details {
+                .specification-info {
+                    .specification-title {
+                        font-size: 14px;
+                        line-height: 16px;
+                        font-family: inherit;
+                        opacity: 0.8;
+                        text-align: left;
+                    }
+
+                    &:not(:last-child) {
+                        margin-bottom: 16px;
+                    }
+
+                    ul {
+                        li {
+                            .diamonds-details-title {
+                                text-align: left;
+                                font-size: 14px;
+                                line-height: 16px;
+                                opacity: 0.8;
+                            }
+                        }
+
+                        li {
+                            font-size: @fouth_font_size;
+                            line-height: @third_line_height;
+                            opacity: 0.8;
+
+                            .diamonds-info {
+                                margin-bottom: 0;
+                                font-size: 14px;
+                                line-height: 16px;
+                                text-transform: capitalize;
+                            }
+
+                            .diamonds-details-title {
+                                font-size: 14px;
+                                line-height: 16px;
+                                opacity: 0.8;
+                            }
+                        }
+                    }
+                }
+
+                .ring-data {
+                    .ring-specification-title {
+                        display: inline-block;
+                        text-align: left;
+
+                        .mainsec-name {
+                            max-width: 352px;
+                            float: left;
+                        }
+
+                        h2 {
+                            width: 100%;
+                            float: left;
+                            font-size: @primary_font_size;
+                            line-height: @ninth_line_height + 4;
+                            display: inline-block;
+                            font-family: inherit;
+                            font-weight: @primary_font_weight;
+                            text-transform: capitalize;
+                            text-align: left;
+                            margin: 0;
+                            max-width: 352px;
+                        }
+
+                        .complete-ring-spec {
+                            float: left;
+                            margin: 0;
+                            line-height: 36px;
+                            padding-left: 5%;
+                            width: auto;
+
+                            a {
+                                font-size: @fouth_font_size;
+                                line-height: @seventh_line_height;
+
+                                svg {
+                                    max-width: 16px;
+                                    max-height: 16px;
+                                    vertical-align: middle;
+                                }
+                            }
+                        }
+
+                        .diamond-forms {
+                            .diamond-request-form {
+                                .form-field {
+                                    .prefrence-area {
+                                        label {
+                                            &:after {
+                                                display: none;
+                                            }
+
+                                            &:before {
+                                                display: none;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                            .ring-request-form {
+                                .form-field {
+                                    .prefrence-area {
+                                        label {
+                                            &:after {
+                                                display: none;
+                                            }
+
+                                            &:before {
+                                                display: none;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                            .form-main {
+                                .requested-form {
+                                    padding: 20px 0 0 0;
+                                    display: flex;
+                                    align-items: center;
+
+                                    p {
+                                        font-size: @fouth_font_size;
+                                        line-height: @seventh_line_height;
+                                        padding-left: 0;
+                                        width: auto;
+                                    }
+                                }
+
+                                .form-field {
+                                    margin-top: 8px;
+                                    padding-left: 0;
+
+                                    .prefrence-area {
+                                        ul {
+                                            float: left;
+                                        }
+                                    }
+
+                                    .prefrence-action {
+                                        .preference-btn.btn-cencel {
+                                            border: 1px solid;
+                                            font-family: inherit;
+
+                                            span {
+                                                font-size: @fith_font_size + 4;
+                                                line-height: 20px;
+                                                letter-spacing: 0.0125em;
+                                                padding: 0;
+                                            }
+                                        }
+
+                                        .preference-btn {
+                                            width: 30%;
+                                            border-radius: 0;
+                                            padding: 12px 0;
+                                            text-transform: uppercase;
+                                            font-family: inherit;
+                                            float: left;
+
+                                            span {
+                                                font-size: 14px;
+                                                line-height: 24px;
+                                                letter-spacing: 0.007em;
+                                                padding: 0;
+                                                font-weight: bold;
+                                                font-family: inherit;
+                                            }
+                                        }
+                                    }
+
+                                    label {
+                                        span {
+                                            font-size: @fouth_font_size;
+                                            line-height: 12px;
+                                            letter-spacing: 0.025em;
+                                            /* transform: translateY(-90%); */
+                                        }
+                                    }
+
+                                    input {
+                                        &::placeholder {
+                                            font-size: @fouth_font_size;
+                                            line-height: 12px;
+                                            letter-spacing: 0.025em;
+                                        }
+                                    }
+
+                                    textarea {
+                                        &::placeholder {
+                                            font-size: @fouth_font_size;
+                                            line-height: 12px;
+                                            letter-spacing: 0.025em;
+                                        }
+                                    }
+
+                                    input[type="radio"] {
+                                        -webkit-appearance: none;
+                                        background-image: url(../images/radio_uncheck.png);
+                                        background-repeat: no-repeat;
+                                        cursor: pointer;
+                                        height: 24px;
+                                        margin: 0;
+                                        padding-left: 18px;
+                                        content: "";
+                                        border: 0;
+                                        width: 24px;
+                                        opacity: 1;
+
+                                        &:focus {
+                                            border: 0;
+                                            box-shadow: none;
+                                        }
+                                    }
+
+                                    input[type="radio"]:checked {
+                                        -webkit-appearance: none;
+                                        background-image: url(../images/radio_check.png);
+                                        background-repeat: no-repeat;
+                                        cursor: pointer;
+                                        height: 24px;
+                                        padding-left: 18px;
+                                        width: 24px;
+                                        content: "";
+                                        border: 0;
+                                        opacity: 1;
+
+                                        &:focus {
+                                            border: 0;
+                                            box-shadow: none;
+                                        }
+                                    }
+
+                                    select {
+                                        background-position: 99% center;
+                                        background-size: 12px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .ring-request-form {
+                .form-field {
+                    margin-top: 24px;
+                    max-width: 100%;
+
+                    .diamond-content-data {
+                        .diamond-desc {
+                            margin-bottom: 32px;
+                        }
+
+                        .title-main {
+                            font-size: @secondary_font_size;
+                            line-height: @ninth_line_height + 4;
+                            margin-bottom: 24px;
+                            font-family: inherit;
+                        }
+
+                        .metaltypemaindiv {
+                            .img {
+                                width: 32px;
+                            }
+                        }
+
+                        .ring-size.prdctdrpdwn {
+                            .title {
+                                position: static;
+                            }
+
+                            .product-info-engraving {
+                                .title {
+                                    position: relative;
+                                    top: -6px;
+                                    padding-left: 16px;
+                                    font-size: @fouth_font_size;
+                                    line-height: @third_line_height;
+                                    text-indent: 20px;
+                                    text-transform: capitalize;
+                                    font-weight: 600;
+                                }
+                            }
+                        }
+
+                        .prdctdrpdwn {
+                            max-width: 100%;
+                            display: flex;
+                            align-items: center;
+                            margin-bottom: 16px;
+                            padding: 12px 0;
+                            cursor: pointer;
+
+                            .metaltypedata,
+                            .sidestonequalitydata,
+                            .sidestonequalitydata,
+                            .ringsize-drpdwn {
+                                margin-left: auto;
+                                margin-right: 32px;
+                                font-size: @fouth_font_size;
+                                line-height: @third_line_height;
+                            }
+
+                            .edit_remove_engraving {
+                                padding-left: 12px;
+
+                                a {
+                                    font-size: inherit;
+                                    position: relative;
+                                    top: -4px;
+                                    text-decoration: underline;
+                                }
+                            }
+
+                            .product-info-engraving {
+                                position: relative;
+                                width: 100%;
+                            }
+
+                            .title {
+                                font-size: @fouth_font_size;
+                                line-height: @third_line_height;
+                                text-indent: 20px;
+                                text-transform: uppercase;
+                            }
+
+                            span {
+                                padding: 0;
+                            }
+
+                            .img {
+                                display: inline-block;
+                                width: 24px;
+                                height: 24px;
+                                padding-left: 8px;
+
+                                img {
+                                    display: block;
+                                }
+                            }
+
+                            select {
+                                height: auto;
+                                border: none;
+                                max-width: 192px;
+                                text-align-last: right;
+                                margin: 0;
+                                display: none;
+                                padding-right: 24px;
+                                margin-right: 10px;
+                                font-size: 14px;
+                                line-height: 16px;
+                                text-transform: capitalize;
+                                font-weight: 500;
+                                font-family: inherit;
+                                float: right;
+                                background: url(../images/selectarrow.svg) no-repeat right @eleven_bg_color;
+                            }
+                        }
+
+                        .ringprice {
+                            margin-bottom: 56px;
+
+                            span {
+                                font-size: @secondary_font_size;
+                                line-height: @primary_line_height + 1;
+                                opacity: 0.8;
+                            }
+                        }
+
+                        .diamond-sku {
+                            width: 100%;
+                            font-size: @fouth_font_size !important;
+                            line-height: @seventh_line_height;
+                            opacity: 0.8;
+                            font-weight: normal !important;
+
+                            span {
+                                font-weight: normal;
+                                font-size: @fouth_font_size !important;
+                                line-height: @seventh_line_height;
+                            }
+                        }
+
+                        h2 {
+                            font-size: @primary_font_size;
+                            line-height: @ninth_line_height + 4;
+                        }
+
+                        .diamond-desc {
+                            .subheader {
+                                font-size: @fouth_font_size;
+                                line-height: @primary_line_height + 1;
+                                opacity: 0.8;
+                            }
+                        }
+
+                        .intro-field {
+                            ul {
+                                &:nth-child(1) {
+                                    border: 0;
+
+                                    li {
+                                        float: left;
+                                        width: 96%;
+                                        display: flex;
+                                        justify-content: space-between;
+                                    }
+                                }
+
+                                &:nth-child(2) {
+                                    border: 0;
+
+                                    li {
+                                        float: right;
+                                        width: 96%;
+                                        display: flex;
+                                        justify-content: space-between;
+                                    }
+                                }
+
+                                li {
+                                    padding: 16px;
+                                    font-size: @fouth_font_size;
+                                    line-height: @third_line_height;
+                                    opacity: 0.8;
+
+                                    p {
+                                        margin-bottom: 0;
+                                        font-size: 14px;
+                                        line-height: 16px;
+                                        text-transform: capitalize;
+                                    }
+
+                                    strong {
+                                        font-size: 14px;
+                                        line-height: 16px;
+                                        opacity: 0.8;
+                                    }
+
+                                    &:nth-child(1) {
+                                        margin-bottom: 16px;
+                                    }
+                                }
+                            }
+                        }
+
+                        .certificate-image {
+                            .diamondprice {
+                                font-size: @secondary_font_size;
+                                font-weight: 600;
+                                opacity: 0.8;
+                                line-height: 24px;
+
+                                span.price {
+                                    position: unset;
+                                    font-size: @secondary_font_size;
+                                    font-weight: 600;
+                                    opacity: 0.8;
+                                    line-height: 24px;
+                                }
+                            }
+                        }
+
+                        .product-controler {
+                            margin-top: 32px;
+
+                            ul {
+                                li {
+                                    width: 50%;
+
+                                    &:nth-child(1) {
+                                        &:before {
+                                            content: "";
+                                            width: 24px;
+                                            height: 24px;
+                                            background: url(../images/bi_info.svg);
+                                        }
+                                    }
+
+                                    &:nth-child(2) {
+                                        &:before {
+                                            content: "";
+                                            width: 24px;
+                                            height: 24px;
+                                            background: url(../images/uil_calender.svg);
+                                        }
+                                    }
+
+                                    a {
+                                        font-size: 14px;
+                                        line-height: 16px;
+                                        text-transform: capitalize;
+                                    }
+                                }
+                            }
+                        }
+
+                        .diamond-action {
+                            margin-top: 20px;
+
+                            span {
+                                font-size: @secondary_font_size;
+                                line-height: @primary_line_height + 1;
+                                opacity: 0.8;
+                            }
+
+                            .addtocart.tocart {
+                                margin-top: 16px;
+                                border: 0;
+                                font-size: @fouth_font_size;
+                                line-height: @primary_line_height + 1;
+                                display: flex;
+                                align-items: center;
+                                letter-spacing: @third_letterspacing;
+                                text-transform: uppercase;
+                                font-family: inherit;
+                                padding: 12px 50px;
+                                height: auto;
+                                margin-right: 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.ringbuilder-diamond-index,
+.ringbuilder-diamond-view {
+    .filter-advanced {
+        .grid-product-listing {
+            .searchlist {
+                .search-product-grid {
+                    .product-details {
+                        .product-item-name {
+                            span {
+                                &:first-child {
+                                    font-size: @fouth_font_size;
+                                    line-height: @secondary_line_height;
+                                    letter-spacing: @second_letterspacing;
+                                    font-weight: 600;
+                                    overflow: hidden;
+                                    text-overflow: ellipsis;
+                                    display: -webkit-box;
+                                    -webkit-line-clamp: 2;
+                                    -webkit-box-orient: vertical;
+                                    white-space: normal;
+                                    margin: 0;
+                                    //min-height: 42px;
+                                    max-height: unset;
+                                    line-height: unset !important;
+                                }
+
+                                &:last-child {
+                                    font-size: @fouth_font_size;
+                                    line-height: 16px;
+                                    letter-spacing: @first_letterspacing;
+                                    font-weight: @fontfamily_normal;
+                                    margin-top: 0;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.ringbuilder-diamond-compare{
+    .compare-product {
+        .compare-info {
+            table {
+                tr {
+                    &:nth-child(odd) {
+                        background-color: transparent;
+                    }
+                    &:nth-child(even) {
+                        background-color: transparent;
+                    }
+                }
+            }
+            .compare-actions{
+                .view-product{
+                    background: #242424 !important;
+                    color: #fff !important;    
+                    font-size: 12px;
+                    line-height: 16px;
+                    padding: 7px;
+                    text-transform: capitalize;
+                }
+                .delete-row{
+                    background: #242424 !important;
+                    color: #fff !important;
+                    height:auto;
+                    width: 30px;
+                    &:before{
+                        background: #242424 !important;
+                        color: #fff !important;
+                        font-size: 15px;
+                    }
+                }
+            }    
+        }
+    }
+}     
+
+#search-rings{
+    .search-product-grid{
+        .product-images{
+            video {
+                height: inherit;
+                min-height: 290px;
+            }    
+        }
+    }
+}   
+.ringbuilder-settings-index{
+    .flow-tabs{
+        .tab-content{
+            background:#fcfcfc;
+        }
+    }
+}        
+
+@media(min-width:1025px){
+    .ringbuilder-settings-view{
+        .ring-details.no-padding.ring-request-form{
+            padding-left: 67px;    
+        }
+    }
+}    
+
+@media(max-width:767px){
+    .ringbuilder-settings-view{
+        .ring-details.no-padding.ring-request-form{
+            margin-bottom:0;
+            .ring-data {
+                padding: 0;
+            }
+        }
+        .diamond-info{
+            .diamond-image , .fotorama__nav-wrap{
+                margin: 0;
+            }     
+        }
+    } 
+    body.ringbuilder-settings-index{
+        .page-main{
+            .filter-advanced{
+                .searching-result{
+                    .grid-view-sort{
+                        max-width: 100%;    
+                        select{
+                            background: url(../images/chevron-down.svg) no-repeat right transparent;
+                        }
+                    }
+                }
+            }
+        }    
+    }            
+}
+.ringbuilder-diamond-index {
+    .filter-details {
+        .filter-for-shape {
+            ul {
+                li {
+                    width: 8.9%;
+                }
+            }
+        }
+        .filter-for-shape.shape-bg {
+            ul#shapeul {
+                width: 88.5%;
+            }
+        }
+    }
+}
+.ringbuilder-settings-index {
+    .flow-tabs {
+        .tab-content {
+            section.rings-search {
+                .shapepricefiltersection {
+                    .noUi-target {
+                        width: 83%;
+                    }
+                }
+            }
+        }
+    }
+}
+@media (max-width:1700px) and (min-width:1361px) {
+    .ringbuilder-settings-index {
+        .flow-tabs {
+            .tab-content {
+                section.rings-search {
+                    .shapepricefiltersection {
+                        .noUi-target {
+                            width: 86%;
+                            width: 86%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media (max-width:1360px) and (min-width:1025px) {
+    .ringbuilder-settings-index {
+        .flow-tabs {
+            .tab-content {
+                section.rings-search {
+                    .shapepricefiltersection {
+                        .noUi-target {
+                            width: 89%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

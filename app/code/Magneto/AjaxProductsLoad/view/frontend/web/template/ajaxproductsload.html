@@ -1,0 +1,43 @@
+<div class="home-jewellerysec">
+	<div id="loader" class="hidden"></div>
+	<div class="container">
+		<div class="mainsec">
+			<div class="leftsec">
+				<div class="leftsecmain">
+				<div class="title" data-bind="text: category_name"></div>
+				<div class="content">
+					<input type="hidden" id="currentcategory" data-bind="value: activesidebarcategory">
+					<input type="hidden" id="currenthorizontalactive" data-bind="value: activefiltercategory">
+					
+					<div class="sidebarcategories" data-bind="foreach: { data: sidebarcategories, as: 'sidebar'}">
+						<div class="catname">
+							<a  href="javascript:void()" 
+								class="sidebarcategories"
+								data-bind="click: $parent.selectsidebarcategory, css: { active: sidebar.id == $parent.activesidebarcategory() }"
+							><span data-bind="text: sidebar.name"></span></a></div>
+					</div>
+				</div>
+				</div>
+			</div>
+			<div class="rightsec">
+				<div class="rightsecmain">
+				<div class="content-top">
+					<div class="filtercategories" data-bind="foreach: { data: filtercategories, as: 'filter'}">
+						<div class="catname">
+							<a  href="javascript:void()" 
+							class="filtercategories"
+							data-bind="click: $parent.selectfiltercategory, css: { active: filter.id == $parent.activefiltercategory() }"
+							><span data-bind="text: filter.name"></span></a>
+						</div>
+					</div>
+				</div>
+				<div class="content-product">
+					<div class="products" data-bind="html: producthtml"></div>
+				</div>
+				<div class="view-morebtn" data-bind="visible: viewmore"><a data-bind="attr:{ href: activecategorylink() }">
+				<span translate="'View More'"/></a></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

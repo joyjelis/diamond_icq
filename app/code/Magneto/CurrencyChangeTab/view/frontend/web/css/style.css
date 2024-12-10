@@ -1,0 +1,19 @@
+.icq-sub-title {
+    margin-bottom: 15px;
+}
+.icq-currency-options {
+    display: inline-block;
+    margin-right: 25px;
+    padding: 5px 0;
+}
+.icq-currency-options input {
+    margin-right: 10px;
+}
+.icq-currency-switcher-form .actions-toolbar {
+    display: inline-block;
+    width: 100%;
+    margin-top: 15px;
+}
+.icq-currency-switcher-form .actions-toolbar .primary {
+    float: right;
+}

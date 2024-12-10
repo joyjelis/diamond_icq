@@ -1,0 +1,35 @@
+<?php
+/** @var DiamondIcq\OpenGraph\Block\General $block */
+// @codingStandardsIgnoreFile
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$pageConfig = $objectManager->get('Magento\Framework\View\Page\Config');
+$metaTitle = strip_tags($pageConfig->getTitle()->getShort());
+$metaDescription = strip_tags($pageConfig->getDescription());
+$metaKeyword = strip_tags($pageConfig->getKeywords());
+$alternateLinks = $block->getAlternateLinks();
+$locale = $objectManager->get('Magento\Framework\Locale\Resolver');
+$currentLocale = $locale->getLocale();
+$storeManager = $objectManager->get('\Magento\Store\Model\StoreManagerInterface');
+$storeCode = $storeManager->getStore()->getCode();
+?>
+
+<meta property="og:site_name" content="Diamond ICQ">
+<?php if ($storeCode == 'en'): ?>
+    <meta property="og:image" content="https://www.diamondicq.com/media/wysiwyg/diamondicq_og.jpg" />
+    <meta name="twitter:image" content="https://www.diamondicq.com/media/wysiwyg/diamondicq_og.jpg" />
+<?php else: ?>
+    <meta property="og:image" content="https://www.diamondicq.com/media/wysiwyg/diamondicq_og_hk.jpg" />
+    <meta property="twitter:image" content="https://www.diamondicq.com/media/wysiwyg/diamondicq_og_hk.jpg" />
+<?php endif; ?>
+<?php if ($metaDescription): ?>
+    <meta name="twitter:description" content="<?= $block->escapeUrl($metaDescription); ?>" />
+<?php endif; ?>
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="<?= $block->escapeUrl($block->getBaseUrl()); ?>" />
+<meta name="twitter:title" content="<?= $block->escapeUrl($metaTitle); ?>" />
+
+<?php if (!empty($alternateLinks)): ?>
+    <?php foreach ($alternateLinks as $alternateLink): ?>
+        <link rel="alternate" href="<?= $alternateLink->getHref(); ?>" hreflang="<?= $alternateLink->getHreflang(); ?>" />
+    <?php endforeach; ?>
+<?php endif; ?>

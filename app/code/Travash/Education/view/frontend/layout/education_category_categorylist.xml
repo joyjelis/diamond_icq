@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Travash_Education::css/education.css"/>
+    </head>
+    <body>
+        <referenceBlock name="head.additional">
+            <container name="canonical.education.list.page.container">
+                <block class="Magento\Framework\View\Element\Text" name="canonical.education.list.page">
+                    <arguments>
+                        <argument name="label" xsi:type="string">Adding canonical tag with base URL</argument>
+                        <argument name="text" xsi:type="helper" helper="Travash\Customization\Helper\Canonical::getCanonicalTag"/>
+                    </arguments>
+                </block>
+            </container>
+        </referenceBlock>
+        <referenceContainer name="content">
+            <block class="Travash\Education\Block\Education\EducationList" name="educationcollapse" template="education/list.phtml"/>
+        </referenceContainer>
+        <referenceContainer name="sidebar.main">
+            <block class="Travash\Education\Block\Education\EducationCategoryTree" ifconfig="education/general/category_navigation_menu"
+                   name="education.categorytree.left" template="Travash_Education::education/category/sidebar.phtml"/>
+        </referenceContainer>
+        <referenceContainer name="page.bottom.container">
+            <block class="Travash\Education\Block\Education\EducationList" name="upnext" before="content"
+                   template="Travash_Education::education/upnext.phtml"/>
+        </referenceContainer>
+        <referenceBlock name="catalog.compare.sidebar" remove="true"/>
+        <referenceBlock name="wishlist_sidebar" remove="true"/>
+    </body>
+</page>

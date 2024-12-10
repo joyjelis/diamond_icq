@@ -1,0 +1,12 @@
+<script>
+require(['jquery'], function($) {
+    var flag3 = 0;
+	setInterval(function(){
+		if ( flag3 == 0 && $('#switcher-currency').length) {
+			flag3 = 1;
+			$('#switcher-currency').remove();
+		}
+	}, 3000);
+
+});
+</script>

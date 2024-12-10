@@ -1,0 +1,685 @@
+<?php 
+$additionaloptions = $block->getAdditionalFilters();
+if (array_key_exists("show_In_House_Diamonds_First",$additionaloptions)){ 
+  $show_in_house_column = $additionaloptions['show_In_House_Diamonds_First'];
+} else {
+  $show_in_house_column = '';
+}
+$blockObj= $block->getLayout()->createBlock('Gemfind\Ringbuilder\Block\Diamond\Filter');
+?>
+<?php $list = $block->getProductCollection(); $noimageurl = $this->getViewFileUrl('Gemfind_Ringbuilder::images/no-image.jpg'); $loaderimg = $this->getViewFileUrl('Gemfind_Ringbuilder::images/loader-2.gif'); $siteurl = $block->getSiteUrl(); ?>
+<?php $resultperpageoptions = $block->getResultsPerPageOptions(); ?>
+<div class="search-details no-padding">
+<div class="searching-result"> 
+      <div class="number-of-search"> 
+        <p><strong><?php echo number_format($list['pagination']['total']); ?></strong><?php echo __('Similar Diamonds'); ?></p>
+    </div>
+    <div class="search-in-table" id="searchintable"> 
+            <input type="text" name="searchdidfield" id="searchdidfield" placeholder="<?php echo __('Search Diamond Stock #'); ?>"><a href="javascript:;" title="close" id="resetsearchdata">X</a><button id="searchdid" title="Search Diamond"></button> 
+          </div> 
+    <div class="view-or-search-result"> 
+      <div class="change-view-result"> 
+        <ul> <li class="grid-view"> <a href="javascript:;"><?php echo __('Grid view'); ?></a> </li> <li class="list-view"> <a href="javascript:;" class="active"><?php echo __('list view'); ?></a> </li> </ul> 
+        <div class="item-page"><p class="leftpp"><?php echo __('Per Page'); ?></p>
+          <select class="pagesize" id="pagesize" name="pagesize" onchange="ItemPerPage(this)">
+            <?php foreach ($resultperpageoptions as $value) { ?>
+              <option value="<?php echo $value['value'] ?>"><?php echo $value['label'] ?></option>
+            <?php } ?>
+          </select>
+        </div> 
+        <div class="grid-view-sort cls-for-hide"> 
+          <select name="gridview-orderby" id="gridview-orderby" class="gridview-orderby" onchange="gridSort(this)"> <option value="Cut"><?php echo __('Shape'); ?></option> <?php if($show_in_house_column){ ?><option value="Inhouse"><?php echo __('In House'); ?></option><?php } ?> <option value="Size"><?php echo __('Carat'); ?></option> <option value="Color"><?php echo __('Color'); ?></option> <option value="ClarityID"><?php echo __('Clarity'); ?></option> <option value="CutGrade"><?php echo __('Cut'); ?></option> <option value="Depth"><?php echo __('Depth'); ?></option> <option value="TableMeasure"><?php echo __('Table'); ?></option> <option value="Polish"><?php echo __('Polish'); ?></option> <option value="Symmetry"><?php echo __('Symmetry'); ?></option> <option value="Measurements"><?php echo __('Measurement'); ?></option> <option value="Certificate"><?php echo __('Certificate'); ?></option> <option value="FltPrice"><?php echo __('Price'); ?></option> </select> 
+          <div class="gridview-dir-div">
+            <a href="javascript:;" onclick="gridDire('DESC')" id="ASC" title="<?php echo __('Set Descending Direction'); ?>" class="active">ASC</a><a href="javascript:;" title="<?php echo __('Set Ascending Direction'); ?>" onclick="gridDire('ASC')" id="DESC">DESC</a>
+          </div>
+        </div>           
+        </div> 
+    </div> 
+</div>
+</div>
+<?php if (isset($list['pagination']['total']) && $list['pagination']['total'] != 0) : ?>
+<div class="search-details no-padding">
+   
+   <div class="table-responsive" id="list-mode">
+      <table class="table" id="result_table">
+         <thead class="table_header_wrapper">
+            <tr> <th scope="col"></th> <th scope="col" class="table-sort" id="Cut" onclick="fnSort('Cut');"><?php echo __('Shape'); ?></th>   <th scope="col" class="table-sort" id="Size" onclick="fnSort('Size');"><?php echo __('Carat'); ?></th> <th scope="col" class="table-sort" id="Color" onclick="fnSort('Color');"><?php echo __('Color'); ?></th> <th scope="col" class="table-sort" id="ClarityID" onclick="fnSort('ClarityID');"><?php echo __('Clarity'); ?></th> <th scope="col" class="table-sort" id="CutGrade" onclick="fnSort('CutGrade');"><?php echo __('Cut'); ?></th> <th scope="col" class="table-sort" id="Depth" onclick="fnSort('Depth');"><?php echo __('Depth'); ?></th> <th scope="col" class="table-sort" id="TableMeasure" onclick="fnSort('TableMeasure');"><?php echo __('Table'); ?></th> <th scope="col" class="table-sort" id="Polish" onclick="fnSort('Polish');"><?php echo __('Polish'); ?></th> <th scope="col" class="table-sort" id="Symmetry" onclick="fnSort('Symmetry');"><?php echo __('Sym.'); ?></th> <th scope="col" class="table-sort" id="Measurements" onclick="fnSort('Measurements');"><?php echo __('Measurement'); ?></th> 
+            <?php if(isset($blockObj->diamondReport()['data']['show_Certificate_in_Diamond_Search']) && $blockObj->diamondReport()['data']['show_Certificate_in_Diamond_Search']!='') {?>  
+              <th scope="col" class="table-sort" id="Certificate" onclick="fnSort('Certificate');"><?php echo __('Cert.'); ?></th> 
+            <?php }?>
+              <?php if($show_in_house_column){ ?><th scope='col' id='Inhouse' class="table-sort" onclick="fnSort('Inhouse');"><?php echo __('In House'); ?></th><?php } ?> <th scope="col" class="table-sort" id="FltPrice" onclick="fnSort('FltPrice');"><?php echo __('Price'); ?></th><th scope="col" class="video-data"><?php echo __('Video'); ?></th><th scope="col" class="view-data"><?php echo __('View'); ?></th></tr>
+         </thead>
+         <tbody>
+            <?php foreach ($list['data'] as $result) : ?>
+            <?php if($result->fancyColorMainBody) { if($result->diamondImage){ $imageurl = $result->diamondImage; } else { $imageurl = $noimageurl; }
+                  } else { if($result->biggerDiamondimage){ $imageurl = $result->biggerDiamondimage; } else { $imageurl = $noimageurl;  } }
+                  if($result->isLabCreated){
+                    $type = 'labcreated';
+                  } else if(isset($result->fancyColorMainBody)) {
+                    $type = 'fancy';
+                  } else {
+                    $type = '';
+                  }
+                  
+                  if(isset($result->shape)){
+                    $urlshape = str_replace(' ', '-',$result->shape).'-shape-';
+                  }else {
+                    $urlshape = '';
+                  }
+                  if(isset($result->carat)){
+                    $urlcarat = str_replace(' ', '-',$result->carat).'-carat-';
+                  }else {
+                    $urlcarat = '';
+                  }
+                  if(isset($result->color)){
+                    $urlcolor = str_replace(' ', '-',$result->color).'-color-';
+                  } else {
+                    $urlcolor = '';
+                  }
+                  if(isset($result->clarity)){
+                    $urlclarity = str_replace(' ', '-',$result->clarity).'-clarity-';
+                  }else{
+                    $urlclarity = '';
+                  }
+                  if(isset($result->cut)){
+                    $urlcut = str_replace(' ', '-',$result->cut).'-cut-';
+                  }else{
+                    $urlcut = '';
+                  }
+                  if(isset($result->cert)){
+                    $urlcert = str_replace(' ', '-',$result->cert).'-certificate-';
+                  }else{
+                    $urlcert = '';
+                  }
+                  $urlstring = strtolower($urlshape.$urlcarat.$urlcolor.$urlclarity.$urlcut.$urlcert.'sku-'.$result->diamondId);
+                  $diamondviewurl = ''; $diamondviewurl = $block->getDiamondViewUrl($urlstring,$type); 
+                  ?>               
+            <tr id="<?php echo $result->diamondId; ?>">
+               <th scope="row" class="table-selecter"> <input type="checkbox" name="compare" value="<?php echo $result->diamondId; ?>"> <div class="state"> <label><?php echo __('Fill'); ?></label> </div> </th>
+               <td class="shapecol" onclick="SetBackValue('<?php echo $result->diamondId ?>'); location.href='<?php echo $diamondviewurl; ?>'">
+               	  <span class="imagecheck" data-src="<?php echo $imageurl; ?>" data-srcbig="<?php echo $result->biggerDiamondimage; ?>" data-id="<?php echo $result->diamondId; ?>"></span>
+                  <img src="<?php echo $loaderimg; ?>" width="21" height="18" alt="<?php echo $result->shape.' '.$result->carat.' CARAT'; ?>" title="<?php echo $result->shape.' '.$result->carat.' CARAT'; ?>" />
+                  <span class="shape-name"><?php echo $result->shape; ?></span>
+               </td>
+     		   <td class="caratcol" onclick="SetBackValue('<?php echo $result->diamondId ?>'); location.href='<?php echo $diamondviewurl; ?>'"><?php echo ($result->carat) ? $result->carat : '-'; ?></td> 
+            <?php
+            if ( $result->fancyColorMainBody ) {
+              $color_to_display = $result->fancyColorIntensity.' '.$result->fancyColorMainBody;
+            } else {
+              $color_to_display = $result->color;
+            }
+            ?>
+           <td class="colorcol" onclick="SetBackValue('<?php echo $result->diamondId ?>'); location.href='<?php echo $diamondviewurl; ?>'"><?php echo ($color_to_display) ? $color_to_display : '-'; ?></td> 
+
+           <td class="claritycol" onclick="SetBackValue('<?php echo $result->diamondId ?>'); location.href='<?php echo $diamondviewurl; ?>'"><?php echo ($result->clarity) ? $result->clarity : '-'; ?></td> 
+           <td class="cutcol" onclick="SetBackValue('<?php echo $result->diamondId ?>'); location.href='<?php echo $diamondviewurl; ?>'"><?php if($result->cut == 'Good'){
+echo 'G';
+} else if($result->cut == 'Very good'){
+echo 'VG';
+} else if($result->cut == 'Excellent'){
+echo 'Ex';
+} else if($result->cut == 'Fair'){
+echo 'F';
+} else if($result->cut == 'Ideal'){
+echo 'I';
+} else{
+echo '-';
+} //echo ($result->cut) ? $result->cut : '-';  //echo ($result->cut) ? $result->cut : 'NA'; ?></td> 
+           <td class="depthcol" onclick="SetBackValue('<?php echo $result->diamondId ?>'); location.href='<?php echo $diamondviewurl; ?>'"><?php echo ($result->depth) ? $result->depth : '-'; ?></td> <td class="tablecol" onclick="SetBackValue('<?php echo $result->diamondId ?>'); location.href='<?php echo $diamondviewurl; ?>'"><?php echo ($result->table) ? $result->table : '-'; ?></td> 
+           <td class="polishcol" onclick="SetBackValue('<?php echo $result->diamondId ?>'); location.href='<?php echo $diamondviewurl; ?>'"><?php if($result->polish == 'Good'){
+echo 'G';
+} else if($result->polish == 'Very good'){
+echo 'VG';
+} else if($result->polish == 'Excellent'){
+echo 'Ex';
+} else if($result->polish == 'Fair'){
+echo 'F';
+} else{
+echo '-';
+} //echo ($result->polish) ? $result->polish : '-'; ?></td> 
+           <td class="symmetrycol" onclick="SetBackValue('<?php echo $result->diamondId ?>'); location.href='<?php echo $diamondviewurl; ?>'"><?php if($result->symmetry == 'Good'){
+echo 'G';
+} else if($result->symmetry == 'Very good'){
+echo 'VG';
+} else if($result->symmetry == 'Excellent'){
+echo 'Ex';
+} else if($result->symmetry == 'Fair'){
+echo 'F';
+} else{
+echo '-';
+}//echo ($result->symmetry) ? $result->symmetry : '-'; ?></td> 
+           <td class="measurecol" onclick="SetBackValue('<?php echo $result->diamondId ?>'); location.href='<?php echo $diamondviewurl; ?>'"><?php echo $result->measurement; ?></td> 
+           <?php if(isset($blockObj->diamondReport()['data']['show_Certificate_in_Diamond_Search']) && $blockObj->diamondReport()['data']['show_Certificate_in_Diamond_Search']!='') {?>
+           <td><a href="javascript:void(0)" onclick="SetBackValue('<?php echo $result->diamondId ?>'); location.href='<?php echo $diamondviewurl; ?>'" class="certcol" ><?php echo $result->cert; ?></a></td> 
+         <?php } ?>
+           <?php if($show_in_house_column){ ?>
+           <td class="inhousecol" onclick="SetBackValue('<?php echo $result->diamondId; ?>'); location.href='<?php echo $diamondviewurl; ?>'"><?php echo $result->inhouse; ?></td>
+         <?php } ?>
+           <?php if($result->showPrice){ ?>
+           <td class="pricecol" onclick="SetBackValue('<?php echo $result->diamondId ?>'); location.href='<?php echo $diamondviewurl; ?>'"><?php if($result->currencyFrom != 'USD') { echo $result->currencyFrom; } echo $result->currencySymbol.number_format( $result->fltPrice ); ?></td> 
+           <?php } else { ?>
+            <td class="pricecol" onclick="SetBackValue('<?php echo $result->diamondId ?>'); location.href='<?php echo $diamondviewurl; ?>'"><?php echo __('Call'); ?></td> 
+           <?php } ?>
+           <td class="video-data videodatacol" onclick="SetBackValue('<?php echo $result->diamondId ?>'); location.href='<?php echo $diamondviewurl; ?>'"> 
+            <?php if($result->hasVideo){ 
+              $url = parse_url($result->videoFileName);
+              if(isset($url['scheme']) && $url['scheme'] == 'https'){ ?><span class="videoicon">
+             <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+               width="29px" height="17px" viewBox="0 0 612 612" style="enable-background:new 0 0 612 612;" xml:space="preserve">
+            <g>
+              <g>
+                <path d="M387.118,500.728c0,0,55.636,0,55.636-55.637V166.909c0-55.637-55.636-55.637-55.636-55.637H55.636
+                  c0,0-55.636,0-55.636,55.637v278.182c0,55.637,55.636,55.637,55.636,55.637H387.118z"/>
+                <polygon points="475.162,219.958 475.162,393.043 612,500.728 612,111.272    "/>
+              </g>
+            </g>
+            </svg>
+           </span> <?php } } ?></td>
+           <td class="view-data viewdatacol" onclick="SetBackValue('<?php echo $result->diamondId ?>'); location.href='<?php echo $diamondviewurl; ?>'"><a href="javascript:;" title="<?php echo __('View Diamond') ?>">
+             <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+               width="29px" height="17px" viewBox="0 0 72.767 72.766" style="enable-background:new 0 0 72.767 72.766;"
+               xml:space="preserve">
+            <g>
+              <g id="Eye_Outline">
+                <g>
+                  <path d="M72.163,34.225C71.6,33.292,58.086,11.352,37.48,11.352h-2.195c-20.605,0-34.117,21.94-34.681,22.873
+                    c-0.805,1.323-0.805,2.993,0,4.316c0.564,0.94,14.076,22.873,34.682,22.873h2.195c20.604,0,34.118-21.933,34.683-22.873
+                    C72.968,37.218,72.968,35.548,72.163,34.225z M37.48,53.141h-2.195c-12.696,0-22.625-11.793-26.242-16.758
+                    c3.621-4.971,13.546-16.758,26.242-16.758h2.195c12.7,0,22.632,11.802,26.246,16.766C60.125,41.363,50.237,53.141,37.48,53.141z
+                     M36.383,29.66c-3.666,0-6.633,3.016-6.633,6.724c0,3.716,2.967,6.725,6.633,6.725c3.664,0,6.635-3.009,6.635-6.725
+                    C43.018,32.675,40.047,29.66,36.383,29.66z"/>
+                </g>
+              </g>
+            </g>
+            </svg>
+           </a> </td> 
+            </tr>
+            <?php endforeach; ?>
+         </tbody>
+      </table>
+   </div>
+   <div class="search-view-grid cls-for-hide" id="grid-mode">
+      <div class="grid-product-listing">
+         <?php foreach ($list['data'] as $result) : ?>
+            <?php $diamondviewurl = ''; 
+              if($result->isLabCreated){
+                $type = 'labcreated';
+              } else if(isset($result->fancyColorMainBody)) {
+                $type = 'fancy';
+              } else {
+                $type = '';
+              }
+              if(isset($result->shape)){
+                    $urlshape = str_replace(' ', '-',$result->shape).'-shape-';
+                  }else {
+                    $urlshape = '';
+                  }
+                  if(isset($result->carat)){
+                    $urlcarat = str_replace(' ', '-',$result->carat).'-carat-';
+                  }else {
+                    $urlcarat = '';
+                  }
+                  if(isset($result->color)){
+                    $urlcolor = str_replace(' ', '-',$result->color).'-color-';
+                  } else {
+                    $urlcolor = '';
+                  }
+                  if(isset($result->clarity)){
+                    $urlclarity = str_replace(' ', '-',$result->clarity).'-clarity-';
+                  }else{
+                    $urlclarity = '';
+                  }
+                  if(isset($result->cut)){
+                    $urlcut = str_replace(' ', '-',$result->cut).'-cut-';
+                  }else{
+                    $urlcut = '';
+                  }
+                  if(isset($result->cert)){
+                    $urlcert = str_replace(' ', '-',$result->cert).'-certificate-';
+                  }else{
+                    $urlcert = '';
+                  }
+                  $urlstring = strtolower($urlshape.$urlcarat.$urlcolor.$urlclarity.$urlcut.$urlcert.'sku-'.$result->diamondId);
+                  $diamondviewurl = ''; $diamondviewurl = $block->getDiamondViewUrl($urlstring,$type);  ?>
+         <div class="search-product-grid" id="<?php echo $result->diamondId; ?>">
+            <div class="product-images"> 
+            	<a href="javascript:void(0);" title="<?php echo __('View Diamond') ?>"> 
+                <img class="main-diamond-img" src="<?php echo $loaderimg; ?>" alt="<?php echo $result->shape.' '.$result->carat.' CARAT'; ?>" title="<?php echo $result->shape.' '.$result->carat.' CARAT'; ?>" />
+          <?php if($result->hasVideo){ 
+            if (strpos($result->videoFileName, '.mp4') !== false) {
+               $type = 1; 
+            } else {
+               $type = 2; 
+            }
+            if($type ==1){ ?>
+              <video class="diamond_video" style="display: none;" width="" poster="<?php echo $loaderimg; ?>" height="" autoplay="" loop="" muted="" playsinline="" src="<?php echo $result->videoFileName; ?>" type="video/mp4" >
+              </video>
+            <?php } ?>
+            <?php if($type ==2){ ?>
+              <iframe style="display: none;" class="diamond_video" src="<?php echo $result->videoFileName; ?>" id="iframevideo" scrolling="no"></iframe>
+            <?php } ?>
+          <?php }  ?>
+				</a>
+            </div>
+            <div class="product-details"> <div class="product-item-name"><a href="<?php echo $diamondviewurl; ?>" onclick="SetBackValue('<?php echo $result->diamondId ?>'); " title="<?php echo __('View Diamond') ?>"><span><?php echo $result->shape.' <strong>'.$result->carat.'</strong> CARAT'; ?></span>
+              <span>
+              <?php
+              if ( $result->fancyColorMainBody ) {
+                $color_to_display = $result->fancyColorIntensity.' '.$result->fancyColorMainBody;
+              } else {
+                $color_to_display = $result->color;
+              }
+              ?>
+
+              <?php  echo $color_to_display; if($result->color && $result->clarity || $result->cut){ echo ', ';} echo $result->clarity; if($result->cut) { echo ', '; } echo $result->cut; ?></span>
+            </a></div> <div class="product-box-pricing"><a href="<?php echo $diamondviewurl; ?>" title="<?php echo __('View Diamond') ?>">
+              <?php if($result->showPrice){ ?>
+              <span><?php  if($result->currencyFrom != 'USD') { echo $result->currencyFrom; } echo $result->currencySymbol.number_format( $result->fltPrice ); ?></span>
+            <?php } else { ?>
+              <span><?php echo __('Call For Price'); ?></span>
+            <?php } ?>
+            </a></div> <div class="product-box-action"> <input type="checkbox" name="compare" value="<?php echo $result->diamondId; ?>"/> <div class="state"><label><?php echo __('Add to compare') ?></label></div> </div> </div>
+            <div class="product-video-icon"><?php if($result->hasVideo){ 
+              $url = parse_url($result->videoFileName);
+                if(isset($url['scheme']) && $url['scheme'] == 'https'){
+              ?><span class="videoicon">
+            	<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+               width="29px" height="17px" viewBox="0 0 612 612" style="enable-background:new 0 0 612 612;" xml:space="preserve">
+            <g>
+              <g>
+                <path d="M387.118,500.728c0,0,55.636,0,55.636-55.637V166.909c0-55.637-55.636-55.637-55.636-55.637H55.636
+                  c0,0-55.636,0-55.636,55.637v278.182c0,55.637,55.636,55.637,55.636,55.637H387.118z"/>
+                <polygon points="475.162,219.958 475.162,393.043 612,500.728 612,111.272    "/>
+              </g>
+            </g>
+            </svg>
+            </span> <?php } } ?></div>
+            <div class="product-slide-button"> <a href="javascript:void(0)" class="trigger-info"><?php echo __('menu') ?></a> </div>
+            <div class="product-inner-info">
+               <ul> 
+                <li>
+                  <p><span><?php echo __('Diamond ID') ?> </span><span><?php echo $result->diamondId; ?></span></p> 
+                </li> 
+                <li> 
+                  <p><span><?php echo __('Shape') ?></span><span><?php echo $result->shape; ?></span></p> 
+                </li>
+                <li> 
+                  <p><span><?php echo __('Carat') ?></span><span><?php echo ($result->carat) ? $result->carat : '-'; ?></span></p> 
+                </li>
+                <?php
+                if ( $result->fancyColorMainBody ) {
+                  $color_to_display = $result->fancyColorIntensity.' '.$result->fancyColorMainBody;
+                } else {
+                  $color_to_display = $result->color;
+                }
+                ?>
+                <li> 
+                  <p><span><?php echo __('Color') ?></span><span><?php echo ($color_to_display) ? $color_to_display : '-'; ?></span></p> 
+                </li>
+                <li> 
+                  <p><span><?php echo __('Clarity') ?></span><span><?php echo ($result->clarity) ? $result->clarity : '-'; ?></span></p> 
+                </li>
+                <li> 
+                  <p><span><?php echo __('Cut') ?></span><span><?php echo ($result->cut) ? $result->cut : 'NA'; ?></span></p> 
+                </li>
+                <li> 
+                  <p><span><?php echo __('Depth') ?></span><span><?php echo ($result->depth) ? $result->depth.'%' : '-'; ?></span></p> 
+                </li>
+                <li> 
+                  <p><span><?php echo __('Table') ?></span><span><?php echo ($result->table) ? $result->table.'%' : '-'; ?></span></p> 
+                </li>                                
+                <li> 
+                  <p><span><?php echo __('Polish') ?></span><span><?php echo ($result->polish) ? $result->polish : '-'; ?></span></p> 
+                </li> 
+                <li> 
+                  <p><span><?php echo __('Symmetry') ?></span><span><?php echo ($result->symmetry) ? $result->symmetry : '-'; ?></span></p> 
+                </li> 
+                <li> 
+                  <p><span><?php echo __('Measurement') ?></span><span><?php echo $result->measurement; ?></span></p> 
+                </li> 
+                <?php if(isset($blockObj->diamondReport()['data']['show_Certificate_in_Diamond_Search']) && $blockObj->diamondReport()['data']['show_Certificate_in_Diamond_Search']!='') {?> 
+                <li> 
+                  <p><span><?php echo __('Certificate') ?></span><span><a href="javascript:;" onclick="javascript:window.open('<?php echo $result->certificateUrl ?>','CERTVIEW','scrollbars=yes,resizable=yes,width=860,height=550')"><?php echo $result->cert; ?></a></span></p> 
+                </li>
+                <?php } ?>
+                <?php if($show_in_house_column){ ?>
+                <li>
+                  <p><span><?php echo __('In House') ?></span><span><?php echo $result->inhouse; ?></span></p>
+                </li>
+                <?php } ?>
+                <li> 
+                  <p><span><?php echo __('Price') ?></span>
+                    <?php if($result->showPrice){ ?>
+                    <span><?php  if($result->currencyFrom != 'USD') { echo $result->currencyFrom; } echo $result->currencySymbol.number_format( $result->fltPrice ); ?></span>
+                  <?php } else { ?>
+                    <span><?php echo __('Call For Price'); ?></span>
+                  <?php } ?>
+                  </p> 
+                </li>  
+              </ul>
+            </div>
+             <input type="hidden" name="diamondshape" id="diamondshape-<?php echo $result->diamondId; ?>" value="<?php echo $result->shape; ?>" />
+             <input type="hidden" name="diamondsku" id="diamondsku-<?php echo $result->diamondId; ?>" value="<?php echo $result->diamondId; ?>" />
+             <input type="hidden" name="diamondcarat" id="diamondcarat-<?php echo $result->diamondId; ?>" value="<?php echo $result->carat; ?>" />
+             <input type="hidden" name="diamondtable" id="diamondtable-<?php echo $result->diamondId; ?>" value="<?php echo $result->table; ?>" />
+             <?php
+                if ( $result->fancyColorMainBody ) {
+                  $color_to_display = $result->fancyColorIntensity.' '.$result->fancyColorMainBody;
+                } else {
+                  $color_to_display = $result->color;
+                }
+              ?>
+             <input type="hidden" name="diamondcolor" id="diamondcolor-<?php echo $result->diamondId; ?>" value="<?php echo $color_to_display; ?>" />
+             <input type="hidden" name="diamondpolish" id="diamondpolish-<?php echo $result->diamondId; ?>" value="<?php echo $result->polish; ?>" />
+             <input type="hidden" name="diamondsymm" id="diamondsymm-<?php echo $result->diamondId; ?>" value="<?php echo $result->symmetry; ?>" />
+             <input type="hidden" name="diamondclarity" id="diamondclarity-<?php echo $result->diamondId; ?>" value="<?php echo $result->clarity; ?>" />
+             <input type="hidden" name="diamondflr" id="diamondflr-<?php echo $result->diamondId; ?>" value="<?php echo $result->fluorescence; ?>" />
+             <input type="hidden" name="diamonddepth" id="diamonddepth-<?php echo $result->diamondId; ?>" value="<?php echo $result->depth; ?>" />
+             <input type="hidden" name="diamondmeasure" id="diamondmeasure-<?php echo $result->diamondId; ?>" value="<?php echo $result->measurement; ?>" />
+             <input type="hidden" name="diamondcerti" id="diamondcerti-<?php echo $result->diamondId; ?>" value="<?php echo $result->cert; ?>" />
+             <input type="hidden" name="diamondcutgrade" id="diamondcutgrade-<?php echo $result->diamondId; ?>" value="<?php echo $result->cut; ?>" />
+             <input type="hidden" name="diamondimage" id="diamondimage-<?php echo $result->diamondId; ?>" value="" />
+             <?php if($result->showPrice){ ?>
+             <input type="hidden" name="diamondprice" id="diamondprice-<?php echo $result->diamondId; ?>" value="<?php echo $result->fltPrice; ?>" />
+           <?php } else { ?>
+            <input type="hidden" name="diamondprice" id="diamondprice-<?php echo $result->diamondId; ?>" value="<?php echo __('Call For Price'); ?>" />
+           <?php } ?>
+             <input type="hidden" name="type" id="type-<?php echo $result->diamondId; ?>" value="<?php echo $type; ?>" />
+         </div>
+         <?php endforeach; ?>
+      </div>
+   </div>
+   <div class="grid-paginatin" style="text-align:center;">
+      <div class="btn-compare"> <a href="javaScript:void(0)"  id="compare-main"><?php echo __('Compare'); ?></a> </div>
+      <?php $current = 1;
+         $number = $list['perpage'];
+         $pages = ceil($list['pagination']['total']/$number);
+         if($list['pagination']['currentpage'] > 1){
+           $current = $list['pagination']['currentpage'];
+         }
+     	if($current-1 == 0){
+     		$value = 1;
+     	} else {
+     		$value = $current-1;
+     	}
+       	?>
+      <div class="pagination-div">
+         <ul>
+            <li <?=($current == 1) ? 'class="disabled grid-next"' : 'class="grid-next"'?>>
+               <a href="javascript:void(0);" <?php if(($current-1) != 0){ ?> onclick="PagerClick('<?php echo ($value) ?>');" <?php } ?>><?php echo ($value) ?></a>
+            </li>
+            <?php for($i=1; $i <= $pages; $i++)
+               {
+                 if($i<>$current){ 
+                   if($i >= $current + 3){
+                     continue;
+                   }
+                   if($i <= $current - 3){
+                     continue;
+                   }
+               ?>
+            <li>
+               <a href="javascript:void(0);" onclick="PagerClick('<?php echo $i ?>');"><?php echo $i; ?></a>
+            </li>
+            <?php } else { ?>
+            <li class="active">
+               <a href="javascript:void(0);" class="active" onclick="PagerClick('<?php echo $i ?>');"><?php echo $i; ?></a>
+            </li>
+            <?php } } ?>
+            <li <?=($current == $pages) ? 'class="disabled grid-previous"' : 'class="grid-previous"'?>>
+               <a href="javascript:void(0);" <?php if($current != $pages){ ?> onclick="PagerClick('<?php echo ($current+1); ?>');" <?php } ?>><?php echo ($current+1); ?></a>
+            </li>
+         </ul>
+      </div>
+      <?php
+         if ($current == 1) {
+             $from = 1;
+             $to = $number;
+         } else {
+             $from = (($current - 1) * $number) + 1;
+             $to = ($current * $number);
+         }
+         
+         if ($list['pagination']['total'] < $to) {
+             $to = $list['pagination']['total'];
+         }
+         
+             echo __("<div class='page-checked'><div class='result-bottom'>Results ") . number_format($from) . __(" to ") . number_format($to) . __(" of ") . number_format($list['pagination']['total']). __(" </div></div> ");
+         ?>
+   </div>
+</div>
+<?php else: ?>
+<div class="search-details no-padding no-result-main">
+   <div class="searching-result no-result-div">
+      <?php echo __('No Data Found.') ?>
+   </div>
+</div>
+<?php endif; ?>
+<script>
+   require([
+       "jquery"
+   ], function ($) {
+       $('#compare-main').click(function () {
+           var cookieExist = $.cookie("diamondProduct");
+           var count = $("input[name='compare']:checked").length;
+           if (cookieExist) {
+               var compareItemsArr = [];
+               compareItemsArr = JSON.parse(cookieExist);
+               var arrLength = compareItemsArr.length;
+               if (arrLength > 1 && count == 0)
+               {
+                   window.location.href = '<?php echo $siteurl.'ringbuilder/diamond/compare/'; ?>';
+               } else
+               {
+                   compareDiamonds();
+               }
+           } else {
+               compareDiamonds();
+           }
+       });
+       $('#comparetop').click(function () {
+           var cookieExist = $.cookie("diamondProduct");
+           var count = $("input[name='compare']:checked").length;
+           if (cookieExist) {
+               var compareItemsArr = [];
+               compareItemsArr = JSON.parse(cookieExist);
+               var arrLength = compareItemsArr.length;
+               if (arrLength > 1 && count == 0)
+               {
+                   window.location.href = '<?php echo $siteurl.'ringbuilder/diamond/compare/'; ?>';
+               } else
+               {
+                   compareDiamonds();
+               }
+           } else {
+               compareDiamonds();
+           }
+       });
+       function compareDiamonds()
+       {
+           var compareItems = [];
+           var selectedforcompare = [];
+           var count = $("input[name='compare']:checked").length;
+           if (count > 1) {
+               $("input:checkbox[name=compare]:checked").each(function () {
+               	var selecteddid = $(this).val(); 
+                var data = {};
+                selectedforcompare.push(selecteddid);
+     			data.Shape=$("#diamondshape-"+selecteddid).val(),
+                    data.Sku=$("#diamondsku-"+selecteddid).val(),
+                    data.Image=$("#diamondimage-"+selecteddid).val(),
+                    data.Carat=$("#diamondcarat-"+selecteddid).val(),
+                    data.Table=$("#diamondtable-"+selecteddid).val(),
+                    data.Color=$("#diamondcolor-"+selecteddid).val(),
+                    data.Polish=$("#diamondpolish-"+selecteddid).val(),
+                    data.Symmetry=$("#diamondsymm-"+selecteddid).val(),
+                    data.Clarity=$("#diamondclarity-"+selecteddid).val(),
+                    data.Fluorescence=$("#diamondflr-"+selecteddid).val(),
+                    data.Depth=$("#diamonddepth-"+selecteddid).val(),
+                    data.Measurement=$("#diamondmeasure-"+selecteddid).val(),
+                    data.Cert=$("#diamondcerti-"+selecteddid).val(),
+                    data.Cut=$("#diamondcutgrade-"+selecteddid).val(),
+                    data.Price=$("#diamondprice-"+selecteddid).val(),
+                    data.ID=$("#diamondsku-"+selecteddid).val();
+                    data.Type=$("#type-"+selecteddid).val();
+     			compareItems.push(data);
+          SetBackValue(selectedforcompare);
+               });
+               var expire = new Date();
+               expire.setDate(expire.getDate() + 0.2*24*60*60*1000);
+               $.cookie("diamondProduct", JSON.stringify(compareItems), {path: '/', expires: expire});
+               window.location.href = '<?php echo $siteurl.'ringbuilder/diamond/compare/'; ?>';
+           } else {   alert('<?php echo __("Please select minimum 2 diamonds to compare"); ?>');
+           }
+       }
+	    $( "span.imagecheck" ).each(function() {
+	    	var id = $( this ).attr("data-id");
+	    	if($('input#viewmode').val() == 'list'){
+		    	var src = $( this ).attr("data-src");  
+		    	imageExists(src, function(exists) {
+               		if(exists){
+					    $('tr#'+id+' td img').attr('src',src);
+						$('div#'+id+' div.product-images img').attr('src',src);
+						$('input#diamondimage-'+id).val(src);
+					
+				    } else {
+				       $('tr#'+id+' td img').attr('src','<?php echo $noimageurl ?>');
+					   $('div#'+id+' div.product-images img').attr('src','<?php echo $noimageurl ?>');
+					   $('input#diamondimage-'+id).val('<?php echo $noimageurl ?>');
+					
+				    }	
+      			});
+	    	} else {
+	    		if($('input#filtermode').val() == 'navfancycolored'){
+	    			var src = $( this ).attr("data-src");
+			    	imageExists(src, function(exists) {
+	               		if(exists){
+						    $('tr#'+id+' td img').attr('src',src);
+							$('div#'+id+' div.product-images img').attr('src',src);
+							$('input#diamondimage-'+id).val(src);
+						
+					    } else {
+					       $('tr#'+id+' td img').attr('src','<?php echo $noimageurl ?>');
+						   $('div#'+id+' div.product-images img').attr('src','<?php echo $noimageurl ?>');
+						   $('input#diamondimage-'+id).val('<?php echo $noimageurl ?>');
+						
+					    }	
+      				});
+	    		} else {
+	    			var src = $( this ).attr("data-srcbig"); 
+					imageExists(src, function(exists) {
+	               		if(exists){
+						    $('tr#'+id+' td img').attr('src',src);
+							$('div#'+id+' div.product-images img').attr('src',src);
+							$('input#diamondimage-'+id).val(src);
+						
+					    } else {
+					       $('tr#'+id+' td img').attr('src','<?php echo $noimageurl ?>');
+						   $('div#'+id+' div.product-images img').attr('src','<?php echo $noimageurl ?>');
+						   $('input#diamondimage-'+id).val('<?php echo $noimageurl ?>');
+						
+					    }	
+      				});
+	    		}
+	    		
+	    	} 
+	    	
+	    });
+		
+		$(".search-product-grid").mouseenter(function(){
+        var divid = $(this).attr('id');
+        if($('#grid-mode #'+divid+' div.product-images video').length){
+          $('#grid-mode #'+divid+' div.product-images .main-diamond-img').css('display','none');
+          $('#grid-mode #'+divid+' div.product-images video').css('display','block');
+          $('#grid-mode #'+divid+' div.product-images iframe').css('display','block');
+        }else{
+          $('#grid-mode #'+divid+' div.product-images .main-diamond-img').css('display','block');
+        }
+    });
+    $(".search-product-grid").mouseleave(function(){
+        var divid = $(this).attr('id');
+        if($('#grid-mode #'+divid+' div.product-images video').length){
+          $('#grid-mode #'+divid+' div.product-images .main-diamond-img').css('display','block');
+          $('#grid-mode #'+divid+' div.product-images video').css('display','none');
+        }
+    });
+    //Mobile event for video
+  $(".search-product-grid").on("touchstart",function(){
+        var divid = $(this).attr('id');
+        if($('#grid-mode #'+divid+' div.product-images video').length){
+          $('#grid-mode #'+divid+' div.product-images .main-diamond-img').css('display','none');
+          $('#grid-mode #'+divid+' div.product-images video').css('display','block');
+          $('#grid-mode #'+divid+' div.product-images iframe').css('display','block');
+        }else{
+          $('#grid-mode #'+divid+' div.product-images .main-diamond-img').css('display','block');
+        }
+    });
+  $(".search-product-grid").on("touchend",function(){
+        var divid = $(this).attr('id');
+        if($('#grid-mode #'+divid+' div.product-images video').length){
+          $('#grid-mode #'+divid+' div.product-images .main-diamond-img').css('display','block');
+          $('#grid-mode #'+divid+' div.product-images video').css('display','none');
+        }
+    });
+	
+		function imageExists(url, callback) {
+		    var img = new Image();
+		    img.onload = function() { callback(true); };
+		    img.onerror = function() { callback(false); };
+		    img.src = url;
+  		}
+
+    var  backdid =  $('#backdiamondid').val();
+      if(backdid){
+        jQuery('.search-details #list-mode #'+backdid).addClass('selected_row');
+        jQuery('#grid-mode #'+backdid).addClass('selected_grid');
+        /*jQuery('.search-details #list-mode #'+backdid+' td').css('background','#d2d0d0');
+        jQuery('.search-details #list-mode #'+backdid+' td').css('color','#000');
+        jQuery('.search-details #list-mode #'+backdid+' td a').css('color','#000');
+        jQuery('.search-details #list-mode #'+backdid+' th').css('background','#d2d0d0');*/
+    
+
+      var viewmode = $('#viewmode').val();
+      if(backdid && $('#'+backdid).length){  
+      if(viewmode == '' || viewmode == 'list'){
+        $('html, body').animate({
+          scrollTop: $('#'+backdid).offset().top - 20 
+        }, 1000);          
+      }else{
+        $('html, body').animate({
+          scrollTop: $('#grid-mode #'+backdid).offset().top - 20 
+        }, 1000);
+      }
+    }
+    setTimeout(function(){
+      ResetBackCookieFilter();
+      $('#backdiamondid').val(""); 
+        },800); 
+  }
+    var is_enable_sticky = '<?php echo $block->getGemfindEnabledStickyHeaderRB() ?>';
+      if(is_enable_sticky){
+        var stickyTop = ($('.table_header_wrapper').length > 0) ? $('.table_header_wrapper').offset().top : 0;
+        $(window).scroll(function() {
+          var windowTop = $(window).scrollTop();
+          if (stickyTop < windowTop) {
+            $('.table_header_wrapper').addClass('fixed-table-head');
+          } else {
+            $('.table_header_wrapper').removeClass('fixed-table-head');
+          }
+        });
+      }
+   }); 
+</script>
+<input type="hidden" name="gemfind_dl_version" value="2.6" />
+<?php 
+  $poweredvalues = $block->getGemfindEnabledPoweredBy();
+  if($poweredvalues){
+?>
+<span style="float: right;"><?php echo __('Powered By '); ?><a target="_blank" href="http://www.gemfind.com"><?php echo __('GemFind'); ?></a></span>
+<?php } ?>
+
+<style>
+.main-diamond-img, .product-images video {
+    margin: 0 auto;
+}
+</style>

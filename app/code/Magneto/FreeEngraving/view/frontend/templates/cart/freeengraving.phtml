@@ -1,0 +1,159 @@
+<?php
+$helper = $this->helper("Magneto\FreeEngraving\Helper\Data");
+$module_enable = $helper->isEnabled();
+
+if ($module_enable) {
+
+
+    $_product = $block->getProduct();
+    //$_attributeValue = $_product->getResource()->getAttribute('free_engraving')->getFrontend()->getValue($_product);
+    $_attributeValue = 'Yes';    
+    $mediaUrl = $this->getUrl('pub/media');
+    $engavingImage = $mediaUrl.'engraving/ring/rose_gold_engraving.png';
+
+    $engravingFontOptions = $helper->getEngravingFontOptions();
+//print_r($engravingFontOptions);exit;
+
+    if ($_attributeValue != 'No'): ?>
+<div class="product-info-engraving">
+    <a class="openBtn" id="add_engraving" href="javascript:void(0)"><?php echo __('Add Engraving')?></a>
+    <div class="edit_remove_engraving" style="display: none;">
+        <p id="preview_engraving_text" class="textEngravingValue for-preview" style="display:none;"></p>
+        <a href="#" id="editEngraving" class="edit_engraving openBtn"><?php echo __('Edit Engraving')?></a> | 
+        <a href="#" id="removeEngraving" class="remove_engraving"><?php echo __('Remove Engraving')?></a>
+    </div>
+
+    <div class="popup">
+        <div class="popup-content">
+          <div id="engraving_popup_div">
+            <div class="form-group">
+                <span class="label"><?php echo __('Enter Engraving Text')?></span>
+                <textarea class="form-control" placeholder="<?php echo __('Enter Engraving Text')?>" rows="1" id="engravingText" data-max-length="20" maxlength="20"></textarea>
+                <p class="text-popup"><span class="engraving__available">20</span><?php echo __('Characters available.')?></p>
+            </div>
+            <div class="form-group">
+                <div>
+                    <span class="label"><?php echo __('Choose Font')?></span>
+                        <?php
+                        $i = 0;
+                        $selectedDefaultFont = '';
+                        $selectCheckClass = '';
+                        foreach ($engravingFontOptions as $keys => $fontsOptions) {
+                            $selectCheckClass = $selectedLabelClass = '';
+                            $fontOptionUrl = $mediaUrl.'engraving/fonts-image/'.$fontsOptions['value'].".png";
+                            //$fontOptionUrl = '';
+                            if ($i==0) {
+                                $selectedDefaultFont = 'js-'.$fontsOptions['value'];
+                                $selectCheckClass = 'checked="checked"';
+                                $selectedLabelClass = 'selected';
+                    
+                            }
+                            ?>      
+                            <div class="group-lang">
+                                <input type="radio" class="radio" value="<?=$fontsOptions['value'];?>" name="engraving-text-type" data-font-text="<?=$fontsOptions['label'];?>" id="engraving_fonts_<?=$fontsOptions['value'];?>" <?=$selectCheckClass;?> />
+                            <label class="label_item <?=$selectedLabelClass;?>" for="engraving_fonts_<?=$fontsOptions['value'];?>"> <img src="<?=$fontOptionUrl;?>" alt="<?=$fontsOptions['label'];?>" title="<?=$fontsOptions['label'];?>"><span></span>
+                            </label>
+                        </div>
+                        
+                            <?php
+                            $i++;
+                        }?>   
+                </div>
+            </div>
+            
+            <div class="engraving">
+                <span class="label"><?php echo __('Preview')?></span>
+                <p id="textEngravingValue" class="textEngravingValue <?=$selectedDefaultFont;?>"></p>
+                <div class="engraving__ring" style="background:url('<?php echo $engavingImage; ?>') no-repeat;background-size: cover;">
+                </div>
+                <span class="label desc">
+                    <?php echo __('A 10x magnifying glass may be required to clearly read the engraving on your jewelry.')?>    
+            </span>
+            </div>
+
+            <div class="action-bar"><button type="submit" class="btn btn-default"><?php echo __('SAVE')?></button></div>
+            <p class="success-mag" style="display:none"><?php echo __('Engraving Added to product.')  ?></p>
+        </div> 
+        <a class="closeBtn" href="javascript:void(0)"> </a>
+        </div>
+    </div>
+</div>
+    <?php endif; ?>
+
+<div id="add_to_cart_engraving_options">
+    <input type="hidden" name="addtocart-engravingTextTypeLabel" id="addtocart-engravingTextTypeLabel" value="">
+    <input type="hidden" name="addtocart-engravingTextTypeValue" id="addtocart-engravingTextTypeValue" value="">
+    <input type="hidden" name="addtocart-engravingTextType" id="addtocart-engravingTextType" value="">
+    <input type="hidden" name="addtocart-engravingTextLabel" id="addtocart-engravingTextLabel" value="">
+    <input type="hidden" name="addtocart-engravingText" id="addtocart-engravingText" value="">
+</div>
+<script>
+    require([
+        'jquery',
+        'mage/mage',
+        'Magento_Catalog/product/view/validation',
+        'Magento_Catalog/js/catalog-add-to-cart'
+    ], function ($) {
+        'use strict';
+
+        $('#product_addtocart_form').mage('validation', {
+            radioCheckboxClosest: '.nested',
+            submitHandler: function (form) {
+                var widget = $(form).catalogAddToCart({
+                    bindSubmit: false
+                });
+               
+                widget.catalogAddToCart('submitForm', $(form));
+                
+                return false;
+            }
+        });
+
+        $("#add_to_cart_engraving_options").appendTo("form#product_addtocart_form");
+
+        // Open Popup
+        $('.openBtn').on('click', function () {
+            //alert("come here at openbtn click");
+          $('.popup').fadeIn(300);
+          //alert("after fadein");
+        });
+     
+        // Close Popup
+        $('.closeBtn').on('click', function () {
+          $('.popup').fadeOut(300);
+        });
+     
+        // Close Popup when Click outside
+/*$('.popup').on('click', function () {
+
+
+
+          //$('.popup').fadeOut(300);
+        }).children().click(function () {
+          return true;
+        });
+*/        
+        $(document).mouseup(function(e){
+            var container = $(".popup");
+
+            // If the target of the click isn't the container
+            if(!container.is(e.target) && container.has(e.target).length === 0){
+                $('.popup').fadeOut(300);
+            }
+        });
+
+
+
+
+ 
+    });
+
+require(['jquery', 'Magneto_FreeEngraving/js/mymodal-component'],
+    function ($) {
+        
+        return;
+    }
+);
+
+</script>
+<?php } ?>

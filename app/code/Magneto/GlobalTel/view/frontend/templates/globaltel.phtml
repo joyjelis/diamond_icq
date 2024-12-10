@@ -1,0 +1,63 @@
+<?php 
+$viewModel = $block->getData('global_tel_helper');
+?>
+<?php if($viewModel->isEnabled()): ?>
+    <script>
+        window.globalTel = {
+            "utilsScript": "<?php echo $this->getViewFileUrl('Magneto_GlobalTel::js/utils.js'); ?>",
+            "telselector": ".init_tel",
+            "enable": 1
+        }
+    </script>
+<?php else: ?>
+    <script>
+        window.globalTel = {
+            "enable": 0
+        }
+    </script>
+<?php endif; ?>
+<script>
+    require(["jquery", "magneto/lazyload", "magneto/floating-label", "domReady!", 'Magento_Ui/js/lib/view/utils/dom-observer'], function($, LazyLoad, floatinglabel){
+        domObserver = require('Magento_Ui/js/lib/view/utils/dom-observer');
+        domObserver.get('input[type="text"], input[type="tel"], input[type="email"], input[type="password"],input[type="number"]', function(elem){
+            $(elem).floatingLabel();
+        });
+
+        $( document ).ajaxComplete(function() {
+          var myLazyLoad = new LazyLoad();
+      });
+
+        var myLazyLoad = new LazyLoad();
+    });
+</script>
+<?php if($viewModel->isFBEnable()): ?>
+    <!-- Load Facebook SDK for JavaScript -->
+    <div id="fb-root"></div>
+    <script>
+        window.fbAsyncInit = function() {
+          FB.init({
+            xfbml            : true,
+            version          : 'v7.0'
+        });
+      };
+
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+      require(["jquery"], function($){
+        $('.livechat-header > a, .livechaticon').click(function(){
+            FB.CustomerChat.showDialog();
+        });
+      });
+  </script>
+  <!-- Your Chat Plugin code -->
+  <div class="fb-customerchat"
+  attribution=setup_tool
+  page_id="<?= $viewModel->getFBPageId() ?>"
+  theme_color="<?= $viewModel->getFBColor() ?>">
+</div>
+<?php endif; ?>

@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <!-- Sell Service -->
+    <route url="/V1/sell" method="POST">
+        <service class="Customer\Sell\Api\SellRepositoryInterface" method="save"/>
+        <resources>
+            <resource ref="Customer_Sell::save"/>
+        </resources>
+    </route>
+    <route url="/V1/sell" method="GET">
+        <service class="Customer\Sell\Api\SellRepositoryInterface" method="getList"/>
+        <resources>
+            <resource ref="Customer_Sell::index"/>
+        </resources>
+    </route>
+    <route url="/V1/sell/getSellById/:id" method="GET">
+        <service class="Customer\Sell\Api\SellRepositoryInterface" method="getSellById"/>
+        <resources>
+            <resource ref="Customer_Sell::index"/>
+        </resources>
+    </route>
+</routes>

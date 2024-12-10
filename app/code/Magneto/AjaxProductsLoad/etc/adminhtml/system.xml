@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * @author Magneto Team
+ * @copyright Copyright (c) 2021 Magneto (https://www.magnetoitsolutions.com)
+ * @package Magneto_AjaxProductsLoad
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="mistab" translate="label" class="mistab" sortOrder="100">
+            <label>Magneto</label>
+        </tab>
+        <section id="ajax_product_load" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1"
+           showInStore="1">
+           <class>separator-top</class>
+           <label>Ajax Product Load</label>
+           <tab>mistab</tab>
+           <resource>Magneto_AjaxProductsLoad::product_setting</resource>
+           <group id="general" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1"
+             showInStore="1">
+             <label>Configuration</label>
+             <field id="enabled" translate="label" type="select" sortOrder="3" showInDefault="1" showInStore="1" showInWebsite="1">
+                <label>Enable</label>
+                <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                <comment>
+                    <![CDATA[
+                    Add following block to layout or cms page to render the content: <br />
+                    We have 2 pattens in the block <br>
+                    1. Patten<br>
+                    <b>{{block class="Magneto\AjaxProductsLoad\Block\Products" categoryId="{categoryid}" filter_category="{filter_categories_ids}" cacheable="false" }} </b><br /><br />
+                    2. Patten<br>
+                    <b>{{block class="Magneto\AjaxProductsLoad\Block\Products" categoryIds="{categoryids}" use_subcateory=0 filter_category="{filter_categories_ids}" title={{title}} cacheable="false" }} </b><br /><br />
+
+                    For Example: <br />
+                    1. Patten<br>
+                    <b>{{block class="Magneto\AjaxProductsLoad\Block\Products" categoryId="20" filter_category="29,21,19,30,18,23" cacheable="false"}}</b><br><br />
+                    2. Patten<br>
+                    <b>{{block class="Magneto\AjaxProductsLoad\Block\Products" categoryIds="20,24,7,27,10,11,13,14,15,16,17,28" use_subcateory="0" title="Jewellery Category" filter_category="29,21,19,30,18,23" cacheable="false" }}</b>
+                    ]]></comment>
+            </field>
+             <field id="desktop_limit" translate="label" type="text" sortOrder="3" showInDefault="1" showInStore="1" showInWebsite="1">
+                <label>Product Limit</label>
+            </field>
+            <field id="mobile_limit" translate="label" type="text" sortOrder="3" showInDefault="1" showInStore="1" showInWebsite="1">
+                <label>Product Limit (Mobile)</label>
+            </field>
+        </group>
+    </section>
+</system>
+</config>

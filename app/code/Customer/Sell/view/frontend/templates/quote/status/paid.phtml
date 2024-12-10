@@ -1,0 +1,21 @@
+<?php
+$item = $block->getSellitem();
+$transactionNumber = $item->getTransactionCustomer();
+?>
+<div class="status-details paid">
+    <label class="label sub" for="name">
+        <span>
+            <?= __('Payment done for the Submitted Item.') ?>
+        </span>
+    </label>
+    <div class="sub-control">
+        <label class="label" for="online">
+            <strong>
+                <?= __('Transaction Number :') ?>
+            </strong>
+        </label>
+        <span>
+            <?= $transactionNumber; ?>
+        </span>
+    </div>
+</div>

@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+
+    <default>
+
+        <gemfindringbuilder>
+
+            <general>
+
+                <enable_in_frontend>0</enable_in_frontend>
+
+                <enable_powered_by>1</enable_powered_by>
+
+                <enable_sticky_header>0</enable_sticky_header>
+
+                <enable_tryon>0</enable_tryon>
+
+                <dealerauthapi>http://api.jewelcloud.com/api/RingBuilder/AccountAuthentication</dealerauthapi>
+
+                <getringfilterapi>http://api.jewelcloud.com/api/RingBuilder/GetFilters?</getringfilterapi>
+
+                <getmountinglistapi>http://api.jewelcloud.com/api/RingBuilder/GetMountingList?</getmountinglistapi>
+
+                <getmountingdetailapi>http://api.jewelcloud.com/api/RingBuilder/GetMountingDetail?</getmountingdetailapi>
+
+                <getringstylesettingapi>http://api.jewelcloud.com/api/RingBuilder/GetStyleSetting?</getringstylesettingapi>                                    
+
+                <getnavigationapi>http://api.jewelcloud.com/api/RingBuilder/GetNavigation?</getnavigationapi>
+
+                <api_timeout>30</api_timeout>
+
+                <getfilterapi>http://api.jewelcloud.com/api/RingBuilder/GetDiamondFilter?</getfilterapi>
+
+                <getfilterapifancy>http://api.jewelcloud.com/api/RingBuilder/GetColorDiamondFilter?</getfilterapifancy>
+
+                <getdiamondlistapi>http://api.jewelcloud.com/api/RingBuilder/GetDiamond?</getdiamondlistapi>
+
+                <getdiamondlistapifancy>http://api.jewelcloud.com/api/RingBuilder/GetColorDiamond?</getdiamondlistapifancy>
+
+                <getdiamondshapeapi>http://api.jewelcloud.com/api/ringbuilder/GetShapeByColorFilter?</getdiamondshapeapi>
+
+                <getdiamonddetailapi>http://api.jewelcloud.com/api/RingBuilder/GetDiamondDetail?</getdiamonddetailapi>
+
+                <getstylesettingapi>http://api.jewelcloud.com/api/RingBuilder/GetStyleSetting?</getstylesettingapi>
+
+                <jsoptionsapi>http://api.jewelcloud.com/api/RingBuilder/GetDiamondsJCOptions?</jsoptionsapi>
+
+                <enable_hint>1</enable_hint>
+
+                <enable_email_friend>1</enable_email_friend>
+
+                <enable_schedule_viewing>1</enable_schedule_viewing>
+
+                <enable_more_info>1</enable_more_info>
+
+                <enable_print>1</enable_print>
+
+                <default_view>grid</default_view>
+
+                <carat_range>{"0.25":[0.2,0.3],"0.33":[0.31,0.4],"0.50":[0.41,0.65],"0.75":[0.66,0.85],"1.00":[0.86,1.14],"1.25":[1.15,1.4],"1.50":[1.41,1.65],"1.75":[1.66,1.85],"2.00":[1.86,2.15],"2.25":[2.16,2.45],"2.50":[2.46,2.65],"2.75":[2.66,2.85],"3.00":[2.85,3.25]}</carat_range>
+
+            </general>
+
+            <email>
+
+                <ringdrop_hint_email_template_receiver>gemfindringbuilder_email_ringdrop_hint_email_template_receiver</ringdrop_hint_email_template_receiver>
+
+                <ringdrop_hint_email_template_sender>gemfindringbuilder_email_ringdrop_hint_email_template_sender</ringdrop_hint_email_template_sender>
+
+                <ringdrop_hint_email_template_retailer>gemfindringbuilder_email_ringdrop_hint_email_template_retailer</ringdrop_hint_email_template_retailer>
+
+                <ringrequest_info_email_template_admin>gemfindringbuilder_email_ringrequest_info_email_template_admin</ringrequest_info_email_template_admin>
+
+                <ringrequest_info_email_template_sender>gemfindringbuilder_email_ringrequest_info_email_template_sender</ringrequest_info_email_template_sender>
+
+                <ringemail_friend_email_template_receiver>gemfindringbuilder_email_ringemail_friend_email_template_receiver</ringemail_friend_email_template_receiver>
+
+                <ringemail_friend_email_template_admin>gemfindringbuilder_email_ringemail_friend_email_template_admin</ringemail_friend_email_template_admin>
+
+                <ringemail_friend_email_template_sender>gemfindringbuilder_email_ringemail_friend_email_template_sender</ringemail_friend_email_template_sender>
+
+                <ringschedule_view_email_template_admin>gemfindringbuilder_email_ringschedule_view_email_template_admin</ringschedule_view_email_template_admin>
+
+
+
+                <drop_hint_email_template_receiver>gemfindringbuilder_email_drop_hint_email_template_receiver</drop_hint_email_template_receiver>
+
+                <drop_hint_email_template_sender>gemfindringbuilder_email_drop_hint_email_template_sender</drop_hint_email_template_sender>
+
+                <drop_hint_email_template_retailer>gemfindringbuilder_email_drop_hint_email_template_retailer</drop_hint_email_template_retailer>
+
+                <request_info_email_template_admin>gemfindringbuilder_email_request_info_email_template_admin</request_info_email_template_admin>
+
+                <request_info_email_template_sender>gemfindringbuilder_email_request_info_email_template_sender</request_info_email_template_sender>
+
+                <email_friend_email_template_receiver>gemfindringbuilder_email_email_friend_email_template_receiver</email_friend_email_template_receiver>
+
+                <email_friend_email_template_admin>gemfindringbuilder_email_email_friend_email_template_admin</email_friend_email_template_admin>
+
+                <email_friend_email_template_sender>gemfindringbuilder_email_email_friend_email_template_sender</email_friend_email_template_sender>
+
+                <schedule_view_email_template_admin>gemfindringbuilder_email_schedule_view_email_template_admin</schedule_view_email_template_admin>
+
+            </email>
+			<feed>
+				<path>pub/media/</path>
+			</feed>
+        </gemfindringbuilder>
+		
+    </default>
+
+</config>

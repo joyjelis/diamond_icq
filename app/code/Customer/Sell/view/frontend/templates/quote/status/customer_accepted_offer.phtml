@@ -1,0 +1,38 @@
+<?php
+$class = Customer\Sell\Block\Quote\View::class;
+$item = $block->getSellitem();
+$price = $item->getPrice();
+$offerPrice = $item->getOfferPrice();
+$price = !empty($offerPrice) ? $offerPrice : $price;
+?>
+<div class="status-details customeraccepted qualified">
+    <div class="item-status-desc">
+        <span><?= $block->escapeHtml(__("Your Item :")); ?></span>
+        <strong><?= $block->escapeHtml(__("Qualified.")); ?></strong>
+    </div>
+    <?php if ($price): ?>
+    <div class='field note no-label'>
+        <span><?= $block->escapeHtml(__('Offer Price')) ?> :</span>
+        <strong><?= $block->formatSellPrice($price); ?></strong>
+    </div>
+    <?php endif; ?>
+    <div class="field accept required hidden">
+        <input type="hidden" name="accept_offer" value="1">
+    </div>
+</div>
+<?= $this->getLayout()->createBlock($class)
+->setTemplate("Customer_Sell::quote/status/tradeType.phtml")->toHtml(); ?>
+
+<?= $this->getLayout()->createBlock($class)
+->setTemplate("Customer_Sell::quote/status/trade_online.phtml")->toHtml(); ?>
+
+<?= $this->getLayout()->createBlock($class)
+->setTemplate("Customer_Sell::quote/status/trade_in_person.phtml")->toHtml(); ?>
+
+<script>
+    require(['jquery', 'jquery/ui'], function($) {
+        jQuery(document).ready(function() { 
+            jQuery('.tradefieldset').removeClass('hidden');
+        });
+    });
+</script>

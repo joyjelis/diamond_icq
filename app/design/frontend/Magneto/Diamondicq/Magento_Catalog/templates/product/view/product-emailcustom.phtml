@@ -1,0 +1,9 @@
+<?php $_product = $block->getProduct();
+$skuproduct = $_product->getSKU();
+ ?>
+<div class="sku-custom">
+	<div class="value">
+		<?php echo __('SKU'); ?>#<?php echo $skuproduct ;?>
+	</div>
+</div>
+	<?php echo $block->getLayout()->createBlock(\Magento\Cms\Block\Block::class)->setBlockId('productpage-email')->toHtml();?>

@@ -1,0 +1,27 @@
+.textEngravingValue.js-Arial {
+  font-family: "Arial", sans-serif;
+}
+.textEngravingValue.js-Times_New_Roman {
+  font-family: "Times New Roman", sans-serif;
+}
+.textEngravingValue.js-Times_New_Roman_Italic {
+  font-family: "Times New Roman", sans-serif;
+  font-style: italic;
+}
+.textEngravingValue.js-PMingLiU {
+  font-family: "PMINGLIU", serif;
+}
+
+.textEngravingValue.js-script {
+  font-family: "SnellRoundhand", cursive;
+}
+.textEngravingValue.js-Lucida_Sans {
+  font-family: "Lucida Sans", serif;
+}
+.textEngravingValue.js-Pinyon_Script {
+  font-family:'Pinyon Script';
+  font-style: italic;
+}
+.textEngravingValue.js-Santral {
+  font-family: "Santral Regular";
+}

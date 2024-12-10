@@ -1,0 +1,6 @@
+.checkout-index-index #checkout .field._required .floating-label1 .asterisk{
+    display:initial;
+}
+.checkout-index-index #checkout ._error div.mage-error{
+    display: none !important;
+}

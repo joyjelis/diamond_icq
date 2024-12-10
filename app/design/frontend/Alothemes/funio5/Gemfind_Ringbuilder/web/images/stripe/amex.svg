@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 29 19.00017"
+   version="1.1"
+   id="svg28"
+   sodipodi:docname="amex.svg"
+   width="29"
+   height="19.00017"
+   inkscape:version="1.2 (dc2aedaf03, 2022-05-15)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs32" />
+  <sodipodi:namedview
+     id="namedview30"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="37.8125"
+     inkscape:cx="21.553719"
+     inkscape:cy="8.4892562"
+     inkscape:window-width="1920"
+     inkscape:window-height="1027"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg28" />
+  <g
+     id="Page-1"
+     fill="none"
+     fill-rule="evenodd"
+     transform="matrix(0.99802844,0,0,0.99802844,0.03945616,-1.9566663)">
+    <g
+       id="amex">
+      <g
+         id="card"
+         transform="translate(-1,2)">
+        <path
+           id="shape"
+           fill="#1d91ce"
+           d="M 27.58,19 H 3.42 A 2.4,2.4 0 0 1 1,16.62 V 2.38 A 2.4,2.4 0 0 1 3.42,0 H 27.58 A 2.4,2.4 0 0 1 30,2.38 V 16.63 A 2.4,2.4 0 0 1 27.58,19 Z" />
+        <polyline
+           id="polyline348"
+           fill="#ffffff"
+           points="5.063 11.896 4.591 13 .36 13 3.699 6 11.674 6 12.479 7.546 13.231 6 16.064 6 17.492 6 23.983 6 24.902 6.961 25.889 6 30.882 6 27.337 9.492 30.729 13 25.897 13 24.816 11.969 23.744 13 17.492 13 16.064 13 6.496 13 5.977 11.896" />
+        <path
+           id="path350"
+           fill="#1d91ce"
+           d="M 5.98,11.97 H 5.06 Z M 16.2,7 H 14.1 L 12.52,10.35 10.82,7 h -2.1 v 4.85 L 6.55,7 H 4.58 l -2.32,5 h 1.42 l 0.47,-1.14 h 2.7 L 7.39,12 H 10 V 7.93 L 11.85,12 h 1.22 l 1.84,-4 v 4 H 16.2 Z M 24.87,8.62 23.37,7 h -6.02 v 5 h 5.82 l 1.65,-1.64 1.66,1.64 h 1.55 L 25.66,9.47 28.1,7 H 26.48 Z M 21.7,11 H 18.64 V 9.9 h 3.06 v -1 H 18.64 V 8 H 21.7 V 7.15 L 23.97,9.42 21.7,11.7 Z M 5.53,7.82 6.41,9.85 H 4.58 Z" />
+      </g>
+    </g>
+  </g>
+</svg>

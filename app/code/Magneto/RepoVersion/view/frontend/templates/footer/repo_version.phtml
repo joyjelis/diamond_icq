@@ -1,0 +1,22 @@
+<?php
+$package = $block->getData("package_version");
+?>
+<div class="version" id="repo_version" style="display:none;">
+    <?= $package->getDeployVersion(); ?>
+</div>
+<script>
+    require([
+        'jquery',
+        'Magento_Ui/js/lib/view/utils/dom-observer',
+        ], function ($) {
+            domObserver = require('Magento_Ui/js/lib/view/utils/dom-observer');
+            $(document).ready(function(){
+                domObserver.get('.copyright', function(elem){
+                    if($(elem).find("#repo_version").length == 0){
+                        $(".copyright").append($("#repo_version").clone());
+                        $(elem).find("#repo_version").show();
+                    }
+                });
+            });
+        });
+    </script>

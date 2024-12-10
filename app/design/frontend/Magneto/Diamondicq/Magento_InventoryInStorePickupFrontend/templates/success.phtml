@@ -1,0 +1,43 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+?>
+<?php /** @var $block \Magento\Checkout\Block\Onepage\Success */ ?>
+<div class="top-staticsec">
+    <?php
+    echo $this->getLayout()
+    ->createBlock('Magento\Cms\Block\Block')
+    ->setBlockId('checkout-success')
+    ->toHtml();
+    ?>
+</div>
+
+<div class="checkout-success">
+    <div class="topimg"></div>
+    <h1 class="page-title">
+        <span class="base" data-ui-id="page-title-wrapper"><?php echo __('Thank you for your purchase!'); ?></span>
+    </h1>
+    <?php if ($block->getOrderId()):?>
+        <?php if ($block->getCanViewOrder()):?>
+            <div class="hor-line"><hr></div>
+            <div class="orderidsec">
+            <p><?php echo __('Order ID'); ?>:</p><strong><?php echo $block->getOrderId(); ?></strong>
+            </div>
+        <?php endif;?>
+            <div class="btmsec">
+            <p><?= $block->escapeHtml(__('We’ll email you an order confirmation with the details.')) ?></p>
+            <p><?php echo __('For any delivery issues please contact us on +85239565577'); ?></p>
+            </div>
+    <?php endif;?>
+
+    <?= $block->getAdditionalInfoHtml() ?>
+
+    <div class="actions-toolbar">
+        <div class="primary">
+            <a class="action primary continue" href="<?php echo $block->getUrl('ringbuilder/settings'); ?>"><span><?= $block->escapeHtml(__('Continue Shopping')) ?></span></a>
+        </div>
+    </div>
+</div>

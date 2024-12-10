@@ -1,0 +1,300 @@
+<!--@subject {{trans "Sell on consignment with Diamond ICQ" }} @-->
+<!doctype html>
+    <html>
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link href='https://fonts.googleapis.com/css2?family=Roboto&display=swap' rel='stylesheet'>
+        <style>
+        .ReadMsgBody {
+            width: 100%;
+            background-color: #ffffff;
+        }
+        
+        .ExternalClass {
+            width: 100%;
+            background-color: #ffffff;
+        }
+        
+        body {
+            width: 100%;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        table {
+            border-collapse: collapse;
+        }
+        .mobile-header{
+                display: block;
+                background-color: #64564d;
+                text-align: left;
+            }
+
+        @media only screen and (max-width: 479px) {
+
+           .cusname{
+                width: 100%;display: inline-block;clear: both;
+            }
+            
+            .mobile-date{
+                width: 100%;margin-top: 10px;display: inline-block; padding-bottom: 0px !important;
+            }
+            .mobile-custom{
+                margin-bottom: 30px !important;
+            }
+            .mobile-date{
+                width: 100%;margin-top: 10px;display: inline-block;
+            }
+            .mobile-address{
+                margin-top: 30px;
+                width: 100%;
+                clear: both;
+                display: inline-block;
+                padding-bottom: 30px;
+            }
+            .mobile-social{
+                width: 100%;
+                  float: left !important;
+                text-align: left;
+                display: inline-block;
+            }
+             .cusname{
+                width: 100%;display: inline-block;clear: both;
+            }
+            
+
+        }
+        /*@media only screen and (max-width: 640px) {
+            .deviceWidth {
+                width: 440px!important;
+                padding: 0;
+            }
+            .center {
+                text-align: center!important;
+            }
+        }
+        
+        @media only screen and (max-width: 479px) {
+            .deviceWidth {
+                width: 280px!important;
+                padding: 0;
+            }
+            .center {
+                text-align: center!important;
+            }
+        }*/
+    </style>
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" style="font-family: 'Roboto', sans-serif;">
+
+    <!-- Wrapper -->
+    <table width="900" border="0" cellpadding="0" cellspacing="0" align="center" style="border: 5px solid #64564d">
+        <tr>
+            <td width="100%" valign="top" bgcolor="#ffffff">
+
+                <!-- Start Header-->
+                <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="deviceWidth" style="margin:0 auto;">
+                    <tr>
+                        <td width="100%" bgcolor="#ffffff" style="padding:20px" class="center">
+                            <!-- Logo -->
+                            <table border="0" cellpadding="0" cellspacing="0" align="center" class="deviceWidth">
+                                <tr>
+                                    <td>
+                                        <a href="{{store url='sell-your-jewellery'}}"><img src="{{view url='Customer_Sell/images/Logo.png'}}" alt="" border="0" /></a>
+                                    </td>
+                                </tr>
+                            </table>
+                            <!-- End Logo -->
+                        </td>
+                    </tr>
+                </table>
+                <!-- End Header -->
+
+                <!-- One Column -->
+
+                 <div width="100%" border="0" cellpadding="0" cellspacing="0" align="center"  style="margin:0 auto;" style="background-color: #64564d;text-align: left;"> 
+                        <div style="background-color: #64564d;text-align: left;padding:30px 60px" class="mobile-header">
+
+                            <h1 style="color: #fff; font-size: 30px; margin: 0; padding: 0;">{{trans "Hello"}},</h1>
+                                        <h1 style="color: #fff; font-size: 30px; margin: 6px 0 0 0; padding: 0;">{{var data.name}}</h1>
+                                        <span style="color: #fff; font-size: 14px; margin-top: 6px; padding: 0; display: inline-block;">{{trans "Reference number"}} : {{var data.quote}}</span>
+                                        <span class="mobile-date" style="color: #fff; font-size: 14px; margin-top: 6px; padding: 0; float: right;">{{trans "Date"}} : {{var data.current_date}}</span>
+                                         <span class="mobile-custom" style="color: #64564d; font-size: 30px;height: 0; margin: 0;opacity: 0;">{{trans "Hello"}}</span>
+                        </div>
+                </div>
+
+
+
+                <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="deviceWidth" style="margin:0 auto;">
+                    <tr>
+                        <td width="100%" bgcolor="#fff" style="padding:30px 60px" class="center">
+
+                            <!-- Title -->
+                            <table border="0" cellpadding="0" cellspacing="0" align="left" class="deviceWidth" width="100%">
+                                <tr>
+                                    <h3 style="color: #64564d; font-size: 20px; margin: 0 0 12px; padding: 0; display: block; text-decoration: underline; width: 200px;">{{trans "Congratulations !" }}</h3>
+                                    <td style="padding:0 0 30px">
+                                        <h4 style="color: #64564d; font-size: 16px; margin: 0; padding: 0; font-weight: 400; line-height: 26px;">{{trans 'Your item(s) are better suited to a consignment sale. For the best possible sale price, Diamond ICQ would like to assist you with our consignment service.'}}</h4>
+                                    </td>
+                                </tr>
+                            </table>
+                            <!-- Title -->
+                            <table border="0" cellpadding="0" cellspacing="0" align="left" class="deviceWidth" width="100%">
+                                <tr>
+                                    <td>
+                                        <h3 style="color: #64564d; font-size: 20px; margin: 0 0 12px; padding: 0; display: block; text-decoration: underline;">{{trans "Start Selling Now." }}</h3>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 100%; display: block; padding:6px 0">
+                                        <h6 style="color: #64564d; font-size: 16px; line-height:22px; margin: 0; padding: 0 24px 0 0; font-weight: 400; display: inline-block; float: left; width: 160px;">{{trans "Type of jewellery"}}</h6>
+                                        <strong  class="cusname"  style="color: #64564d; font-size: 16px; line-height:22px; margin: 0; padding: 0; font-weight: 400">{{var data.jewellery_type}}</strong>
+                                    </td>
+                                    <td style="width: 100%; display: block; padding:6px 0">
+                                        <h6 style="color: #64564d; font-size: 16px; line-height:22px; margin: 0; padding: 0 24px 0 0; font-weight: 400; display: inline-block; float: left; width: 160px;">{{trans "Laboratory:"}}</h6>
+                                        <strong  class="cusname"  style="color: #64564d; font-size: 16px; line-height:22px; margin: 0; padding: 0; font-weight: 400">{{var data.lab}}</strong>
+                                    </td>
+                                    <td style="width: 100%; display: block; padding:6px 0">
+                                        <h6 style="color: #64564d; font-size: 16px; line-height:22px; margin: 0; padding: 0 24px 0 0; font-weight: 400; display: inline-block; float: left; width: 160px;">{{trans "Carat:"}}</h6>
+                                        <strong  class="cusname"  style="color: #64564d; font-size: 16px; line-height:22px; margin: 0; padding: 0; font-weight: 400">{{var data.carat}}</strong>
+                                    </td>
+                                    <td style="width: 100%; display: block; padding:6px 0">
+                                        <h6 style="color: #64564d; font-size: 16px; line-height:22px; margin: 0; padding: 0 24px 0 0; font-weight: 400; display: inline-block; float: left; width: 160px;">{{trans "Colour:"}}</h6>
+                                        <strong  class="cusname"  style="color: #64564d; font-size: 16px; line-height:22px; margin: 0; padding: 0; font-weight: 400">{{var data.color}}</strong>
+                                    </td>
+                                    <td style="width: 100%; display: block; padding:6px 0">
+                                        <h6 style="color: #64564d; font-size: 16px; line-height:22px; margin: 0; padding: 0 24px 0 0; font-weight: 400; display: inline-block; float: left; width: 160px;">{{trans "Clarity:"}}</h6>
+                                        <strong  class="cusname"  style="color: #64564d; font-size: 16px; line-height:22px; margin: 0; padding: 0; font-weight: 400">{{var data.clarity}}</strong>
+                                    </td>
+                                    <td style="width: 100%; display: block; padding:6px 0">
+                                        <h6 style="color: #64564d; font-size: 16px; line-height:22px; margin: 0; padding: 0 24px 0 0; font-weight: 400; display: inline-block; float: left; width: 160px;">{{trans "Cut:"}}</h6>
+                                        <strong  class="cusname" style="color: #64564d; font-size: 16px; line-height:22px; margin: 0; padding: 0; font-weight: 400">{{var data.cut}}</strong>
+                                    </td>
+                                    <td style="width: 100%; display: block; padding:6px 0">
+                                        <h6 style="color: #64564d; font-size: 16px; line-height:22px; margin: 0; padding: 0 24px 0 0; font-weight: 400; display: inline-block; float: left; width: 160px;">{{trans "Polish:"}}</h6>
+                                        <strong  class="cusname" style="color: #64564d; font-size: 16px; line-height:22px; margin: 0; padding: 0; font-weight: 400">{{var data.polish}}</strong>
+                                    </td>
+                                    <td style="width: 100%; display: block; padding:6px 0">
+                                        <h6 style="color: #64564d; font-size: 16px; line-height:22px; margin: 0; padding: 0 24px 0 0; font-weight: 400; display: inline-block; float: left; width: 160px;">{{trans "Symmetry:"}}</h6>
+                                        <strong  class="cusname" style="color: #64564d; font-size: 16px; line-height:22px; margin: 0; padding: 0; font-weight: 400">   {{var data.symmetry}}</strong>
+                                    </td>
+                                    <td style="width: 100%; display: block; padding:6px 0">
+                                        <h6 style="color: #64564d; font-size: 16px; line-height:22px; margin: 0; padding: 0 24px 0 0; font-weight: 400; display: inline-block; float: left; width: 160px;">{{trans "Fluorescence:"}}</h6>
+                                        <strong  class="cusname" style="color: #64564d; font-size: 16px; line-height:22px; margin: 0; padding: 0; font-weight: 400">    {{var data.fluorescence}}</strong>
+                                    </td>
+                                    <td style="width: 100%; display: block; padding:6px 0">
+                                        <h6 style="color: #64564d; font-size: 16px; line-height:22px; margin: 0; padding: 0 24px 0 0; font-weight: 400; display: inline-block; float: left; width: 160px;">{{trans "GIA NO.:"}}</h6>
+                                        <strong  class="cusname"  style="color: #64564d; font-size: 16px; line-height:22px; margin: 0; padding: 0; font-weight: 400">    {{var data.certificate_no}}</strong>
+                                    </td>
+                                </tr>
+                            </table>
+                            <!-- Title -->
+                            <table border="0" cellpadding="0" cellspacing="0" align="left" class="deviceWidth" width="100%">
+
+                                <tr>
+
+                                    <td style="padding:30px 0">
+                                        <h4 style="color: #64564d; font-size: 16px; line-height:22px; margin: 0 0 16px; padding: 0; font-weight:400">{{trans 'Diamond ICQ suggests the selling price of -'}}
+                                            <strong>{{var data.price|raw}}</strong> {{trans 'for your jewellery.'}}</h4>
+                                            <h4 style="margin: 0; color: #64564d; font-size: 16px; line-height:26px; font-weight: 600">{{trans 'Prices offered to you are valid when the item is sold and Diamond ICQ will charge a 10% commission on the sale amount of the particular item and the payment will be released thereafter.'}}
+                                            </h4>
+
+                                        </td>
+                                    </tr>
+                                </table>
+                                <!-- Title -->
+                                <table border="0" cellpadding="0" cellspacing="0" align="left" class="deviceWidth" width="100%">
+                                    <tr>
+                                        <td>
+                                            <h3 style="color: #64564d; font-size: 24px; margin: 0 0 16px; padding: 0; display: block;">{{trans 'HURRY AND SELL NOW!'}}</h3>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+
+                                        <td style="padding:0 0 30px 0">
+                                            <h4 style="color: #64564d; font-size: 16px; line-height:22px; margin: 0 0 16px; padding: 0; font-weight:400; line-height: 26px;">{{trans 'Quotes are valid for seven days from the date of quotation. So accept your sale quote soon! If you have any questions at all, please do not hesitate to contact your Diamond ICQ team.'}}</h4>
+
+
+                                        </td>
+                                    </tr>
+                                </table>
+                                <!-- Title -->
+                                <table border="0" cellpadding="0" cellspacing="0" align="left" class="deviceWidth" width="100%">
+                                    <tr>
+                                        <td>
+                                            <h3 style="color: #64564d; font-size: 20px; margin: 0; padding: 0; display: block; text-decoration: underline; margin-bottom:  10px;">{{trans 'From your Diamond ICQ Team'}}</h3>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+
+                                         <td style="padding:0 0 16px 0">
+                                        <p style="color: #64564d; font-size: 16px; margin: 0 0 40px; padding: 0; font-weight:400; line-height: 26px;">{{trans 'Please note, valuations are based on the jewelry image provided. The display condition of jewelry is as sound as shown in the picture, and the jewelry is genuine and precious metal as described. Final prices
+                                            will be subject to the jewelry's actual condition upon arrival for inspection. Diamond ICQ reserves the right to make the final decision in purchasing.'}}</p>
+                                        <p style="color: #64564d; font-size: 16px; margin: 0 0 16px; padding: 0; font-weight:400">{{trans 'Visit our showroom and get LIVE expert valuation!'}}<a href="{{store url=''}}sell-your-jewellery/customer/view/index/index/id/{{var data.sell_id}}?changebooking=1" style="background: #64564d; color: #fff; font-size: 15px; padding: 12px; display: inline-block; margin-left: 24px; text-decoration: none; margin-bottom: 12px; ">{{trans 'Make An Appointment'}}</a><br>{{trans
+                                            'Send items to be sold to Diamond ICQ via FedEx by clicking '}}<a href="https://www.fedex.com/en-hk/shipping.html#shippingservices">{{trans 'here.'}}</a>
+                                        </p>
+                                        <h4 style="color: #64564d; font-size: 16px; margin: 0 0 16px; padding: 0; font-weight:600">{{trans 'Sell your old jewels to fund your upcoming treasures NOW'}}</h4>
+                                    </td>
+                                    </tr>
+                                </table>
+                                <!-- Title -->
+                                <!-- Title -->
+                                <table border="0" cellpadding="0" cellspacing="0" align="left" class="deviceWidth" width="100%">
+                                    <tr>
+
+                                        <td  class="mobile-social" style="padding: 0px;width: 50%;float: left;">
+                                            <table border="0" cellpadding="0" cellspacing="0" align="left" class="deviceWidth" width="100%">
+                                                <h3 style="color: #64564d; font-size: 16px; margin: 0; padding: 0; display: block;">{{trans 'Contact Us On :'}}</h3>
+                                                <tr>
+                                                    <td>
+                                                        <b style="color: #64564d; font-size: 14px; line-height:22px;">{{trans 'Live Chat at'}} <a href="{{store url='sell-your-jewellery'}}" style="color: #64564d; font-size: 14px; line-height:22px;" >www.diamondicq.com</a></b>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <b style="color: #64564d; font-size: 14px; line-height:22px;">Whatsapp: <a href="https://api.whatsapp.com/send?phone=85266887759" style="color: #64564d; font-size: 14px;">+852 6688 7759</a></b>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <a href="https://www.facebook.com/diamondicq" style="color: #64564d; font-size: 14px; font-weight: 600;">Facebook</a>
+                                                    </td>
+                                                </tr>
+                                            </table>
+
+                                        </td>
+                                        <td class="mobile-address" style="padding: 0px; float: right;">
+                                            <table border="0" cellpadding="0" cellspacing="0" align="right" class="deviceWidth" width="100%">
+                                                <h3 style="color: #64564d; font-size: 16px; margin: 0; padding: 0; display: block;">{{trans 'Address:'}}</h3>
+                                                <tr>
+                                                    <td style="padding:6px 0">
+                                                        <span style="color: #64564d; font-size: 16px; line-height:22px; margin: 0; padding: 0; font-weight: 400">{{trans 'Room 1101, 11/F Winfield'}}<br>{{trans 'Commercial Building, 6-8 Prat Avenue,'}}<br>{{trans 'Tsim Sha Shui, Hong Kong.'}}</span>
+                                                    </td>
+                                                </tr>
+
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <!-- Title -->
+
+                            </td>
+                        </tr>
+                    </table>
+
+                    <div style="height: 20px; background: #64564d; display: block; width: 100%;"></div>
+
+                </td>
+            </tr>
+        </table>
+        <!-- End Wrapper -->
+
+    </body>
+
+    </html>

@@ -1,0 +1,149 @@
+.page-header{
+	.magicmenu{
+		.nav-desktop{
+			.level0.hasChild{
+				.level0.submenu{
+				    z-index: 999;	
+				}
+			}
+		}
+	}
+}				
+	
+.modal-popup {
+	.modal-content {
+		.popup {
+			position: static;
+			display: block;
+		}
+	}
+}
+.checkout-cart-index {
+	.cart.table-wrapper {
+		.table-caption {
+			font-weight: 400;
+			font-size: 25.73px;
+			line-height: 36.54px;
+		}
+		.col.qty {
+			display: none;
+		}
+		.item-info-custom {
+			.col.item {
+				width: 400px;
+				display: table-cell;
+			}
+		}
+		.price-including-tax , .price-excluding-tax{
+			.price {
+				font-weight: 700;
+				font-size: 16px;
+				line-height: 22px;
+			}
+		}
+		.col.item {
+			.product-item-details {
+				.product-item-name {
+					margin-top: 0;
+					font-weight: 700;
+					font-size: 12px;
+					line-height: 16px;
+					margin: 0;
+				}
+				.sku-custom {
+					display: none;
+				}
+			}
+		}
+	}
+	.cart-summary {
+		>.title {
+			font-weight: 400;
+			font-size: 25.73px;
+			line-height: 36.54px;
+		}
+	}
+}
+
+.onestepcheckout-index-index {
+	.page-wrapper{
+		.checkout-step-sidebar {
+			.minicart-items-wrapper {
+				.product-item {
+					.product {
+						.product-item-details {
+							.details-qty {
+								display: none;
+							}
+						}
+					}
+				}
+			}
+			.order-summary {
+				.step-title {
+					font-family: inherit;
+				}
+			}
+			.discount-code {
+				.form-discount {
+					.actions-toolbar {
+						margin-top: 0;
+						.primary {
+							.action-apply {
+								&:hover {
+									background-color: #92000d;
+									border-color: #92000d;
+								}
+							}
+						}
+					}
+				}
+			}
+			.opc-block-summary {
+				.table-totals {
+					.grand {
+						strong {
+							font-size: 18px;
+						}
+					}
+				}
+			}
+		}
+		#checkoutSteps {
+			.step-title {
+				font-family: inherit;
+			}
+		}
+		.onestepcheckout-place-order-wrapper {
+			.place-order-primary {
+				button.primary.checkout {
+					&:hover {
+						background-color: #92000d;
+						border-color: #92000d;
+					}
+				}
+			}
+		}
+		.one-step-checkout-wrapper.opc-wrapper{
+			position:static;
+		}
+		.one-step-checkout-wrapper{
+			.field-tooltip{
+				font-size:12px;
+			}
+		}	
+	}	
+}
+
+@media(max-width:767px){
+	.onestepcheckout-index-index{
+		#opc-shipping_method{
+			.step-title {
+		    	margin: 0;
+		    }
+		    .shipping-policy-block.field-tooltip{
+		    	top:0 !important;
+		    }	
+		}
+	}	
+}

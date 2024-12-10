@@ -1,0 +1,2799 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+  <block>
+    <item>
+      <title><![CDATA[Desktop - Menu - Level 2 - Engagement Ring]]></title>
+      <identifier><![CDATA[desktop-menu-level-2-engagement-ring]]></identifier>
+      <content><![CDATA[<div data-content-type="html" data-appearance="default" data-element="main">&lt;div class="menulist-container"&gt;
+&lt;div class="col-md-8"&gt;
+&lt;div class="inside-navmenu one"&gt;
+&lt;div class="menu-first design"&gt;&lt;a class="twolevel"&gt;{{trans "Design Own Diamond Ring"}}&lt;/a&gt;
+&lt;ul class="innermenu-list"&gt;
+&lt;li&gt;&lt;a href="{{store url="ringbuilder/settings"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/DODR1Mask_Group.jpg}}" alt="Start With A Setting"&gt;&lt;/span&gt;{{trans "Start With A Setting"}}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{{store url="ringbuilder/diamond"}}"&gt; &lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/DODR2Mask_Group.jpg}}" alt=""&gt;&lt;/span&gt;{{trans "Start With A Diamond"}}&lt;/a&gt;&lt;/li&gt;
+&lt;!-- &lt;li&gt;&lt;a class="view-all-rings-btn" href="{{store url="#"}}"&gt;{{trans "View All"}}&lt;/a&gt;&lt;/li&gt; --&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;!-- &lt;div class="menu-second bystyle"&gt;&lt;a class="twolevel"&gt;{{trans "Shop By Style"}}&lt;/a&gt;
+&lt;div class="inside-second"&gt;
+&lt;ul class="innermenu-list"&gt;
+&lt;li&gt;&lt;a href="{{store url="#"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/Mask_Group_2.png}}" alt="Solitaire"&gt; &lt;/span&gt;{{trans "Solitaire"}}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{{store url="#"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/2Mask_Group.png}}" alt="Vintage"&gt; &lt;/span&gt;{{trans "Vintage"}}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{{store url="#"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/3Mask_Group.png}}" alt="Halo"&gt; &lt;/span&gt;{{trans "Halo"}}&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul class="innermenu-list"&gt;
+&lt;li&gt;&lt;a href="{{store url="#"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/4Mask_Group.png}}" alt="Elegant"&gt;&lt;/span&gt;{{trans "Elegant"}}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{{store url="#"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/5Mask_Group.png}}" alt="Triology"&gt;&lt;/span&gt;{{trans "Triology"}}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{{store url="#"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/6Mask_Group.png}}" alt="Channel Set"&gt; &lt;/span&gt;{{trans "Channel Set"}}&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt; --&gt;
+&lt;div class="menu-third ready"&gt;&lt;a class="twolevel"&gt;{{trans "Ready to Ship"}}&lt;/a&gt;
+&lt;ul class="innermenu-list"&gt;
+&lt;li&gt;&lt;a href="{{store url="engagement-ring/diamond-ring.html?ready_to_ship=1"}}"&gt;{{trans "Diamond Ring"}}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{{store url="engagement-ring/gemstone-ring.html?ready_to_ship=1"}}"&gt;{{trans "Gemstone Ring"}}&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- &lt;div class="inside-navmenu two"&gt;
+&lt;div class="menu-first budget"&gt;&lt;a class="twolevel"&gt;{{trans "Budget Inspiration"}}&lt;/a&gt;
+&lt;ul class="innermenu-list"&gt;
+&lt;li&gt;&lt;a href="{{store url="#"}}"&gt;{{trans "Ring under $30,000"}}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{{store url="#"}}"&gt;{{trans "Ring under $50,000"}}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{{store url="#"}}"&gt;{{trans "Ring over $100,000"}}&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="menu-second bymetal"&gt;&lt;a class="twolevel"&gt;{{trans "Shop by Diamond Shape"}}&lt;/a&gt;
+&lt;div class="inside-second"&gt;
+&lt;ul class="innermenu-list"&gt;
+&lt;li&gt;&lt;a href="{{store url="#"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/11Mask_Group.png}}" alt="Round"&gt; &lt;/span&gt;{{trans "Round"}}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{{store url="#"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/22Mask_Group.png}}" alt="Heart"&gt; &lt;/span&gt;{{trans "Heart"}}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{{store url="#"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/33Mask_Group.png}}" alt="Princess"&gt;&lt;/span&gt;{{trans "Princess"}}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{{store url="#"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/44Mask_Group.png}}" alt="Pear"&gt;&lt;/span&gt;{{trans "Pear"}}&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul class="innermenu-list"&gt;
+&lt;li&gt;&lt;a href="{{store url="#"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/55Mask_Group.png}}" alt="Cushion"&gt;&lt;/span&gt;{{trans "Cushion"}}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{{store url="#"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/66Mask_Group.png}}" alt="Oval"&gt; &lt;/span&gt;{{trans "Oval"}}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{{store url="#"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/77Mask_Group.png}}" alt="Emerald"&gt;&lt;/span&gt;{{trans "Emerald"}}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{{store url="#"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/88Mask_Group.png}}" alt="Marquise"&gt;&lt;/span&gt;{{trans "Marquise"}}&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="menu-third bydiamond"&gt;&lt;a class="twolevel"&gt;{{trans "Shop by Metal"}}&lt;/a&gt;
+&lt;ul class="innermenu-list"&gt;
+&lt;li&gt;&lt;a href="{{store url="#"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/Group_151.png}}" alt="WG"&gt;&lt;/span&gt;{{trans "White Gold"}}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{{store url="#"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/2Group_151.png}}" alt="RG"&gt;&lt;/span&gt;{{trans "Rose Gold"}}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{{store url="#"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/3Group_151.png}}" alt="YG"&gt;&lt;/span&gt;{{trans "Yellow Gold"}}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{{store url="#"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/4Group_151.png}}" alt="PG"&gt;&lt;/span&gt;{{trans "Platinum Gold"}}&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt; --&gt;
+&lt;/div&gt;
+&lt;div class="col-md-2 imgsection"&gt;&lt;a href="{{store url="fine-jewellery.html"}}"&gt;&lt;img src="{{media url=wysiwyg/Eng_Temp_Menuimg.png}}" alt="Menu Img" /&gt;&lt;!-- &lt;img src="{{media url=wysiwyg/1image_247.png}}" alt="PS Collection"&gt; --&gt;&lt;/a&gt;&lt;/div&gt;
+&lt;/div&gt;</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Desktop - Menu - Level 2 - Diamond]]></title>
+      <identifier><![CDATA[desktop-menu-level2-diamond]]></identifier>
+      <content><![CDATA[<div data-content-type="html" data-appearance="default" data-element="main">&lt;div class="menulist-container"&gt;
+&lt;div class="col-md-7"&gt;
+&lt;div class="inside-navmenu one"&gt;
+&lt;!-- &lt;div class="menu-first diamonds-shape"&gt;&lt;a class="twolevel"&gt;{{trans "Diamonds Shape"}}&lt;/a&gt;
+&lt;div class="inside-second"&gt;
+&lt;ul class="innermenu-list"&gt;
+&lt;li&gt;&lt;a href="{{store url="#"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/11Mask_Group.png}}" alt="Round"&gt; &lt;/span&gt;{{trans "Round"}}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{{store url="#"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/22Mask_Group.png}}" alt="Heart"&gt; &lt;/span&gt;{{trans "Heart"}}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{{store url="#"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/33Mask_Group.png}}" alt="Princess"&gt;&lt;/span&gt;{{trans "Princess"}}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{{store url="#"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/44Mask_Group.png}}" alt="Pear"&gt;&lt;/span&gt;{{trans "Pear"}}&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul class="innermenu-list"&gt;
+&lt;li&gt;&lt;a href="{{store url="#"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/55Mask_Group.png}}" alt="Cushion"&gt;&lt;/span&gt;{{trans "Cushion"}}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{{store url="#"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/66Mask_Group.png}}" alt="Oval"&gt; &lt;/span&gt;{{trans "Oval"}}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{{store url="#"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/77Mask_Group.png}}" alt="Emerald"&gt;&lt;/span&gt;{{trans "Emerald"}}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{{store url="#"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/88Mask_Group.png}}" alt="Marquise"&gt;&lt;/span&gt;{{trans "Marquise"}}&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;a class="view-all-diamonds-btn" href="{{store url="#"}}"&gt;{{trans "View All"}}&lt;/a&gt;&lt;/div&gt; --&gt;
+&lt;!-- &lt;div class="menu-second online-order"&gt;&lt;a class="twolevel"&gt;{{trans "Online Order"}}&lt;/a&gt;
+&lt;ul class="innermenu-list"&gt;
+&lt;li&gt;&lt;a href="{{store url="fine-jewellery/pendants.html"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/OO1Mask_Group.jpg}}" alt="dd this diamonds to a Pendant"&gt;&lt;/span&gt;{{trans "Add this diamonds to a Pendant"}}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{{store url="fine-jewellery/earrings.html"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/OO2Mask_Group.jpg}}" alt="dd this diamonds to a Earrings"&gt;&lt;/span&gt;{{trans "Add this diamonds to a Earrings"}}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{{store url="ringbuilder/diamond"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/OO3Mask_Group.jpg}}" alt="dd this diamonds to a Cart"&gt;&lt;/span&gt;{{trans "Add this diamonds to a Shopping cart"}}&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="subinner-part"&gt;&lt;a class="twolevel"&gt;{{trans "Diamond Product Page"}}&lt;/a&gt; &lt;a class="view-all-diamonds-btn" href="{{store url="#"}}"&gt;{{trans "Make an appoinment"}}&lt;/a&gt;&lt;/div&gt;
+&lt;/div&gt; --&gt;
+
+&lt;div class="menu-second online-order"&gt;&lt;a class="twolevel"&gt;{{trans "Online Order"}}&lt;/a&gt;
+&lt;ul class="innermenu-list"&gt;
+&lt;li&gt;&lt;a href="{{store url="fine-jewellery/pendants.html"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/OO1Mask_Group.jpg}}" alt=""&gt;&lt;/span&gt;{{trans "Add this diamonds to a Pendant"}}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{{store url="fine-jewellery/earrings.html"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/OO2Mask_Group.jpg}}" alt=""&gt;&lt;/span&gt;{{trans "Add this diamonds to a Earrings"}}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{{store url="ringbuilder/diamond"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/OO3Mask_Group.jpg}}" alt=""&gt;&lt;/span&gt;{{trans "Add this diamonds to a Shopping cart"}}&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="subinner-part"&gt;&lt;a class="twolevel"&gt;{{trans "Diamond Product Page"}}&lt;/a&gt; &lt;a id="forfooterappoi" class="view-all-diamonds-btn" href="javascript:void(0)"&gt;&lt;span&gt;{{trans "Make an appoinment"}}&lt;/span&gt;&lt;/a&gt;&lt;/div&gt;
+
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="col-md-5 imgsection"&gt;&lt;a href="{{store url="ringbuilder/diamond"}}"&gt;&lt;img src="{{media url=wysiwyg/Diamonds_Temp_Menuimg.png}}" alt="Menu Img" /&gt;&lt;!-- &lt;img src="{{media url=wysiwyg/Mask_Group.png}}" alt="All Diamonds"&gt; --&gt;&lt;/a&gt;&lt;/div&gt;
+&lt;/div&gt;</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Desktop - Menu - Level 2 - Fine Jewelry]]></title>
+      <identifier><![CDATA[desktop-menu-level-2-fine-jewelry]]></identifier>
+      <content><![CDATA[<div data-content-type="html" data-appearance="default" data-element="main">&lt;div class="menulist-container"&gt;
+&lt;div class="col-md-12"&gt;
+&lt;div class="inside-navmenu one"&gt;
+&lt;div class="menu-first earrings"&gt;&lt;a class="twolevel"&gt;{{trans "Earrings"}}&lt;/a&gt;
+&lt;ul class="innermenu-list"&gt;
+&lt;li&gt;&lt;a href="{{store direct_url="fine-jewellery/earrings/diamonds-studs"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/E1Mask_Group.jpg}}" alt="Diamonds Studs"&gt;&lt;/span&gt;{{trans "Diamonds Studs"}}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{{store direct_url="fine-jewellery/earrings/diamond-earrings"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/E2Mask_Group.jpg}}" alt="Diamond Earrings"&gt;&lt;/span&gt;{{trans "Diamond Earrings"}}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{{store direct_url="fine-jewellery/earrings/gemstone-earrings"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/E3Mask_Group.jpg}}" alt="Gemstone Earrings"&gt;&lt;/span&gt;{{trans "Gemstone Earrings"}}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{{store direct_url="fine-jewellery/earrings/pearl-earrings"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/E4Mask_Group.jpg}}" alt="Pearl Earrings"&gt;&lt;/span&gt;{{trans "Pearl Earrings"}}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{{store direct_url="fine-jewellery/earrings/jade-earrings"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/E5Mask_Group.jpg}}" alt="Jade Earrings"&gt;&lt;/span&gt;{{trans "Jade Earrings"}}&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="menu-second loose"&gt;&lt;a class="twolevel"&gt;{{trans "Necklaces"}}&lt;/a&gt;
+&lt;ul class="innermenu-list"&gt;
+&lt;li&gt;&lt;a href="{{store direct_url="fine-jewellery/necklaces/solitaire-pendants"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/N1Mask_Group.jpg}}" alt="Solitaire Pendants"&gt;&lt;/span&gt;{{trans "Solitaire Pendants"}}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{{store direct_url="fine-jewellery/necklaces/diamond-pendants"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/N2Mask_Group.jpg}}" alt="Diamond Pendants"&gt;&lt;/span&gt;{{trans "Diamond Pendants"}}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{{store direct_url="fine-jewellery/necklaces/gemstone-pendants"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/N3Mask_Group.jpg}}" alt="Gemstones Pendants"&gt;&lt;/span&gt;{{trans "Gemstones Pendants"}}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{{store direct_url="fine-jewellery/necklaces/pearl-pendants"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/N4Mask_Group.jpg}}" alt="Pearl Pendants"&gt;&lt;/span&gt;{{trans "Pearl Pendants"}}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{{store direct_url="fine-jewellery/necklaces/jade-pendants"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/N5Mask_Group.jpg}}" alt="Jade Pendants"&gt;&lt;/span&gt;{{trans "Jade Pendants"}}&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+{{block class="Magneto\RepoVersion\Block\Currency" desktop_class="menu-third necklaces desktop" mobile_class="subpart1 mobile" direct_url="fine-jewellery" menutitle="Loose Jade" prices_under="2000,5000,10000,50000,80000" labels="Jade under [currency]" commandparams="cat=118"}}
+
+&lt;div class="menu-fourth rings"&gt;&lt;a class="twolevel"&gt;{{trans "Rings"}}&lt;/a&gt;
+&lt;ul class="innermenu-list"&gt;
+&lt;li&gt;&lt;a href="{{store direct_url="fine-jewellery/rings/eternity-ring"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/R1Mask_Group.jpg}}" alt="Eternity Ring"&gt;&lt;/span&gt;{{trans "Eternity Ring"}}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{{store direct_url="fine-jewellery/rings/fashion-ring"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/R2Mask_Group.jpg}}" alt="Fashion Ring"&gt;&lt;/span&gt;{{trans "Fashion Ring"}}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{{store direct_url="fine-jewellery/rings/gemstone-ring"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/R3Mask_Group.jpg}}" alt="Gemstone Ring"&gt;&lt;/span&gt;{{trans "Gemstone Ring"}}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{{store direct_url="fine-jewellery/rings/pearl-ring"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/R4Mask_Group.jpg}}" alt="Pearl Ring"&gt;&lt;/span&gt;{{trans "Pearl Ring"}}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{{store direct_url="fine-jewellery/rings/jade-ring"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/R5Mask_Group.jpg}}" alt="Jade Ring"&gt;&lt;/span&gt;{{trans "Jade Ring"}}&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="menu-fifth braclets"&gt;&lt;a class="twolevel"&gt;{{trans "Bracelets"}}&lt;/a&gt;
+&lt;ul class="innermenu-list"&gt;
+&lt;li&gt;&lt;a href="{{store direct_url="fine-jewellery/bracelets/diamond-tennis"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/B1Mask_Group.jpg}}" alt="Diamond Tennis"&gt;&lt;/span&gt;{{trans "Diamond Tennis"}}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{{store direct_url="fine-jewellery/bracelets/bracelets"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/B2Mask_Group.jpg}}" alt="Bracelets"&gt;&lt;/span&gt;{{trans "Bracelets"}}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{{store direct_url="fine-jewellery/bracelets/diamond-bangle"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/B3Mask_Group.jpg}}" alt="Diamond Bangle"&gt;&lt;/span&gt;{{trans "Diamond Bangle"}}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{{store direct_url="fine-jewellery/bracelets/gemstone"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/B4Mask_Group.jpg}}" alt="Gemstone"&gt;&lt;/span&gt;{{trans "Gemstone"}}&lt;/a&gt;&lt;/li&gt;
+&lt;!-- &lt;li&gt;&lt;a href="{{store url="#"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/151515Mask_Group.png}}" alt="Bracelets"&gt;&lt;/span&gt;{{trans "Bracelets"}}&lt;/a&gt;&lt;/li&gt; --&gt;
+&lt;li&gt;&lt;a href="{{store direct_url="fine-jewellery/bracelets/pearl-bracelets"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/B5Mask_Group.jpg}}" alt="Pearl Bracelets"&gt;&lt;/span&gt;{{trans "Pearl Bracelets"}}&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="inside-navmenu two"&gt;
+&lt;!-- &lt;div class="menu-first marketplace"&gt;&lt;a class="twolevel"&gt;{{trans "Marketplace"}}&lt;/a&gt;
+&lt;ul class="innermenu-list"&gt;
+&lt;li&gt;&lt;a href="{{store url="#"}}"&gt;{{trans "Certified Jewellery"}}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{{store url="#"}}"&gt;{{trans "Fashion Jewellery"}}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{{store url="#"}}"&gt;{{trans "Branded Jewellery"}}&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt; --&gt;
+&lt;!-- &lt;div class="menu-second build"&gt;&lt;a class="twolevel"&gt;{{trans "Build up your"}}&lt;/a&gt;
+&lt;ul class="innermenu-list"&gt;
+&lt;li&gt;&lt;a href="{{store url="#"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/Mask_Group_1.png}}" alt="Eternity Ring"&gt;&lt;/span&gt;{{trans "Eternity Ring"}}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{{store url="#"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/2Mask_Group.png}}" alt="Fashion Ring"&gt;&lt;/span&gt;{{trans "Fashion Ring"}}&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt; --&gt;
+&lt;div class="menu-third forhim"&gt;&lt;a class="twolevel"&gt;{{trans "For Him"}}&lt;/a&gt;
+&lt;ul class="innermenu-list"&gt;
+&lt;li&gt;&lt;a href="{{store url=""}}fine-jewellery/rings/men-s-ring"&gt;{{trans "Men's Ring"}}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{{store direct_url="fine-jewellery/cufflinks"}}"&gt;{{trans "Cufflinks"}}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{{store direct_url="fine-jewellery/brooch"}}"&gt;{{trans "Brooch"}}&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+{{block class="Magneto\RepoVersion\Block\Currency" direct_url="fine-jewellery" desktop_class="menu-third necklaces desktop" mobile_class="subpart1 mobile" menutitle="Gifts" prices_under="3000,5000,10000" labels="Gifts under [currency]"}}
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Desktop - Menu - Level 2 - Marketplace]]></title>
+      <identifier><![CDATA[desktop-menu-level2-marketplace]]></identifier>
+      <content><![CDATA[<p>This Is Desktop - Menu - Level 2 - Marketplace</p>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Top Header]]></title>
+      <identifier><![CDATA[top_header]]></identifier>
+      <content><![CDATA[<div class="topheader">
+    <div class="container">
+        <div class="content">
+            <p>Sign up to our Late Spring sale, for up to 20% off.</p>
+            <a href="{{store-url=''}}">GET ACCESS</a>
+        </div>
+    </div>
+</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Jelwery Category left block]]></title>
+      <identifier><![CDATA[jelwery-category-left-block]]></identifier>
+      <content><![CDATA[all categories list should come here.]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Jelwery Category right block]]></title>
+      <identifier><![CDATA[Jelwery-Category-right-block]]></identifier>
+      <content><![CDATA[<p>{{widget type="Magento\Cms\Block\Widget\Block" template="widget/static_block/default.phtml" block_id="9"}} {{widget type="Magento\Cms\Block\Widget\Block" template="widget/static_block/default.phtml" block_id="10"}}
+{{widget type="Magento\Cms\Block\Widget\Block" template="widget/static_block/default.phtml" block_id="11"}}
+{{widget type="Magento\Cms\Block\Widget\Block" template="widget/static_block/default.phtml" block_id="12"}}
+</p>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Jewlry-Category-CMS-Block]]></title>
+      <identifier><![CDATA[Jewlry-Category-CMS-Block]]></identifier>
+      <content><![CDATA[<!-- <hr>
+ <p><strong>Jewlery Category CMS Block</strong> {{widget type="Magento\Cms\Block\Widget\Block" template="widget/static_block/default.phtml" block_id="6"}} {{widget type="Magento\Cms\Block\Widget\Block" template="widget/static_block/default.phtml" block_id="7"}}</p>
+<p>&nbsp;</p>
+<hr> -->]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[homepage-Jewlery-category-category1]]></title>
+      <identifier><![CDATA[homepage-Jewlery-category-category1]]></identifier>
+      <content><![CDATA[{{widget type="Magento\CatalogWidget\Block\Product\ProductsList" title="Pre-Owned Jewelery" show_pager="0" products_count="5" template="Magento_CatalogWidget::product/widget/content/grid.phtml" conditions_encoded="^[`1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Combine`,`aggregator`:`all`,`value`:`1`,`new_child`:``^],`1--1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Product`,`attribute`:`category_ids`,`operator`:`==`,`value`:`8`^]^]"}}]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[homepage-Jewlery-category-category2]]></title>
+      <identifier><![CDATA[homepage-Jewlery-category-category2]]></identifier>
+      <content><![CDATA[{{widget type="Magento\CatalogWidget\Block\Product\ProductsList" title="Marketplace" show_pager="0" products_count="5" template="Magento_CatalogWidget::product/widget/content/grid.phtml" conditions_encoded="^[`1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Combine`,`aggregator`:`all`,`value`:`1`,`new_child`:``^],`1--1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Product`,`attribute`:`category_ids`,`operator`:`==`,`value`:`3, 4, 8`^]^]"}}]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[homepage-Jewlery-category-category3]]></title>
+      <identifier><![CDATA[homepage-Jewlery-category-category3]]></identifier>
+      <content><![CDATA[{{widget type="Magento\CatalogWidget\Block\Product\ProductsList" title="Diamond Ring" show_pager="0" products_count="10" template="Magento_CatalogWidget::product/widget/content/grid.phtml" conditions_encoded="^[`1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Combine`,`aggregator`:`all`,`value`:`1`,`new_child`:``^],`1--1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Product`,`attribute`:`category_ids`,`operator`:`==`,`value`:`3, 4`^]^]"}}]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[homepage-Jewlery-category-category4]]></title>
+      <identifier><![CDATA[homepage-Jewlery-category-category4]]></identifier>
+      <content><![CDATA[{{widget type="Magento\CatalogWidget\Block\Product\ProductsList" title="Fine Jewlery" show_pager="0" products_count="10" template="Magento_CatalogWidget::product/widget/content/grid.phtml" conditions_encoded="^[`1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Combine`,`aggregator`:`all`,`value`:`1`,`new_child`:``^],`1--1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Product`,`attribute`:`category_ids`,`operator`:`==`,`value`:`5`^]^]"}}]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[homepage-fine-jewlery-cms-block]]></title>
+      <identifier><![CDATA[homepage-fine-jewlery-cms-block]]></identifier>
+      <content><![CDATA[<p><strong>Fine Jewlery </strong></p>
+<!-- <p>{{widget type="Magento\CatalogWidget\Block\Product\ProductsList" title="Fashion Earring" show_pager="0" products_count="1" template="Magento_CatalogWidget::product/widget/content/grid.phtml" conditions_encoded="^[`1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Combine`,`aggregator`:`all`,`value`:`1`,`new_child`:``^],`1--1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Product`,`attribute`:`category_ids`,`operator`:`==`,`value`:`3`^]^]"}}</p>
+<p>{{widget type="Magento\CatalogWidget\Block\Product\ProductsList" title="Pendant" show_pager="0" products_count="1" template="Magento_CatalogWidget::product/widget/content/grid.phtml" conditions_encoded="^[`1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Combine`,`aggregator`:`all`,`value`:`1`,`new_child`:``^],`1--1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Product`,`attribute`:`category_ids`,`operator`:`==`,`value`:`8`^]^]"}}</p>
+<p>{{widget type="Magento\CatalogWidget\Block\Product\ProductsList" title="Fashion Ring" show_pager="0" products_count="1" template="Magento_CatalogWidget::product/widget/content/grid.phtml" conditions_encoded="^[`1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Combine`,`aggregator`:`all`,`value`:`1`,`new_child`:``^],`1--1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Product`,`attribute`:`category_ids`,`operator`:`==`,`value`:`3`^]^]"}}</p>
+<p>{{widget type="Magento\CatalogWidget\Block\Product\ProductsList" title="Pendant" show_pager="0" products_count="1" template="Magento_CatalogWidget::product/widget/content/grid.phtml" conditions_encoded="^[`1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Combine`,`aggregator`:`all`,`value`:`1`,`new_child`:``^],`1--1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Product`,`attribute`:`category_ids`,`operator`:`==`,`value`:`8`^]^]"}}</p>
+<p>{{widget type="Magento\CatalogWidget\Block\Product\ProductsList" title="Diamond Hoop" show_pager="0" products_count="1" template="Magento_CatalogWidget::product/widget/content/grid.phtml" conditions_encoded="^[`1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Combine`,`aggregator`:`all`,`value`:`1`,`new_child`:``^],`1--1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Product`,`attribute`:`category_ids`,`operator`:`==`,`value`:`3`^]^]"}}</p>
+<p>{{widget type="Magento\CatalogWidget\Block\Product\ProductsList" title="Diamond Earrings" show_pager="0" products_count="1" template="Magento_CatalogWidget::product/widget/content/grid.phtml" conditions_encoded="^[`1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Combine`,`aggregator`:`all`,`value`:`1`,`new_child`:``^],`1--1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Product`,`attribute`:`category_ids`,`operator`:`==`,`value`:`8`^]^]"}}</p>
+<p>{{widget type="Magento\CatalogWidget\Block\Product\ProductsList" title="Eternity Ring" show_pager="0" products_count="1" template="Magento_CatalogWidget::product/widget/content/grid.phtml" conditions_encoded="^[`1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Combine`,`aggregator`:`all`,`value`:`1`,`new_child`:``^],`1--1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Product`,`attribute`:`category_ids`,`operator`:`==`,`value`:`3`^]^]"}}</p>
+<p>{{widget type="Magento\CatalogWidget\Block\Product\ProductsList" title="Pendant" show_pager="0" products_count="1" template="Magento_CatalogWidget::product/widget/content/grid.phtml" conditions_encoded="^[`1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Combine`,`aggregator`:`all`,`value`:`1`,`new_child`:``^],`1--1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Product`,`attribute`:`category_ids`,`operator`:`==`,`value`:`8`^]^]"}}</p> -->]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[homepage-marketplace-section]]></title>
+      <identifier><![CDATA[homepage-marketplace-section]]></identifier>
+      <content><![CDATA[<div class="marketplace-prodsection">
+<div class="container">
+<div class="section-head">
+<p class="section-title">{{trans "Market Place"}}</p>
+<p class="section-viewmore"><a href="{{store url='marketplace.html'}}">{{trans "View More"}}</a></p>
+</div>
+</div>
+<div class="container forslider">
+<p>{{widget type="Magento\CatalogWidget\Block\Product\ProductsList" show_pager="0" products_count="4" template="Magento_CatalogWidget::product/widget/content/grid.phtml" conditions_encoded="^[`1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Combine`,`aggregator`:`all`,`value`:`1`,`new_child`:``^],`1--1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Product`,`attribute`:`category_ids`,`operator`:`==`,`value`:`7`^]^]"}}</p>
+</div>
+</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[homepage-preowned-cms-block-section]]></title>
+      <identifier><![CDATA[homepage-preowned-cms-block-section]]></identifier>
+      <content><![CDATA[<hr>
+<b>Pre Owned Jewelry</b>
+
+<p>{{widget type="Magento\CatalogWidget\Block\Product\ProductsList" show_pager="0" products_count="10" template="Magento_CatalogWidget::product/widget/content/grid.phtml" conditions_encoded="^[`1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Combine`,`aggregator`:`all`,`value`:`1`,`new_child`:``^],`1--1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Product`,`attribute`:`category_ids`,`operator`:`==`,`value`:`8`^]^]"}}</p>
+
+<hr/>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[homepage-jade-products-cms-block]]></title>
+      <identifier><![CDATA[homepage-jade-products-cms-block]]></identifier>
+      <content><![CDATA[<hr>
+<p><strong>Jade Products List</strong> <br/>
+{{widget type="Magento\CatalogWidget\Block\Product\ProductsList" show_pager="0" products_count="8" template="Magento_CatalogWidget::product/widget/content/grid.phtml" conditions_encoded="^[`1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Combine`,`aggregator`:`all`,`value`:`1`,`new_child`:``^],`1--1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Product`,`attribute`:`category_ids`,`operator`:`==`,`value`:`17`^]^]"}}</p>
+<hr>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[homepage-best-selling-items-cms-block]]></title>
+      <identifier><![CDATA[homepage-best-selling-items-cms-block]]></identifier>
+      <content><![CDATA[<hr>
+<b>Best Selling Items</b><br>
+
+{{widget type="Magento\CatalogWidget\Block\Product\ProductsList" show_pager="0" products_count="4" template="Magento_CatalogWidget::product/widget/content/grid.phtml" conditions_encoded="^[`1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Combine`,`aggregator`:`all`,`value`:`1`,`new_child`:``^],`1--1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Product`,`attribute`:`category_ids`,`operator`:`==`,`value`:`21`^]^]"}}
+
+<hr>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[footer-section]]></title>
+      <identifier><![CDATA[footer-section]]></identifier>
+      <content><![CDATA[<div data-content-type="html" data-appearance="default" data-element="main">&lt;div class="footer-container"&gt;
+    &lt;div class="container"&gt;
+      &lt;div id="footer-ac" class="footer-content"&gt;
+        &lt;div class="footer-col-ft footer-fourth"&gt;
+            &lt;div data-role="collapsible"&gt;
+                &lt;div class="title-ft" data-role="trigger"&gt;SOCIAL MEDIA&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="footer-sun-ct"&gt;
+                &lt;div data-role="content"&gt;
+                    &lt;ul class="social-ul"&gt;
+                        &lt;li class="fb"&gt;
+                          &lt;a
+                            href="https://www.facebook.com/diamondicq"
+                            target="_blank"
+                            title="facebook"
+                          &gt;&lt;img src="https://new-themes.dicqinfotech.com/media/wysiwyg/fb.png" alt="fb" /&gt;&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li class="insta"&gt;
+                            &lt;a
+                              href="https://www.instagram.com/diamondicq/"
+                              target="_blank"
+                              title="instagram"
+                            &gt;&lt;img src="https://new-themes.dicqinfotech.com/media/wysiwyg/ig.png" alt="ig" /&gt;&lt;/a&gt;
+                          &lt;/li&gt;
+                        &lt;li class="tw"&gt;
+                          &lt;a
+                            href="https://twitter.com/diamond_icq"
+                            target="_blank"
+                            title="twitter"
+                          &gt;&lt;img src="https://new-themes.dicqinfotech.com/media/wysiwyg/tw.png" alt="tw" /&gt;&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li class="wtsapp"&gt;
+                          &lt;a
+                            href="https://wa.me/85266887759?text=Website%20enquiry%20-%20sell%20diamond"
+                            target="_blank"
+                            title="wtsapp"
+                          &gt;&lt;img src="https://new-themes.dicqinfotech.com/media/wysiwyg/whsapp.png" alt="wtsapp" /&gt;&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li class="youtube"&gt;
+                          &lt;a
+                            href="https://www.youtube.com/channel/UCNGuw8YQYgPQ7ZnUNxWqUzQ"
+                            target="_blank"
+                            title="youtube"
+                          &gt;&lt;img src="https://new-themes.dicqinfotech.com/media/wysiwyg/yt.png" alt="yt" /&gt;&lt;/a&gt;
+                        &lt;/li&gt;
+                      &lt;/ul&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="footer-col-ft footer-sec"&gt;
+            &lt;div data-role="collapsible"&gt;
+                &lt;div class="title-ft" data-role="trigger"&gt;CUSTOMER SERVICE&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="footer-sun-ct"&gt;
+                &lt;div data-role="content"&gt;
+                &lt;ul class="footer-ul"&gt;
+                    &lt;li&gt;&lt;a href="{{store url='faq'}}"&gt;FAQ&lt;/a&gt;&lt;/li&gt;
+                    &lt;li class="footer-ul"&gt;
+                    &lt;a href="mailto:contact@diamondicq.com"&gt;Email Us&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class="footer-ul"&gt;
+                    &lt;a href="tel:+85239565577" target="_blank"&gt;Call Us&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class="footer-ul"&gt;
+                    &lt;a class="make_an_appointment" href="javascript:void(0)"
+                        &gt;Schedule A Visit&lt;/a
+                    &gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;
+                    &lt;a href="{{store url='terms-conditions'}}"
+                        &gt;Terms &amp; Conditions&lt;/a
+                    &gt;
+                    &lt;/li&gt;
+                &lt;/ul&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="footer-col-ft footer-sec"&gt;
+          &lt;div data-role="collapsible"&gt;
+            &lt;div class="title-ft" data-role="trigger"&gt;
+                DIAMOND ICQ
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class="footer-sun-ct"&gt;
+            &lt;div data-role="content"&gt;
+              &lt;ul class="footer-ul"&gt;
+                &lt;li&gt;
+                  &lt;a href="{{store url='about-us'}}#our-story"
+                    &gt;Our Story&lt;/a
+                  &gt;
+                &lt;/li&gt;
+                &lt;li&gt;
+                  &lt;a href="{{store url='about-us'}}#our-network"
+                    &gt;Our Network&lt;/a
+                  &gt;
+                &lt;/li&gt;
+                &lt;li&gt;
+                  &lt;a href="{{store url=''}}#our-reviews"
+                    &gt;Our Reviews&lt;/a
+                  &gt;
+                &lt;/li&gt;
+                &lt;li&gt;
+                  &lt;a href="{{store url='sell-your-jewellery-with-diamondicq-form'}}"
+                    &gt;Cash For Diamonds&lt;/a
+                  &gt;
+                &lt;/li&gt;
+                &lt;li&gt;
+                  &lt;a href="{{store url='ringbuilder/settings'}}"
+                    &gt;Diamond Finder&lt;/a
+                  &gt;
+                &lt;/li&gt;
+              &lt;/ul&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+  
+        &lt;div class="footer-col-ft footer-fourth"&gt;
+          &lt;div data-role="collapsible"&gt;
+            &lt;div class="title-ft" data-role="trigger"&gt;
+                CONTACT INFO
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class="footer-sun-ct"&gt;
+            &lt;div data-role="content"&gt;
+              &lt;ul class="footer-ul"&gt;
+                &lt;li class="tel"&gt;
+                  &lt;a href="tel:+85239565577" target="_blank"&gt;: +852 3956 5577&lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li class="whatsap whatsapp"&gt;
+                  &lt;a
+                    href="https://wa.me/85266887759?text=Website%20enquiry%20-%20sell%20diamond"
+                    target="_blank"
+                    &gt;: +852 6688 7759 {{trans "(24 Hrs)"}}&lt;/a
+                  &gt;
+                &lt;/li&gt;
+                &lt;li class="email-label"&gt;
+                  &lt;a href="mailto:contact@diamondicq.com"&gt;: contact@diamondicq.com&lt;/a&gt;
+                &lt;/li&gt;
+  
+                &lt;li class="location"&gt;
+                  &lt;div class="loc"&gt;
+                    &lt;p&gt;
+                        Unit 1101-2, Winfield Commercial Building, 6-8 Prat Avenue, Tsim Sha Tsui, Hong Kong
+                    &lt;/p&gt;
+                  &lt;/div&gt;
+                &lt;/li&gt;
+                &lt;li class="location store"&gt;
+                  &lt;a
+                    href="https://www.google.com/maps/place/Diamond+ICQ+%E9%91%BD%E7%9F%B3%E5%B0%88%E9%96%80%E5%BA%97/@22.298631,114.1720742,17z/data=!3m1!4b1!4m5!3m4!1s0x340400ee72fa0c89:0xe0770ee27013d7b!8m2!3d22.298631!4d114.1742629"
+                    target="_blank"
+                    &gt;{{trans "Locate Store"}}&lt;/a
+                  &gt;
+                &lt;/li&gt;
+                &lt;li class="make-appoinment"&gt;
+                  &lt;a id="make_an_appointment" class="make_an_appointment" href="javascript:void(0)"
+                    &gt;Make an Appointment&lt;/a
+                  &gt;
+                &lt;/li&gt;
+              &lt;/ul&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="copyright-section desktop"&gt;
+        &lt;div class="copy-paving"&gt;
+            &lt;a class="hyper-link" href="{{store url='privacy-policy'}}"&gt;Privacy &amp; Cookies&lt;/a&gt; | Copyright © 2022 Diamond ICQ
+        &lt;/div&gt;
+        &lt;div class="img-logos-paving desktop"&gt;
+          &lt;img class="footer-icon lazyOwl" src="/media/logo/stores/1/Logo.png" alt="logo"&gt;
+        &lt;/div&gt;
+        &lt;div class="img-logos-paving desktop"&gt;
+          &lt;div class="img-visa"&gt;&amp;nbsp;&lt;/div&gt;
+          &lt;div class="img-mastercard"&gt;&amp;nbsp;&lt;/div&gt;
+          &lt;div class="img-amex"&gt;&amp;nbsp;&lt;/div&gt;
+          &lt;div class="img-discover"&gt;&amp;nbsp;&lt;/div&gt;
+          &lt;div class="img-diners"&gt;&amp;nbsp;&lt;/div&gt;
+          &lt;div class="img-jcb"&gt;&amp;nbsp;&lt;/div&gt;
+          &lt;div class="img-cartes-bancaires"&gt;&amp;nbsp;&lt;/div&gt;
+          &lt;div class="img-bank-wire"&gt;&amp;nbsp;&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="copyright-section mobile"&gt;
+        &lt;div class="copy-paving"&gt;&lt;a class="hyper-link" href="{{store url='privacy-policy'}}"&gt;Privacy &amp; Cookies&lt;/a&gt;&lt;br&gt;Copyright © 2022 Diamond ICQ&lt;/div&gt;
+        &lt;div class="img-logos-paving desktop"&gt;
+          &lt;img class="footer-icon lazyOwl" src="/media/logo/stores/1/Logo.png" alt="logo"&gt;
+        &lt;/div&gt;
+        &lt;div class="img-logos-paving desktop"&gt;
+          &lt;div class="img-visa"&gt;&amp;nbsp;&lt;/div&gt;
+          &lt;div class="img-mastercard"&gt;&amp;nbsp;&lt;/div&gt;
+          &lt;div class="img-amex"&gt;&amp;nbsp;&lt;/div&gt;
+          &lt;div class="img-discover"&gt;&amp;nbsp;&lt;/div&gt;
+          &lt;div class="img-diners"&gt;&amp;nbsp;&lt;/div&gt;
+          &lt;div class="img-jcb"&gt;&amp;nbsp;&lt;/div&gt;
+          &lt;div class="img-cartes-bancaires"&gt;&amp;nbsp;&lt;/div&gt;
+          &lt;div class="img-bank-wire"&gt;&amp;nbsp;&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  
+  &lt;style type="text/css"&gt;
+    .copyright-section.desktop {
+        display: flex;
+        align-items: center;
+    }
+    .hyper-link {
+        color: #686f7a !important;
+        text-decoration: none;
+    }
+    .social-ul{
+        padding: 0px;
+    }
+    .social-ul li.fb {
+        padding-left: 0px;
+    }
+    .social-ul li {
+        display: inline-block;
+        padding: 0px 5px;
+    }
+    .social-ul li img{
+        width: 24px;
+    }
+    .footer-icon {
+        max-width: 158px;
+        width: 100%;
+        margin: auto;
+    }
+    .home-jewellerysec
+      .mainsec
+      .rightsec
+      .content-product
+      .productsec
+      li.product-item
+      .product-item-info {
+      text-align: center;
+    }
+    .page-products
+      .page-main
+      .columns
+      .sidebar.sidebar-main
+      .block.filter
+      .block-content.filter-content
+      .amshopby-filter-current.filter-current
+      .amshopby-item.amshopby-item-removed {
+      display: none;
+    }
+    .ringbuilder-diamond-index
+      .iti__flag-container
+      .iti__country-list
+      .iti__dial-code,
+    .ringbuilder-diamond-compare
+      .iti__flag-container
+      .iti__country-list
+      .iti__dial-code,
+    .ringbuilder-diamond-view
+      .iti__flag-container
+      .iti__country-list
+      .iti__dial-code,
+    .ringbuilder-settings-view
+      .iti__flag-container
+      .iti__country-list
+      .iti__dial-code,
+    .ringbuilder-diamond-completering
+      .iti__flag-container
+      .iti__country-list
+      .iti__dial-code {
+      position: unset;
+    }
+    .diamond_sell-customer-index
+      .custom-sell-display-list.grid
+      .custom-sell-item-group
+      .infor-section
+      .custom-sell-item-image,
+    .diamond_sell-quote-index
+      .custom-sell-display-list.grid
+      .custom-sell-item-group
+      .infor-section
+      .custom-sell-item-image {
+      overflow: hidden;
+    }
+    .product-history.table {
+      display: block;
+    }
+    .ringbuilder-diamond-completering
+      .flow-tabs
+      .tab-content
+      .ring-request-form
+      .form-field
+      .diamond-content-data
+      .active
+      .prdctdrpdwn {
+      margin-bottom: 0;
+    }
+    .desktop-only {
+      display: block;
+    }
+    .social-icon {
+      width: 28px;
+      width: 28px;
+    }
+    .social-icon-ytube {
+      margin-left: 6px;
+    }
+    .d-inline-block {
+      display: inline-block;
+    }
+    .footer-third {
+        height: 1px;
+    }
+  &lt;/style&gt;</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[homepage-set-jewellery-section]]></title>
+      <identifier><![CDATA[homepage-set-jewellery-section]]></identifier>
+      <content><![CDATA[<div data-content-type="html" data-appearance="default" data-element="main">&lt;div class="marketplace-prodsection"&gt;
+&lt;div class="container"&gt;
+&lt;div class="section-head"&gt;
+&lt;p class="section-title"&gt;{{trans "Set Jewellery"}}&lt;/p&gt;
+&lt;p class="section-viewmore"&gt;&lt;a href="{{store direct_url='set-jewellery'}}"&gt;{{trans "View More"}}&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="container forslider"&gt;
+&lt;p&gt;{{widget type="Magento\CatalogWidget\Block\Product\ProductsList" cache_lifetime="1" show_pager="0" products_count="4" template="Magento_CatalogWidget::product/widget/content/grid.phtml" conditions_encoded="^[`1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Combine`,`aggregator`:`all`,`value`:`1`,`new_child`:``^],`1--1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Product`,`attribute`:`category_ids`,`operator`:`==`,`value`:`23`^]^]"}}&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[homepage-unique-diamonds-cms-block]]></title>
+      <identifier><![CDATA[homepage-unique-diamonds-cms-block]]></identifier>
+      <content><![CDATA[<div data-content-type="html" data-appearance="default" data-element="main">&lt;div class="uniquediamonds-prodsection"&gt;
+&lt;div class="container"&gt;
+&lt;div class="section-head"&gt;
+&lt;p class="section-title"&gt;{{trans "Unique Diamonds"}}&lt;/p&gt;
+&lt;p class="section-viewmore"&gt;&lt;a href="{{store direct_url='unique-diamonds'}}"&gt;{{trans "View More"}}&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="container forslider"&gt;
+&lt;p&gt;{{widget type="Magento\CatalogWidget\Block\Product\ProductsList" cache_lifetime="1" show_pager="0" products_count="4" template="Magento_CatalogWidget::product/widget/content/grid.phtml" conditions_encoded="^[`1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Combine`,`aggregator`:`all`,`value`:`1`,`new_child`:``^],`1--1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Product`,`attribute`:`category_ids`,`operator`:`==`,`value`:`24`^]^]"}}&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[In Collaboration With & newsletter-section]]></title>
+      <identifier><![CDATA[collaboration-and-newsletter-section]]></identifier>
+      <content><![CDATA[<div data-content-type="html" data-appearance="default" data-element="main">&lt;div class="newslettermain-sec"&gt;
+  &lt;div class="container"&gt;
+    &lt;div class="rightsec newsletter-v2"&gt;
+      &lt;div class="title bold"&gt;Lets Stay In Touch!&lt;/div&gt;
+      &lt;div class="sub-title bold"&gt;SIGN UP FOR&lt;/div&gt;
+      &lt;p class="content bold"&gt;
+        Exclusive Diamond Sale, Member's Offers, Rewards, Promotions and
+        Previews!
+      &lt;/p&gt;
+      &lt;div&gt;
+        {{block class="Magento\Newsletter\Block\Subscribe"
+        name="static.newsletter"
+        template="Magento_Newsletter::subscribe.phtml"}}
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;style&gt;
+  .rightsec.newsletter-v2 {
+    padding: 96px 20px;
+    text-align: center;
+  }
+
+  @media only screen and (max-width: 767px) {
+    .rightsec.newsletter-v2 .title {
+      font-size: 26px;
+      line-height: 31px;
+    }
+    .newsletter-v2 .sub-title {
+      font-size: 18px;
+      line-height: 21px;
+    }
+    .rightsec.newsletter-v2 .content {
+      font-size: 14px;
+      line-height: 22px;
+    }
+  }
+  .rightsec.newsletter-v2 .title {
+    font-size: 36px;
+    line-height: 43px;
+    padding-bottom: 40px;
+  }
+  .newsletter-v2 .sub-title {
+    font-size: 30px;
+    line-height: 36px;
+    padding-bottom: 10px;
+  }
+  .rightsec.newsletter-v2 .content {
+    font-size: 14px;
+    line-height: 17px;
+    padding-bottom: 20px;
+    color: black;
+  }
+&lt;/style&gt;
+</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[our-strength-section]]></title>
+      <identifier><![CDATA[our-strength-section]]></identifier>
+      <content><![CDATA[<div data-content-type="html" data-appearance="default" data-element="main">&lt;div class="our-strength-mobile"&gt;
+&lt;div class="os-image"&gt;&lt;img src="{{media url=wysiwyg/img_5.png}}" alt="Our Strength" width="414" height="288"&gt;&lt;/div&gt;
+&lt;div class="os-textblock"&gt;
+&lt;div class="os-insidetext"&gt;
+&lt;h1 class="txtblock-heading"&gt;{{trans "Our Strength"}}&lt;/h1&gt;
+&lt;p class="txtblock-desc"&gt;{{trans "Diamond ICQ is the best place to sell any Diamond product to get instant cash in return. Sell Diamonds to renowned diamond buyers."}}&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Mobile - Menu - Diamonds]]></title>
+      <identifier><![CDATA[mobile-menu-diamonds]]></identifier>
+      <content><![CDATA[<div data-content-type="html" data-appearance="default" data-element="main">&lt;div class="mobile menulist-container"&gt;
+&lt;!-- &lt;div class="subpart1"&gt;&lt;span class="mobile-submenu-header"&gt;{{trans "Diamonds Shape"}}&lt;/span&gt;
+&lt;div class="submenu-sun-ct"&gt;
+&lt;ul class="innermenu-list"&gt;
+&lt;li&gt;&lt;a href="{{store url="#"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/11Mask_Group.png}}" alt="Round"&gt; &lt;/span&gt;{{trans "Round"}}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{{store url="#"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/22Mask_Group.png}}" alt="Heart"&gt; &lt;/span&gt;{{trans "Heart"}}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{{store url="#"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/33Mask_Group.png}}" alt="Princess"&gt;&lt;/span&gt;{{trans "Princess"}}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{{store url="#"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/44Mask_Group.png}}" alt="Pear"&gt;&lt;/span&gt;{{trans "Pear"}}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{{store url="#"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/55Mask_Group.png}}" alt="Cushion"&gt;&lt;/span&gt;{{trans "Cushion"}}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{{store url="#"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/66Mask_Group.png}}" alt="Oval"&gt; &lt;/span&gt;{{trans "Oval"}}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{{store url="#"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/77Mask_Group.png}}" alt="Emerald"&gt;&lt;/span&gt;{{trans "Emerald"}}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{{store url="#"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/88Mask_Group.png}}" alt="Marquise"&gt;&lt;/span&gt;{{trans "Marquise"}}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="view-all-btn" href="{{store url="#"}}"&gt;{{trans "View All"}}&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt; --&gt;
+&lt;div class="subpart1"&gt;&lt;span class="mobile-submenu-header"&gt;{{trans "Online Order"}}&lt;/span&gt;
+&lt;div class="submenu-sun-ct"&gt;
+&lt;ul class="innermenu-list"&gt;
+&lt;li&gt;&lt;a href="{{store url="fine-jewellery/pendants.html"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/OO1Mask_Group.jpg}}" alt="Online Order Menu Image"&gt;&lt;/span&gt;{{trans "Add this diamonds to a Pendant"}}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{{store url="fine-jewellery/earrings.html"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/OO2Mask_Group.jpg}}" alt="Online Order Menu Image"&gt;&lt;/span&gt;{{trans "Add this diamonds to a Earrings"}}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{{store url="ringbuilder/diamond"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/OO3Mask_Group.jpg}}" alt="Online Order Menu Image"&gt;&lt;/span&gt;{{trans "Add this diamonds to a Shopping cart"}}&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="subpart1"&gt;&lt;span class="mobile-submenu-header"&gt;{{trans "Diamond Product Page"}}&lt;/span&gt;
+&lt;div class="submenu-sun-ct"&gt;
+&lt;ul class="innermenu-list"&gt;
+&lt;li&gt;&lt;a class="view-all-btn for-appointment" id="forfooterappoimob" href="javascript:void(0)"&gt;{{trans "Make an Appointment"}}&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Mobile - Menu - Jewellery]]></title>
+      <identifier><![CDATA[mobile-menu-jewellery]]></identifier>
+      <content><![CDATA[<div data-content-type="html" data-appearance="default" data-element="main">&lt;div class="mobile menulist-container"&gt;
+    &lt;div class="subpart1"&gt;&lt;span class="mobile-submenu-header"&gt;{{trans "Earrings"}}&lt;/span&gt;
+    &lt;div class="submenu-sun-ct"&gt;
+    &lt;ul class="innermenu-list"&gt;
+    &lt;li&gt;&lt;a href="{{store direct_url="fine-jewellery/earrings/diamonds-studs"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/E1Mask_Group.jpg}}" alt="Diamonds Studs"&gt;&lt;/span&gt;{{trans "Diamonds Studs"}}&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="{{store direct_url="fine-jewellery/earrings/diamond-earrings"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/E2Mask_Group.jpg}}" alt="Diamond Earrings"&gt;&lt;/span&gt;{{trans "Diamond Earrings"}}&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="{{store direct_url="fine-jewellery/earrings/gemstone-earrings"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/E3Mask_Group.jpg}}" alt="Gemstone Earrings"&gt;&lt;/span&gt;{{trans "Gemstone Earrings"}}&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="{{store direct_url="fine-jewellery/earrings/pearl-earrings"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/E4Mask_Group.jpg}}" alt="Pearl Earrings"&gt;&lt;/span&gt;{{trans "Pearl Earrings"}}&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="{{store direct_url="fine-jewellery/earrings/jade-earrings"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/E5Mask_Group.jpg}}" alt="Jade Earrings"&gt;&lt;/span&gt;{{trans "Jade Earrings"}}&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="subpart1"&gt;&lt;span class="mobile-submenu-header"&gt;{{trans "Necklaces"}}&lt;/span&gt;
+    &lt;div class="submenu-sun-ct"&gt;
+    &lt;ul class="innermenu-list"&gt;
+    &lt;li&gt;&lt;a href="{{store direct_url="fine-jewellery/necklaces/solitaire-pendants"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/N1Mask_Group.jpg}}" alt="Solitaire Pendants"&gt;&lt;/span&gt;{{trans "Solitaire Pendants"}}&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="{{store direct_url="fine-jewellery/necklaces/diamond-pendants"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/N2Mask_Group.jpg}}" alt="Diamond Pendants"&gt;&lt;/span&gt;{{trans "Diamond Pendants"}}&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="{{store direct_url="fine-jewellery/necklaces/gemstones-pendants"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/N3Mask_Group.jpg}}" alt="Gemstones Pendants"&gt;&lt;/span&gt;{{trans "Gemstones Pendants"}}&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="{{store direct_url="fine-jewellery/necklaces/pearl-pendants"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/N4Mask_Group.jpg}}" alt="Pearl Pendants"&gt;&lt;/span&gt;{{trans "Pearl Pendants"}}&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="{{store direct_url="fine-jewellery/necklaces/jade-pendants"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/N5Mask_Group.jpg}}" alt="Jade Pendants"&gt;&lt;/span&gt;{{trans "Jade Pendants"}}&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+    
+    {{block class="Magneto\RepoVersion\Block\Currency" desktop_class="menu-third necklaces desktop" mobile_class="subpart1 mobile" direct_url="fine-jewellery" menutitle="Loose Jade" prices_under="2000,5000,10000,50000,80000" labels="Jade under [currency]" commandparams="cat=118"}}
+     
+    &lt;div class="subpart1"&gt;&lt;span class="mobile-submenu-header"&gt;{{trans "Rings"}}&lt;/span&gt;
+    &lt;div class="submenu-sun-ct"&gt;
+    &lt;ul class="innermenu-list"&gt;
+    &lt;li&gt;&lt;a href="{{store direct_url="fine-jewellery/rings/eternity-ring"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/R1Mask_Group.jpg}}" alt="Rings Sub Category Image"&gt;&lt;/span&gt;{{trans "Eternity Ring"}}&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="{{store direct_url="fine-jewellery/rings/fashion-ring"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/R2Mask_Group.jpg}}" alt="Rings Sub Category Image"&gt;&lt;/span&gt;{{trans "Fashion Ring"}}&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="{{store direct_url="fine-jewellery/rings/gemstone-ring"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/R3Mask_Group.jpg}}" alt="Rings Sub Category Image"&gt;&lt;/span&gt;{{trans "Gemstone Ring"}}&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="{{store direct_url="fine-jewellery/rings/pearl-ring"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/R4Mask_Group.jpg}}" alt="Rings Sub Category Image"&gt;&lt;/span&gt;{{trans "Pearl Ring"}}&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="{{store direct_url="fine-jewellery/rings/jade-ring"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/R5Mask_Group.jpg}}" alt="Rings Sub Category Image"&gt;&lt;/span&gt;{{trans "Jade Ring"}}&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="subpart1"&gt;&lt;span class="mobile-submenu-header"&gt;{{trans "Bracelets"}}&lt;/span&gt;
+    &lt;div class="submenu-sun-ct"&gt;
+    &lt;ul class="innermenu-list"&gt;
+    &lt;li&gt;&lt;a href="{{store direct_url="fine-jewellery/bracelets/diamond-tennis"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/B1Mask_Group.jpg}}" alt="Braclets Sub Category Image"&gt;&lt;/span&gt;{{trans "Diamond Tennis"}}&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="{{store direct_url="fine-jewellery/bracelets/bracelets"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/B2Mask_Group.jpg}}" alt="Braclets Sub Category Image"&gt;&lt;/span&gt;{{trans "Bracelets"}}&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="{{store direct_url="fine-jewellery/bracelets/diamond-bangle"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/B3Mask_Group.jpg}}" alt="Braclets Sub Category Image"&gt;&lt;/span&gt;{{trans "Diamond Bangle"}}&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="{{store direct_url="fine-jewellery/bracelets/gemstone"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/B4Mask_Group.jpg}}" alt="Braclets Sub Category Image"&gt;&lt;/span&gt;{{trans "Gemstone"}}&lt;/a&gt;&lt;/li&gt;
+    &lt;!-- &lt;li&gt;&lt;a href="{{store url="#"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/151515Mask_Group.png}}" alt="Braclets Sub Category Image"&gt;&lt;/span&gt;{{trans "Bracelets"}}&lt;/a&gt;&lt;/li&gt; --&gt;
+    &lt;li&gt;&lt;a href="{{store direct_url="fine-jewellery/bracelets/pearl-bracelets"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/B5Mask_Group.jpg}}" alt="Braclets Sub Category Image"&gt;&lt;/span&gt;{{trans "Pearl Bracelets"}}&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;!-- &lt;div class="subpart1"&gt;&lt;span class="mobile-submenu-header"&gt;{{trans "Marketplace"}}&lt;/span&gt;
+    &lt;div class="submenu-sun-ct"&gt;
+    &lt;ul class="innermenu-list"&gt;
+    &lt;li&gt;&lt;a href="{{store url="#"}}"&gt;{{trans "Certified Jewellery"}}&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="{{store url="#"}}"&gt;{{trans "Fashion Jewellery"}}&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="{{store url="#"}}"&gt;{{trans "Branded Jewellery"}}&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;/div&gt; --&gt;
+    &lt;!-- &lt;div class="subpart1"&gt;&lt;span class="mobile-submenu-header"&gt;{{trans "Build up your"}}&lt;/span&gt;
+    &lt;div class="submenu-sun-ct"&gt;
+    &lt;ul class="innermenu-list"&gt;
+    &lt;li&gt;&lt;a href="{{store url="#"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/Mask_Group_1.png}}" alt="ER"&gt;&lt;/span&gt;{{trans "Eternity Ring"}}&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="{{store url="#"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/2Mask_Group.png}}" alt="FR"&gt;&lt;/span&gt;{{trans "Fashion Ring"}}&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;/div&gt; --&gt;
+    &lt;div class="subpart1"&gt;&lt;span class="mobile-submenu-header"&gt;{{trans "For Him"}}&lt;/span&gt;
+    &lt;div class="submenu-sun-ct"&gt;
+    &lt;ul class="innermenu-list"&gt;
+    &lt;li&gt;&lt;a href="{{store direct_url="fine-jewellery/rings/men-s-ring"}}"&gt;{{trans "Men's Ring"}}&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="{{store direct_url="fine-jewellery/cufflinks"}}"&gt;{{trans "Cufflinks"}}&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="{{store direct_url="fine-jewellery/brooch"}}"&gt;{{trans "Brooch"}}&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+    
+    {{block class="Magneto\RepoVersion\Block\Currency" direct_url="fine-jewellery" desktop_class="menu-third necklaces desktop" mobile_class="subpart1 mobile" menutitle="Gifts" prices_under="3000,5000,10000" labels="Gifts under [currency]"}}
+    
+    
+    &lt;/div&gt;</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Mobile Menu Engagement Ring]]></title>
+      <identifier><![CDATA[mobile-menu-engagement-ring]]></identifier>
+      <content><![CDATA[<div data-content-type="html" data-appearance="default" data-element="main">&lt;div class="mobile menulist-container"&gt;
+&lt;div class="subpart1"&gt;&lt;span class="mobile-submenu-header"&gt;{{trans "Design Own Diamond Ring"}}&lt;/span&gt;
+&lt;div class="submenu-sun-ct"&gt;
+&lt;ul class="innermenu-list"&gt;
+&lt;li&gt;&lt;a href="{{store url="ringbuilder/settings"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/DODR1Mask_Group.jpg}}" alt="Engagement Ring Sub Category Image"&gt;&lt;/span&gt;{{trans "Start With A Setting"}}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{{store url="ringbuilder/diamond"}}"&gt; &lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/DODR2Mask_Group.jpg}}" alt="Engagement Ring Sub Category Image"&gt;&lt;/span&gt;{{trans "Start With A Diamond"}}&lt;/a&gt;&lt;/li&gt;
+&lt;!-- &lt;li&gt;&lt;a class="view-all-btn" href="{{store url="#"}}"&gt;{{trans "View All"}}&lt;/a&gt;&lt;/li&gt; --&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- &lt;div class="subpart1"&gt;&lt;span class="mobile-submenu-header"&gt;{{trans "Shop By Style"}}&lt;/span&gt;
+&lt;div class="submenu-sun-ct"&gt;
+&lt;ul class="innermenu-list"&gt;
+&lt;li&gt;&lt;a href="{{store url="#"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/Mask_Group_2.png}}" alt="Engagement Ring Sub Category Image"&gt; &lt;/span&gt;{{trans "Solitaire"}}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{{store url="#"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/2Mask_Group.png}}" alt="Engagement Ring Sub Category Image"&gt; &lt;/span&gt;{{trans "Vintage"}}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{{store url="#"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/3Mask_Group.png}}" alt="Engagement Ring Sub Category Image"&gt; &lt;/span&gt;{{trans "Halo"}}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{{store url="#"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/4Mask_Group.png}}" alt="Engagement Ring Sub Category Image"&gt;&lt;/span&gt;{{trans "Elegant"}}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{{store url="#"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/5Mask_Group.png}}" alt="Engagement Ring Sub Category Image"&gt;&lt;/span&gt;{{trans "Triology"}}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{{store url="#"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/aaMask_Group.png}}" alt="Engagement Ring Sub Category Image"&gt;&lt;/span&gt;{{trans "Channel Set"}}&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt; --&gt;
+&lt;div class="subpart1"&gt;&lt;span class="mobile-submenu-header"&gt;{{trans "Ready to Ship"}}&lt;/span&gt;
+&lt;div class="submenu-sun-ct"&gt;
+&lt;ul class="innermenu-list"&gt;
+&lt;li&gt;&lt;a href="{{store url="engagement-ring/diamond-ring.html?ready_to_ship=1"}}"&gt;{{trans "Diamond Ring"}}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{{store url="engagement-ring/gemstone-ring.html?ready_to_ship=1"}}"&gt;{{trans "Gemstone Ring"}}&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- &lt;div class="subpart1"&gt;&lt;span class="mobile-submenu-header"&gt;{{trans "Budget Inspiration"}}&lt;/span&gt;
+&lt;div class="submenu-sun-ct"&gt;
+&lt;ul class="innermenu-list"&gt;
+&lt;li&gt;&lt;a href="{{store url="#"}}"&gt;{{trans "Ring under $30,000"}}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{{store url="#"}}"&gt;{{trans "Ring under $50,000"}}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{{store url="#"}}"&gt;{{trans "Ring over $100,000"}}&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="subpart1"&gt;&lt;span class="mobile-submenu-header"&gt;{{trans "Shop by Diamond Shape"}}&lt;/span&gt;
+&lt;div class="submenu-sun-ct"&gt;
+&lt;ul class="innermenu-list"&gt;
+&lt;li&gt;&lt;a href="{{store url="#"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/11Mask_Group.png}}" alt="Round"&gt; &lt;/span&gt;{{trans "Round"}}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{{store url="#"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/22Mask_Group.png}}" alt="Heart"&gt; &lt;/span&gt;{{trans "Heart"}}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{{store url="#"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/33Mask_Group.png}}" alt="Princess"&gt;&lt;/span&gt;{{trans "Princess"}}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{{store url="#"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/44Mask_Group.png}}" alt="Pear"&gt;&lt;/span&gt;{{trans "Pear"}}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{{store url="#"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/55Mask_Group.png}}" alt="Cushion"&gt;&lt;/span&gt;{{trans "Cushion"}}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{{store url="#"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/66Mask_Group.png}}" alt="Oval"&gt; &lt;/span&gt;{{trans "Oval"}}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{{store url="#"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/77Mask_Group.png}}" alt="Emerald"&gt;&lt;/span&gt;{{trans "Emerald"}}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{{store url="#"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/88Mask_Group.png}}" alt="Marquise"&gt;&lt;/span&gt;{{trans "Marquise"}}&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="subpart1"&gt;&lt;span class="mobile-submenu-header"&gt;{{trans "Shop by Metal"}}&lt;/span&gt;
+&lt;div class="submenu-sun-ct"&gt;
+&lt;ul class="innermenu-list"&gt;
+&lt;li&gt;&lt;a href="{{store url="#"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/Group_151.png}}" alt="WG"&gt;&lt;/span&gt;{{trans "White Gold"}}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{{store url="#"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/2Group_151.png}}" alt="RG"&gt;&lt;/span&gt;{{trans "Rose Gold"}}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{{store url="#"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/3Group_151.png}}" alt="YG"&gt;&lt;/span&gt;{{trans "Yellow Gold"}}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{{store url="#"}}"&gt;&lt;span class="icon-wrap"&gt;&lt;img src="{{media url=wysiwyg/4Group_151.png}}" alt="PG"&gt;&lt;/span&gt;{{trans "Platinum Gold"}}&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt; --&gt;
+&lt;/div&gt;</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Homepage - Jewellery Section  ]]></title>
+      <identifier><![CDATA[homepage-jewellery-section]]></identifier>
+      <content><![CDATA[<p>{{block class="Magneto\AjaxProductsLoad\Block\Products" categoryIds="20,24,7,25,64,65,10,13,14,15,16,17,26,999999" use_subcateory="0" title="Jewellery Category" filter_category="27,28,19,29,18,23" cacheable="false" }}</p>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[diamond-sell]]></title>
+      <identifier><![CDATA[diamond-sell]]></identifier>
+      <content><![CDATA[<div data-content-type="html" data-appearance="default" data-element="main">&lt;div class="sell-diamondpage"&gt;
+&lt;div class="bannersec"&gt;
+&lt;div class="imgsec desktop"&gt;&lt;img src="{{media url=wysiwyg/selldesktop.jpg}}" alt="Sell Your Jewellery" /&gt;&lt;/div&gt;
+&lt;div class="imgsec mobile"&gt;&lt;img src="{{media url=wysiwyg/Mobile_banner-sell_your_Jewellery.png}}" alt="Sell Your Jewellery" /&gt;&lt;/div&gt;
+&lt;div class="container"&gt;
+&lt;div class="imgtext"&gt;
+&lt;div class="imgtext-main"&gt;
+&lt;p&gt;Sell Your Jewellery to Diamond ICQ&lt;/p&gt;
+&lt;div class="btmtxt"&gt;
+&lt;p&gt;Selling your jewellery should be as luxurious as when you bought it.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="container"&gt;
+&lt;div class="mainsec"&gt;
+&lt;div class="ourservice-sec"&gt;
+&lt;div class="textsec"&gt;
+&lt;h1&gt;{{trans "Our Services"}}&lt;/h1&gt;
+&lt;p&gt;{{trans "Diamond ICQ provides a range of services offering an honest valuation and the best possible prices for the items you wish to sell.We are committed to offering tailored services at all times, no matter on our online platform or in store."}}&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="imagesec"&gt;
+&lt;div class="threesec"&gt;
+&lt;div class="img"&gt;&lt;img src="{{media url=wysiwyg/Group_163.jpg}}" alt=""&gt;&lt;/div&gt;
+&lt;div class="title"&gt;{{trans "Sell For Cash"}}&lt;/div&gt;
+&lt;div class="content"&gt;
+&lt;p&gt;{{trans "Directly sell your old diamonds or jewellery to us and get instant cash back."}}&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="threesec"&gt;
+&lt;div class="img"&gt;&lt;img src="{{media url=wysiwyg/Trade-in_Icon.jpg}}" alt=""&gt;&lt;/div&gt;
+&lt;div class="title"&gt;{{trans "Trade-In / Upgrade"}}&lt;/div&gt;
+&lt;div class="content"&gt;
+&lt;p&gt;{{trans "Trade-in or Upgrade your Old Diamond products to get the  best price in the market."}}&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="threesec"&gt;
+&lt;div class="img"&gt;&lt;img src="{{media url=wysiwyg/Group_165.jpg}}" alt=""&gt;&lt;/div&gt;
+&lt;div class="title"&gt;{{trans "Marketplace"}}&lt;/div&gt;
+&lt;div class="content"&gt;
+&lt;p&gt;
+&lt;p&gt;{{trans "Trade your diamonds on our platform."}}&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+{{block class="Customer\Sell\Block\Index\Index"  template="Customer_Sell::sellitem.phtml"}}
+
+&lt;div class="btmbanner"&gt;
+&lt;div class="imgsec"&gt;&lt;img class="deskimg" src="{{media url=wysiwyg/Mask_Group_4_.png}}" alt="Image" /&gt;&lt;img class="respoimg" src="{{media url=wysiwyg/Mask_Group_3__2.png}}" alt="" /&gt;&lt;/div&gt;
+&lt;div class="container"&gt;
+&lt;div class="textsec"&gt;
+&lt;h2&gt;{{trans "Questions &amp; Answers"}}&lt;/h2&gt;
+&lt;p&gt;{{trans "We are pleased to help you."}}&lt;/p&gt;
+&lt;div class="read-more"&gt;&lt;a href="{{store url='faq'}}"&gt;{{trans "READ FAQ"}}&lt;/a&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[checkout-success]]></title>
+      <identifier><![CDATA[checkout-success]]></identifier>
+      <content><![CDATA[<div data-content-type="html" data-appearance="default" data-element="main">&lt;div class="fullsec"&gt;
+	&lt;div class="mainsec"&gt;
+		&lt;div class="left"&gt;{{trans "shipping details"}} &lt;/div&gt;
+		&lt;div class="left"&gt;{{trans "review and payment"}}&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[ring-builder-main-banner]]></title>
+      <identifier><![CDATA[ring-builder-main-banner]]></identifier>
+      <content><![CDATA[<div data-content-type="html" data-appearance="default" data-element="main">&lt;div class="container"&gt;
+&lt;div class="main-bannersec"&gt;
+	&lt;div class="leftimg"&gt;&lt;img src="{{media url=wysiwyg/image_116.png}}" alt="" /&gt;&lt;/div&gt;
+	&lt;div class="midcontent"&gt;
+		&lt;h2&gt;{{trans "Ring Diamond"}}&lt;/h2&gt;
+		&lt;p&gt;{{trans "Diamond is one of the hardest natural minerals and it is also one of the rarest substances on earth."}}&lt;/p&gt;
+	&lt;/div&gt;
+	&lt;div class="rightimg"&gt;&lt;img src="{{media url=wysiwyg/image_117.png}}" alt="" /&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[homepage-color-diamonds-cms-block]]></title>
+      <identifier><![CDATA[homepage-color-diamonds-cms-block]]></identifier>
+      <content><![CDATA[<div data-content-type="html" data-appearance="default" data-element="main">&lt;div class="colordiamond-prodsection"&gt;
+&lt;div class="container"&gt;
+&lt;div class="section-head"&gt;
+&lt;p class="section-title"&gt;{{trans "Color Diamond"}}&lt;/p&gt;
+&lt;p class="section-viewmore"&gt;&lt;a href="{{store direct_url='color-diamond'}}"&gt;{{trans "View More"}}&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="container forslider"&gt;
+&lt;p&gt;{{widget type="Magento\CatalogWidget\Block\Product\ProductsList" cache_lifetime="1" show_pager="0" products_count="4" template="Magento_CatalogWidget::product/widget/content/grid.phtml" conditions_encoded="^[`1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Combine`,`aggregator`:`all`,`value`:`1`,`new_child`:``^],`1--1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Product`,`attribute`:`category_ids`,`operator`:`==`,`value`:`22`^]^]"}}&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[productpage-email]]></title>
+      <identifier><![CDATA[productpage-email]]></identifier>
+      <content><![CDATA[<div data-content-type="html" data-appearance="default" data-element="main">&lt;div class="emailsec"&gt;
+	&lt;div class="title"&gt; {{trans "Need Help?"}}&lt;/div&gt;
+	&lt;div class="mainsec"&gt;
+		&lt;div class="phone"&gt;&lt;a href="tel:85266887759" title="{{trans "Phone"}}"&gt;+85266887759 ({{trans "Available 24/7"}})&lt;/a&gt;&lt;/div&gt;
+				&lt;div class="email"&gt;&lt;a href="mailto:contact@diamondicq.com" title="{{trans "Email"}}"&gt;{{trans "Email Us"}}&lt;/a&gt;&lt;/div&gt;
+
+	&lt;/div&gt;
+
+
+&lt;/div&gt;
+</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Ring Builder Maintenance]]></title>
+      <identifier><![CDATA[ring-builder-maintenance]]></identifier>
+      <content><![CDATA[<div data-content-type="html" data-appearance="default" data-element="main">&lt;div class="container noroute-page for-ringbuilder"&gt;
+&lt;div class="noroute-image respo"&gt;&lt;img src="{{media url=wysiwyg/Pc-image-1x.png}}" alt="Mobile Image" /&gt;&lt;/div&gt;
+&lt;div class="noroute-content"&gt;
+&lt;div class="nr-heading"&gt;
+&lt;p class="nr-label"&gt;{{trans "Ringbuilder is currently under maintenance."}}&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="nr-desc"&gt;
+&lt;p class="nr-sub-con"&gt;{{trans "Please try again later."}}&lt;/p&gt;
+&lt;/div&gt;
+&lt;a class="nr-txt-block-btn" href="{{store url=''}}"&gt;{{trans "Back to Home"}}&lt;/a&gt;&lt;/div&gt;
+&lt;div class="noroute-image desktop"&gt;&lt;img src="{{media url=wysiwyg/responsive_image-1x.png}}" alt="Desktop Image" /&gt;&lt;/div&gt;
+&lt;/div&gt;</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Contact Us Information Section]]></title>
+      <identifier><![CDATA[contact-us-information-section]]></identifier>
+      <content><![CDATA[<div data-content-type="html" data-appearance="default" data-element="main">&lt;div class="dcontact-subcontainer"&gt;
+                &lt;h2 class="dcontact-sectiontitle"&gt;{{trans "Contact Information"}}&lt;/h2&gt;
+                &lt;span class="dcontact-tagline"&gt;
+                    {{trans "Please contact our diamond specialists."}}
+                &lt;/span&gt;
+                &lt;div class="dcontact-socialinfo"&gt;
+                    &lt;p class="dcontact-office"&gt;
+                        &lt;span&gt;{{trans "Phone"}}&lt;/span&gt;
+                        &lt;a href="tel:+85239565577" class="dcontact-officeno" title="Phone"&gt;+85239565577&lt;/a&gt;
+                    &lt;/p&gt;
+                    &lt;p class="dcontact-whatsapp"&gt;
+                        &lt;span&gt;{{trans "Whatsapp"}}&lt;/span&gt;
+                        &lt;a href="https://wa.me/85266887759?text=Website%20enquiry%20-%20sell%20diamond" title="Whatsapp" class="dcontact-wpno" target="_blank"&gt;+85266887759&lt;/a&gt;
+                        &lt;span class="dcontact-available"&gt;({{trans "Available"}} 24/7)&lt;/span&gt;
+                    &lt;/p&gt;
+                    &lt;p class="dcontact-email"&gt;
+                        &lt;span&gt;{{trans "Email"}}&lt;/span&gt;
+                        &lt;a href="mailto:contact@diamondicq.com" class="dcontact-email"&gt;{{trans "contact@diamondicq.com"}}&lt;/a&gt;
+                    &lt;/p&gt;
+                &lt;/div&gt;
+                &lt;div class="dcontact-addressinfo"&gt;
+                    &lt;iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14765.90965182618!2d114.170914341512!3d22.29777732237814!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x340400ee72fa0c89%3A0xe0770ee27013d7b!2zRGlhbW9uZCBJQ1Eg6ZG955-z5bCI6ZaA5bqX!5e0!3m2!1sen!2sin!4v1626962688679!5m2!1sen!2sin" width="496" height="280" style="border:0;" allowfullscreen="" loading="lazy"&gt;&lt;/iframe&gt;
+                    &lt;div class="dcontact-address"&gt;
+                        &lt;div class="sub-div"&gt;
+                            &lt;span&gt;{{trans "Visit Us"}}&lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;div class="sub-div"&gt;
+                            &lt;address&gt;{{trans "Unit 1101-2, Winfield Commercial Building, 6-8 Prat Avenue, Tsim Sha Tsui, Hong Kong"}}.&lt;/address&gt;
+                            &lt;div class="dcontact-btnblock desk"&gt;&lt;a href="https://g.page/diamondicq" class="dcontact-directionbtn"&gt;{{trans "Get Directions"}}&lt;/a&gt;&lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class="dcontact-btnblock respo"&gt;&lt;a target="_blank" href="https://g.page/diamondicq" class="dcontact-directionbtn"&gt;{{trans "Get Directions"}}&lt;/a&gt;&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="dcontact-connectinfo"&gt;
+                    &lt;span class="dcontact-tagline"&gt;
+                        {{trans "Connect with us"}}
+                    &lt;/span&gt;
+                    &lt;span class="dcontact-connectdesc"&gt;
+                        {{trans "Share your special moments with Diamond ICQ on social media. We are proud to be part of your special memories and making history with you. Remember to tag us in your photos to be featured on our page."}}
+                    &lt;/span&gt;
+                &lt;/div&gt;
+                &lt;div class="dcontact-wpcode"&gt;
+                    &lt;div class="dcontact-wp-qrcodeimg"&gt;
+                        &lt;span class="dcontact-wpcodeheading"&gt;
+                            {{trans "Whatsapp QR Code."}}
+                        &lt;/span&gt;
+                        &lt;a target="_blank" href="https://wa.me/85266887759?text=Website%20enquiry%20-%20sell%20diamond" title="Whatsapp QR Code"&gt;&lt;img src="{{media url=wysiwyg/contact-pc_1.jpg}}" alt="Whatsapp QR Code" /&gt;&lt;/a&gt;
+                    &lt;/div&gt;
+&lt;div class="dcontact-socialshare"&gt;
+                        &lt;a target="_blank" href="https://www.facebook.com/diamondicq" class="icqsahre fb" title="Facebook"&gt;
+                            &lt;img src="{{media url=wysiwyg/Contact_FB.jpg}}" alt="FB" /&gt;
+                        &lt;/a&gt;
+                        &lt;a target="_blank" href="https://www.youtube.com/channel/UCNGuw8YQYgPQ7ZnUNxWqUzQ" class="icqsahre yt" title="Youtube"&gt;
+                            &lt;img src="{{media url=wysiwyg/Contact_YT.jpg}}" alt="YT" /&gt;
+                        &lt;/a&gt;
+                        &lt;a target="_blank" href="https://twitter.com/diamond_icq" class="icqsahre tw" title="Twitter"&gt;
+                            &lt;img src="{{media url=wysiwyg/Contact_TW.jpg}}" alt="TW" /&gt;
+                        &lt;/a&gt;
+                        &lt;a target="_blank" href="https://instagram.com/diamondicq" class="icqsahre ig" title="Instagram"&gt;
+                            &lt;img src="{{media url=wysiwyg/Contact_IN.jpg}}" alt="IG" /&gt;
+                        &lt;/a&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[sell-jewellery]]></title>
+      <identifier><![CDATA[sell-jewellery]]></identifier>
+      <content><![CDATA[<style>#html-body [data-pb-style=GYNO1QW]{justify-content:flex-start;display:flex;flex-direction:column;background-position:left top;background-size:cover;background-repeat:no-repeat;background-attachment:scroll}</style><div data-content-type="row" data-appearance="contained" data-element="main"><div data-enable-parallax="0" data-parallax-speed="0.5" data-background-images="{}" data-background-type="image" data-video-loop="true" data-video-play-only-visible="true" data-video-lazy-load="true" data-video-fallback-src="" data-element="inner" data-pb-style="GYNO1QW"><div data-content-type="html" data-appearance="default" data-element="main">&lt;div class="sell-diamondpage"&gt;
+{{block class="Customer\Sell\Block\Index\Index"  template="Customer_Sell::sellitem.phtml"}}
+&lt;/div&gt;</div></div></div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[About us page comments section slider]]></title>
+      <identifier><![CDATA[About us page comments section slider]]></identifier>
+      <content><![CDATA[<style>#html-body [data-pb-style=ASYUJRB]{justify-content:flex-start;display:flex;flex-direction:column;background-position:left top;background-size:cover;background-repeat:no-repeat;background-attachment:scroll}</style><div data-content-type="row" data-appearance="contained" data-element="main"><div data-enable-parallax="0" data-parallax-speed="0.5" data-background-images="{}" data-background-type="image" data-video-loop="true" data-video-play-only-visible="true" data-video-lazy-load="true" data-video-fallback-src="" data-element="inner" data-pb-style="ASYUJRB"><div data-content-type="html" data-appearance="default" data-element="main">&lt;script&gt;
+    require(["jquery", "jquery/ui", "slick"], function ($) {
+      $(document).ready(function () {
+        $(".slider-hero").slick({
+          className: "center",
+         
+          infinite: true,
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          autoplay: true,
+          autoplaySpeed: 2000,
+          pauseOnHover: true,
+          dots : true,
+          arrows : false,
+        });
+      $(".slick-dots li").css("size", "16px");
+      });
+    });
+  &lt;/script&gt;
+  &lt;div id="homepage-slider" style="margin:0 60px;"&gt;
+    &lt;div class="slider-hero"&gt;
+      &lt;div class="slider-container"&gt;
+        &lt;div class="card"&gt;
+          &lt;div class="card-img"&gt;
+            &lt;img
+src="{{media url=wysiwyg/Ellipse_124.png}}" alt="" /&gt;            
+          &lt;/div&gt;
+          &lt;div class="card-body"&gt;
+            &lt;div class="messag"&gt;
+              &lt;p style="margin-bottom: 10px"&gt;
+                Referred by a good friend of mine and caught me by surprise...a
+                cozy shop located in an office building, petite but yet full of
+                varieties for my selection. Never thought I could found a
+                beautiful stone in such price point. Will definitely visit again.
+              &lt;/p&gt;
+              &lt;p class="auther"&gt;Dimitri Vagarov&lt;/p&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="slider-container"&gt;
+          &lt;div class="card"&gt;
+            &lt;div class="card-img"&gt;
+              &lt;img src="{{media url=wysiwyg/Ellipse_125.png}}" alt="" /&gt;
+            &lt;/div&gt;
+            &lt;div class="card-body"&gt;
+              &lt;div class="messag"&gt;
+                &lt;p style="margin-bottom: 10px"&gt;
+                  Referred by a good friend of mine and caught me by surprise...a
+                  cozy shop located in an office building, petite but yet full of
+                  varieties for my selection. Never thought I could found a
+                  beautiful stone in such price point. Will definitely visit again.
+                &lt;/p&gt;
+                &lt;p class="auther"&gt;Dimitri Vagarov&lt;/p&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;div class="slider-container"&gt;
+        &lt;div class="card"&gt;
+          &lt;div class="card-img"&gt;
+            &lt;img
+              src="https://images.idgesg.net/images/article/2021/02/chrome-android-settings-better-browsing-100877408-large.jpg?auto=webp&amp;quality=85,70"
+            /&gt;
+          &lt;/div&gt;
+          &lt;div class="card-body"&gt;
+            &lt;div class="messag"&gt;
+              &lt;p style="margin-bottom: 10px"&gt;
+                “I needed a value evaluation consultancy, they helped me very
+                professionally. I appreciate true professionalism.”
+              &lt;/p&gt;
+              &lt;p class="auther"&gt;Dimitri Vagarov&lt;/p&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="slider-container"&gt;
+        &lt;div class="card"&gt;
+          &lt;div class="card-img"&gt;
+           &lt;img src="{{media url=wysiwyg/Ellipse_124.png}}" alt="" /&gt;
+          &lt;/div&gt;
+          &lt;div class="card-body"&gt;
+            &lt;div class="messag"&gt;
+              &lt;p style="margin-bottom: 10px"&gt;
+                “I needed a value evaluation consultancy, they helped me very
+                professionally. I appreciate true professionalism.”
+              &lt;/p&gt;
+              &lt;p class="auther"&gt;Dimitri Vagarov&lt;/p&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+&lt;style&gt;
+
+@media screen and (min-width: 768px) {
+    .slick-dots li.slick-active button {
+       background: #d5c1ba!important;
+    }
+    .slick-dots li button {
+       background: #d8d8d8!important;
+    }
+    .slick-next:before,
+    .slick-prev:before {
+      color: #d8d8d8!important;
+    }
+    .slick-dots li {
+       background: #d8d8d8!important;
+     }
+    .slick-active {
+       background: #d5c1ba!important;
+       color: #d5c1ba!important;
+     }
+}
+    .slick-dots li.slick-active button {
+       background: #d5c1ba!important;
+    }
+    .slick-dots li button {
+       background: #d8d8d8;
+    }
+    .slick-next:before,
+    .slick-prev:before {
+      color: #d8d8d8;
+       background: #d8d8d8;
+    }
+    .slick-dots li {
+       color: #d8d8d8;
+       background: #d8d8d8;
+     }
+    .slick-active {
+       color: #d8d8d8;
+       background: #d8d8d8;
+     }
+    
+    /* .center .slick-center p {
+      opacity: 1;
+      -ms-transform: scale(1.08);
+      transform: scale(1.08);
+    }
+    .center p {
+      transition: all 0.3s ease;
+    } */
+    .slider-container {
+      max-width: 352px;
+      font-family: Montserrat;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 24px;
+      letter-spacing: 0.005em;
+
+    }
+    .slider-container .card {
+      width: 100%;
+    }
+    .slider-container .card .card-img {
+      width: 64px;
+      height: 64px;
+    }
+    .slider-container .card .card-img img {
+      height: 64px;
+      width: 64px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+    .slider-container .card .card-body {
+      border: 1px solid #e8dbd3;
+      box-sizing: border-box;
+      border-radius: 8px;
+      margin-top: -26px;
+      margin-left: 36px;
+      justify-content: center;
+    }
+    .slider-container .messag {
+      margin: 25px 25px;
+    }
+    .slider-container .auther {
+      font-family: Montserrat;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 24px;
+      letter-spacing: 0.005em;
+      color: #808080;
+    }
+   
+  &lt;/style&gt;</div></div></div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[nav bar]]></title>
+      <identifier><![CDATA[nav bar]]></identifier>
+      <content><![CDATA[<style>#html-body [data-pb-style=H6G12MA]{justify-content:center;display:flex;flex-direction:column;background-position:left top;background-size:cover;background-repeat:no-repeat;background-attachment:scroll;text-align:center;min-height:54px}</style><div class="about-us-nav" data-content-type="row" data-appearance="full-width" data-enable-parallax="0" data-parallax-speed="0.5" data-background-images="{}" data-background-type="image" data-video-loop="true" data-video-play-only-visible="true" data-video-lazy-load="true" data-video-fallback-src="" data-element="main" data-pb-style="H6G12MA"><div class="row-full-width-inner" data-element="inner"><div data-content-type="html" data-appearance="default" data-element="main">&lt;div class="topnav" id="aboutus-nav"&gt;
+&lt;a id="about-us" class="aboutus" href="{{store%20url='about-us'}}"&gt;ABOUT US&lt;/a&gt;
+&lt;a id="our-shopping-platform" class="aboutus" href="{{store%20url='about-us/our-shopping-platform'}}"&gt;SHOPPING PLATFORM&lt;/a&gt;
+  &lt;a id="design-own-jewellery" class="aboutus" href="{{store%20url='about-us/design-own-jewellery'}}"&gt;DESIGN OWN JEWELLERY&lt;/a&gt;
+  &lt;a id="marketplace" class="aboutus" href="{{store%20url='about-us/marketplace'}}"&gt;MARKETPLACE&lt;/a&gt;
+  &lt;a id="our-concierge-service" class="aboutus" href="{{store%20url='about-us/our-concierge-service'}}"&gt;CONCIERGE SERVICE&lt;/a&gt;
+  &lt;a id="our-showroom" class="aboutus" href="{{store%20url='about-us/our-showroom'}}"&gt;OUR SHOWROOM&lt;/a&gt;&lt;/li&gt;
+  &lt;a href="javascript:void(0);" class="icon" onclick="showAboutUsMenu()"&gt;
+    &amp;#9660
+  &lt;/a&gt;
+&lt;/div&gt;
+&lt;style&gt;
+/* Add a black background color to the top navigation */
+.about-us-nav{
+ background-color: #EAE0DD;
+ margin-top: 25px;
+}
+.about-us-nav .topnav {
+ background-color: #EAE0DD;
+ font-family: 'Sans Serif Book FLF';
+ font-size: 14px;
+ line-height: 22px;
+}
+.topnav {
+  text-align:center;
+  background-color: #EAE0DD;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float:none;
+  display: inline-block;
+  color: #808080;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  color: black;
+}
+
+/* Add an active class to highlight the current page */
+.topnav a.active {
+  color: black;
+  font-weight: 900!important;
+}
+
+/* Hide the link that should open and close the topnav on small screens */
+.topnav .icon {
+  display: none;
+}
+
+@media screen and (min-width: 280px){
+  .topnav a {
+    padding: 12px 12px;
+    font-size: 14px;
+  }
+}
+
+/* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
+@media screen and (max-width: 1080px) {
+  .topnav a:not(.active) {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+  .about-us-nav{
+    margin-top: 16px;
+    margin-left: 15px;
+    margin-right: 15px; 
+  }
+}
+
+/* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
+@media screen and (max-width: 1080px) {
+  .topnav.responsive {position: relative; text-align: unset;}
+  .topnav.responsive a.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
+&lt;/style&gt;
+&lt;script&gt;
+function showAboutUsMenu() {
+  var x = document.getElementById("aboutus-nav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+&lt;/script&gt;</div></div></div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Edu Nav]]></title>
+      <identifier><![CDATA[edu-nav]]></identifier>
+      <content><![CDATA[<style>#html-body [data-pb-style=BE6VUPY]{justify-content:flex-start;display:flex;flex-direction:column;background-position:left top;background-size:cover;background-repeat:no-repeat;background-attachment:scroll}</style><div data-content-type="row" data-appearance="contained" data-element="main"><div data-enable-parallax="0" data-parallax-speed="0.5" data-background-images="{}" data-background-type="image" data-video-loop="true" data-video-play-only-visible="true" data-video-lazy-load="true" data-video-fallback-src="" data-element="inner" data-pb-style="BE6VUPY"><div data-content-type="html" data-appearance="default" data-element="main">&lt;style&gt;
+    html, body {
+        width: 100%;
+    }
+.navbar{
+    background-color: #FAF7F6;
+    width: 100%;
+}
+.navbar ul{
+    overflow: auto;
+    padding:0;
+    display: flex;
+}
+.navbar li{
+   
+    list-style:none;
+    padding:3px 3px;
+    margin:10px 20px 10px 20px;
+}
+.navbar li &gt; a {
+    text-decoration:none;
+    color: black;
+}
+
+
+&lt;/style&gt;
+&lt;body&gt;
+&lt;header&gt;
+&lt;nav class="navbar"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a&gt;&lt;b&gt;Sapphire&lt;b&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a&gt;Ruby&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a&gt;Pearl&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/nav&gt;</div></div></div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[aboutus-testimonials]]></title>
+      <identifier><![CDATA[aboutus-testimonials]]></identifier>
+      <content><![CDATA[<div data-content-type="html" data-appearance="default" data-element="main">&lt;style&gt;
+
+.slick-dots li.slick-active button {
+       background: #d5c1ba!important;
+    }
+    .slick-dots li button {
+       background: #d8d8d8;
+    }
+    
+    .slick-dots li {
+       color: #d8d8d8;
+
+     }
+    .slick-active {
+       color: #d8d8d8;
+
+     }
+
+.slick-next:before,
+    .slick-prev:before {
+      color: #d8d8d8;
+       background: #d8d8d8;
+    }
+
+.about-slider {
+  margin: 0 60px;
+}
+    
+    /* .center .slick-center p {
+      opacity: 1;
+      -ms-transform: scale(1.08);
+      transform: scale(1.08);
+    }
+    .center p {
+      transition: all 0.3s ease;
+    } */
+    .slider-container {
+      max-width: 352px;
+      font-family: Montserrat;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 24px;
+      letter-spacing: 0.005em;
+      color: #000000;
+    }
+    .slider-container .card {
+      width: 100%;
+    }
+    .slider-container .card .card-img {
+      width: 64px;
+      height: 64px;
+    }
+    .slider-container .card .card-img img {
+      height: 64px;
+      width: 64px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+    .slider-container .card .card-body {
+      border: 1px solid #e8dbd3;
+      box-sizing: border-box;
+      border-radius: 8px;
+      margin-top: -26px;
+      margin-left: 36px;
+      justify-content: center;
+    }
+    .slider-container .message {
+      margin: 25px 25px;
+    }
+    .slider-container .author {
+      font-family: Montserrat;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 24px;
+      letter-spacing: 0.005em;
+      color: #808080;
+    }
+    
+@media screen and (min-width: 280px) and (max-width: 359px) {
+    .about-slider {
+  margin: 0 5px;
+}
+	.slider-container {
+      max-width: 260px;
+      font-size: 12px;
+      line-height: 18px;
+      letter-spacing: 0.005em;
+      color: #000000;
+    }
+    .slider-container .card {
+      width: 100%;
+    }
+    
+    .slider-container .card .card-body {
+      border: 1px solid #e8dbd3;
+      box-sizing: border-box;
+      border-radius: 4px;
+      margin-top: -12px;
+      margin-left: 12px;
+      justify-content: center;
+    }
+    .slider-container .message {
+      margin: 10px 10px;
+    }
+    .slider-container .author {
+      font-family: Montserrat;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 12px;
+      line-height: 18px;
+      letter-spacing: 0.005em;
+      color: #808080;
+    }
+}
+
+@media screen and (min-width: 360px) and (max-width: 539px) {
+     .about-slider {
+  margin: 0 15px;
+}
+	.slider-container {
+      max-width: 352px;
+      font-size: 14px;
+      line-height: 24px;
+      letter-spacing: 0.005em;
+      color: #000000;
+    }
+    .slider-container .card {
+      width: 100%;
+    }
+    .slider-container .card .card-img {
+      width: 64px;
+      height: 64px;
+    }
+    .slider-container .card .card-img img {
+      height: 64px;
+      width: 64px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+    .slider-container .card .card-body {
+      border: 1px solid #e8dbd3;
+      box-sizing: border-box;
+      border-radius: 8px;
+      margin-top: -24px;
+      margin-left: 24px;
+      justify-content: center;
+    }
+    .slider-container .message {
+      margin: 10px 10px;
+    }
+    .slider-container .author {
+      font-family: Montserrat;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 24px;
+      letter-spacing: 0.005em;
+      color: #808080;
+    }
+}
+   
+  &lt;/style&gt;
+  &lt;script&gt;
+    require(["jquery", "jquery/ui", "slick"], function ($) {
+      $(document).ready(function () {
+        var viewPort = $( window ).width();
+        var slideShow = Math.ceil(viewPort/740);
+        $(".slider-hero").slick({
+          className: "center",
+         
+          infinite: true,
+          slidesToShow: slideShow &lt;= 3 ? slideShow :3,
+          slidesToScroll: 1,
+          autoplay: false,
+          autoplaySpeed: 2000,
+          pauseOnHover: true,
+          dots : true,
+          arrows : false,
+        });
+      $(".slick-dots li").css("size", "16px");
+      });
+    });
+  &lt;/script&gt;
+  &lt;div id="about-slider" &gt;
+    &lt;div class="slider-hero"&gt;
+      &lt;div class="slider-container"&gt;
+        &lt;div class="card"&gt;
+          &lt;div class="card-img"&gt;
+            &lt;img
+src="{{media url=wysiwyg/Ellipse_124.png}}" alt="" /&gt;            
+          &lt;/div&gt;
+          &lt;div class="card-body"&gt;
+            &lt;div class="message"&gt;
+              &lt;p style="margin-bottom: 10px"&gt;
+                Referred by a good friend of mine and caught me by surprise...a
+                cozy shop located in an office building, petite but yet full of
+                varieties for my selection. Never thought I could found a
+                beautiful stone in such price point. Will definitely visit again.
+              &lt;/p&gt;
+              &lt;p class="author"&gt;Dimitri Vagarov&lt;/p&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="slider-container"&gt;
+          &lt;div class="card"&gt;
+            &lt;div class="card-img"&gt;
+              &lt;img src="{{media url=wysiwyg/Ellipse_125.png}}" alt="" /&gt;
+            &lt;/div&gt;
+            &lt;div class="card-body"&gt;
+              &lt;div class="message"&gt;
+                &lt;p style="margin-bottom: 10px"&gt;
+                  Referred by a good friend of mine and caught me by surprise...a
+                  cozy shop located in an office building, petite but yet full of
+                  varieties for my selection. Never thought I could found a
+                  beautiful stone in such price point. Will definitely visit again.
+                &lt;/p&gt;
+                &lt;p class="author"&gt;Dimitri Vagarov&lt;/p&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;div class="slider-container"&gt;
+        &lt;div class="card"&gt;
+          &lt;div class="card-img"&gt;
+            &lt;img
+              src="https://images.idgesg.net/images/article/2021/02/chrome-android-settings-better-browsing-100877408-large.jpg?auto=webp&amp;quality=85,70"
+            /&gt;
+          &lt;/div&gt;
+          &lt;div class="card-body"&gt;
+            &lt;div class="message"&gt;
+              &lt;p style="margin-bottom: 10px"&gt;
+                “I needed a value evaluation consultancy, they helped me very
+                professionally. I appreciate true professionalism.”
+              &lt;/p&gt;
+              &lt;p class="author"&gt;Dimitri Vagarov&lt;/p&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="slider-container"&gt;
+        &lt;div class="card"&gt;
+          &lt;div class="card-img"&gt;
+           &lt;img src="{{media url=wysiwyg/Ellipse_124.png}}" alt="" /&gt;
+          &lt;/div&gt;
+          &lt;div class="card-body"&gt;
+            &lt;div class="message"&gt;
+              &lt;p style="margin-bottom: 10px"&gt;
+                “I needed a value evaluation consultancy, they helped me very
+                professionally. I appreciate true professionalism.”
+              &lt;/p&gt;
+              &lt;p class="author"&gt;Dimitri Vagarov&lt;/p&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[aboutus-script]]></title>
+      <identifier><![CDATA[aboutus-script]]></identifier>
+      <content><![CDATA[<div data-content-type="html" data-appearance="default" data-element="main">&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;
+&lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin&gt;
+&lt;link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&amp;family=Noto+Serif:wght@700&amp;display=swap" rel="stylesheet"&gt;
+
+&lt;style&gt;
+.aboutus-content-section-2-row {
+   background-color: #FDFBFB;
+   padding-bottom: 30px;
+   margin-bottom: 15px;
+}
+.aboutus-heading-text{
+font-family: 'Sans Serif FLF Demibold', serif;
+font-weight: 700;
+font-size:40px;
+line-height:48px;
+margin-top: 64px;
+margin-bottom: 64px;
+}
+.aboutus-content-section-2-heading-text{
+font-family: 'Sans Serif FLF Demibold', serif;
+font-weight: 700;
+font-size:40px;
+line-height:48px;
+margin-top: 64px;
+margin-bottom: 64px;
+}
+
+.aboutus-content-text {
+ margin-left : 259px;
+ margin-right: 259px;
+ margin-bottom: 64px;
+}
+.newslettermain-sec {
+  display: block!important;
+}
+.aboutus-action {
+    width: 100%;
+    margin-top: 8px;
+    max-width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    float: none;
+    clear: both;
+    display: inline-block;
+}
+.aboutus-action-btn {
+    width: 100%;
+    background: #e8dbd3;
+    height: 44px;
+    border: 0;
+    box-shadow: none;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: .007em;
+    text-transform: uppercase;
+    max-width: 355px;
+    font-family: Montserrat Regular;
+    color: #000000;
+}
+
+@media screen and (min-width: 280px) and (max-width: 539px) {
+    
+	.aboutus-content-text {
+ 		margin-left : 15px;
+ 		margin-right: 15px;
+ 		margin-bottom: 20px;
+	}
+      .aboutus-heading-text{
+            font-size:3rem;
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
+      .aboutus-content-section-2-heading-text{
+            font-size:2rem;
+            margin-top: 20px;
+            margin-bottom: 30px;
+            margin-left : 15px;
+ 	    margin-right: 15px;
+
+        }
+
+
+}
+
+
+@media screen and (min-width: 540px) and (max-width: 767px) {
+   .aboutus-content-text {
+ 		margin-left : 25px;
+ 		margin-right: 25px;
+ 		margin-bottom: 20px;
+	}
+    .aboutus-content-section-2-heading-text{
+            font-size:3rem;
+            margin-top: 20px;
+            margin-bottom: 30px;
+            margin-left : 15px;
+ 	    margin-right: 15px;
+
+        }
+}
+
+@media screen and (min-width: 768px) and (max-width: 819px) {
+   .aboutus-content-text {
+ 		margin-left : 45px;
+ 		margin-right: 45px;
+ 		margin-bottom: 40px;
+	}
+    .aboutus-content-section-2-heading-text{
+            font-size:3rem;
+            margin-top: 20px;
+            margin-bottom: 30px;
+            margin-left : 25px;
+ 	    margin-right: 25px;
+
+        }
+}
+@media screen and (min-width: 820px) and (max-width: 1024px) {
+	.aboutus-content-text {
+ 		margin-left : 80px;
+ 		margin-right: 80px;
+ 		margin-bottom: 65px;
+	}
+     .aboutus-content-section-2-heading-text{
+            font-size:3rem;
+            margin-top: 20px;
+            margin-bottom: 30px;
+            margin-left : 35px;
+ 	    margin-right: 35px;
+
+        }
+   
+}
+
+&lt;/style&gt;</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[In Collaboration With & newsletter-section]]></title>
+      <identifier><![CDATA[collaboration-and-newsletter-section]]></identifier>
+      <content><![CDATA[<div data-content-type="html" data-appearance="default" data-element="main">&lt;div class="newslettermain-sec"&gt;
+  &lt;div class="container"&gt;
+    &lt;div class="rightsec newsletter-v2"&gt;
+      &lt;div class="title bold"&gt;保持聯繫!&lt;/div&gt;
+      &lt;div class="sub-title bold"&gt;立即登記即可享受&lt;/div&gt;
+      &lt;p class="content bold"&gt;會員鑽石優惠、特別獎賞、節日推廣及 優先訂購等精彩禮遇！&lt;/p&gt;
+      &lt;div&gt;
+        {{block class="Magento\Newsletter\Block\Subscribe"
+        name="static.newsletter"
+        template="Magento_Newsletter::subscribe.phtml"}}
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;style&gt;
+  .rightsec.newsletter-v2 {
+    padding: 96px 20px;
+    text-align: center;
+  }
+
+  @media only screen and (max-width: 767px) {
+    .rightsec.newsletter-v2 .title {
+      font-size: 26px;
+      line-height: 31px;
+    }
+    .newsletter-v2 .sub-title {
+      font-size: 18px;
+      line-height: 21px;
+    }
+    .rightsec.newsletter-v2 .content {
+      font-size: 14px;
+      line-height: 22px;
+    }
+  }
+  .rightsec.newsletter-v2 .title {
+    font-size: 36px;
+    line-height: 43px;
+    padding-bottom: 40px;
+  }
+  .newsletter-v2 .sub-title {
+    font-size: 30px;
+    line-height: 36px;
+    padding-bottom: 10px;
+  }
+  .rightsec.newsletter-v2 .content {
+    font-size: 14px;
+    line-height: 17px;
+    padding-bottom: 20px;
+    color: black;
+  }
+&lt;/style&gt;
+</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[footer-section]]></title>
+      <identifier><![CDATA[footer-section]]></identifier>
+      <content><![CDATA[<div data-content-type="html" data-appearance="default" data-element="main">&lt;div class="footer-container"&gt;
+    &lt;div class="container"&gt;
+      &lt;div id="footer-ac" class="footer-content"&gt;
+        &lt;div class="footer-col-ft footer-fourth"&gt;
+            &lt;div data-role="collapsible"&gt;
+                &lt;div class="title-ft" data-role="trigger"&gt;社交媒體&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="footer-sun-ct"&gt;
+                &lt;div data-role="content"&gt;
+                    &lt;ul class="social-ul"&gt;
+                        &lt;li class="fb"&gt;
+                          &lt;a
+                            href="https://www.facebook.com/diamondicq"
+                            target="_blank"
+                            title="facebook"
+                          &gt;&lt;img src="https://new-themes.dicqinfotech.com/media/wysiwyg/fb.png" alt="fb" /&gt;&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li class="insta"&gt;
+                            &lt;a
+                              href="https://www.instagram.com/diamondicq"
+                              target="_blank"
+                              title="instagram"
+                            &gt;&lt;img src="https://new-themes.dicqinfotech.com/media/wysiwyg/ig.png" alt="ig" /&gt;&lt;/a&gt;
+                          &lt;/li&gt;
+                        &lt;li class="tw"&gt;
+                          &lt;a
+                            href="https://twitter.com/diamond_icq"
+                            target="_blank"
+                            title="twitter"
+                          &gt;&lt;img src="https://new-themes.dicqinfotech.com/media/wysiwyg/tw.png" alt="tw" /&gt;&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li class="wtsapp"&gt;
+                            &lt;a
+                                href="https://wa.me/85266887759?text=Website%20enquiry%20-%20sell%20diamond"
+                                target="_blank"
+                                title="wtsapp"
+                            &gt;&lt;img src="https://new-themes.dicqinfotech.com/media/wysiwyg/whsapp.png" alt="wtsapp" /&gt;&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li class="youtube"&gt;
+                          &lt;a
+                            href="https://www.youtube.com/channel/UCNGuw8YQYgPQ7ZnUNxWqUzQ"
+                            target="_blank"
+                            title="youtube"
+                          &gt;&lt;img src="https://new-themes.dicqinfotech.com/media/wysiwyg/yt.png" alt="yt" /&gt;&lt;/a&gt;
+                        &lt;/li&gt;
+                      &lt;/ul&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="footer-col-ft footer-sec"&gt;
+            &lt;div data-role="collapsible"&gt;
+                &lt;div class="title-ft" data-role="trigger"&gt;客戶服務&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="footer-sun-ct"&gt;
+                &lt;div data-role="content"&gt;
+                &lt;ul class="footer-ul"&gt;
+                    &lt;li&gt;&lt;a href="{{store url='faq'}}"&gt;常見問題&lt;/a&gt;&lt;/li&gt;
+                    &lt;li class="footer-ul"&gt;
+                    &lt;a href="mailto:contact@diamondicq.com"&gt;電郵聯繫&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class="footer-ul"&gt;
+                    &lt;a href="tel:+85239565577" target="_blank"&gt;致電我們&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class="footer-ul"&gt;
+                    &lt;a class="make_an_appointment" href="javascript:void(0)"
+                        &gt;預約到店&lt;/a
+                    &gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;
+                    &lt;a href="{{store direct_url='terms-conditions'}}"
+                        &gt;條款與細則&lt;/a
+                    &gt;
+                    &lt;/li&gt;
+                &lt;/ul&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="footer-col-ft footer-sec"&gt;
+          &lt;div data-role="collapsible"&gt;
+            &lt;div class="title-ft" data-role="trigger"&gt;
+                關於我們
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class="footer-sun-ct"&gt;
+            &lt;div data-role="content"&gt;
+              &lt;ul class="footer-ul"&gt;
+                &lt;li&gt;
+                  &lt;a href="{{store url='about-us'}}#our-story"
+                    &gt;我們的故事&lt;/a
+                  &gt;
+                &lt;/li&gt;
+                &lt;li&gt;
+                  &lt;a href="{{store url='about-us'}}#our-network"
+                    &gt;我的網絡&lt;/a
+                  &gt;
+                &lt;/li&gt;
+                &lt;li&gt;
+                  &lt;a href="{{store url=''}}#our-reviews"
+                    &gt;客人的評價&lt;/a
+                  &gt;
+                &lt;/li&gt;
+                &lt;li&gt;
+                  &lt;a href="{{store url='sell-your-jewellery-with-diamondicq-form'}}"
+                    &gt;現金回收鑽石&lt;/a
+                  &gt;
+                &lt;/li&gt;
+                &lt;li&gt;
+                  &lt;a href="{{store url='ringbuilder/settings'}}"
+                    &gt;尋找鑽石&lt;/a
+                  &gt;
+                &lt;/li&gt;
+              &lt;/ul&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+  
+        &lt;div class="footer-col-ft footer-fourth"&gt;
+          &lt;div data-role="collapsible"&gt;
+            &lt;div class="title-ft" data-role="trigger"&gt;
+                聯絡我們
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class="footer-sun-ct"&gt;
+            &lt;div data-role="content"&gt;
+              &lt;ul class="footer-ul"&gt;
+                &lt;li class="tel"&gt;
+                  &lt;a href="tel:+85239565577" target="_blank"&gt;: +852 3956 5577&lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li class="whatsap whatsapp"&gt;
+                  &lt;a
+                    href="https://wa.me/85266887759?text=Website%20enquiry%20-%20sell%20diamond"
+                    target="_blank"
+                    &gt;: +852 6688 7759 {{trans "(24 Hrs)"}}&lt;/a
+                  &gt;
+                &lt;/li&gt;
+                &lt;li class="email-label"&gt;
+                  &lt;a href="mailto:contact@diamondicq.com"&gt;: contact@diamondicq.com&lt;/a&gt;
+                &lt;/li&gt;
+  
+                &lt;li class="location"&gt;
+                  &lt;div class="loc"&gt;
+                    &lt;p&gt;
+                        香港九龍尖沙咀寶勒巷6-8號1101-1102室
+                    &lt;/p&gt;
+                  &lt;/div&gt;
+                &lt;/li&gt;
+                &lt;li class="location store"&gt;
+                  &lt;a
+                    href="https://www.google.com/maps/place/Diamond+ICQ+%E9%91%BD%E7%9F%B3%E5%B0%88%E9%96%80%E5%BA%97/@22.298631,114.1720742,17z/data=!3m1!4b1!4m5!3m4!1s0x340400ee72fa0c89:0xe0770ee27013d7b!8m2!3d22.298631!4d114.1742629"
+                    target="_blank"
+                    &gt;{{trans "Locate Store"}}&lt;/a
+                  &gt;
+                &lt;/li&gt;
+                &lt;li class="make-appoinment"&gt;
+                  &lt;a id="make_an_appointment" class="make_an_appointment" href="javascript:void(0)"
+                    &gt;預約顧問&lt;/a
+                  &gt;
+                &lt;/li&gt;
+              &lt;/ul&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="copyright-section desktop"&gt;
+        &lt;div class="copy-paving"&gt;&lt;a class="hyper-link" href="{{store direct_url='privacy-policy'}}"&gt;隱私權政策&lt;/a&gt; | Copyright © 2022 Diamond ICQ&lt;/div&gt;
+        &lt;div class="img-logos-paving desktop"&gt;
+          &lt;img class="footer-icon lazyOwl" src="/media/logo/stores/1/Logo.png" alt="logo"&gt;
+        &lt;/div&gt;
+        &lt;div class="img-logos-paving desktop"&gt;
+          &lt;div class="img-visa"&gt;&amp;nbsp;&lt;/div&gt;
+          &lt;div class="img-mastercard"&gt;&amp;nbsp;&lt;/div&gt;
+          &lt;div class="img-amex"&gt;&amp;nbsp;&lt;/div&gt;
+          &lt;div class="img-discover"&gt;&amp;nbsp;&lt;/div&gt;
+          &lt;div class="img-diners"&gt;&amp;nbsp;&lt;/div&gt;
+          &lt;div class="img-jcb"&gt;&amp;nbsp;&lt;/div&gt;
+          &lt;div class="img-cartes-bancaires"&gt;&amp;nbsp;&lt;/div&gt;
+          &lt;div class="img-bank-wire"&gt;&amp;nbsp;&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="copyright-section mobile"&gt;
+        &lt;div class="copy-paving"&gt;&lt;a class="hyper-link" href="{{store direct_url='privacy-policy'}}"&gt;隱私權政策&lt;/a&gt;&lt;br&gt;Copyright © 2022 Diamond ICQ&lt;/div&gt;
+        &lt;div class="img-logos-paving desktop"&gt;
+          &lt;img class="footer-icon lazyOwl" src="/media/logo/stores/1/Logo.png" alt="logo"&gt;
+        &lt;/div&gt;
+        &lt;div class="img-logos-paving desktop"&gt;
+          &lt;div class="img-visa"&gt;&amp;nbsp;&lt;/div&gt;
+          &lt;div class="img-mastercard"&gt;&amp;nbsp;&lt;/div&gt;
+          &lt;div class="img-amex"&gt;&amp;nbsp;&lt;/div&gt;
+          &lt;div class="img-discover"&gt;&amp;nbsp;&lt;/div&gt;
+          &lt;div class="img-diners"&gt;&amp;nbsp;&lt;/div&gt;
+          &lt;div class="img-jcb"&gt;&amp;nbsp;&lt;/div&gt;
+          &lt;div class="img-cartes-bancaires"&gt;&amp;nbsp;&lt;/div&gt;
+          &lt;div class="img-bank-wire"&gt;&amp;nbsp;&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  
+  &lt;style type="text/css"&gt;
+    .copyright-section.desktop {
+        display: flex;
+        align-items: center;
+    }
+    .hyper-link {
+        color: #686f7a !important;
+        text-decoration: none;
+    }
+    .social-ul{
+        padding: 0px;
+    }    
+    .social-ul li.fb {
+        padding-left: 0px;
+    }
+    .social-ul li {
+        display: inline-block;
+        padding: 0px 5px;
+    }
+    .social-ul li img{
+        width: 24px;
+    }
+    .footer-icon {
+        max-width: 158px;
+        width: 100%;
+        margin: auto;
+    }
+    .home-jewellerysec
+      .mainsec
+      .rightsec
+      .content-product
+      .productsec
+      li.product-item
+      .product-item-info {
+      text-align: center;
+    }
+    .page-products
+      .page-main
+      .columns
+      .sidebar.sidebar-main
+      .block.filter
+      .block-content.filter-content
+      .amshopby-filter-current.filter-current
+      .amshopby-item.amshopby-item-removed {
+      display: none;
+    }
+    .ringbuilder-diamond-index
+      .iti__flag-container
+      .iti__country-list
+      .iti__dial-code,
+    .ringbuilder-diamond-compare
+      .iti__flag-container
+      .iti__country-list
+      .iti__dial-code,
+    .ringbuilder-diamond-view
+      .iti__flag-container
+      .iti__country-list
+      .iti__dial-code,
+    .ringbuilder-settings-view
+      .iti__flag-container
+      .iti__country-list
+      .iti__dial-code,
+    .ringbuilder-diamond-completering
+      .iti__flag-container
+      .iti__country-list
+      .iti__dial-code {
+      position: unset;
+    }
+    .diamond_sell-customer-index
+      .custom-sell-display-list.grid
+      .custom-sell-item-group
+      .infor-section
+      .custom-sell-item-image,
+    .diamond_sell-quote-index
+      .custom-sell-display-list.grid
+      .custom-sell-item-group
+      .infor-section
+      .custom-sell-item-image {
+      overflow: hidden;
+    }
+    .product-history.table {
+      display: block;
+    }
+    .ringbuilder-diamond-completering
+      .flow-tabs
+      .tab-content
+      .ring-request-form
+      .form-field
+      .diamond-content-data
+      .active
+      .prdctdrpdwn {
+      margin-bottom: 0;
+    }
+    .desktop-only {
+      display: block;
+    }
+    .social-icon {
+      width: 28px;
+      width: 28px;
+    }
+    .social-icon-ytube {
+      margin-left: 6px;
+    }
+    .d-inline-block {
+      display: inline-block;
+    }
+    .footer-third {
+        height: 1px;
+    }
+  &lt;/style&gt;
+  </div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[ring-builder-main-banner-setting]]></title>
+      <identifier><![CDATA[ring-builder-main-banner-setting]]></identifier>
+      <content><![CDATA[<div data-content-type="html" data-appearance="default" data-element="main">&lt;div class="container"&gt;
+&lt;div class="main-bannersec"&gt;
+	&lt;div class="leftimg"&gt;&lt;img src="{{media url=wysiwyg/image_116.png}}" alt="" /&gt;&lt;/div&gt;
+	&lt;div class="midcontent"&gt;
+		&lt;h2&gt;{{trans "Ring Settings"}}&lt;/h2&gt;
+		&lt;p&gt;{{trans "We have the most GIA  ring style, the most wedding ring design, the most exclusive and exquisite craftsmanship."}}&lt;/p&gt;
+	&lt;/div&gt;
+	&lt;div class="rightimg"&gt;&lt;img src="{{media url=wysiwyg/image_117.png}}" alt="" /&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[ring-builder-main-banner]]></title>
+      <identifier><![CDATA[ring-builder-main-banner]]></identifier>
+      <content><![CDATA[<div data-content-type="html" data-appearance="default" data-element="main">&lt;div class="container"&gt;
+&lt;div class="main-bannersec"&gt;
+	&lt;div class="leftimg"&gt;&lt;img src="{{media url=wysiwyg/image_116.png}}" alt="" /&gt;&lt;/div&gt;
+	&lt;div class="midcontent"&gt;
+		&lt;h2&gt;選擇鑽石&lt;/h2&gt;
+		&lt;p&gt;鑽石是最堅硬的天然礦物，也是地球上最稀有的物質。&lt;/p&gt;
+	&lt;/div&gt;
+	&lt;div class="rightimg"&gt;&lt;img src="{{media url=wysiwyg/image_117.png}}" alt="" /&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Customer Sell Requested Payment Link]]></title>
+      <identifier><![CDATA[customer_sell_requested_payment_link]]></identifier>
+      <content><![CDATA[<div data-content-type="html" data-appearance="default" data-element="main">&lt;div class="status-details track_my_consignment"&gt;
+    &lt;h3&gt;Bank Details of Company&lt;/h3&gt;
+    &lt;p&gt;We have shared the detail of the company's bank account with you at your email address.&lt;/p&gt;
+    &lt;p&gt;Kindly complete for the payment of return shipping and send the transaction receipt at
+        contact@diamondicq.com. After the verification of the return shipping payment,
+        we will ship your product,
+    &lt;/p&gt;
+    &lt;p class="custom-sell-details-group"&gt;&lt;span class="title" style="min-width: 150px;font-weight: bold;"&gt;Bank Name:&lt;/span&gt; The Hongkong and Shanghai Banking Corporation&lt;/p&gt;
+    &lt;p class="custom-sell-details-group"&gt;&lt;span class="title" style="min-width: 150px;font-weight: bold;"&gt;Bank Code:&lt;/span&gt; 004&lt;/p&gt;
+    &lt;p class="custom-sell-details-group"&gt;&lt;span class="title" style="min-width: 150px;font-weight: bold;"&gt;Branch Code:&lt;/span&gt; 521&lt;/p&gt;
+    &lt;p class="custom-sell-details-group"&gt;&lt;span class="title" style="min-width: 150px;font-weight: bold;"&gt;Account Name:&lt;/span&gt; Diamond ICQ Limited&lt;/p&gt;
+    &lt;p class="custom-sell-details-group"&gt;&lt;span class="title" style="min-width: 150px;font-weight: bold;"&gt;Account No:&lt;/span&gt; 521-051-880-838 (Saving HKD)&lt;/p&gt;
+    &lt;p class="custom-sell-details-group"&gt;&lt;span class="title" style="min-width: 150px;font-weight: bold;"&gt;Swift Code:&lt;/span&gt; HSBCHKHHHKH&lt;/p&gt;
+    &lt;p class="custom-sell-details-group"&gt;&lt;span class="title" style="min-width: 150px;font-weight: bold;"&gt;Return Shipping Fee:&lt;/span&gt; HK$ 50.00&lt;/p&gt;
+&lt;/div&gt; </div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Slide Home 5]]></title>
+      <identifier><![CDATA[slide-home]]></identifier>
+      <content><![CDATA[<div data-content-type="html" data-appearance="default" data-element="main">{{widget type="Magiccart\Magicslider\Block\Widget\Slider" identifier="slide8" class="home-slider" template="magicslider.phtml"}}</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Discount Information]]></title>
+      <identifier><![CDATA[discount_information]]></identifier>
+      <content><![CDATA[<div class="discount-information">
+	<span class="fa fa-scissors"><span class="hidden">icon</span></span>
+	<span class="title">#free eu delivery + return over<strong>€99.00</strong>collect from store</span>
+</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Block Footer Top]]></title>
+      <identifier><![CDATA[block_footer_top_backup]]></identifier>
+      <content><![CDATA[<style>#html-body [data-pb-style=HSXUAD5],#html-body [data-pb-style=PWO1GAX],#html-body [data-pb-style=QSKA3GS]{justify-content:flex-start;display:flex;flex-direction:column;background-position:left top;background-size:cover;background-repeat:no-repeat;background-attachment:scroll}#html-body [data-pb-style=HSXUAD5],#html-body [data-pb-style=QSKA3GS]{justify-content:center;width:50%;align-self:stretch}</style><div class="container block-footer-top-content" data-content-type="row" data-appearance="full-bleed" data-enable-parallax="0" data-parallax-speed="0.5" data-background-images="{}" data-background-type="image" data-video-loop="true" data-video-play-only-visible="true" data-video-lazy-load="true" data-video-fallback-src="" data-element="main" data-pb-style="PWO1GAX"><div class="pagebuilder-column-group" style="display: flex;" data-content-type="column-group" data-grid-size="12" data-element="main"><div class="pagebuilder-column col-xl-6 col-lg-6 col-md-6 col-12 wow animate__fadeInRight footer-logo" data-content-type="column" data-appearance="full-height" data-background-images="{}" data-element="main" data-pb-style="QSKA3GS"><div data-content-type="text" data-appearance="default" data-element="main"><p><a href="#"><img src="{{media url=wysiwyg/logo.png}}" alt=""></a></p></div></div><div class="pagebuilder-column col-xl-6 col-lg-6 col-md-6 col-12 wow animate__fadeInLeft footer-social align-right" data-content-type="column" data-appearance="full-height" data-background-images="{}" data-element="main" data-pb-style="HSXUAD5"><div data-content-type="block" data-appearance="default" data-element="main">{{widget type="Magento\Cms\Block\Widget\Block" template="widget/static_block/default.phtml" block_id="36" type_name="CMS Static Block"}}</div></div></div></div>]]></content>
+      <is_active><![CDATA[0]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Custom Tab]]></title>
+      <identifier><![CDATA[custom-tab]]></identifier>
+      <content><![CDATA[<div class="row">
+<div class="col-xl-8 col-lg-8 col-md-8 col-12"><a href="#"><img src="{{media url="wysiwyg/alothemes/img4-6-1.jpg"}}" alt="" width="930" height="405"></a></div>
+<div class="col-xl-4 col-lg-4 col-md-4 col-12"><a href="#"><img src="{{media url="wysiwyg/alothemes/img4-7.jpg"}}" alt="" width="451" height="405"></a></div>
+</div>
+<p>&nbsp;</p>
+<h2><span style="font-size: 10pt;">VENDOR INFO</span></h2>
+<ul>
+<li class="store-name">Store Name:&nbsp;<span class="details">Cosmetic</span></li>
+<li class="seller-name">Vendor:&nbsp;<span class="details"><a href="#">Edgar Andrew</a></span></li>
+<li class="store-address">Address:&nbsp;<span class="details">NewYork, NewYork, NY, 12345</span></li>
+</ul>
+<p>Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Nulla porttitor accumsan tincidunt. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Nulla quis lorem ut libero malesuada feugiat. Pellentesque in ipsum id orci porta dapibus. Donec sollicitudin molestie malesuada. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Sed porttitor lectus nibh.</p>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Size Guide]]></title>
+      <identifier><![CDATA[size_guide]]></identifier>
+      <content><![CDATA[<div class="image-size"><img src="{{media url=&quot;wysiwyg/alothemes/size_guide.png&quot;}}" alt="" /></div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Delivery And Return]]></title>
+      <identifier><![CDATA[delivery_and_return]]></identifier>
+      <content><![CDATA[<h4 class="delivery">Delivery</h4>
+<p>All orders shipped with UPS Express.</p>
+<p>Always free shipping for orders over US $250.</p>
+<p>All orders are shipped with a UPS tracking number.</p>
+<h4 class="mt__30 mb__10 fs__16">Returns</h4>
+<p>Items returned within 14 days of their original shipment date in same as new condition will be eligible for a full refund or store credit.</p>
+<p>Refunds will be charged back to the original form of payment used for purchase.</p>
+<p>Customer is responsible for shipping charges when making returns and shipping/handling fees of original purchase is non-refundable.</p>
+<p>All sale items are final purchases.</p>
+<h4 class="help">Help</h4>
+<p>Give us a shout if you have any other questions and/or concerns.</p>
+<p>Email:&nbsp;<a href="#"><span class="__cf_email__">[email&nbsp;protected]</span></a></p>
+<p>Phone: +1 (23) 456 789</p>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[social-profile]]></title>
+      <identifier><![CDATA[social-profile]]></identifier>
+      <content><![CDATA[<ul class="social-profile">
+    <li><a href="https://www.facebook.com/Alothemes" title="Facebook"><span class="fa fa-facebook"><span class="hidden">Facebook</span></span></a></li>
+    <li><a href="https://twitter.com/alothemes" title="Twitter"><span class="fa fa-twitter"><span class="hidden">Twitter</span></span></a></li>
+    <li><a href="https://www.instagram.com/aloteams/" title="Instagram"><span class="fa fa-instagram"><span class="hidden">Instagram</span></span></a></li>
+    <li><a href="https://www.youtube.com/channel/UC_xyPf-rd1QrMfBCxcvXuzg" title="Youtube"><span class="fa fa-youtube"><span class="hidden">Youtube</span></span></a></li>
+</ul>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Search Key Words]]></title>
+      <identifier><![CDATA[search-key]]></identifier>
+      <content><![CDATA[<div class="popular-key">
+<div class="title"><strong>Popular KeyWords:</strong></div>
+<ul class="words">
+<li><a href="{{store url="catalogsearch/result//?q=Fashion"}}">Fashion</a></li>
+<li><a href="{{store url="catalogsearch/result//?q=Clothing"}}">Clothing</a></li>
+<li><a href="{{store url="catalogsearch/result//?q=Hat"}}">Hat</a></li>
+<li><a href="{{store url="catalogsearch/result//?q=Accessories"}}">Accessories</a></li>
+<li><a href="{{store url="catalogsearch/result//?q=Hot"}}">Hot</a></li>
+<li><a href="{{store url="catalogsearch/result//?q=Backpack"}}">Backpack</a></li>
+<li><a href="{{store url="catalogsearch/result//?q=Gooming"}}">Gooming</a></li>
+</ul>
+</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Payment]]></title>
+      <identifier><![CDATA[payment]]></identifier>
+      <content><![CDATA[<style>#html-body [data-pb-style=BPH2NCV]{justify-content:flex-start;display:flex;flex-direction:column;background-position:left top;background-size:cover;background-repeat:no-repeat;background-attachment:scroll}#html-body [data-pb-style=MKSDTOM]{border-style:none}#html-body [data-pb-style=AL80HS9],#html-body [data-pb-style=NE8MFXP]{max-width:100%;height:auto}@media only screen and (max-width: 768px) { #html-body [data-pb-style=MKSDTOM]{border-style:none} }</style><div data-content-type="row" data-appearance="full-bleed" data-enable-parallax="0" data-parallax-speed="0.5" data-background-images="{}" data-background-type="image" data-video-loop="true" data-video-play-only-visible="true" data-video-lazy-load="true" data-video-fallback-src="" data-element="main" data-pb-style="BPH2NCV"><figure data-content-type="image" data-appearance="full-width" data-element="main" data-pb-style="MKSDTOM"><img class="pagebuilder-mobile-hidden" src="{{media url=wysiwyg/footer-payment.png}}" alt="" title="" data-element="desktop_image" data-pb-style="NE8MFXP"><img class="pagebuilder-mobile-only" src="{{media url=wysiwyg/footer-payment.png}}" alt="" title="" data-element="mobile_image" data-pb-style="AL80HS9"></figure></div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Coppyright]]></title>
+      <identifier><![CDATA[coppyright]]></identifier>
+      <content><![CDATA[<div data-content-type="html" data-appearance="default" data-element="main">&lt;a class="name-logo" href="#"&gt;Davici&lt;/a&gt;</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Statc Block Sidebar Addition]]></title>
+      <identifier><![CDATA[static-block-sidebar-additional]]></identifier>
+      <content><![CDATA[<style>#html-body [data-pb-style=KT6SM3K]{justify-content:flex-start;display:flex;flex-direction:column;background-position:left top;background-size:cover;background-repeat:no-repeat;background-attachment:scroll}</style><div data-content-type="row" data-appearance="contained" data-element="main"><div class="sidebar-addition-products" data-enable-parallax="0" data-parallax-speed="0.5" data-background-images="{}" data-background-type="image" data-video-loop="true" data-video-play-only-visible="true" data-video-lazy-load="true" data-video-fallback-src="" data-element="inner" data-pb-style="KT6SM3K"><h3 class="sidebar-addition-products-title" data-content-type="heading" data-appearance="default" data-element="main">FEATURE PRODUCT</h3><div class="sidebar-addition-products-content products wrapper list" data-content-type="products" data-appearance="grid" data-element="main">{{widget type="Magento\CatalogWidget\Block\Product\ProductsList" template="Magento_CatalogWidget::product/widget/content/grid.phtml" anchor_text="" id_path="" show_pager="0" products_count="3" condition_option="condition" condition_option_value="" type_name="Catalog Products List" conditions_encoded="^[`1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Combine`,`aggregator`:`all`,`value`:`1`,`new_child`:``^],`1--1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Product`,`attribute`:`attribute_set_id`,`operator`:`==`,`value`:`10`^]^]" sort_order="date_newest_top"}}</div></div></div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Block Menu Right]]></title>
+      <identifier><![CDATA[block_menu_right]]></identifier>
+      <content><![CDATA[<img src="{{media url=&quot;wysiwyg/alothemes/bg-menu-page.png&quot;}}" alt="" />]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Menu Blog ]]></title>
+      <identifier><![CDATA[menu-blog]]></identifier>
+      <content><![CDATA[<style>#html-body [data-pb-style=O669BT1],#html-body [data-pb-style=TL0JXKF],#html-body [data-pb-style=TNQMJ59]{justify-content:flex-start;display:flex;flex-direction:column;background-position:left top;background-size:cover;background-repeat:no-repeat;background-attachment:scroll}#html-body [data-pb-style=TL0JXKF],#html-body [data-pb-style=TNQMJ59]{width:50%;align-self:stretch}</style><div class="level-top-mega menu-mega-custom menu-extra-center" data-content-type="row" data-appearance="full-bleed" data-enable-parallax="0" data-parallax-speed="0.5" data-background-images="{}" data-background-type="image" data-video-loop="true" data-video-play-only-visible="true" data-video-lazy-load="true" data-video-fallback-src="" data-element="main" data-pb-style="O669BT1"><div class="pagebuilder-column-group" style="display: flex;" data-content-type="column-group" data-grid-size="12" data-element="main"><div class="pagebuilder-column level0 category-item mage-column cat-mega" data-content-type="column" data-appearance="full-height" data-background-images="{}" data-element="main" data-pb-style="TL0JXKF"><h3 class="title" data-content-type="heading" data-appearance="default" data-element="main">Blog Layout</h3><div class="level1 submenu" data-content-type="html" data-appearance="default" data-element="main">&lt;ul&gt;
+&lt;li&gt;&lt;a tabindex="0" href="{{store url='blog/category/news'}}"&gt;Blog gird no sidebar&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a tabindex="0" href="{{store url='blog/category/life-style'}}"&gt;Blog list left sidebar&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a tabindex="0" href="{{store url='blog/category/decorating-guides'}}"&gt;Blog list right sidebar&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a tabindex="0" href="{{store url='blog/post/the-easiest-way-to-break-out-on-top'}}"&gt;Blog post view no sidebar&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a tabindex="0" href="{{store url='blog/post/celebrity-daughter-opens-up-about-having-her'}}"&gt;Blog post view left sidebar&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a tabindex="0" href="{{store url='blog/post/fresh-your-room-with-white-vase'}}"&gt;Blog post view right sidebar&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</div></div><div class="pagebuilder-column mage-column mega-block-right" data-content-type="column" data-appearance="full-height" data-background-images="{}" data-element="main" data-pb-style="TNQMJ59"><div data-content-type="html" data-appearance="default" data-element="main">{{widget type="Magefan\Blog\Block\Widget\Recent" title="Recent Post" no_repeat_posts_enable="1" number_of_posts="3" category_id="0" tag_id="0" author_id="0"}}</div></div></div></div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Menu Category Block Right]]></title>
+      <identifier><![CDATA[menu-category-block-right]]></identifier>
+      <content><![CDATA[<p><a href="#"><img src="{{media url=&quot;wysiwyg/alothemes/menu-block-right-3.jpg&quot;}}" alt="" width="315" height="245"></a></p>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Success Images]]></title>
+      <identifier><![CDATA[img-success]]></identifier>
+      <content><![CDATA[<p><img src="{{media url=&quot;wysiwyg/alothemes/badge.png&quot;}}" alt="" width="300" height="300"></p>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Cart No Item Images]]></title>
+      <identifier><![CDATA[img-cart-empty]]></identifier>
+      <content><![CDATA[<p><img src="{{media url=&quot;wysiwyg/alothemes/package.png&quot;}}" alt="" width="300" height="300"></p>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Menu Category Block Right Nav 5]]></title>
+      <identifier><![CDATA[menu-category-block-right-2]]></identifier>
+      <content><![CDATA[<p><img src="{{media url=&quot;wysiwyg/alothemes/menu-category-block-bottom.jpg&quot;}}" alt="" width="556" height="342"></p>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Block Menu Page]]></title>
+      <identifier><![CDATA[block-menu-page]]></identifier>
+      <content><![CDATA[<div data-content-type="html" data-appearance="default" data-element="main">&lt;ul class="level0 dropdown submenu"&gt;
+&lt;li class="level1"&gt;&lt;a href="{{store url='about-us'}}"&gt;About us&lt;/a&gt;&lt;/li&gt;
+&lt;li class="level1"&gt;&lt;a href="{{store url='contact'}}"&gt;Contact Us&lt;/a&gt;&lt;/li&gt;
+&lt;li class="level1"&gt;&lt;a href="{{store url='look-book'}}"&gt;Lookbook&lt;/a&gt;&lt;/li&gt;
+&lt;li class="level1"&gt;&lt;a href="{{store url='no-route'}}"&gt;404&lt;/a&gt;&lt;/li&gt;
+&lt;li class="level1"&gt;&lt;a href="{{store url='faqs'}}"&gt;FAQs&lt;/a&gt;&lt;/li&gt;
+&lt;li class="level1"&gt;&lt;a href="{{store url='list-products'}}"&gt;List Products&lt;/a&gt;&lt;/li&gt;
+&lt;li class="level1 hasChild parent"&gt;&lt;a href="{{store url='wonderful-geometric.html'}}"&gt;Product Detail&lt;/a&gt;
+&lt;ul class="level1 submenu"&gt;
+&lt;li class="level2"&gt;&lt;a href="{{store url='piece-outdoor-sectional.html'}}"&gt;Simple Product&lt;/a&gt;&lt;/li&gt;
+&lt;li class="level2"&gt;&lt;a href="{{store url='nulla-porttitor-configurable.html'}}"&gt;Configuration Products&lt;/a&gt;&lt;/li&gt;
+&lt;li class="level2"&gt;&lt;a href="{{store url='pull-lamp-group.html'}}"&gt;Group Products&lt;/a&gt;&lt;/li&gt;
+&lt;li class="level2"&gt;&lt;a href="{{store url='easy-chair-bundle.html'}}"&gt;Bundle Products&lt;/a&gt;&lt;/li&gt;
+&lt;li class="level2"&gt;&lt;a href="{{store url='fitness-videos-to-improve-health.html'}}"&gt;Download Product&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li class="level1"&gt;&lt;a href="{{store url='shopbrand'}}"&gt;Shop Brand&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Menu Category Block Left]]></title>
+      <identifier><![CDATA[menu-category-block-left]]></identifier>
+      <content><![CDATA[<p><a href="#"><img src="{{media url=&quot;wysiwyg/alothemes/menu-block-left-3.jpg&quot;}}" alt="" width="315" height="245"></a></p>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Cms About Page Bottom]]></title>
+      <identifier><![CDATA[cms-about-bottom]]></identifier>
+      <content><![CDATA[<section class="about--map">
+    <div class="container">
+    <div class="about__content">
+    <div class="block__heading">
+    <p class="block__heading--text">WE DESIGN FURNITURE</p>
+    <h3 class="block__heading--title">Visit Our Store</h3>
+    </div>
+    <div class="block__description">
+    <div class="row">
+    <div class="col-xl-6 col-lg-6 col-12 about__item">
+    <div class="about__item__content"><iframe style="border: 0;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d417673.56860558223!2d143.431198!3d-35.129808!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ab0cc1c565f9d3b%3A0x500aabf7b45aabd3!2s68%20Sydney%20St%2C%20Glenunga%20SA%205064%2C%20Australia!5e0!3m2!1sen!2sus!4v1621309152057!5m2!1sen!2sus" width="800" height="600" allowfullscreen="allowfullscreen"></iframe>
+    <div class="block__heading"><img src="{{media url="wysiwyg/alothemes/placeholder.png"}}" alt="" width="60" height="60">
+    <h4 class="block__heading--title">Alexandria, <br>Sydney</h4>
+    <div class="block__heading--sub">Studio 101, 13 Bowden St, Alexandria</div>
+    <div class="block__heading--sub">NSW, 2015</div>
+    </div>
+    </div>
+    </div>
+    <div class="col-xl-6 col-lg-6 col-12 about__item">
+    <div class="about__item__content"><iframe style="border: 0;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d318040.82414280676!2d0.044254!3d51.482132!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8a8579fa1586d%3A0x5af1c465a3af91ca!2s77%20Guild%20Rd%2C%20London%20SE7%208HW%2C%20UK!5e0!3m2!1sen!2sus!4v1621309219759!5m2!1sen!2sus" width="800" height="600" allowfullscreen="allowfullscreen"></iframe>
+    <div class="block__heading"><img src="{{media url="wysiwyg/alothemes/placeholder.png"}}" alt="" width="60" height="60">
+    <h4 class="block__heading--title">Guild, <br>London</h4>
+    <div class="block__heading--sub">77 Guild Street, London</div>
+    <div class="block__heading--sub">NSW, 2015</div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </section>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Cms Contact Page Top]]></title>
+      <identifier><![CDATA[cms-contact-top]]></identifier>
+      <content><![CDATA[<div data-content-type="html" data-appearance="default" data-element="main">&lt;iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2483.5404230564404!2d-0.1217423840751172!3d51.5033006188236!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487604b900d26973%3A0x4291f3172409ea92!2slastminute.com%20London%20Eye!5e0!3m2!1sen!2sus!4v1633063074655!5m2!1sen!2sus" width="1920" height="780" style="border:0;" allowfullscreen="" loading="lazy"&gt;&lt;/iframe&gt;</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Newsletter Sidebar]]></title>
+      <identifier><![CDATA[newsletter_sidebar]]></identifier>
+      <content><![CDATA[<div class="cms-block cms-newsletter-sidebar">
+<div class="cms-title"><img src="{{media url=&quot;wysiwyg/alothemes/message_1_.png&quot;}}" alt="" width="46" height="46">
+<h3 class="title">Subscribe to the weekly newsletter for all the latest updates</h3>
+</div>
+<div class="cms-text">{{block class="Magento\Newsletter\Block\Subscribe" template="subscribe.phtml"}}</div>
+</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Copyright custom]]></title>
+      <identifier><![CDATA[copyright-custom]]></identifier>
+      <content><![CDATA[<ul class="list-unstyled copyright-custom-link">
+    <li><a href="#">Privacy</a></li>
+    <li><a href="#">Terms </a></li>
+    <li><a href="#">*Promo T&Cs Apply (view here)</a></li>
+</ul>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Header Static Custom Bottom]]></title>
+      <identifier><![CDATA[header-static-custom-bottom]]></identifier>
+      <content><![CDATA[<ul class="list-unstyled header-static-custom-bottom">
+<li><span style="text-decoration: underline;"><a href="{{store url ='about-us'}}">Find a store</a></span></li>
+<li><span style="text-decoration: underline;"><a href="{{store url ='contact'}}">Help Center</a></span></li>
+</ul>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Block Logout]]></title>
+      <identifier><![CDATA[block-logout]]></identifier>
+      <content><![CDATA[<p><img src="{{media url=&quot;wysiwyg/alothemes/log-out.png&quot;}}" alt=""></p>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Header-static-custom]]></title>
+      <identifier><![CDATA[header-static-custom]]></identifier>
+      <content><![CDATA[<div data-content-type="html" data-appearance="default" data-element="main">&lt;ul class="header-static-custom list-unstyled"&gt;
+&lt;li&gt;
+&lt;div class="onmap"&gt;
+&lt;div class="toggle-tab"&gt;&lt;img src="{{media url=wysiwyg/store-location-black.png}}" alt="" width="10" height="13"&gt; &lt;a class="phone" title="Store Location" href="#"&gt;Store Location&lt;/a&gt;&lt;/div&gt;
+&lt;div class="over-lay"&gt;&lt;span class="hidden"&gt;over lay&lt;/span&gt;&lt;/div&gt;
+&lt;div class="toggle-content"&gt;
+&lt;div class="google-map"&gt;
+&lt;div class="button btn-close"&gt;&lt;span class="hidden"&gt;close button&lt;/span&gt;&lt;/div&gt;
+&lt;iframe style="border: 0;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3314.1634815560565!2d-0.13418587148132494!3d51.51656652421715!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761b2d1416c0a3%3A0x15a26dd242ad9b66!2s12%20Oxford%20St%2C%20Fitzrovia%2C%20London%20W1D%201AP%2C%20V%C6%B0%C6%A1ng%20Qu%E1%BB%91c%20Anh!5e0!3m2!1svi!2sid!4v1596788235410!5m2!1svi!2sid" width="600" height="450" allowfullscreen="allowfullscreen"&gt;&lt;/iframe&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;img src="{{media url=wysiwyg/email-black.png}}" alt="" width="15" height="10"&gt; &lt;a class="email" title="mailto: support@davici.com" href="mailto: support@davici.com"&gt;support@davici.com&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Newsletter Popup]]></title>
+      <identifier><![CDATA[newsletter_popup]]></identifier>
+      <content><![CDATA[<div class="newsletter--popup dflex">
+<div class="popup__images"><img src="{{media url=&quot;wysiwyg/alothemes/funio/newletter.jpg&quot;}}" alt="" width="324" height="396"></div>
+<div class="popup__content">
+<div class="popup__heading">
+<h2 class="title">Join the our family</h2>
+<p class="text">Sign up for our newsletter and receive updates you’re looking for: interior inspiration, the latest trends and discounts</p>
+</div>
+<div class="popup-description">
+<div class="subcribe-box">
+<div class="field input-box">
+<div class="control"><input id="newsletter-popup" class="input-text" name="email" type="email" placeholder="Enter your email" data-validate="{required:true, 'validate-email':true}"></div>
+<div class="actions"><button class="action subscribe button" title="Subscribe" type="submit">Subscribe</button></div>
+</div>
+</div>
+<div class="subscribe-bottom"><input id="check-view" name="no-view" type="checkbox"> <label for="check-view">Do not show this windown</label></div>
+</div>
+</div>
+</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Block Page Bottom]]></title>
+      <identifier><![CDATA[block_page_bottom]]></identifier>
+      <content><![CDATA[<style>#html-body [data-pb-style=MBTMKK7]{text-align:center}#html-body [data-pb-style=MBTMKK7],#html-body [data-pb-style=T66VOEG]{justify-content:flex-start;display:flex;flex-direction:column;background-position:left top;background-size:cover;background-repeat:no-repeat;background-attachment:scroll}</style><div class="banner__slide banner__slide--style--1 wow animate__fadeInUp" data-content-type="row" data-appearance="full-bleed" data-enable-parallax="0" data-parallax-speed="0.5" data-background-images="{\&quot;desktop_image\&quot;:\&quot;{{media url=wysiwyg/banner-slider-bg.jpg}}\&quot;}" data-background-type="image" data-video-loop="true" data-video-play-only-visible="true" data-video-lazy-load="true" data-video-fallback-src="" data-element="main" data-pb-style="T66VOEG"><div class="static-block-title banner-slide-title wow animate__fadeInUp" data-content-type="text" data-appearance="default" data-element="main"><h2 style="text-align: center;"><span style="color: #ffffff;">Collection</span></h2></div><div class="banner-slide-content wow animate__zoomIn" data-content-type="html" data-appearance="default" data-element="main">{{widget type="Magiccart\Magicslider\Block\Widget\Slider" identifier="collection-home-5" template="magicslider.phtml"}}</div></div><div data-content-type="row" data-appearance="contained" data-element="main"><div class="home-static-brand wow animate__fadeInUp" data-enable-parallax="0" data-parallax-speed="0.5" data-background-images="{}" data-background-type="image" data-video-loop="true" data-video-play-only-visible="true" data-video-lazy-load="true" data-video-fallback-src="" data-element="inner" data-pb-style="MBTMKK7"><div data-content-type="html" data-appearance="default" data-element="main">{{widget type="Magiccart\Shopbrand\Block\Widget\Shopbrand" template="shopbrand.phtml"}}</div></div></div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Category header static block]]></title>
+      <identifier><![CDATA[category-header-static-block]]></identifier>
+      <content><![CDATA[<div data-content-type="html" data-appearance="default" data-element="main">&lt;div class="categories--category--page"&gt;
+&lt;div class="container"&gt;{{widget type="Magepow\Categories\Block\Widget\Categories" template="categories_widget.phtml" sort_attribute="name" description="0" thumbnail="1" item_amount="1" categories="318,322,363,327,329,355" slide="1" vertical="false" infinite="true" autoplay="false" arrows="true" dots="false" speed="300" autoplaySpeed="3000" padding="15" rows="1" mobile="1" portrait="1" landscape="2" tablet="3" notebook="3" laptop="4" desktop="5" widescreen="5" visible="5"}}&lt;/div&gt;
+&lt;/div&gt;</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Store Contact]]></title>
+      <identifier><![CDATA[store-contact]]></identifier>
+      <content><![CDATA[<style>#html-body [data-pb-style=R91GYYW]{justify-content:flex-start;display:flex;flex-direction:column;background-position:left top;background-size:cover;background-repeat:no-repeat;background-attachment:scroll;margin-top:65px;margin-bottom:35px}#html-body [data-pb-style=DM9E3BA]{margin-bottom:25px}#html-body [data-pb-style=BBJ7AMV],#html-body [data-pb-style=LFWXONU]{display:flex;flex-direction:column;background-position:left top;background-size:cover;background-repeat:no-repeat;background-attachment:scroll}#html-body [data-pb-style=LFWXONU]{justify-content:flex-start;margin-bottom:25px}#html-body [data-pb-style=BBJ7AMV]{justify-content:center;border-style:solid;border-color:#bbb;border-width:1px;width:16.6667%;padding:15px;align-self:center}#html-body [data-pb-style=L1DEPHX]{border-style:none}#html-body [data-pb-style=H2HY86I],#html-body [data-pb-style=S7WVUSR]{max-width:100%;height:auto}#html-body [data-pb-style=A43I0XD]{justify-content:center;width:83.3333%;margin-left:25px;align-self:center}#html-body [data-pb-style=A43I0XD],#html-body [data-pb-style=POMXX8Y],#html-body [data-pb-style=YOK7M1S]{display:flex;flex-direction:column;background-position:left top;background-size:cover;background-repeat:no-repeat;background-attachment:scroll}#html-body [data-pb-style=YOK7M1S]{justify-content:flex-start;padding-bottom:25px}#html-body [data-pb-style=POMXX8Y]{justify-content:center;border-style:solid;border-color:#bbb;border-width:1px;width:16.6667%;padding:15px;align-self:center}#html-body [data-pb-style=QEJISA9]{border-style:none}#html-body [data-pb-style=EX1PO6C],#html-body [data-pb-style=JTTUPW4]{max-width:100%;height:auto}#html-body [data-pb-style=GMHIAFF],#html-body [data-pb-style=UBNARK4],#html-body [data-pb-style=WBWQHYM]{display:flex;flex-direction:column;background-position:left top;background-size:cover;background-repeat:no-repeat;background-attachment:scroll}#html-body [data-pb-style=UBNARK4]{justify-content:center;width:83.3333%;margin-left:25px;align-self:center}#html-body [data-pb-style=GMHIAFF],#html-body [data-pb-style=WBWQHYM]{justify-content:flex-start}#html-body [data-pb-style=WBWQHYM]{justify-content:center;border-style:solid;border-color:#bbb;border-width:1px;width:16.6667%;padding:15px;align-self:center}#html-body [data-pb-style=XESX6JH]{border-style:none}#html-body [data-pb-style=H0TP900],#html-body [data-pb-style=T93KDUQ]{max-width:100%;height:auto}#html-body [data-pb-style=Q8IMTUE]{justify-content:center;display:flex;flex-direction:column;background-position:left top;background-size:cover;background-repeat:no-repeat;background-attachment:scroll;width:83.3333%;margin-left:25px;align-self:center}@media only screen and (max-width: 768px) { #html-body [data-pb-style=L1DEPHX],#html-body [data-pb-style=QEJISA9],#html-body [data-pb-style=XESX6JH]{border-style:none} }</style><div data-content-type="row" data-appearance="full-width" data-enable-parallax="0" data-parallax-speed="0.5" data-background-images="{}" data-background-type="image" data-video-loop="true" data-video-play-only-visible="true" data-video-lazy-load="true" data-video-fallback-src="" data-element="main" data-pb-style="R91GYYW"><div class="row-full-width-inner" data-element="inner"><h2 class="contact-info-title" data-content-type="heading" data-appearance="default" data-element="main" data-pb-style="DM9E3BA">{{trans "Contact Details"}}</h2><div class="contact-info-description" data-content-type="text" data-appearance="default" data-element="main"><p id="MXWQDIB">{{trans "There’s no place like home. To help you make yours perfect, our stores are open, we’re delivering as normal, our online store is available 24/7, and our customer service team is ready to help you via phone and Live Chat." }}</p>
+<p>&nbsp;</p></div></div></div><div class="contact-info-item" data-content-type="row" data-appearance="full-width" data-enable-parallax="0" data-parallax-speed="0.5" data-background-images="{}" data-background-type="image" data-video-loop="true" data-video-play-only-visible="true" data-video-lazy-load="true" data-video-fallback-src="" data-element="main" data-pb-style="LFWXONU"><div class="row-full-width-inner" data-element="inner"><div class="pagebuilder-column-group" style="display: flex;" data-content-type="column-group" data-grid-size="12" data-element="main"><div class="pagebuilder-column contact-info-item-images" data-content-type="column" data-appearance="align-center" data-background-images="{}" data-element="main" data-pb-style="BBJ7AMV"><figure data-content-type="image" data-appearance="full-width" data-element="main" data-pb-style="L1DEPHX"><img class="pagebuilder-mobile-hidden" src="{{media url=wysiwyg/address.png}}" alt="" title="" data-element="desktop_image" data-pb-style="S7WVUSR"><img class="pagebuilder-mobile-only" src="{{media url=wysiwyg/address.png}}" alt="" title="" data-element="mobile_image" data-pb-style="H2HY86I"></figure></div><div class="pagebuilder-column contact-info-item-detail" data-content-type="column" data-appearance="align-center" data-background-images="{}" data-element="main" data-pb-style="A43I0XD"><div data-content-type="text" data-appearance="default" data-element="main"><h3>{{trans "Address"}}</h3>
+<p>{{trans "807 Mize Cemetery Rd, Somerset KY, 42503"}}</p></div></div></div></div></div><div class="contact-info-item" data-content-type="row" data-appearance="full-width" data-enable-parallax="0" data-parallax-speed="0.5" data-background-images="{}" data-background-type="image" data-video-loop="true" data-video-play-only-visible="true" data-video-lazy-load="true" data-video-fallback-src="" data-element="main" data-pb-style="YOK7M1S"><div class="row-full-width-inner" data-element="inner"><div class="pagebuilder-column-group" style="display: flex;" data-content-type="column-group" data-grid-size="12" data-element="main"><div class="pagebuilder-column contact-info-item-images" data-content-type="column" data-appearance="align-center" data-background-images="{}" data-element="main" data-pb-style="POMXX8Y"><figure data-content-type="image" data-appearance="full-width" data-element="main" data-pb-style="QEJISA9"><img class="pagebuilder-mobile-hidden" src="{{media url=wysiwyg/phone_1.png}}" alt="" title="" data-element="desktop_image" data-pb-style="EX1PO6C"><img class="pagebuilder-mobile-only" src="{{media url=wysiwyg/phone_1.png}}" alt="" title="" data-element="mobile_image" data-pb-style="JTTUPW4"></figure></div><div class="pagebuilder-column contact-info-item-detail" data-content-type="column" data-appearance="align-center" data-background-images="{}" data-element="main" data-pb-style="UBNARK4"><div data-content-type="text" data-appearance="default" data-element="main"><h3 class="elementor-icon-box-title">{{trans "Phone"}}</h3>
+<p class="elementor-icon-box-description"><a tabindex="0" href="tel:%2041 71 227 76 90">+41 71 227 76 90</a></p></div></div></div></div></div><div class="contact-info-item" data-content-type="row" data-appearance="full-width" data-enable-parallax="0" data-parallax-speed="0.5" data-background-images="{}" data-background-type="image" data-video-loop="true" data-video-play-only-visible="true" data-video-lazy-load="true" data-video-fallback-src="" data-element="main" data-pb-style="GMHIAFF"><div class="row-full-width-inner" data-element="inner"><div class="pagebuilder-column-group" style="display: flex;" data-content-type="column-group" data-grid-size="12" data-element="main"><div class="pagebuilder-column contact-info-item-images" data-content-type="column" data-appearance="align-center" data-background-images="{}" data-element="main" data-pb-style="WBWQHYM"><figure data-content-type="image" data-appearance="full-width" data-element="main" data-pb-style="XESX6JH"><img class="pagebuilder-mobile-hidden" src="{{media url=wysiwyg/email_1.png}}" alt="" title="" data-element="desktop_image" data-pb-style="H0TP900"><img class="pagebuilder-mobile-only" src="{{media url=wysiwyg/email_1.png}}" alt="" title="" data-element="mobile_image" data-pb-style="T93KDUQ"></figure></div><div class="pagebuilder-column contact-info-item-detail" data-content-type="column" data-appearance="align-center" data-background-images="{}" data-element="main" data-pb-style="Q8IMTUE"><div data-content-type="text" data-appearance="default" data-element="main"><h3 class="elementor-icon-box-title">{{trans "Email"}}</h3>
+<p class="elementor-icon-box-description"><a tabindex="0" href="mailto:%20sayhello@funio.com">sayhello@funio.com</a></p></div></div></div></div></div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Header Static Links]]></title>
+      <identifier><![CDATA[header-static-links]]></identifier>
+      <content><![CDATA[<style>#html-body [data-pb-style=XTPPFPG]{justify-content:flex-start;display:flex;flex-direction:column;background-position:left top;background-size:cover;background-repeat:no-repeat;background-attachment:scroll}</style><div class="header-static-links" data-content-type="row" data-appearance="full-bleed" data-enable-parallax="0" data-parallax-speed="0.5" data-background-images="{}" data-background-type="image" data-video-loop="true" data-video-play-only-visible="true" data-video-lazy-load="true" data-video-fallback-src="" data-element="main" data-pb-style="XTPPFPG"><div data-content-type="text" data-appearance="default" data-element="main"><ul>
+<li><a tabindex="0" href="#">Gift Cards</a></li>
+<li><a href="contact">Contact &amp; FAQ </a></li>
+</ul></div></div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Slider Brand]]></title>
+      <identifier><![CDATA[slider-brand]]></identifier>
+      <content><![CDATA[<div data-content-type="html" data-appearance="default" data-element="main">&lt;!-- Add 'padding--tb--10' class if you want to add 10px padding for top and bottom --&gt;
+&lt;section class="brand--slider"&gt;
+&lt;div class="container"&gt;{{widget type="Magiccart\Shopbrand\Block\Widget\Brand" template="brand.phtml"}}&lt;/div&gt;
+&lt;/section&gt;</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Slide Collection Funio 5]]></title>
+      <identifier><![CDATA[slide-collection-home-5]]></identifier>
+      <content><![CDATA[<div class="static-block-content" data-content-type="html" data-appearance="default" data-element="main">{{widget type="Magiccart\Magicslider\Block\Widget\Slider" identifier="collection-home-5" template="magicslider.phtml"}}</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Block Footer Bottom]]></title>
+      <identifier><![CDATA[block_footer_bottom]]></identifier>
+      <content><![CDATA[<style>#html-body [data-pb-style=DQFF8G1],#html-body [data-pb-style=MSYBR6Q],#html-body [data-pb-style=UNYABXE],#html-body [data-pb-style=UPHWTOA],#html-body [data-pb-style=Y9STQ3X]{justify-content:flex-start;display:flex;flex-direction:column;background-position:left top;background-size:cover;background-repeat:no-repeat;background-attachment:scroll}#html-body [data-pb-style=DQFF8G1],#html-body [data-pb-style=UNYABXE],#html-body [data-pb-style=UPHWTOA],#html-body [data-pb-style=Y9STQ3X]{width:25%;align-self:stretch}</style><div class="container" data-content-type="row" data-appearance="full-bleed" data-enable-parallax="0" data-parallax-speed="0.5" data-background-images="{}" data-background-type="image" data-video-loop="true" data-video-play-only-visible="true" data-video-lazy-load="true" data-video-fallback-src="" data-element="main" data-pb-style="MSYBR6Q"><div class="pagebuilder-column-group" style="display: flex;" data-content-type="column-group" data-grid-size="12" data-element="main"><div class="pagebuilder-column col-xl-3 col-lg-3 col-md-6 footer-item collapsible wow animate__fadeInUp" data-content-type="column" data-appearance="full-height" data-background-images="{}" data-element="main" data-pb-style="UPHWTOA"><div class="ft-title toggle-tab-mobile" data-content-type="text" data-appearance="default" data-element="main"><h3><span style="color: #000000;">INFORMATION</span></h3></div><div class="ft-content toggle-content" data-content-type="text" data-appearance="default" data-element="main"><ul>
+<li><a href="#">Our Story</a></li>
+<li><a href="#">Visit Melbourne Studio</a></li>
+<li><a href="#">Visit Sydney Studio</a></li>
+<li><a href="#">Design</a></li>
+<li><a href="#">Our Materials</a></li>
+</ul></div></div><div class="pagebuilder-column col-xl-3 col-lg-3 col-md-6 footer-item collapsible wow animate__fadeInUp" data-content-type="column" data-appearance="full-height" data-background-images="{}" data-element="main" data-pb-style="Y9STQ3X"><div class="ft-title toggle-tab-mobile" data-content-type="text" data-appearance="default" data-element="main"><h3><span style="color: #000000;">HELP</span></h3></div><div class="ft-content toggle-content" data-content-type="text" data-appearance="default" data-element="main"><ul>
+<li><a tabindex="0" href="#">Contact &amp; FAQ</a></li>
+<li><a tabindex="0" href="#">Track Your Order</a></li>
+<li><a tabindex="0" href="#">Returns &amp; Refunds</a></li>
+<li><a tabindex="0" href="#">Shipping &amp; Delivery</a></li>
+<li><a tabindex="0" href="#">Lead Times</a></li>
+<li><a href="#">Interest-Free Finance Afterpay</a></li>
+</ul></div></div><div class="pagebuilder-column col-xl-3 col-lg-3 col-md-6 footer-item collapsible wow animate__fadeInUp" data-content-type="column" data-appearance="full-height" data-background-images="{}" data-element="main" data-pb-style="UNYABXE"><div class="ft-title toggle-tab-mobile" data-content-type="text" data-appearance="default" data-element="main"><h3><span style="color: #000000;">SERVICES</span></h3></div><div class="ft-content toggle-content" data-content-type="text" data-appearance="default" data-element="main"><ul>
+<li><a tabindex="0" href="#">Sale</a></li>
+<li><a tabindex="0" href="#">Quick Ship</a></li>
+<li><a tabindex="0" href="#">New Designs</a></li>
+<li><a tabindex="0" href="#">Protection Plan</a></li>
+<li><a tabindex="0" href="#">Furniture Care</a></li>
+<li><a href="#">Gift Cards</a></li>
+</ul></div></div><div class="pagebuilder-column col-xl-3 col-lg-3 col-md-6 footer-item collapsible wow animate__fadeInUp" data-content-type="column" data-appearance="full-height" data-background-images="{}" data-element="main" data-pb-style="DQFF8G1"><div class="ft-title toggle-tab-mobile" data-content-type="text" data-appearance="default" data-element="main"><h3><span style="color: #000000;">CATEGORIES</span></h3></div><div class="ft-content toggle-content" data-content-type="text" data-appearance="default" data-element="main"><ul>
+<li><a tabindex="0" href="#">Twitter</a></li>
+<li><a tabindex="0" href="#">Facebook</a></li>
+<li><a tabindex="0" href="#">Instagram</a></li>
+<li><a tabindex="0" href="#">Pinterest</a></li>
+<li><a href="#">Media Enquiries</a></li>
+</ul></div></div></div></div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Header Contact Custom]]></title>
+      <identifier><![CDATA[header-contact-custom]]></identifier>
+      <content><![CDATA[<div class="cms-img"><img src="{{media url="wysiwyg/alothemes/demo3/header-contact.png"}}" alt="" width="44" height="42"></div>
+<div class="cms-title">
+<p class="sub-title">CALL US FREE</p>
+<a class="title" href="tel: +1 866.306.1666">+1 866.306.1666</a></div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Header Driving Custom]]></title>
+      <identifier><![CDATA[header-driving-custom]]></identifier>
+      <content><![CDATA[<div class="cms-img"><img src="{{media url="wysiwyg/alothemes/demo5/header-driving-custom.png"}}" alt="" width="45" height="37"></div>
+<div class="cms-title">
+<p class="sub-title">FREE SHIPPING</p>
+<p class="title">over order $120</p></div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Block Sidebar Custom]]></title>
+      <identifier><![CDATA[cms-sideber-custom]]></identifier>
+      <content><![CDATA[<section class="banner banner--slider banner--title--center">{{widget type="Magiccart\Magicslider\Block\Widget\Slider" identifier="home-5-slide-sidebar-1" class="slider-sidebar-5-1" template="magicslider.phtml"}}</section>
+<section class="service">
+<div class="service__item">
+<div class="service__item__content dflex align-items-center">
+<div class="service__images"><img src="{{media url="wysiwyg/alothemes/demo5/start.png"}}" alt="" width="37" height="37"></div>
+<div class="service__content">
+<h2 class="service__title">FREE DELIVERY</h2>
+<p class="service__sub">On order over $49.86</p>
+</div>
+</div>
+</div>
+<div class="service__item">
+<div class="service__item__content dflex align-items-center">
+<div class="service__images"><img src="{{media url="wysiwyg/alothemes/demo5/card.png"}}" alt="" width="40" height="40"></div>
+<div class="service__content">
+<h2 class="service__title">ORDER PROTECTION</h2>
+<p class="service__sub">Secured information</p>
+</div>
+</div>
+</div>
+<div class="service__item">
+<div class="service__item__content dflex align-items-center">
+<div class="service__images"><img src="{{media url="wysiwyg/alothemes/demo5/driver.png"}}" alt="" width="38" height="38"></div>
+<div class="service__content">
+<h2 class="service__title">14 DAYS RETURN</h2>
+<p class="service__sub">Return over 30 days</p>
+</div>
+</div>
+</div>
+<div class="service__item">
+<div class="service__item__content dflex align-items-center">
+<div class="service__images"><img src="{{media url="wysiwyg/alothemes/demo5/gift.png"}}" alt="" width="37" height="37"></div>
+<div class="service__content">
+<h2 class="service__title">Free gifts</h2>
+<p class="service__sub">Special offers!</p>
+</div>
+</div>
+</div>
+</section>
+<section class="magiccart--product product--lastest">{{widget type="Magiccart\Magicproduct\Block\Widget\Product" identifier="lastest-product-5" template="productcustom.phtml"}}</section>
+<section class="banner banner--slider">{{widget type="Magiccart\Magicslider\Block\Widget\Slider" identifier="home-5-slide-sidebar-2" class="slider-sidebar-5-2" template="magicslider.phtml"}}</section>
+<section class="blog--post--slider">{{widget type="Magefan\Blog\Block\Widget\Recent" title="LATEST POST" no_repeat_posts_enable="0" number_of_posts="1" category_id="0" tag_id="0" author_id="0"}}</section>
+<section class="magiccart--product product--top-rate">{{widget type="Magiccart\Magicproduct\Block\Widget\Product" identifier="top-rate-5" template="productcustom.phtml"}}</section>
+<section class="banner banner--slider banner--title--left">{{widget type="Magiccart\Magicslider\Block\Widget\Slider" identifier="home-5-slide-sidebar-3" class="slider-sidebar-5-3" template="magicslider.phtml"}}</section>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Block Footer Top]]></title>
+      <identifier><![CDATA[block_footer_top]]></identifier>
+      <content><![CDATA[<style>#html-body [data-pb-style=CFU4T3L],#html-body [data-pb-style=NDO03FH],#html-body [data-pb-style=R5BSGCW]{justify-content:flex-start;display:flex;flex-direction:column;background-position:left top;background-size:cover;background-repeat:no-repeat;background-attachment:scroll}#html-body [data-pb-style=NDO03FH],#html-body [data-pb-style=R5BSGCW]{justify-content:center;width:50%;align-self:stretch}#html-body [data-pb-style=WHSRD1M]{border-style:none}#html-body [data-pb-style=D7T0B7F],#html-body [data-pb-style=OMS3PRN]{max-width:100%;height:auto}@media only screen and (max-width: 768px) { #html-body [data-pb-style=WHSRD1M]{border-style:none} }</style><div class="block--subscribe container" data-content-type="row" data-appearance="full-bleed" data-enable-parallax="0" data-parallax-speed="0.5" data-background-images="{}" data-background-type="image" data-video-loop="true" data-video-play-only-visible="true" data-video-lazy-load="true" data-video-fallback-src="" data-element="main" data-pb-style="CFU4T3L"><div class="pagebuilder-column-group" style="display: flex;" data-content-type="column-group" data-grid-size="12" data-element="main"><div class="pagebuilder-column col-xl-6 col-lg-6 col-12 static-block-item wow animate__fadeInLeft block-item-title" data-content-type="column" data-appearance="full-height" data-background-images="{}" data-element="main" data-pb-style="NDO03FH"><figure class="block-item-title-icon" data-content-type="image" data-appearance="full-width" data-element="main" data-pb-style="WHSRD1M"><img class="pagebuilder-mobile-hidden" src="{{media url=wysiwyg/develope.png}}" alt="" title="" data-element="desktop_image" data-pb-style="D7T0B7F"><img class="pagebuilder-mobile-only" src="{{media url=wysiwyg/develope.png}}" alt="" title="" data-element="mobile_image" data-pb-style="OMS3PRN"></figure><div class="block-item-title-text" data-content-type="text" data-appearance="default" data-element="main"><h3>Sign Up For Funio Emails</h3>
+<p>Plus, hear about the latest and greatest from our family of brands!</p></div></div><div class="pagebuilder-column col-xl-6 col-lg-6 col-12 static-block-item wow animate__fadeInRight block-item-form" data-content-type="column" data-appearance="full-height" data-background-images="{}" data-element="main" data-pb-style="R5BSGCW"><div data-content-type="html" data-appearance="default" data-element="main">{{block class="Magento\Newsletter\Block\Subscribe" template="subscribe.phtml"}}</div></div></div></div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Main ringbuilder banner]]></title>
+      <identifier><![CDATA[main_ringbuilder_banner]]></identifier>
+      <content><![CDATA[<style>#html-body [data-pb-style=N5VDN0P],#html-body [data-pb-style=PGB0QVU]{justify-content:flex-start;display:flex;flex-direction:column;background-position:left top;background-size:cover;background-repeat:no-repeat;background-attachment:scroll}#html-body [data-pb-style=N5VDN0P]{background-color:#eee;margin-bottom:40px;padding-left:15px;padding-right:15px;padding-bottom:10px}#html-body [data-pb-style=PGB0QVU]{width:16.6667%;align-self:stretch}#html-body [data-pb-style=VKOUI32]{border-style:none}#html-body [data-pb-style=FOHGDS7],#html-body [data-pb-style=T2HKOT8]{max-width:100%;height:auto}#html-body [data-pb-style=HHEBLG9],#html-body [data-pb-style=LA979VM]{justify-content:center;display:flex;flex-direction:column;background-position:left top;background-size:cover;background-repeat:no-repeat;background-attachment:scroll;width:66.6667%;align-self:center}#html-body [data-pb-style=HHEBLG9]{justify-content:flex-start;width:16.6667%;align-self:stretch}#html-body [data-pb-style=P6X9476]{border-style:none}#html-body [data-pb-style=RPLJR2C],#html-body [data-pb-style=YQNMV3V]{max-width:100%;height:auto}@media only screen and (max-width: 768px) { #html-body [data-pb-style=P6X9476],#html-body [data-pb-style=VKOUI32]{border-style:none} }</style><div data-content-type="row" data-appearance="contained" data-element="main"><div data-enable-parallax="0" data-parallax-speed="0.5" data-background-images="{}" data-background-type="image" data-video-loop="true" data-video-play-only-visible="true" data-video-lazy-load="true" data-video-fallback-src="" data-element="inner" data-pb-style="N5VDN0P"><div class="pagebuilder-column-group" style="display: flex;" data-content-type="column-group" data-grid-size="12" data-element="main"><div class="pagebuilder-column" data-content-type="column" data-appearance="full-height" data-background-images="{}" data-element="main" data-pb-style="PGB0QVU"><figure data-content-type="image" data-appearance="full-width" data-element="main" data-pb-style="VKOUI32"><img class="pagebuilder-mobile-hidden" src="{{media url=wysiwyg/image_116_1.png}}" alt="" title="" data-element="desktop_image" data-pb-style="FOHGDS7"><img class="pagebuilder-mobile-only" src="{{media url=wysiwyg/image_116_1.png}}" alt="" title="" data-element="mobile_image" data-pb-style="T2HKOT8"></figure></div><div class="pagebuilder-column" data-content-type="column" data-appearance="align-center" data-background-images="{}" data-element="main" data-pb-style="LA979VM"><div data-content-type="text" data-appearance="default" data-element="main"><h2 style="text-align: center;">Choose Diamond</h2>
+<p style="text-align: center;">Diamond is one of the hardest natural minerals and it is also one of the rarest substances on earth.</p></div></div><div class="pagebuilder-column" data-content-type="column" data-appearance="full-height" data-background-images="{}" data-element="main" data-pb-style="HHEBLG9"><figure data-content-type="image" data-appearance="full-width" data-element="main" data-pb-style="P6X9476"><img class="pagebuilder-mobile-hidden" src="{{media url=wysiwyg/image_117_1.png}}" alt="" title="" data-element="desktop_image" data-pb-style="YQNMV3V"><img class="pagebuilder-mobile-only" src="{{media url=wysiwyg/image_117_1.png}}" alt="" title="" data-element="mobile_image" data-pb-style="RPLJR2C"></figure></div></div></div></div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+  </block>
+</root>

@@ -1,0 +1,278 @@
+<!--@subject {{trans "You Sent A Little Hint To"}} {{var recipient_name}} @-->
+
+<!--@vars {
+
+"var logo_height":"Email Logo Image Height",
+
+"var logo_width":"Email Logo Image Width",
+
+"var template_styles|raw":"Template CSS"
+
+} @-->
+
+<!doctype html>
+
+<html>
+
+  <head>
+
+    <meta name="viewport" content="width=device-width" />
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <title>{{trans "You Sent A Little Hint To"}} {{var recipient_name}}</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900" rel="stylesheet">
+
+    {{inlinecss file='Gemfind_Ringbuilder::css/email-inline.css'}}
+
+  </head>
+
+  <body class="">
+
+    <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="body">
+
+      <tr>
+
+        <td>&nbsp;</td>
+
+        <td class="container">
+
+          <div class="content">
+
+
+
+            <!-- START CENTERED WHITE CONTAINER -->
+
+            <table role="presentation" class="main">
+
+
+
+              <!-- START MAIN CONTENT AREA -->
+
+              <tr>
+
+                <td class="wrapper">
+
+                <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+
+                <tr>
+
+                  <td align="center">
+
+                    <a class="logo" href="{{store url=""}}">
+
+                      <img
+
+                                {{if logo_width}}
+
+                                    width="{{var logo_width}}"
+
+                                {{else}}
+
+                                    width="180"
+
+                                {{/if}}
+
+
+
+                                {{if logo_height}}
+
+                                    height="{{var logo_height}}"
+
+                                {{else}}
+
+                                    height="52"
+
+                                {{/if}}
+
+
+
+                                src="{{var logo_url}}"
+
+                                alt="{{var logo_alt}}"
+
+                                border="0"
+
+                    />
+
+                  </a>
+
+                  </td>
+
+                </tr>
+
+                <tr>
+
+                  <td>&nbsp;</td>
+
+                </tr>
+
+                <tr>
+
+                  <td style="border-bottom: 1px solid #e8e8e8;">&nbsp;</td>
+
+                  </tr>
+
+                </table>
+
+                <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="title-table">
+
+                <tr>
+
+                  <td>
+
+                  <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+
+                    <tr>
+
+                      <td><h2>{{trans "Dear"}} {{var name}}</h2></td>
+
+                    </tr>
+
+                    <tr>
+
+                      <td>
+
+                        <table style="height: 3px; width: 100px;" bgcolor="#26a9e0"></table>
+
+                      </td>
+
+                    </tr>
+
+                  </table>
+
+                  <table role="presentation" border="0" cellpadding="0" cellspacing="0" style="margin-top: 20px;margin-bottom: 20px;" class="consumer-info">
+
+                    <tr><td></td></tr>
+
+                  </table>
+
+                  </td>
+
+                </tr>
+
+                </table>
+
+                  <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+
+                    <tr>
+
+                      <td>
+
+                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="table-in">
+
+                          <tbody>
+
+                            <tr>
+
+                              <td align="left">
+
+                                <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+
+                                  <tbody>
+
+                                    <tr>
+
+                                      <td class="consumer-title">{{trans "Reason For This Gift:"}}</td>
+
+                                      <td class="consumer-name">{{var gift_reason}}</td>
+
+                                    </tr>
+
+                                                                        <tr>
+
+                                      <td class="consumer-title">{{trans "Gift Deadline:"}}</td>
+
+                                      <td class="consumer-name">{{var gift_deadline}}</td>
+
+                                    </tr>
+
+                                                                        <tr>
+
+                                      <td class="consumer-title">{{trans "Additional Message:"}}</td>
+
+                                      <td class="consumer-name">{{var hint_message}}</td>
+
+                                    </tr>
+
+                                  </tbody>
+
+                                </table>
+
+                              </td>
+
+                            </tr>
+
+                          </tbody>
+
+                        </table>
+
+                      </td>
+
+                    </tr>
+
+                  </table>
+
+                </td>
+
+              </tr>
+
+               {{if not_view_item}}
+                <tr><td></td></tr>
+              {{else}}
+                <tr>
+
+                <td style="font-family: sans-serif; font-size: 14px; vertical-align: top; box-sizing: border-box; padding: 20px;">
+
+                  <div class="center" style="text-align: center;"><a style="color: #fff; text-decoration: underline; background: #3498db; padding: 10px; text-decoration: none;" href="{{var ring_url}}">{{trans "View This Item"}}</a></div>
+
+                </td>
+
+              </tr>
+              {{/if}}
+
+
+
+            <!-- END MAIN CONTENT AREA -->
+
+            </table>
+
+            
+
+            <!-- START FOOTER -->
+
+            <div class="footer">
+
+              <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+
+                          <tr><td> <p>{{trans "Do Not Reply To This E-Mail."}} </p>
+
+                            <p> {{trans "Call Our Store At"}} <a href='tel:{{var retailerphone}}'>{{var retailerphone}}</a>{{trans " With Further Questions."}}</p>
+
+                            <p>{{trans "This message was sent to "}}{{var recipient_email}}</p></td></tr> 
+
+              </table>
+
+            </div>
+
+            <!-- END FOOTER -->
+
+
+
+          <!-- END CENTERED WHITE CONTAINER -->
+
+          </div>
+
+        </td>
+
+        <td>&nbsp;</td>
+
+      </tr>
+
+    </table>
+
+  </body>
+
+</html>
+

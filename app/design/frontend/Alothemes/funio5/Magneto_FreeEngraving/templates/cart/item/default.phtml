@@ -1,0 +1,787 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// phpcs:disable Magento2.Templates.ThisInTemplate
+// phpcs:disable Magento2.Files.LineLength.MaxExceeded
+
+/** @var $block \Magento\Checkout\Block\Cart\Item\Renderer */
+
+$_item = $block->getItem();
+$product = $_item->getProduct();
+$sku = $product->getSKU();
+//echo "====>>>>".$sku;
+$productId = $product->getId();
+$isVisibleProduct = $product->isVisibleInSiteVisibility();
+/** @var \Magento\Msrp\Helper\Data $helper */
+$helper = $this->helper(Magento\Msrp\Helper\Data::class);
+$canApplyMsrp = $helper->isShowBeforeOrderConfirm($product) && $helper->isMinimalPriceLessMsrp($product);
+
+$helper = $this->helper("Magneto\FreeEngraving\Helper\Data");
+$engraving_module_enable = $helper->isEnabled();
+
+$mediaUrl = $this->getUrl('pub/media');
+$engavingImage = $this->getViewFileUrl('Magneto_FreeEngraving::images/ring/rose_gold_engraving.png');
+$_productBlock = $this->getLayout()->createBlock('Magneto\FreeEngraving\Block\GetProduct');
+$_product = $_productBlock->getProductById($productId);
+$isAdded = 0;
+//$_attributeValue = $_product->getResource()->getAttribute('free_engraving')->getFrontend()->getValue($_product);
+$_productBlock->getAttributeSetName($_product);
+$_attributeValue = ($_productBlock->getAttributeSetName($_product) == "Gemfind Ringbuilder") ? "Yes" : "No";
+
+$engravingFontOptions = $helper->getEngravingFontOptions();
+$defaultFontCharacterLimit = "12";
+
+$customblock = $block->getLayout()->createBlock('Magneto\Custom\Block\Addtocart');
+$ringbuilderHelper = $this->helper(Gemfind\Ringbuilder\Helper\Data::class);
+$stockItem = $customblock->getStockItem($product->getId());
+$isDiamond = ($_productBlock->getAttributeSetName($_product) == "Gemfind Diamonds");
+if ($isDiamond) {
+    $diamondId = preg_replace('/[^0-9]/', '', $_product->getSku());
+    $diamondResult = $ringbuilderHelper->getDiamondById($diamondId);
+}
+?>
+
+<style>
+/* ========== Engrave POPUP CSS ========= */
+p {
+    font-size: 16px;
+    line-height: 26px;
+    letter-spacing: 0.5px;
+    color: #4f4343;
+  }
+
+  /* Popup open button */
+  .openBtn {
+
+    /*
+    color: #FFF;
+    background: #269faf;
+    */
+    color: #269faf;
+    padding: 10px;
+    text-decoration: none;
+    /*
+    border: 1px solid #269faf;
+    border-radius: 3px;
+    */
+
+  }
+
+  .openBtn:hover {
+   /* background: #35c7db; */
+  }
+
+  .popup {
+    position: fixed;
+    top: 0px;
+    left: 402px;
+    /*background: rgba(0, 0, 0, 0.58);*/
+    width: 100%;
+    height: 100%;
+    /*border: 2px red double;*/
+    display: none;
+  }
+
+  /* Popup inner div */
+  .popup-content {
+    width: 200px;
+    margin: 0 auto;
+    padding: 15px;
+    margin-top: 100px;
+    border-radius: 6px;
+    background: #FFF;
+    position: relative;
+    border: 2px black double;
+  }
+
+
+  /* Popup close button */
+  .closeBtn {
+    position: absolute;
+    top: 5px;
+    right: 12px;
+    font-size: 17px;
+    color: #7c7575;
+    text-decoration: none;
+  }
+</style>
+
+<link rel="stylesheet" type="text/css" href="<?= $block->getViewFileUrl('Magneto_FreeEngraving::css/engrave-fonts.css')?>">
+
+<tbody class="cart item">
+    <tr class="item-info-custom">
+        <td data-th="<?= $block->escapeHtml(__('Item')) ?>" class="col item">
+            <?php if ($block->hasProductUrl()):?>
+                <a href="<?= $block->escapeUrl($block->getProductUrl()) ?>"
+                   title="<?= $block->escapeHtml($block->getProductName()) ?>"
+                   tabindex="-1"
+                   class="product-item-photo">
+            <?php else:?>
+                <span class="product-item-photo">
+            <?php endif;?>
+            <?= $block->getImage($block->getProductForThumbnail(), 'cart_page_product_thumbnail')->toHtml() ?>
+            <?php if ($block->hasProductUrl()):?>
+                </a>
+            <?php else:?>
+                </span>
+            <?php endif; ?>
+            <div class="product-item-details">
+                <strong class="product-item-name">
+                    <?php if ($block->hasProductUrl()):?>
+                        <a href="<?= $block->escapeUrl($block->getProductUrl()) ?>"><?= $block->escapeHtml($block->getProductName()) ?></a>
+                    <?php else:?>
+                        <?= $block->escapeHtml($block->getProductName()) ?>
+                    <?php endif; ?>
+                </strong>
+                <div class="sku-custom d-flex mb-2 mt-2">
+                    <div class="label font-weight-bold"><?php echo __('SKU:'); ?></div>
+                    <div class="value"><?php echo $sku; ?></div>
+                </div>
+                <?php if ($_options = $block->getOptionList()):?>
+                    <dl class="item-options">
+                        <?php  $current_engraving_text = $current_engraving_font = $current_engraving_fontclass = '';
+                        foreach ($_options as $_option):?>
+                            <?php   $_formatedOptionValue = $block->getFormatedOptionValue($_option) ?>
+                            <?php   $label = $_option['label'];
+                            //echo $label;
+                            if ($label == 'Engraving Text') {
+                                $isAdded = 1;
+                            }
+                            ?>
+                            <?php if ($_option['label'] == 'Engraving Font') {
+                                $current_engraving_font = $block->escapeHtml($_formatedOptionValue['value'], ['span', 'a']);
+                                foreach ($engravingFontOptions as $keys => $fontsOptions1) {
+                                    if ($fontsOptions1['label']==$current_engraving_font) {
+                                        $current_engraving_fontclass = "js-" . $fontsOptions1['value'];
+                                        $defaultFontCharacterLimit = $fontsOptions1['data-character-limit'];
+                                    }
+                                } ?>
+                                    <input type="hidden" id="fontVal_<?= $block->escapeHtmlAttr($_item->getId()) ?>" value="<?= $block->escapeHtml($_formatedOptionValue['value'], ['span', 'a']) ?>">
+                            <?php
+                            }?>
+                            <?php if ($_option['label'] == 'Engraving Text') {
+                                $current_engraving_text = $block->escapeHtml($_formatedOptionValue['value'], ['span', 'a']); ?>
+                                    <input type="hidden" id="textVal_<?= $block->escapeHtmlAttr($_item->getId()) ?>" value="<?= $block->escapeHtml($_formatedOptionValue['value'], ['span', 'a']) ?>">
+                            <?php
+                            } ?>
+                            <?php if ($_option['label'] == 'temp_font_script_value') {
+                                $fontScript = $block->escapeHtml($_formatedOptionValue['value'], ['span', 'a']); ?>
+                                    <input type="hidden" id="fontScriptVal_<?= $block->escapeHtmlAttr($_item->getId()) ?>" value="<?= $block->escapeHtml($_formatedOptionValue['value'], ['span', 'a']) ?>">
+                            <?php
+                            } ?>
+                            <?php if ($_option['label'] != 'temp_font_script_value') { ?>
+                                    <dt><?= $block->escapeHtml(__($_option['label'])) ?></dt>
+                                    <dd>
+                                        <?php if (isset($_formatedOptionValue['full_view'])):?>
+                                            <?= $block->escapeHtml(__($_formatedOptionValue['full_view'])) ?>
+                                        <?php else:?>
+                                            <?= $block->escapeHtml(__($_formatedOptionValue['value'], ['span', 'a'])) ?>
+                                        <?php endif; ?>
+                                    </dd>
+                            <?php } ?>
+                        <?php endforeach; ?>
+                    </dl>
+                <?php endif;?>
+                <?php                 
+                if ($engraving_module_enable && $_attributeValue == 'Yes') {?>
+
+                <div class="cart-detail-engraving">
+                    <?php //echo $_attributeValue." ====>".$isAdded;?>
+
+                    <div class="popup" id="myModal_<?= $block->escapeHtmlAttr($_item->getId()) ?>">
+                        <div class="popup-content">
+                          <div id="engraving_popup_div">
+
+                            <div class="form-group">
+                                <span class="label"><?php echo __('Enter Engraving Text')?></span>
+                                <textarea class="form-control" rows="1" id="engravingText_<?= $block->escapeHtmlAttr($_item->getId()) ?>" data-max-length="<?=$defaultFontCharacterLimit?>" maxlength="<?=$defaultFontCharacterLimit?>" placeholder="<?php echo __('Enter Engraving Text')?>"></textarea>
+                                <p class="text-popup"><span class="engraving__available_<?= $block->escapeHtmlAttr($_item->getId()) ?>"><?=$defaultFontCharacterLimit?></span> <?php echo __('Characters available.')?></p>
+                            </div>
+                             <div class="form-group">
+                                <input type="hidden" name="item-id" class="item-id_<?= $block->escapeHtmlAttr($_item->getId()) ?>" value="<?= $block->escapeHtmlAttr($_item->getId()) ?>">
+                                <div class="engraving_fonts_div">
+                                    <span class="label"><?php echo __('Choose Font')?></span>
+                                    <?php
+                                    $i = 0;
+                                    $selectedDefaultFont = '';
+                                    $selectCheckClass = '';
+                                    $selectedLabelClass = '';
+                                    foreach ($engravingFontOptions as $keys => $fontsOptions) {
+                                        $selectCheckClass = '';
+                                        $selectedLabelClass = '';
+                                        $fontOptionUrl = $this->getViewFileUrl("Magneto_FreeEngraving::images/fonts-image/" . $fontsOptions['value'] . ".png");
+                                        if ($i==0) {
+                                            $selectedDefaultFont = 'js-' . $fontsOptions['value'];
+                                            $selectCheckClass = 'checked';
+                                            $selectedLabelClass = 'selected';
+                                        } ?> <div class="group-lang">
+                                            <input type="radio" class="radio myLangOpt" value="<?=$fontsOptions['value']; ?>"
+                                            name="engraving-text-type_<?= $block->escapeHtmlAttr($_item->getId()); ?>"
+                                            data-font-text="<?=$fontsOptions['label']; ?>"
+                                            id="engraving_fonts_<?=$fontsOptions['value']; ?>_<?= $block->escapeHtmlAttr($_item->getId()); ?>" data-character-limit = "<?=$fontsOptions['data-character-limit']; ?>" data-isChineseFont = "<?=$fontsOptions['isChineseFont']; ?>" <?=$selectCheckClass; ?> />
+                                            <label class="label_item <?=$selectedLabelClass?>"
+                                            for="engraving_fonts_<?=$fontsOptions['value']; ?>_<?= $block->escapeHtmlAttr($_item->getId()); ?>"><img src="<?=$fontOptionUrl; ?>" alt="<?=$fontsOptions['label']; ?>" title="<?=$fontsOptions['label']; ?>"></label>
+                                        </div>
+                                        <?php
+                                        $i++;
+                                    }?>
+                                </div>
+                            </div>
+
+                            <div class="engraving">
+                                <span class="label"><?php echo __('Preview')?></span>
+                                <p id="textEngravingValue_<?= $block->escapeHtmlAttr($_item->getId()) ?>" class="textEngravingValue <?=$selectedDefaultFont;?>"></p>
+                                <div class="engraving__ring" style="background:url('<?php echo $engavingImage; ?>') no-repeat;background-size: cover;">
+                                </div>
+                                <span class="label desc"><?php echo __('A 10x magnifying glass may be required to clearly read the engraving on your jewelry.')?> </span>
+                            </div>
+
+                            <div class="action-bar">
+                                <button type="submit" class="btn btn-default" id="engraving_<?= $block->escapeHtmlAttr($_item->getId()) ?>"><?php echo __('Save')?></button>
+                            </div>
+                        </div>
+                        <a class="closeBtn" href="javascript:void(0)"></a>
+                        </div>
+                    </div>
+
+
+
+                    <?php if ($engraving_module_enable && $_attributeValue != 'No') {
+                                        if ($isAdded == 1) { ?>
+                                <p id="preview_engraving_text_<?=$block->escapeHtmlAttr($_item->getId()) ?>" class="for-preview textEngravingValue <?=$current_engraving_fontclass;?>"><?=$current_engraving_text;?></p>
+                                <div class="edit-engv"><a href="javascript:void(0);" id="popupButton_<?= $block->escapeHtmlAttr($_item->getId()) ?>" class="edit_engraving openBtn"><?php echo __('Edit Engraving')?></a></div>
+                                <div class="remo-engv"><a href="javascript:void(0);" id="removeEngraving_<?= $block->escapeHtmlAttr($_item->getId()) ?>" class="remove_engraving"><?php echo __('Remove Engraving')?></a></div>
+
+                          <?php } else { ?>
+                                <div class="new-engv-add"><a href="javascript:void(0);" id="popupButton_<?= $block->escapeHtmlAttr($_item->getId()); ?>" class="add_engraving openBtn"><?php echo __('Add Engraving')?></a></div>
+                          <?php }
+                                    }?>
+
+
+                </div>
+                <?php }?>
+
+                <?php $addInfoBlock = $block->getProductAdditionalInformationBlock(); ?>
+                <?php if ($addInfoBlock):?>
+                    <?= $addInfoBlock->setItem($_item)->toHtml() ?>
+                <?php endif;?>
+            </div>
+            <?php $messages = $block->getMessages(); ?>
+
+            <?php if ($isDiamond && $ringbuilderHelper->isDiamondSold($block->getItem()->getProduct()->getSku())): ?>
+                <?php $messages[] = ['text' => __('This item is no longer available.'), 'type' => 'error']; ?>
+            <?php endif; ?>
+            <?php if ($isDiamond && (empty($diamondResult['diamondData']) || empty($stockItem->getQty()))): ?>
+                <?php $messages[] = ['text' => __('This diamond is unfortunately no longer available.'), 'type' => 'error']; ?>
+            <?php elseif ($isDiamond && empty($stockItem->getQty())): ?>
+                <?php $messages[] = ['text' => __('This item is unfortunately no longer available.'), 'type' => 'error']; ?>
+            <?php endif; ?>
+            <?php if ($messages):?>
+                <?php foreach ($messages as $message):?>
+                    <div class= "message <?= $block->escapeHtmlAttr($message['type']) ?>">
+                        <div><?= $block->escapeHtml($message['text']) ?></div>
+                    </div>
+                <?php endforeach; ?>
+            <?php endif; ?>
+        </td>
+
+        <?php if ($canApplyMsrp):?>
+            <td class="col msrp" data-th="<?= $block->escapeHtml(__('Price')) ?>">
+                <span class="pricing msrp">
+                    <span class="msrp notice"><?= $block->escapeHtml(__('See price before order confirmation.')) ?></span>
+                    <?php $helpLinkId = 'cart-msrp-help-' . $_item->getId(); ?>
+                    <a href="#" class="action help map"
+                       id="<?= ($block->escapeHtmlAttr($helpLinkId)) ?>"
+                       data-mage-init='{"addToCart":{
+                                            "helpLinkId": "#<?= $block->escapeJs($block->escapeHtml($helpLinkId)) ?>",
+                                            "productName": "<?= $block->escapeJs($block->escapeHtml($product->getName())) ?>",
+                                            "showAddToCart": false
+                                            }
+                                        }'
+                    >
+                        <span><?= $block->escapeHtml(__("What's this?")) ?></span>
+                    </a>
+                </span>
+            </td>
+        <?php else:?>
+            <td class="col price" data-th="<?= $block->escapeHtml(__('Price')) ?>">
+                <?= $block->getUnitPriceHtml($_item) ?>
+            </td>
+        <?php endif; ?>
+        <?php
+                $productQty = 0;
+                $salableStock = json_decode($customblock->getSalableQuantity($_item->getSku()));
+        if (array_key_exists(0, $salableStock)) {
+            if (isset($salableStock[0]->qty)) {
+                $productQty = (int)$salableStock[0]->qty;
+            }
+        }
+        ?>
+        <td class="col qty" data-th="<?= $block->escapeHtml(__('Qty')) ?>">
+            <div class="field qty">
+                <div class="control qty">
+                    <label for="cart-<?= $block->escapeHtmlAttr($_item->getId()) ?>-qty">
+                        <span class="label"><?= $block->escapeHtml(__('Qty')) ?></span>
+                        <input id="cart-<?= $block->escapeHtmlAttr($_item->getId()) ?>-qty"
+                               name="cart[<?= $block->escapeHtmlAttr($_item->getId()) ?>][qty]"
+                               data-cart-item-id="<?= $block->escapeHtmlAttr($_item->getSku()) ?>"
+                               salabel-qty="<?php echo $productQty; ?>"
+                               value="<?= $block->escapeHtmlAttr($block->getQty()) ?>"
+                               type="number"
+                               size="4"
+                               step="any"
+                               title="<?= $block->escapeHtmlAttr(__('Qty')) ?>"
+                               class="input-text qty"
+                               data-validate="{required:true,'validate-greater-than-zero':true}"
+                               data-role="cart-item-qty"/>
+                        <div for="cart-<?= $block->escapeHtmlAttr($_item->getId()) ?>-qty-out"
+                                generated="true"
+                                class="mage-error no-display outstock"
+                                id="cart-<?= $block->escapeHtmlAttr($_item->getId()) ?>-qty-out">
+                                <?php echo __('Please enter a number greater than 0 in this field.') ?>
+                        </div>
+                        <div for="cart-<?= $block->escapeHtmlAttr($_item->getId()) ?>-qty-salabel"
+                                generated="true"
+                                class="mage-error no-display salabel"
+                                id="cart-<?= $block->escapeHtmlAttr($_item->getId()) ?>-qty-salabel">
+                                <?php echo __('The requested qty is not available.') ?>
+                        </div>
+                    </label>
+                </div>
+            </div>
+        </td>
+
+        <td class="col subtotal" data-th="<?= $block->escapeHtml(__('Subtotal')) ?>">
+            <?php if ($canApplyMsrp):?>
+                <span class="cart msrp subtotal">--</span>
+            <?php else:?>
+                <?= $block->getRowTotalHtml($_item) ?>
+            <?php endif; ?>
+        </td>
+        <td class="col item-actions" colspan="100">
+            <div class="actions-toolbar">
+                <?php /* @escapeNotVerified */ echo $block->getActions($_item) ?>
+            </div>
+        </td>
+    </tr>
+</tbody>
+<script>
+require(['jquery', 'jquery/ui','mage/translate'], function($,$t){
+  jQuery(document).ready( function() {
+    var title = $.mage.__('Order Summary');
+    //$t('Order Summary');
+    jQuery(".cart-summary").find(".summary").first().html(title);
+  });
+});
+require(['jquery', 'Magento_Ui/js/modal/modal', 'jquery/ui'], function($, modal){
+// Open Popup
+    $('.openBtn').on('click', function () {
+      $('.popup').fadeIn(300);
+    });
+
+    // Close Popup
+    $('.closeBtn').on('click', function () {
+      $('.popup').fadeOut(300);
+    });
+
+    // Close Popup when Click outside
+    $('.popup').on('click', function () {
+     // $('.popup').fadeOut(300);
+    }).children().click(function () {
+      return true;
+    });
+/*
+ * CircleType 0.34
+ * Peter Hrynkow
+ * Copyright 2013, Licensed GPL & MIT
+ *
+*/
+function injector(t, splitter, klass, after) {
+    var text = t.text()
+    , a = text.split(splitter)
+    , inject = '';
+    if (a.length) {
+        $(a).each(function(i, item) {
+            inject += '<span class="'+klass+(i+1)+'" aria-hidden="true">'+item+'</span>'+after;
+        });
+        t.attr('aria-label',text)
+        .empty()
+        .append(inject)
+
+    }
+}
+
+var methods = {
+    init : function() {
+
+        return this.each(function() {
+            injector($(this), '', 'char', '');
+        });
+
+    },
+
+    words : function() {
+
+        return this.each(function() {
+            injector($(this), ' ', 'word', ' ');
+        });
+
+    },
+
+    lines : function() {
+
+        return this.each(function() {
+            var r = "eefec303079ad17405c889e092e105b0";
+            // Because it's hard to split a <br/> tag consistently across browsers,
+            // (*ahem* IE *ahem*), we replace all <br/> instances with an md5 hash
+            // (of the word "split").  If you're trying to use this plugin on that
+            // md5 hash string, it will fail because you're being ridiculous.
+            injector($(this).children("br").replaceWith(r).end(), r, 'line', '');
+        });
+
+    }
+};
+
+$.fn.lettering = function( method ) {
+    // Method calling logic
+    if ( method && methods[method] ) {
+        return methods[ method ].apply( this, [].slice.call( arguments, 1 ));
+    } else if ( method === 'letters' || ! method ) {
+        return methods.init.apply( this, [].slice.call( arguments, 0 ) ); // always pass an array
+    }
+    $.error( 'Method ' +  method + ' does not exist on jQuery.lettering' );
+    return this;
+};
+
+$.fn.circleType = function(options) {
+
+    var settings = {
+        dir: 1,
+        position: 'relative'
+    };
+
+    if (typeof($.fn.lettering) !== 'function') {
+        return;
+    }
+
+    return this.each(function () {
+        if (options) {
+            $.extend(settings, options);
+        }
+
+        var elem = this,
+            delta = (180 / Math.PI),
+            ch = parseInt($(elem).css('line-height'), 10),
+            fs = parseInt($(elem).css('font-size'), 10),
+            txt = elem.innerHTML.replace(/^\s+|\s+$/g, '').replace(/\s/g, '&nbsp;'),
+            letters,
+            center;
+
+        elem.innerHTML = txt
+        $(elem).lettering();
+
+        elem.style.position =  settings.position;
+
+        letters = elem.getElementsByTagName('span');
+        center = Math.floor(letters.length / 2)
+
+        var layout = function () {
+            var tw = 0,
+                i,
+                offset = 0,
+                minRadius,
+                origin,
+                innerRadius,
+                l, style, r, transform;
+
+            for (i = 0; i < letters.length; i++) {
+                tw += letters[i].offsetWidth;
+            }
+            minRadius = (tw / Math.PI) / 2 + ch;
+
+            if (settings.fluid && !settings.fitText) {
+                settings.radius = Math.max(elem.offsetWidth / 2, minRadius);
+            }
+            else if (!settings.radius) {
+                settings.radius = minRadius;
+            }
+
+            if (settings.dir === -1) {
+                origin = 'center ' + (-settings.radius + ch) / fs + 'em';
+            } else {
+                origin = 'center ' + settings.radius / fs + 'em';
+            }
+
+            innerRadius = settings.radius - ch;
+
+            for (i = 0; i < letters.length; i++) {
+                l = letters[i];
+                offset += l.offsetWidth / 2 / innerRadius * delta;
+                l.rot = offset;
+                offset += l.offsetWidth / 2 / innerRadius * delta;
+            }
+            for (i = 0; i < letters.length; i++) {
+                l = letters[i]
+                style = l.style
+                r = (-offset * settings.dir / 2) + l.rot * settings.dir
+                transform = 'rotate(' + r + 'deg)';
+
+                style.position = 'absolute';
+                style.left = '50%';
+                style.marginLeft = -(l.offsetWidth / 2) / fs + 'em';
+
+                style.webkitTransform = transform;
+                style.MozTransform = transform;
+                style.OTransform = transform;
+                style.msTransform = transform;
+                style.transform = transform;
+
+                style.webkitTransformOrigin = origin;
+                style.MozTransformOrigin = origin;
+                style.OTransformOrigin = origin;
+                style.msTransformOrigin = origin;
+                style.transformOrigin = origin;
+                if(settings.dir === -1) {
+                    style.bottom = 0;
+                }
+            }
+
+            if (settings.fitText) {
+                if (typeof($.fn.fitText) !== 'function') {
+
+                } else {
+                    $(elem).fitText();
+                    $(window).resize(function () {
+                        updateHeight();
+                    });
+                }
+            }
+            updateHeight();
+        };
+
+        var getBounds = function (elem) {
+            var docElem = document.documentElement,
+                box = elem.getBoundingClientRect();
+            return {
+                top: box.top + window.pageYOffset - docElem.clientTop,
+                left: box.left + window.pageXOffset - docElem.clientLeft,
+                height: box.height
+            };
+        };
+
+        var updateHeight = function () {
+            var mid = getBounds(letters[center]),
+                first = getBounds(letters[0]),
+                h;
+            if (mid.top < first.top) {
+                h = first.top - mid.top + first.height;
+            } else {
+                h = mid.top - first.top + first.height;
+            }
+            elem.style.height = h + 'px';
+        }
+
+        if (settings.fluid && !settings.fitText) {
+            $(window).resize(function () {
+                layout();
+            });
+        }
+
+        if (document.readyState !== "complete") {
+            elem.style.visibility = 'hidden';
+            $(window).load(function () {
+                elem.style.visibility = 'visible';
+                layout();
+            });
+        } else {
+            layout();
+        }
+    });
+};
+
+    var itemId = '<?php echo $_item->getId(); ?>';
+    var length = 12;
+    var edit = 0;
+    $('#engravingText_'+itemId).keyup(function(event){
+        var input = $('#engravingText_'+itemId).val();
+        var textMaxLength = $('#engravingText_'+itemId).attr('data-max-length');
+        var textLength = input.length
+        var length = textMaxLength - textLength;
+        $('.engraving__available_'+itemId).html(length);
+        $('#textEngravingValue_'+itemId).text(input);
+        //$('#textEngravingValue_'+itemId).circleType({ radius: 550 });
+        // $('.engraving__available').html(length);
+    });
+
+    /*
+    $("#engraving__font_"+itemId).on('change',function(event){
+        //alert($(this).val());
+        var fontStyle;
+        if($(this).val() == 'arial'){
+            fontStyle = "Arial";
+        } else if($(this).val() == 'times'){
+            fontStyle = "Times New Roman";
+        }else if($(this).val() == 'script'){
+            fontStyle = "Script";
+        }
+        fontClass = 'js-' + $(this).val();
+        $('#textEngravingValue_'+itemId).removeClass('js-arial js-times js-script');
+        $('#textEngravingValue_'+itemId).addClass(fontClass);
+    });
+    */
+
+    $("input[type=radio][name=engraving-text-type_"+itemId+"]").click(function(event){
+
+        var oldfonttypevalue = $("input[type=radio][name=engraving-text-type_"+itemId+"]").val();
+        var oldfontchinesevalue = $("input[type=radio][name=engraving-text-type_"+itemId+"]").attr("data-ischinesefont");
+
+        var newfonttypevalue = $("input[type=radio][name=engraving-text-type_"+itemId+"]:checked").val();
+        var newfontchinesevalue = $("input[type=radio][name=engraving-text-type_"+itemId+"]:checked").attr("data-ischinesefont");
+
+        var char_limit = $("input[type=radio][name=engraving-text-type_"+itemId+"]:checked").attr('data-character-limit');
+        if(newfontchinesevalue == '1' && oldfontchinesevalue == '0'){
+            $("#engravingText_"+itemId+"").val('');
+        }
+        $("#engravingText_"+itemId).attr("data-max-length",char_limit);
+        $("#engravingText_"+itemId).attr("maxlength",char_limit);
+
+        var input = $('#engravingText_'+itemId).val();
+        var textMaxLength = $('#engravingText_'+itemId).attr('data-max-length');
+        var textLength = input.length
+        var length = textMaxLength - textLength;
+        $('.engraving__available_'+itemId).html(length);
+        $('#textEngravingValue_'+itemId).text(input);
+
+        var currentName = $(this).attr("name");
+        var currentId = $(this).attr("id");
+        fontClass = 'js-' + $(this).val();
+        $('input[type=radio][name="'+currentName+'"]').each(function() {
+          fontClassRemove = 'js-' + this.value;
+          $('#textEngravingValue_'+itemId).removeClass(fontClassRemove);
+          $(this).parent(".group-lang").find("label").removeClass('selected');
+
+        });
+        $('#textEngravingValue_'+itemId).addClass(fontClass);
+        $('#'+currentId).parent(".group-lang").find("label").addClass('selected');
+    });
+
+
+    //var popup = modal(options, $('#myModal_'+itemId));
+    $(".add_engraving").unbind().on('click',function(){
+        var id = jQuery(this).attr('id');
+        var id = jQuery(this).attr('id');
+        var divIdArray = id.split('_');
+        var divId;
+        $.each(divIdArray,function(i){
+            divId = divIdArray[i];
+        });
+       var char_limit = $("input[type=radio][name=engraving-text-type_"+itemId+"]:checked").attr('data-character-limit');
+        $("span#engraving__available_"+itemId).html(char_limit);
+        $("#engravingText_"+itemId).attr("data-max-length",char_limit);
+        $("#engravingText_"+itemId).attr("maxlength",char_limit);
+
+        edit = 0;
+        $("#myModal_"+divId).show();
+        //$("#myModal_"+divId).modal("openModal");
+    });
+
+    $(".edit_engraving").unbind().on('click',function(event){
+        event.stopPropagation();
+        event.preventDefault();
+
+        var id = jQuery(this).attr('id');
+
+        var id = jQuery(this).attr('id');
+        var divIdArray = id.split('_');
+        var divId;
+        $.each(divIdArray,function(i){
+            divId = divIdArray[i];
+        });
+
+        var fontType = $('#fontVal_'+divId).val();
+        var textValue = $('#textVal_'+divId).val();
+
+        $('input[name="engraving-text-type_'+divId+'"][data-font-text="'+fontType+'"]').attr("checked","checked");
+        //$('input[name="engraving-text-type_'+divId+'"][data-font-text="'+fontType+'"]').click();
+
+        var fontSelectionId = $('input[type=radio][name="engraving-text-type_'+divId+'"]:checked').attr("id");
+        var fontScriptValue = $('#'+fontSelectionId).val();
+
+        $('input[type=radio][name="engraving-text-type_'+divId+'"]').each(function() {
+          fontClassRemove = 'js-' + this.value;
+          $('#textEngravingValue_'+divId).removeClass(fontClassRemove);
+          $(this).parent(".group-lang").find("label").removeClass('selected');
+        });
+
+        fontClass = 'js-'+fontScriptValue;
+        $('#textEngravingValue_'+divId).addClass(fontClass);
+        $('#'+fontSelectionId).parent(".group-lang").find("label").addClass('selected');
+
+
+        var engraving_text_type_id = $("input[type=radio][name=engraving-text-type_"+divId+"]:checked").attr("id");
+
+        length = $("#"+engraving_text_type_id).attr("data-character-limit");
+
+        $("#engravingText_"+divId).attr("data-max-length",length);
+        $("#engravingText_"+divId).attr("maxlength",length);
+
+
+        var input = $('#engravingText_'+divId).val();
+        var textMaxLength = $('#engravingText_'+divId).attr('data-max-length');
+        var textLength = input.length
+        var length = textMaxLength - textLength;
+
+        $('.engraving__available_'+divId).html(length);
+        $('#textEngravingValue_'+divId).text(input);
+        $('#engravingText_'+divId).val(textValue);
+
+        edit = 1;
+
+        $("#myModal_"+divId).show();
+        //$(".openBtn").click();
+        $('#textEngravingValue_'+divId).text(textValue);
+        $(".edit_engraving#popupButton_"+divId).text(textValue);
+
+    });
+
+    $('#engraving_'+itemId).click(function(event){
+        var itemIdVal = $('.item-id_'+itemId).val();
+        var text = $('#engravingText_'+itemId).val();
+        if(text!=''){
+            var font = $('input[type=radio][name="engraving-text-type_'+itemId+'"]:checked').attr("data-font-text");
+            var fontScriptValue = $('input[type=radio][name="engraving-text-type_'+itemId+'"]:checked').val();
+            var url = '<?php echo $this->getUrl('engraving/index/add'); ?>';
+            $.ajax({
+                url: url,
+                type: "POST",
+                data: {itemId:itemIdVal,font:font,fontScriptValue:fontScriptValue,text:text,edit:edit},
+                success: function(response){
+                    $("#form-validate").submit();
+                    event.preventDefault();
+                }
+            });
+        }else{
+            $('#removeEngraving_'+itemId).click();
+        }
+
+    });
+
+    $('#removeEngraving_'+itemId).click(function(event){
+        var itemIdVal = itemId;
+
+        var url = '<?php echo $this->getUrl('engraving/index/remove'); ?>';
+        $.ajax({
+            url: url,
+            type: "POST",
+            data: {itemId:itemIdVal},
+            success: function(response){
+                $("#form-validate").submit();
+                event.preventDefault();
+            }
+        });
+    });
+});
+</script>

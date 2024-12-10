@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="footer-container">
+            <block class="Magento\Framework\View\Element\Template" name="repo.version"
+                template="Magneto_RepoVersion::footer/repo_version.phtml" >
+                <arguments>
+                    <argument name="package_version" xsi:type="object">
+                        Magneto\RepoVersion\ViewModel\Version
+                    </argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

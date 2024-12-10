@@ -1,0 +1,116 @@
+<div class="block transfer-methods table" id="transfer-methods">
+	<div class="section-title"><span><?= __("Need to update your preferred transfer method? Click to update.")?></span></div>
+	<div class="table-wrapper transfer-methods table">
+		<?php 
+			$cnt = count($block->getMethods());
+			if($block->getMethods()): ?>
+			<?php $i = $j = 0; foreach ($block->getMethods() as $key => $methods): 
+			if ($i == 0) { ?>
+				<div class="bank-method-wrapp">
+			<?php } ?>
+			<div class="bank-method">
+				<div class="bt-head">
+					<div class="bank-icon"></div>
+					<div class="bank-namedetails"><span><?= $block->escapeHtml($methods->getBankName()) ?></span><span><?= $block->MaskingNumber($methods->getAccountNo()) ?></span></div>
+					<div class="update-bar">
+						<a class="updatemethod" data-load="<?= $block->Encrypt($methods->getData()) ?>"> Update </a>
+					</div>
+					<div class="update-bar">
+						<a class="deletemethod" data-load="<?= $block->Encrypt($methods->getData()) ?>"> Delete </a>
+					</div>
+				</div>
+				<div class="bt-content">
+					<div class="bt-subdesc">
+						<span><?= __("Bank Name")?>:</span><span><?= $block->escapeHtml($methods->getBankName()) ?></span>
+					</div>
+					<div class="bt-subdesc">
+						<span><?= __("Account Name")?>:</span><span><?= $block->escapeHtml($methods->getAccountName()) ?></span>
+					</div>
+					<div class="bt-subdesc">
+						<span><?= __("Account Number")?>:</span><span><?= $block->escapeHtml($methods->getAccountNo()) ?></span>
+					</div>
+					<div class="bt-subdesc">
+						<span><?= __("Swift Code")?>:</span><span><?= $block->escapeHtml($methods->getSwiftCode()) ?></span>
+					</div>
+					<div class="bt-subdesc">
+						<span><?= __("Country:")?></span><span><?= $block->escapeHtml($block->getCountryname($methods->getCountry())) ?></span>
+					</div>
+				</div>
+			</div>
+			<?php 
+			$j++;
+			$i++; if ($i > 1 || $j == $cnt) { $i=0; ?>
+				</div>
+			<?php } endforeach; ?>
+		<?php endif; ?>
+		<?php if(!$block->getMethods()): ?>
+			<tr class="col sub-label"><?= __("No Methods Record(s)") ?></tr>
+		<?php endif; ?>
+	</div>
+	<a class="addmethod" data-load="<?= $block->Encrypt([]) ?>"><?= __("Add Bank Account") ?></a>
+</div>
+
+<div id="transfer-methods-modal" style="display:none;">
+	<div class="modal-body-content">
+		<h2 id="transfer-methods-model-title"></h2>
+		<div id="transfer-methods-model-fields">
+			<form id="transfer-methods-form">
+				<input type="hidden" name="action">
+				<input type="hidden" name="method_id">
+				<div class="field">
+					<div class="control placeholder1">
+						<input type="text" name="bank_name" data-validate="{required:true}" required>
+						<label class="label floating-label1"><span><?= __("Bank Name") ?>*</span></label>
+					</div>
+				</div>
+				<div class="field">
+					<div class="control placeholder1">
+						<input type="text" name="account_name" data-validate="{required:true}" required>
+						<label class="label floating-label1"><span><?= __("Account Name") ?>*</span></label>
+					</div>
+				</div>
+				<div class="field">
+					<div class="control placeholder1">
+						<input type="text" name="account_no" data-validate="{required:true,'validate-number':true}" required>
+						<label class="label floating-label1"><span><?= __("Account Number") ?>*</span></label>
+					</div>
+				</div>
+				<div class="field">
+					<div class="control placeholder1">
+						<input type="text" name="swift_code" data-validate="{required:true}" required>
+						<label class="label floating-label1"><span><?= __("Swift Code") ?>*</span></label>
+					</div>
+				</div>
+				<div class="field">
+					<label class="label" for="country"><span><?= __("Country") ?>*</span></label>
+					<!-- Country Select -->
+					<?= $block->getCountries('HK') ?>        
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<div class="order-products-toolbar toolbar bottom" id="transfer-methods-pager">    
+	<?php if ($block->getPagerHtml()): ?>
+		<?php echo $block->getPagerHtml(); ?>
+	<?php endif ?>
+</div>
+
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magneto_TransferMethods/js/methods": <?php echo $block->getJsConfig(); ?>
+        }
+    }
+</script>
+
+<script>
+	require(['jquery','accordion','jquery/ui'], function ($) {
+		jQuery(document).ready(function () {
+			jQuery(".bt-head").click(function(){
+    			jQuery(this).parent().find(".bt-content").toggleClass("active");
+    		});
+		});
+	});
+</script>

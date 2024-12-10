@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Gemfind\Ringbuilder\Helper\Data" type="DiamondIcq\Ringbuilder\Helper\Data" />
+    <preference for="Gemfind\Ringbuilder\Block\Settings\Ringfilter" type="DiamondIcq\Ringbuilder\Block\Settings\Ringfilter" />
+    <preference for="Gemfind\Ringbuilder\Block\Diamond\Filter" type="DiamondIcq\Ringbuilder\Block\Diamond\Filter" />
+    <preference for="Gemfind\Ringbuilder\Block\Diamond\Search\Result" type="DiamondIcq\Ringbuilder\Block\Diamond\Search\Result" />
+    <preference for="Gemfind\Ringbuilder\Block\Diamond\Product\View" type="DiamondIcq\Ringbuilder\Block\Diamond\Product\View" />
+</config>

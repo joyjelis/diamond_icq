@@ -1,0 +1,366 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+* FME Extensions
+*
+* NOTICE OF LICENSE
+*
+* This source file is subject to the fmeextensions.com license that is
+* available through the world-wide-web at this URL:
+* https://www.fmeextensions.com/LICENSE.txt
+*
+* DISCLAIMER
+*
+* Do not edit or add to this file if you wish to upgrade this extension to newer
+* version in the future.
+*
+* @category  FME Calalog
+* @author    FME extensions <support@fmeextensions.com
+>
+* @package   FME_ProductSorting
+* @copyright Copyright (c) 2021 FME (http://fmeextensions.com/
+)
+* @license   https://fmeextensions.com/LICENSE.txt
+*/
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="fmeextensions" translate="label" sortOrder="500">
+            <label>FME Extensions</label>
+        </tab>
+        <section id="productSorting" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>fme-separator</class>
+            <label>Product Sorting</label>
+            <tab>fmeextensions</tab>
+            <resource>FME_ProductSorting::productSorting_configuration</resource>
+            <group id="general" translate="label comment" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General Configuration</label>
+                <field id="enabled" translate="label comment" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+              
+              <field id="sort_order" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Sorting Order</label>
+                        <frontend_model>FME\ProductSorting\Block\Adminhtml\Drag</frontend_model>
+                    </field>
+                    <field id="stock_qty" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Show Products without images last</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <comment>If it is not important, select 'No' to optimize server resources usage.</comment>
+                    </field>
+                    <field id="stock_status" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Show 'Out of Stock' Products last</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <comment>If it is not important, select 'No' to optimize server resources usage.If select 'Yes' 
+                       (Store / Configuration / Catalog / Inventory / Stock Options / Display Out of Stock Products) must be enabled.</comment>
+                    </field>
+                </group>
+                <group id="cronsetting" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                  <label>Cron Setting</label>
+                  <field id="cronsetting_enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                      <label>Enable</label>
+                      <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                  </field>
+                  <field id="cronsettings_frequency" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                      <label>Frequency</label>
+                      <source_model>Magento\Cron\Model\Config\Source\Frequency</source_model>
+                      <backend_model>FME\ProductSorting\Model\Config\Backend\CronConfig</backend_model>
+                  </field>
+                  <field id="cronsettings_starttime" translate="label" type="time" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                      <label>Start Time</label>
+                  </field>
+                  <comment>All changes are visible after running cron job.</comment>
+                </group>
+                <group id="sorting_default" translate="label" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Sorting by Default</label>
+                     <field id="sear" translate="label" type="label" sortOrder="10" showInDefault="1">
+                        <label><![CDATA[ <h3><b> Default Sorting on Search pages</b></h3>]]></label>
+                    </field>
+                    <field id="search_sort" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>First Sort by</label>
+                        <source_model>FME\ProductSorting\Model\ProductSort\Source\Option</source_model>
+                        <comment>The Default sorting option will work by default even if it's disabled and no "Apply On" option is not set in configuration.</comment>
+                    </field>
+                    <field id="search_st" translate="label" type="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[ <h3><b> Default Sorting on Category pages</b></h3>]]></label>
+                    </field>
+                    <field id="category_sort" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>First Sort by</label>
+                        <source_model>FME\ProductSorting\Model\ProductSort\Source\OptionCategory</source_model>
+                        <comment>The Default sorting option will work by default even if it's disabled and no "Apply On" option is not set in configuration.</comment>
+                    </field>
+                </group>
+                
+                <group id="created_at" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>New Arrivals</label>
+                    <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Enable</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    </field>
+                    <field id="label" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Label</label>
+                    </field>
+                    <field id="applyPage" translate="label" type="multiselect" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Apply On</label>
+                        <source_model>FME\ProductSorting\Model\ProductSort\Source\Pages</source_model>
+                    </field>
+                    <field id="direction" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Default Sort Direction</label>
+                        <source_model>FME\ProductSorting\Model\ProductSort\Source\Direction</source_model>
+                    </field>
+                </group>
+                <group id="best_seller" translate="label" sortOrder="11" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Best Seller</label>
+                    <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Enable</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    </field>
+                    <field id="label" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Label</label>
+                    </field>
+                    <field id="applyPage" translate="label" type="multiselect" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Apply On</label>
+                        <source_model>FME\ProductSorting\Model\ProductSort\Source\Pages</source_model>
+                    </field>
+                    <field id="direction" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Default Sort Direction</label>
+                        <source_model>FME\ProductSorting\Model\ProductSort\Source\Direction</source_model>
+                    </field>
+                    <field id="orderStatus" translate="label" type="multiselect" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Exclude Orders Status</label>
+                        <source_model>FME\ProductSorting\Model\ProductSort\Source\Status</source_model>
+                        <comment>Select order status to exclude product from appearing in best seller</comment>
+                    </field>
+                </group>
+                <group id="most_viewed" translate="label" sortOrder="11" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Most Viewed</label>
+                    <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Enable</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <comment>If select 'Yes' (Store / Configuration / General / Reports / General Options/ Report) must be enabled.</comment>
+                    </field>
+                    <field id="label" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Label</label>
+                    </field>
+                    <field id="days" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Most viewed days</label>
+                        <comment>if empty, the default time base will be all-time</comment>
+                    </field>
+                    <field id="applyPage" translate="label" type="multiselect" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Apply On</label>
+                        <source_model>FME\ProductSorting\Model\ProductSort\Source\Pages</source_model>
+                    </field>
+                    <field id="direction" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Default Sort Direction</label>
+                        <source_model>FME\ProductSorting\Model\ProductSort\Source\Direction</source_model>
+                    </field>
+                </group>
+                <group id="relevance" translate="label" sortOrder="11" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Relevance</label>
+                    <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Enable</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <comment>This is only for search/result page.</comment>
+                    </field>
+                    <field id="label" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Label</label>
+                    </field>
+                    <field id="direction" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Default Sort Direction</label>
+                        <source_model>FME\ProductSorting\Model\ProductSort\Source\Direction</source_model>
+                    </field>
+                </group>
+                <group id="review_count" translate="label" sortOrder="11" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Reviews Count</label>
+                    <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Enable</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    </field>
+                    <field id="label" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Label</label>
+                    </field>
+                    <field id="applyPage" translate="label" type="multiselect" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Apply On</label>
+                        <source_model>FME\ProductSorting\Model\ProductSort\Source\Pages</source_model>
+                    </field>
+                    <field id="direction" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Default Sort Direction</label>
+                        <source_model>FME\ProductSorting\Model\ProductSort\Source\Direction</source_model>
+                    </field>
+                </group>
+                <group id="stockquantity" translate="label" sortOrder="11" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Stock Quantity</label>
+                    <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Enable</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    </field>
+                    <field id="label" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Label</label>
+                    </field>
+                    <field id="applyPage" translate="label" type="multiselect" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Apply On</label>
+                        <source_model>FME\ProductSorting\Model\ProductSort\Source\Pages</source_model>
+                    </field>
+                    <field id="direction" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Default Sort Direction</label>
+                        <source_model>FME\ProductSorting\Model\ProductSort\Source\Direction</source_model>
+                    </field>
+                </group>
+                <group id="wished" translate="label" sortOrder="11" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Now in Wishlist</label>
+                    <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Enable</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <comment>This is only for registered customers.</comment>
+                    </field>
+                    <field id="label" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Label</label>
+                    </field>
+                    <field id="applyPage" translate="label" type="multiselect" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Apply On</label>
+                        <source_model>FME\ProductSorting\Model\ProductSort\Source\Pages</source_model>
+                    </field>
+                    <field id="direction" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Default Sort Direction</label>
+                        <source_model>FME\ProductSorting\Model\ProductSort\Source\Direction</source_model>
+                    </field>
+                </group>
+                <group id="name" translate="label" sortOrder="11" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Product Name</label>
+                    <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Enable</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    </field>
+                    <field id="label" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Label</label>
+                    </field>
+                    <field id="applyPage" translate="label" type="multiselect" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Apply On</label>
+                        <source_model>FME\ProductSorting\Model\ProductSort\Source\Pages</source_model>
+                    </field>
+                    <field id="direction" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Default Sort Direction</label>
+                        <source_model>FME\ProductSorting\Model\ProductSort\Source\Direction</source_model>
+                    </field>
+                </group>
+                <group id="price_asc" translate="label" sortOrder="11" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Price: low to high</label>
+                    <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Enable</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    </field>
+                    <field id="label" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Label</label>
+                    </field>
+                    <field id="applyPage" translate="label" type="multiselect" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Apply On</label>
+                        <source_model>FME\ProductSorting\Model\ProductSort\Source\Pages</source_model>
+                    </field>
+                </group>
+                <group id="price_desc" translate="label" sortOrder="11" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Price: high to low</label>
+                    <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Enable</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    </field>
+                    <field id="label" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Label</label>
+                    </field>
+                     <field id="applyPage" translate="label" type="multiselect" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Apply On</label>
+                        <source_model>FME\ProductSorting\Model\ProductSort\Source\Pages</source_model>
+                    </field>
+                </group>
+                <group id="top_rated" translate="label" sortOrder="11" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Top Rated</label>
+                    <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Enable</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    </field>
+                    <field id="label" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Label</label>
+                    </field>
+                     <field id="applyPage" translate="label" type="multiselect" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Apply On</label>
+                        <source_model>FME\ProductSorting\Model\ProductSort\Source\Pages</source_model>
+                    </field>
+                    <field id="direction" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Default Sort Direction</label>
+                        <source_model>FME\ProductSorting\Model\ProductSort\Source\Direction</source_model>
+                    </field>
+                </group>
+                <group id="saving" translate="label" sortOrder="11" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Biggest Saving</label>
+                    <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Enable</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    </field>
+                    <field id="label" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Label</label>
+                    </field>
+                     <field id="applyPage" translate="label" type="multiselect" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Apply On</label>
+                        <source_model>FME\ProductSorting\Model\ProductSort\Source\Pages</source_model>
+                    </field>
+                    <field id="direction" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Default Sort Direction</label>
+                        <source_model>FME\ProductSorting\Model\ProductSort\Source\Direction</source_model>
+                    </field>
+                </group>
+                <group id="price" translate="label" sortOrder="11" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Price</label>
+                    <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Enable</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    </field>
+                    <field id="label" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Label</label>
+                    </field>
+                     <field id="applyPage" translate="label" type="multiselect" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Apply On</label>
+                        <source_model>FME\ProductSorting\Model\ProductSort\Source\Pages</source_model>
+                    </field>
+                    <field id="direction" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Default Sort Direction</label>
+                        <source_model>FME\ProductSorting\Model\ProductSort\Source\Direction</source_model>
+                    </field>
+                </group>
+                <group id="position" translate="label" sortOrder="11" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Position</label>
+                    <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Enable</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    </field>
+                    <field id="label" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Label</label>
+                    </field>
+                     <field id="applyPage" translate="label" type="multiselect" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Apply On</label>
+                        <source_model>FME\ProductSorting\Model\ProductSort\Source\Pages</source_model>
+                    </field>
+                    <field id="direction" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Default Sort Direction</label>
+                        <source_model>FME\ProductSorting\Model\ProductSort\Source\Direction</source_model>
+                    </field>
+                </group>
+                <group id="widget" translate="label" sortOrder="11" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Promoting Widgets</label>
+                    <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Enable</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    </field>
+                    <field id="applyPage" translate="label" type="multiselect" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Display promoting widgets on</label>
+                        <source_model>FME\ProductSorting\Model\ProductSort\Source\Page</source_model>
+                        <comment>For adding widget please follow user guide.</comment>
+                    </field>
+                    <field id="option" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Display promoting widgets based on</label>
+                        <source_model>FME\ProductSorting\Model\ProductSort\Source\OptionWidget</source_model>
+                         <comment>If "Best Seller"  is selected it shows only those orders which are completed.</comment>
+                    </field>
+                </group>
+            </section>
+        </system>
+</config>

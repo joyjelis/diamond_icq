@@ -1,0 +1,24 @@
+<?php $categoryId = $block->getRequest()->getParam("cat"); ?>
+<?php $faqs = $block->getFaqs($categoryId); ?>
+<?php
+    $i = 0;
+    $numItems = count($faqs);
+?>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "FAQPage",
+  "mainEntity": [
+    <?php foreach ($faqs as $key => $faq): ?>
+        {
+            "@type": "Question",
+            "name": "<?= $faq->getTitle(); ?>",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "<?= str_replace(["\r", "\n"], ' ', strip_tags($faq->getDescription())); ?>"
+            }
+        }<?php if (++$i !== $numItems) { echo ","; } ?>
+    <?php endforeach; ?>
+  ]
+}
+</script>

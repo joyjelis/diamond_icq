@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="rapnet_diamond" resource="default" engine="innodb" comment="Diamonds listing downloaded from Rapnet">
+        <column xsi:type="int" name="diamond_id" unsigned="true" nullable="false" identity="true" comment=""/>
+        <column xsi:type="varchar" name="shape" nullable="false" length="25" comment=""/>
+        <column xsi:type="decimal" name="size" nullable="false" scale="2" precision="10"  comment=""/>
+        <column xsi:type="varchar" name="color" nullable="false" length="25" comment=""/>
+        <column xsi:type="varchar" name="fancy_color_dominant_color" nullable="false" length="25" comment=""/>
+        <column xsi:type="varchar" name="fancy_color_secondary_color" nullable="false" length="25" comment=""/>
+        <column xsi:type="varchar" name="fancy_color_overtone" nullable="false" length="25" comment=""/>
+        <column xsi:type="varchar" name="fancy_color_intensity" nullable="false" length="25" comment=""/>
+        <column xsi:type="varchar" name="clarity" nullable="false" length="25" comment=""/>
+        <column xsi:type="varchar" name="cut" nullable="false" length="25" comment=""/>
+        <column xsi:type="varchar" name="symmetry" nullable="false" length="25" comment=""/>
+        <column xsi:type="varchar" name="polish" nullable="false" length="25" comment=""/>
+        <column xsi:type="decimal" name="depth_percent" nullable="false" scale="2" precision="10"  comment=""/>
+        <column xsi:type="decimal" name="table_percent" nullable="false" scale="2" precision="10"  comment=""/>
+        <column xsi:type="decimal" name="meas_length" nullable="false" scale="2" precision="10"  comment=""/>
+        <column xsi:type="decimal" name="meas_width" nullable="false" scale="2" precision="10"  comment=""/>
+        <column xsi:type="decimal" name="meas_depth" nullable="false" scale="2" precision="10"  comment=""/>
+        <column xsi:type="varchar" name="girdle_min" nullable="false" length="25" comment=""/>
+        <column xsi:type="varchar" name="girdle_max" nullable="false" length="25" comment=""/>
+        <column xsi:type="varchar" name="girdle_condition" nullable="false" length="25" comment=""/>
+        <column xsi:type="varchar" name="culet_size" nullable="false" length="25" comment=""/>
+        <column xsi:type="varchar" name="culet_condition" nullable="false" length="25" comment=""/>
+        <column xsi:type="varchar" name="fluor_color" nullable="false" length="25" comment=""/>
+        <column xsi:type="varchar" name="fluor_intensity" nullable="false" length="25" comment=""/>
+        <column xsi:type="boolean" name="has_cert_file" nullable="false" comment=""/>
+        <column xsi:type="varchar" name="lab" nullable="false" length="25" comment=""/>
+        <column xsi:type="varchar" name="currency_code" nullable="false" length="25" comment=""/>
+        <column xsi:type="varchar" name="currency_symbol" nullable="false" length="25" comment=""/>
+        <column xsi:type="decimal" name="total_sales_price" nullable="false" scale="2" precision="10"  comment=""/>
+        <column xsi:type="decimal" name="total_sales_price_in_currency" nullable="false" scale="2" precision="10"  comment=""/>
+        <column xsi:type="varchar" name="cert_num" nullable="false" length="25" comment=""/>
+        <column xsi:type="varchar" name="stock_num" nullable="false" length="25" comment=""/>
+        <column xsi:type="boolean" name="has_image_file" nullable="false" comment=""/>
+        <column xsi:type="varchar" name="image_file_url" nullable="false" length="500" comment=""/>
+        <column xsi:type="varchar" name="video_url" nullable="false" length="500" comment=""/>
+        <column xsi:type="boolean" name="has_sarineloupe" nullable="false" comment=""/>
+        <column xsi:type="varchar" name="eye_clean" nullable="false" length="500" comment=""/>
+        <column xsi:type="varchar" name="diamond_type" nullable="false" length="25" comment=""/>
+        <column xsi:type="tinyint" name="status" unsigned="false" nullable="false" comment=""/>
+        <column xsi:type="datetime" name="import_timestamp" nullable="true" comment=""/>
+        <column xsi:type="varchar" name="hash" nullable="false" length="50" comment=""/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="diamond_id"/>
+        </constraint>
+    </table>
+</schema>

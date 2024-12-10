@@ -1,0 +1,42 @@
+<?php
+    $allCurrencies = $block->getAllCurrencies();
+    $customerCurrency = $block->getCustomerCurrentCurrency();
+?>
+<form class="block form customform icq-currency-switcher-form"
+    action="<?=  /* @noEscape */$block->getUrl('cctroute/front/save', ['_secure' => true]);?>"
+    id="customform-form"
+    method="post"
+    data-hasrequired="<?=  /* @noEscape */$block->escapeHtmlAttr(__('* Required Fields')) ?>"
+    enctype="multipart/form-data"
+    data-mage-init='{"validation":{}}'>
+    <?= $block->getBlockHtml('formkey') ?>
+    <fieldset class="fieldset">
+        <div class="block-title"><strong><?=  /* @noEscape */__('Currency Switcher')?></strong></div>
+        <div class="icq-currency-switcher-block">
+            <?php $changeCurrencyFlag = false; ?>
+            <?php if (count($allCurrencies) > 0): ?>
+                <?php $changeCurrencyFlag = true; ?>
+                <div class="icq-sub-title"><strong><?=  /* @noEscape */__('Select Your Currency')?></strong></div>
+                <div>
+                    <?php foreach ($allCurrencies as $vals => $label): ?>
+                        <div class="icq-currency-options">
+                            <input type="radio" name="preferred_currency" value="<?= $vals ?>" id="preferred_currency_<?=  /* @noEscape */ $vals?>" <?php if (trim($customerCurrency) != '' && trim($customerCurrency) == $vals) { ?> checked = "checked" <?php }?>
+                                /><span><?=  /* @noEscape */$label?></span>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            <?php else: ?>
+                <div><strong><?=  /* @noEscape */ __('Your Current Currency : ').$customerCurrency?></strong></div>
+            <?php endif; ?>
+        </div>
+    </fieldset>
+    <?php if ($changeCurrencyFlag): ?>
+        <div class="actions-toolbar">
+            <div class="primary">
+                <button type="submit" title="<?= $block->escapeHtmlAttr(__('SAVE')) ?>" class="action submit primary">
+                    <span><?= $block->escapeHtml(__('SAVE')) ?></span>
+                </button>
+            </div>
+        </div>
+    <?php endif; ?>
+</form>

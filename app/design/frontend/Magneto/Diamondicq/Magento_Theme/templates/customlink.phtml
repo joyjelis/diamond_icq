@@ -1,0 +1,51 @@
+<?php
+		// $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+		// $customerSession = $objectManager->get('Magento\Customer\Model\Session');
+		// $customerID = $customerSession->getCustomerId();
+		// $customerObj = $objectManager->create('Magento\Customer\Model\Customer')
+  //           ->load($customerID);
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$customerSession = $objectManager->get('Magento\Framework\App\Http\Context');
+$isLoggedIn = $customerSession->getValue(\Magento\Customer\Model\Context::CONTEXT_AUTH);
+?>
+
+
+<div class="header-custom-upper">
+	<?php if($isLoggedIn): ?>
+		<a href="<?php echo $this->getUrl('customer/account') ?>" title="<?php echo __('My Account'); ?>" onclick="clickAndDisable(this);">
+			<?php /* echo __('My Account'); */?>
+		</a>
+		<script>
+			require(['jquery'], function($){
+				jQuery(document).ready(function($){
+					clickAndDisable = function(link) {
+						// disable subsequent clicks
+						link.onclick = function(event) {
+							event.preventDefault();
+						}
+					}
+				});
+			});
+		</script>
+	<?php else: ?>
+		<div class="header-custom-upper-login">
+			<a href="<?php echo $this->getUrl('customer/account/login') ?>" class="for-login" title="<?php echo __('Sign in'); ?>" id="guestcustomer"></a>
+		</div>
+		<script>
+			require([
+				'jquery',
+				'Magento_Ui/js/lib/view/utils/dom-observer',
+				], function ($) {
+					domObserver = require('Magento_Ui/js/lib/view/utils/dom-observer');
+					$(document).ready(function(){
+						domObserver.get('.action.towishlist, .header-custom-upper-wishlist', function(elem){
+							$(elem).click(function(){
+								jQuery('#guestcustomer.social-login-btn').trigger('click');
+								return false;
+							});
+						});
+					});
+				});
+			</script>
+		<?php endif; ?>
+	</div>

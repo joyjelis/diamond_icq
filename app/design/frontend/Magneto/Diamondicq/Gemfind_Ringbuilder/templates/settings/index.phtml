@@ -1,0 +1,390 @@
+<?php $para = $block->getPara(); ?>
+
+<div class="main-ringbuilder-banner">
+   <?php echo $block->getLayout()->createBlock(\Magento\Cms\Block\Block::class)->setBlockId('ring-builder-main-banner-setting')->toHtml();?>
+</div>
+<div id="search-rings" class="flow-tabs">
+
+   <div class="tab-section">
+      <?php $block->checkDiamondCookie(); ?>
+      <ul class="tab-ul">
+         <?php if($block->checkDiamondCookie()) { ?>
+         <li class="tab-li"><div><a href="<?php echo $block->getUrl('ringbuilder/diamond'); ?>"><span class="tab-title"><p><?php echo __('1'); ?></p><?php echo __('Choose Diamond'); ?></strong></span>
+           <div class="img"> <img src="<?php echo $this->getViewFileUrl('images/choosediamond.png'); ?>" alt="choose-diamond"></div></a></div></li>
+         <?php } else { ?>
+         <li class="tab-li active"><div><a href="<?php echo $block->getUrl('ringbuilder/settings'); ?>">
+            <span class="tab-title"><p class="desktop"><?php echo __('1'); ?></p><p class="responsive"><img src="<?php echo $this->getViewFileUrl('images/Group562.svg'); ?>" alt="flow-tabs"></p><?php echo __('Choose Setting'); ?></span>
+            <div class="img"><img src="<?php echo $this->getViewFileUrl('images/setting.png'); ?>" alt="choose-setting"></div>
+         </a></div></li>
+         <?php } ?>
+         <?php if(!$block->checkDiamondCookie()) { ?>
+         <li class="tab-li"><div><a href="<?php echo $block->getUrl('ringbuilder/diamond'); ?>"><span class="tab-title"><p><?php echo __('2'); ?></p><?php echo __('Choose Diamond'); ?></strong></span>
+           <div class="img"> <img src="<?php echo $this->getViewFileUrl('images/choosediamond.png'); ?>" alt="choose-diamond"></div></a></div></li>
+         <?php } else { ?>
+         <li class="tab-li active"><div><a href="<?php echo $block->getUrl('ringbuilder/settings'); ?>"><span class="tab-title"><p class="desktop"><?php echo __('2'); ?></p><p class="responsive"><img src="<?php echo $this->getViewFileUrl('images/Group562.svg'); ?>" alt="flow-tabs"></p><?php echo __('Choose Setting'); ?></span>
+            <div class="img"><img src="<?php echo $this->getViewFileUrl('images/setting.png'); ?>" alt="choose-setting"></div></a></div></li>
+         <?php } ?>
+         <li class="tab-li"><div><a href="javascript:;"><span class="tab-title"><p><?php echo __('3'); ?></p><?php echo __('Completed Ring'); ?></span>
+         <div class="img"><img src="<?php echo $this->getViewFileUrl('images/cring.png'); ?>" alt="completed-ring"></div></a></div></li>
+      
+      </ul> 
+</div>
+
+<div class="container">
+   <div class="placeholder-content placeholder-content-top">
+      <div class="placeholder-content_item box1"></div>
+      <div class="placeholder-content_item"></div>
+      <div class="placeholder-filter_box placeholder-flex placeholder-filter placeholder-ringbuilder">
+         <div class="placeholder-content_item box"></div>
+         <div class="placeholder-content_item box"></div>
+         <div class="placeholder-content_item box"></div>
+         <div class="placeholder-content_item box"></div>
+         <div class="placeholder-content_item box"></div>
+         <div class="placeholder-content_item box"></div>
+         <div class="placeholder-content_item box"></div>
+         <div class="placeholder-content_item box"></div>
+         <div class="placeholder-content_item box"></div>
+         <div class="placeholder-content_item box"></div>
+      </div>
+      <div class="placeholder-flex ringbuilder-filter">
+         <div class="placeholder-filter_inner placeholder-flex placeholder-filter">
+            <div class="placeholder-content_item head"></div>
+            <div class="placeholder-filter_box placeholder-flex">
+               <div class="placeholder-content_item box"></div>
+               <div class="placeholder-content_item box"></div>
+               <div class="placeholder-content_item box"></div>
+               <div class="placeholder-content_item box"></div>
+               <div class="placeholder-content_item box"></div>
+               <div class="placeholder-content_item box"></div>
+               <div class="placeholder-content_item box"></div>
+               <div class="placeholder-content_item box"></div>
+               <div class="placeholder-content_item box"></div>
+               <div class="placeholder-content_item box"></div>
+            </div>
+         </div>
+         <div class="placeholder-filter_inner placeholder-flex  placeholder-filter">
+            <div class="placeholder-filter_inner placeholder-flex right-side">
+               <div class="placeholder-content_item head"></div>
+               <div class="placeholder-content_item box-list placeholder-filter_box"></div>
+            </div>
+            <div class="placeholder-filter_inner placeholder-flex right-side">
+               <div class="placeholder-content_item head"></div>
+               <div class="placeholder-filter_box placeholder-flex">
+                  <div class="placeholder-content_item box"></div>
+                  <div class="placeholder-content_item box"></div>
+                  <div class="placeholder-content_item box"></div>
+                  <div class="placeholder-content_item box"></div>
+                  <div class="placeholder-content_item box"></div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="top-section" style="display: none;">
+      <div class="diamond-filter-title save-reset-filters">
+         <div class="loading-mask gemfind-loading-mask" style="display: none;">
+            <div class="loader gemfind-loader"><p>Please wait...</p>
+            </div>
+         </div>         
+         <ul class="filter-right">
+            <li><a href="javascript:;" onclick="ResetFilter();"><?php echo __('Reset Filter'); ?></a></li>
+         </ul>
+      </div>
+      <div class="tab-content">
+        <div class="container">    
+         <form id="search-rings-form" method="post" action="<?= $block->escapeUrl($block->getFormAction()) ?>" class="search_form">
+
+            <input name="submitby" id="submitby" type="hidden" value="">
+
+            <input name="defaultringshapevalue" id="defaultringshapevalue" type="hidden" value="<?php echo $block->getRingshapedefaultfilter(); ?>">
+
+            <input name="baseurl" id="baseurl" type="hidden" value="<?= $block->escapeUrl($block->getBaseUrl()) ?>">
+
+            <section class="rings-search">
+
+               <div class="d-container">
+
+                  <div class="d-row">
+
+                     <div class="rings-filter">
+
+                        <div class="filter-main-div" id="filter-main-div"></div>
+
+                     </div>   
+
+                  </div>
+
+               </div>
+
+            </section>
+
+            <input type="hidden" name="filtermode" id="filtermode" value="<?php echo $para; ?>" />
+
+            <input type="submit" name="Submit" id="submit" style="visibility: hidden;">
+         </form>
+      </div>
+   </div>
+
+</div>
+</div>
+
+<div class="result filter-advanced">
+   <div class="container">
+      <div class="placeholder-content">
+         <div class="placeholder-content_table">
+            <div class="placeholder-product_list">
+               <div class="placeholder-content_list">
+                  <div class="placeholder-content_item round-img"></div>
+                  <div class="placeholder-content_item placeholder-product"></div>
+                  <div class="placeholder-content_item placeholder-price"></div>
+                  <div class="placeholder-content_item placeholder-compare"></div>
+               </div>
+               <div class="placeholder-content_list">
+                  <div class="placeholder-content_item round-img"></div>
+                  <div class="placeholder-content_item placeholder-product"></div>
+                  <div class="placeholder-content_item placeholder-price"></div>
+                  <div class="placeholder-content_item placeholder-compare"></div>
+               </div>
+               <div class="placeholder-content_list">
+                  <div class="placeholder-content_item round-img"></div>
+                  <div class="placeholder-content_item placeholder-product"></div>
+                  <div class="placeholder-content_item placeholder-price"></div>
+                  <div class="placeholder-content_item placeholder-compare"></div>
+               </div>
+               <div class="placeholder-content_list">
+                  <div class="placeholder-content_item round-img"></div>
+                  <div class="placeholder-content_item placeholder-product"></div>
+                  <div class="placeholder-content_item placeholder-price"></div>
+                  <div class="placeholder-content_item placeholder-compare"></div>
+               </div>
+               <div class="placeholder-content_list">
+                  <div class="placeholder-content_item round-img"></div>
+                  <div class="placeholder-content_item placeholder-product"></div>
+                  <div class="placeholder-content_item placeholder-price"></div>
+                  <div class="placeholder-content_item placeholder-compare"></div>
+               </div>
+               <div class="placeholder-content_list">
+                  <div class="placeholder-content_item round-img"></div>
+                  <div class="placeholder-content_item placeholder-product"></div>
+                  <div class="placeholder-content_item placeholder-price"></div>
+                  <div class="placeholder-content_item placeholder-compare"></div>
+               </div>
+               <div class="placeholder-content_list">
+                  <div class="placeholder-content_item round-img"></div>
+                  <div class="placeholder-content_item placeholder-product"></div>
+                  <div class="placeholder-content_item placeholder-price"></div>
+                  <div class="placeholder-content_item placeholder-compare"></div>
+               </div>
+               <div class="placeholder-content_list">
+                  <div class="placeholder-content_item round-img"></div>
+                  <div class="placeholder-content_item placeholder-product"></div>
+                  <div class="placeholder-content_item placeholder-price"></div>
+                  <div class="placeholder-content_item placeholder-compare"></div>
+               </div>
+               <div class="placeholder-content_list">
+                  <div class="placeholder-content_item round-img"></div>
+                  <div class="placeholder-content_item placeholder-product"></div>
+                  <div class="placeholder-content_item placeholder-price"></div>
+                  <div class="placeholder-content_item placeholder-compare"></div>
+               </div>
+               <div class="placeholder-content_list">
+                  <div class="placeholder-content_item round-img"></div>
+                  <div class="placeholder-content_item placeholder-product"></div>
+                  <div class="placeholder-content_item placeholder-price"></div>
+                  <div class="placeholder-content_item placeholder-compare"></div>
+               </div>
+               <div class="placeholder-content_list">
+                  <div class="placeholder-content_item round-img"></div>
+                  <div class="placeholder-content_item placeholder-product"></div>
+                  <div class="placeholder-content_item placeholder-price"></div>
+                  <div class="placeholder-content_item placeholder-compare"></div>
+               </div>
+               <div class="placeholder-content_list">
+                  <div class="placeholder-content_item round-img"></div>
+                  <div class="placeholder-content_item placeholder-product"></div>
+                  <div class="placeholder-content_item placeholder-price"></div>
+                  <div class="placeholder-content_item placeholder-compare"></div>
+               </div>
+            </div>
+         </div>
+         <div class="placeholder-content_footer placeholder-flex">
+            <div class="placeholder-content_item button-box"></div>
+            <div class="placeholder-content_item head"></div>
+         </div>
+      </div>
+   </div>
+</div>
+<div id="popup-modal"><p></p></div>
+<input type="hidden" name="gemfind_rb_version" value="2.6" />
+<style>
+.placeholder-content {
+   max-width: 100%;
+   margin: 0 auto;
+}
+.placeholder-content .placeholder-content_item.box1 {
+ height: 50px;
+ margin-bottom: 10px;
+}
+.placeholder-content .placeholder-filter_inner  {
+ margin-bottom: 12px;
+}
+.placeholder-content .placeholder-flex {
+ display: flex;
+ flex-wrap: wrap;
+}
+
+.placeholder-content .head {
+ max-width: 160px;
+ width: 100%;
+ margin-right: 20px;
+ align-self: center;
+}
+
+.placeholder-content .placeholder-filter_box {
+ width: calc(100% - 180px);
+}
+
+.placeholder-content .placeholder-filter .box {
+ width: 9%;
+ height: 60px;
+ margin-right: 1.1%;
+}
+
+.placeholder-content .box:last-child {
+ margin-right: 0;
+}
+.placeholder-content .placeholder-filter .box-list {
+ height: 50px;
+}
+.placeholder-content .placeholder-content_table {
+ display: inline-block;
+ width: 100%;
+}
+.placeholder-content .placeholder-product_list .placeholder-content_list:nth-child(4n + 0) {
+   margin-right: 0;
+}
+.placeholder-content .placeholder-product_list .placeholder-content_list {
+ margin-bottom: 15px;
+ width: 23.4%;
+ float: left;
+ margin-right: 2%;
+ margin-bottom: 2.2%;
+ border: 1px solid #eee;
+ padding: 10px;
+ box-sizing: border-box;
+}
+.placeholder-content .placeholder-content_item.round-img {
+ width: 150px;
+ height: 150px;
+ border-radius: 50%;
+ margin: 0 auto 12px;
+}
+.placeholder-content .placeholder-content_list .placeholder-content_item {
+   max-width: 80%;
+   margin: 0 auto 10px;
+}
+.placeholder-content .placeholder-filter {
+ margin-bottom: 60px;
+ padding: 15px;
+ background: #fafafa;
+ border: 1px solid #eee ;
+}
+
+.placeholder-content .placeholder-content_footer .button-box {
+ height: 50px;
+ max-width: 150px;
+ width: 100%;
+ margin-top: 20px;
+}
+.placeholder-content .placeholder-content_footer {
+ align-items: center;
+ justify-content: space-between;
+}
+.placeholder-content .placeholder-content_footer .head {
+ margin: 0;
+}
+.placeholder-content .placeholder-content_item {
+   overflow: hidden;
+   background: #000;
+   position: relative;
+   animation-duration: 0.8s;
+   animation-fill-mode: forwards;
+   animation-iteration-count: infinite;
+   animation-timing-function: linear;
+   animation-name: placeholderAnimate;
+   background: #f6f7f8;
+   background: linear-gradient(to right, #eee 2%, #ddd 18%, #eee 33%);
+   background-size: 1300px;
+   height: 20px;
+   margin-bottom: 20px;
+}
+@keyframes placeholderAnimate {
+   0% {
+    background-position: -650px 0;
+ }
+ 100% {
+    background-position: 650px 0;
+ }
+}
+@media (max-width:  992px) {
+   .placeholder-content .placeholder-filter_box {
+    width: 100%;
+ }
+ .placeholder-content .placeholder-content_item {
+   margin-bottom: 12px;
+}
+}
+@media (max-width:  767px) {
+   .placeholder-content .placeholder-filter .box {
+    width: 32.6%;
+    height: 80px;
+ }
+ .placeholder-content .placeholder-filter .box:nth-child(3n + 0) {
+    margin-right: 0;
+ }
+ .placeholder-content .placeholder-product_list .placeholder-content_list {
+   margin-right: 0;
+   width: 100%;
+}
+
+}
+/*For RB*/
+.placeholder-content .placeholder-ringbuilder.placeholder-filter {
+ margin-bottom: 0px;
+ padding: 0;
+ background: transparent;
+ border: 0;
+ width: 100%;
+ box-sizing: border-box;
+}
+.ringbuilder-filter > .placeholder-filter_inner {
+ max-width: 49%;
+ width: 100%;
+ box-sizing: border-box;
+}
+.ringbuilder-filter {
+   justify-content: space-between;
+}
+.placeholder-content .ringbuilder-filter .placeholder-filter .box {
+ width: 18.9%;
+}
+.placeholder-content .ringbuilder-filter .head {
+ align-self: self-start;
+}
+.placeholder-content .ringbuilder-filter .right-side.placeholder-flex {
+   width: 100%;
+}
+@media (max-width:  992px){
+   .ringbuilder-filter > .placeholder-filter_inner {
+      margin-bottom: 20px;
+      margin-top: 20px;
+      max-width: 100%;
+   }
+
+}
+@media (max-width:  767px){
+   .placeholder-content .ringbuilder-filter .placeholder-filter .box {
+    width: 32.5%;
+ }
+}
+</style>

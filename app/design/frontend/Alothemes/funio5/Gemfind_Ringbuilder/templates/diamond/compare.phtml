@@ -1,0 +1,433 @@
+<?php
+
+// Currency Changes
+$priceHelper = $this->helper('Magneto\RingBuilder\ViewModel\PriceHelper');
+
+$currency = $block->getCurrencySymbol();
+$settingcoockieval = [];
+$labsettings = false;
+if ($block->getRingCookieData()) {
+    $settingcoockieval = $block->getRingCookieData();
+    if ($settingcoockieval->Filtermode == 'labsettings') {
+        $labsettings = true;
+    } else {
+        $labsettings = false;
+    }
+} else {
+    $labsettings = false;
+}
+
+?>
+
+<style>
+
+   tr.remove{display: none;}
+
+</style>
+
+<div class="loading-mask gemfind-loading-mask" style="display: none;">
+
+  <div class="loader gemfind-loader"><p>Please wait...</p>
+
+  </div>
+
+</div>
+
+    <div class="main-ringbuilder-banner">
+       <?php echo $block->getLayout()->createBlock(\Magento\Cms\Block\Block::class)->setBlockId('ring-builder-main-banner')->toHtml();?>
+    </div>
+
+<div id="search-diamonds" class="flow-tabs">
+
+  <div class="tab-section">
+
+<!--     <ul class="tab-ul">
+    <?php /*if($block->checkRingCookie()) { ?>
+  <li class="tab-li"><div><a href="<?php echo $block->getUrl('ringbuilder/settings'); ?>"><span class="tab-title"><?php echo __('Choose Your'); ?><strong><?php echo __('Setting'); ?></strong></span><i class="ring-icon tab-icon"></i></a></div></li>
+  <?php } else { ?>
+  <li class="tab-li active"><div><a href="<?php echo $block->getUrl('ringbuilder/diamond'); ?>"><span class="tab-title"><?php echo __('Choose Your'); ?><strong><?php echo __('Diamond'); ?></strong></span><i class="diamond-icon tab-icon"></i></a></div></li>
+  <?php } ?>
+  <?php if(!$block->checkRingCookie()) { ?>
+  <li class="tab-li"><div><a href="<?php echo $block->getUrl('ringbuilder/settings'); ?>"><span class="tab-title"><?php echo __('Choose Your'); ?><strong><?php echo __('Setting'); ?></strong></span><i class="ring-icon tab-icon"></i></a></div></li>
+  <?php } else { ?>
+  <li class="tab-li active"><div><a href="<?php echo $block->getUrl('ringbuilder/diamond'); ?>"><span class="tab-title"><?php echo __('Choose Your'); ?><strong><?php echo __('Diamond'); ?></strong></span><i class="diamond-icon tab-icon"></i></a></div></li>
+  <?php } ?>
+  <li class="tab-li"><div><a href="javascript:;"><span class="tab-title"><?php echo __('Review'); ?><strong><?php echo __('Complete Ring');*/ ?></strong></span><i class="finalring-icon tab-icon"></i></a></div></li>
+</ul> -->
+    <ul class="tab-ul">
+      <?php if ($labsettings) { ?>
+         <li class="tab-li"><div><a href="<?php echo $block->getUrl('ringbuilder/settings') . 'type/labsettings'; ?>"><span class="tab-title"><p><?php echo __('1'); ?></p><?php echo __('Choose Setting'); ?></span>
+        <div class="img"><img src="<?php echo $this->getViewFileUrl('images/setting.png'); ?>" alt="choose-setting"></div>
+         </a></div></li>
+      <?php } else { ?>
+        <li class="tab-li"><div><a href="<?php echo $block->getUrl('ringbuilder/settings'); ?>"><span class="tab-title"><p><?php echo __('1'); ?></p><?php echo __('Choose Setting'); ?></span>
+          <div class="img"><img src="<?php echo $this->getViewFileUrl('images/setting.png'); ?>" alt="choose-setting"></div></a></div></li>
+      <?php } ?>
+         <li class="tab-li active"><div><a href="<?php echo $block->getUrl('ringbuilder/diamond'); ?>"><span class="tab-title"><p class="desktop"><?php echo __('2'); ?></p><p class="responsive"><img src="<?php echo $this->getViewFileUrl('images/Group563.svg'); ?>" alt="flow-tabs"></p><?php echo __('Choose Diamond'); ?></span>
+          <div class="img"> <img src="<?php echo $this->getViewFileUrl('images/choosediamond.png'); ?>" alt="choose-diamond"></div></a></div></li>
+         <li class="tab-li"><div><a href="javascript:;"><span class="tab-title"><p><?php echo __('3'); ?></p><?php echo __('Completed Ring'); ?></span>
+      <div class="img"><img src="<?php echo $this->getViewFileUrl('images/cring.png'); ?>" alt="completed-ring"></div></a></div></li>
+    </ul>
+  </div>
+
+   <section class="compare-product diamonds-search">
+
+      <div class="d-container">
+
+         <div class="d-row back-container">
+            <a class="action back" href="<?php echo $this->getUrl('ringbuilder/diamond') ?>">&lt; <?= __('Return to Search Results'); ?></a>
+         </div>
+
+         <div class="d-row">
+
+            <div class="diamonds-details no-padding">
+
+
+               <?php
+
+                if (isset($_COOKIE['diamondProduct'])) {
+                    $compare_products = json_decode($_COOKIE['diamondProduct'], true);
+
+                    // Initialise a new array.
+
+                    $compareItems = [];
+
+                    // Iterate over every associative array in the data array.
+
+                    foreach ($compare_products as $compare_product) {
+
+                        // Iterate over every key-value pair of the associative array.
+
+                        foreach ($compare_product as $key => $value) {
+
+                            // Ensure the sub-array specified by the key is set.
+
+                            if (!isset($compareItems[$key])) {
+                                $compareItems[$key] = [];
+                            }
+
+                            // Insert the value in the sub-array specified by the key.
+
+                            $compareItems[$key][] = $value;
+                        }
+                    }
+                }
+
+                   $alphaarray = [0 => 'a_col', 1 => 'b_col', 2 => 'c_col', 3 => 'd_col', 4 => 'e_col'];
+
+                ?>
+
+               <div class="compare-info">
+
+                  <div class="responsive-table">
+
+                     <table id="compare-sortable">
+
+                     <?php
+
+                        $i = 0;
+
+                        foreach ($compareItems as $key => $value):
+
+                            if ($key == 'Image'):
+
+                                ?>
+
+                        <thead class="thead-dark">
+
+                           <tr class="ui-state-default" id="disable-drag">
+
+                                <?php
+
+                                for ($j = 0; $j < count($value); $j++):
+
+                                    if ($i++ == 0):
+
+                                        ?>
+
+                              <td></td>
+
+                              <?php endif; ?>
+
+                              <td class="<?php echo $alphaarray[$j]; ?>">
+                                <div class="action">
+                                  <a href="javascript:;" class="remove-action"onclick="removeDummy('<?php echo $alphaarray[$j]; ?>', '<?php echo $compareItems['Sku'][$j]; ?>')" ></a>
+                                </div>
+                                <img class="lazyOwl" src='<?php if (!$block->is_404($value[$j])) {
+                                            echo $value[$j];
+                                        } else {
+                                            echo $this->getViewFileUrl('Gemfind_Ringbuilder::images/no-image.png');
+                                        } ?>' alt='Image' /></td>
+
+                                  <?php endfor; ?>
+
+                           </tr>
+
+                        </thead>
+
+                                <?php
+
+                           else: $k = 0; ?>
+
+                               <?php if ($key=='ID' || $key=='Type'): continue;
+endif; ?>
+
+                        <tr class="enable-drag">
+
+                               <?php
+
+                                for ($j = 0; $j < count($value); $j++):
+
+                                    if ($k++ == 0): ?>
+                                   <th>
+                                        <?php echo __($key); ?>
+                                   </th>
+                                     <?php endif; ?>
+
+                           <td class="<?php echo $alphaarray[$j]; ?>">
+
+                                    <?php
+
+                                    if ($key=='Price'): echo ($value[$j]) ? $priceHelper->convertToBaseCurrency($value[$j]) : '-';
+endif;
+
+                                    if ($key !='Price'): echo __($value[$j]) ? __($value[$j]) : '-';
+endif;
+
+                                    if ($key=='Table' && $value[$j]): echo '%';
+endif;
+
+                                    if ($key=='Depth' && $value[$j]): echo '%';
+endif;
+
+                                    ?>
+
+                           </td>
+
+                             <?php endfor; ?>
+
+                        </tr>
+
+                               <?php
+                           endif;
+                           endforeach;
+                        ?>
+
+                        <tfoot>
+
+                           <tr class="compare-actions">
+
+                              <?php
+                                 $k = 0;
+                                for ($i = 0; $i < count($compareItems['Sku']); $i++):
+                                    ?>
+
+                                    <?php if ($k++ == 0): ?>
+
+                              <td></td>
+
+                              <?php endif; ?>
+
+                              <td class="<?php echo $alphaarray[$i]; ?>">
+
+                                 <div class="actions-row">
+                                    <?php
+                                    if (isset($compareItems['Shape'])) {
+                                        $urlshape = str_replace(' ', '-', $compareItems['Shape'][$i]) . '-shape-';
+                                    } else {
+                                        $urlshape = '';
+                                    }
+
+                                    if (isset($compareItems['Carat'])) {
+                                        $urlcarat = str_replace(' ', '-', $compareItems['Carat'][$i]) . '-carat-';
+                                    } else {
+                                        $urlcarat = '';
+                                    }
+                                    if (isset($compareItems['Color'])) {
+                                        $urlcolor = str_replace(' ', '-', $compareItems['Color'][$i]) . '-color-';
+                                    } else {
+                                        $urlcolor = '';
+                                    }
+                                    if (isset($compareItems['Clarity'])) {
+                                        $urlclarity = str_replace(' ', '-', $compareItems['Clarity'][$i]) . '-clarity-';
+                                    } else {
+                                        $urlclarity = '';
+                                    }
+                                    if (isset($compareItems['Cut'])) {
+                                        $urlcut = str_replace(' ', '-', $compareItems['Cut'][$i]) . '-cut-';
+                                    } else {
+                                        $urlcut = '';
+                                    }
+                                    if (isset($compareItems['Cert'])) {
+                                        $urlcert = str_replace(' ', '-', $compareItems['Cert'][$i]) . '-certificate-';
+                                    } else {
+                                        $urlcert = '';
+                                    }
+
+                                        $urlstring = strtolower($urlshape . $urlcarat . $urlcolor . $urlclarity . $urlcut . $urlcert . 'sku-' . $compareItems['ID'][$i]);
+
+                                        $type = '';
+                                    if (isset($compareItems['Type'])) {
+                                        $type = $compareItems['Type'][$i];
+                                    }
+                                        $diamondviewurl = $block->getDiamondviewurl($urlstring, $type);
+                                    ?>
+                                    <a href="<?php echo $diamondviewurl; ?>" class="view-product"><?php echo __('View'); ?>
+                                    </a>
+                                    <?php
+                                    $productUrlArray = explode("-sku-", $diamondviewurl);
+                                    $productSku = explode("/", $productUrlArray[1]);
+                                    ?>
+                                    <a href="javascript:;" class="delete-row" onclick="removeDummy('<?php echo $alphaarray[$i]; ?>', '<?php echo $productSku[0]; ?>')"></a>
+
+                                 </div>
+
+                              </td>
+
+                              <?php endfor;
+
+                                ?>
+
+                           </tr>
+
+                        </tfoot>
+
+                     </table>
+
+                  </div>
+
+               </div>
+
+            </div>
+
+         </div>
+
+      </div>
+
+   </section>
+
+</div>
+
+<script>
+
+   require([
+
+       "jquery", "jquery/ui"
+
+   ], function ($) {
+
+       $(document).ready(function () {
+           if($(window).width() > 768){
+            $("#compare-sortable tbody").sortable({
+
+                cursor: "move",
+
+                placeholder: "sortable-placeholder",
+
+                helper: function (e, tr)
+
+                {
+
+                    var $originals = tr.children();
+
+                    var $helper = tr.clone();
+
+                    $helper.children().each(function (index)
+
+                    {
+
+                        $(this).width($originals.eq(index).width());
+
+                    });
+
+                    return $helper;
+
+                }
+
+            }).disableSelection();
+           }
+
+           $('.shape-type input:checkbox').change(function () {
+
+               if ($(this).is(':checked'))
+
+                   $(this).parent().addClass('selected');
+
+               else
+
+                   $(this).parent().removeClass('selected');
+
+           });
+
+           var acc = document.getElementsByClassName("accordion");
+
+           var i;
+
+           for (i = 0; i < acc.length; i++) {
+
+               acc[i].addEventListener("click", function () {
+
+                   this.classList.toggle("active");
+
+                   var panel = this.nextElementSibling;
+
+                   if (panel.style.maxHeight) {
+
+                       panel.style.maxHeight = null;
+
+                   } else {
+
+                       panel.style.maxHeight = panel.scrollHeight + "px";
+
+                   }
+
+               });
+
+           }
+
+       });
+
+   });
+
+   function removeDummy(className, productSku) {
+        require([
+            'jquery',
+        ], function ($) {
+            var compareDataArray = JSON.parse($.cookie("diamondProduct"));
+
+            var existedIndex = '';
+            compareDataArray.forEach(function (value, i) {
+                if(productSku == value.Sku) {
+                compareDataArray.splice(i, 1);
+                }
+            });
+
+            var jsonCompareDataArray = JSON.stringify(compareDataArray);
+            $.cookie("diamondProduct", '', {
+                            path: '/',
+                            expires: -1
+                        });
+
+            // Creating cookie with new data.
+            var expire = new Date();
+            expire.setDate(expire.getDate() + 10 * 24 * 60 * 60 * 1000);
+            $.cookie("diamondProduct", jsonCompareDataArray, {
+                path: '/',
+                expires: expire
+            });
+            if (compareDataArray.length>0) {
+                window.location.reload();
+            } else {
+                window.location = '<?php echo $block->getUrl('ringbuilder/diamond'); ?>';
+            }
+
+        });
+   }
+
+    // Getting saved cookie.
+    function getCookie(n) {
+        let a = `; ${document.cookie}`.match(`;\\s*${n}=([^;]+)`);
+        return a ? a[1] : '';
+    }
+
+</script>

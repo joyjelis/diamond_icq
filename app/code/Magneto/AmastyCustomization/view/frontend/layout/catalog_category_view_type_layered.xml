@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="category.view.container">
+            <block class="Amasty\Shopby\Block\Product\ProductList\ChildrenCategoryList" name="category.amshopby.children.list" template="Magneto_AmastyCustomization::product/productlist/children_category_list.phtml" after="-">
+                <arguments>
+                    <argument name="category_child_view_model" xsi:type="object">Magneto\AmastyCustomization\ViewModel\CategoryHelper</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

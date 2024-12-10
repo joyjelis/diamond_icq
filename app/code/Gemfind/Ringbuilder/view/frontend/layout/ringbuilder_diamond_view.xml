@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <title>Diamond Detail</title>
+        <css src="Gemfind_Ringbuilder::css/custom.css"/>
+        <css src="Gemfind_Ringbuilder::css/sumoselect.css"/>
+        <link src="Gemfind_Ringbuilder::js/jquerysumoselect.js"/>
+        <link src="Gemfind_Ringbuilder::js/touchit.js"/>
+        <link src="Gemfind_Ringbuilder::js/main.js"/>
+        <link src="Gemfind_Ringbuilder::js/view.js"/>
+        <link src="Gemfind_Ringbuilder::js/jquery.printPage.js"/>
+    </head>
+	<body>
+        <referenceBlock name="page.main.title" remove="true"/>
+        <referenceBlock name="head.additional">
+            <block class="Gemfind\Ringbuilder\Block\Diamond\Index" cacheable="false" ifconfig="gemfindringbuilder/general/enable_in_frontend" name="diamond.index.head"  template="Gemfind_Ringbuilder::diamond/head.phtml" after="-"/>
+        </referenceBlock>
+		 <referenceContainer name="content">
+            <block class="Gemfind\Ringbuilder\Block\Diamond\Product\View" ifconfig="gemfindringbuilder/general/enable_in_frontend" name="gemfind.product.view"/>
+        </referenceContainer>
+	</body>
+</page>

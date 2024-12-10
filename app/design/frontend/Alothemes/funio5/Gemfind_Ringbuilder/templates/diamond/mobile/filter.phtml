@@ -1,0 +1,431 @@
+<?php
+// Currency Changes
+$priceHelper = $this->helper('Magneto\RingBuilder\ViewModel\PriceHelper');
+$ringmaxmincaratdata = $block->getRingCaratCookieData();
+$ringbackdata = $block->getRingBackCookieData();
+$activeFilter = $block->getActiveFilter();
+$loadfilter = $block->getData('mobileloadfilterdata');
+$shapeArray = $block->getData('shapeArray');
+?>
+<!-- Responsive filter section start -->
+<div class="responsive-filter">
+  <div class="container">
+    <div class="mainbtn" id="ringbuilderfilter">
+      <?php echo __('Add Filter'); ?>
+      </div>
+</div>
+<div class="content" id="mobilefiltercontent">
+ <div class="mainsec">
+   <div class="block-title filter-title">
+    <strong><?php echo __('Filters'); ?></strong>
+    <div class="img" id="closefilter"><img src="<?php echo $this->getViewFileUrl('images/closefilter.svg'); ?>" alt="closefilter"></div>
+  </div>
+  <div class="filter-content">
+   <div class="filter-options">
+    <div class="actions filter-actions for-mobile">
+     <div class="button-toolbar">
+      <a class="action clear filter-clear" id="mringbuilder_step2_clear_call">
+       <span><?php echo __('Clear All'); ?></span>
+     </a>
+     <a class="action apply filter-apply" id="mringbuilder_step2_apply_call">
+       <span><?php echo __('Apply'); ?></span>
+     </a>
+   </div>
+ </div>
+ <div class="filter-options-item">
+   <?php if (isset($loadfilter['shapes'])): ?>
+        <?php $shapeOptions = (array) $loadfilter['shapes']; ?>
+        <?php if (isset($shapeOptions)): ?>
+    <div class="accordian2">
+     <div class="filter-options-title"><?php echo __('Shape'); ?><div class="img-info"><img src="<?php echo $this->getViewFileUrl('images/information.svg'); ?>" alt="info"></div></div>
+   </div>
+
+   <div class="panel">
+     <div class="filter-options-content">
+       <div class="color-filter shape-bg" id="diamond_shape_filter">
+         <ul>
+            <?php foreach ($shapeOptions as $options): ?>
+                <?php
+                $classDiamondShapeType = "";
+                if (in_array(strtolower($options->shapeName), $shapeArray)) {
+                    $classDiamondShapeType .= " active";
+                }
+                if ($ringbackdata && $ringbackdata->fromRing == "1") {
+                    $classDiamondShapeType .= " lock-shape-type";
+                }
+                ?>
+             <li class="multirow">
+              <div class="collection-type <?=$classDiamondShapeType?>">
+               <img src="<?= $this->getViewFileUrl('Magneto_RingBuilder::images/'.strtolower(str_replace(' ', '_', $options->shapeName))).'.png' ?>" class="mobile_filter_shape_filter <?=$classDiamondShapeType?>" data-value="<?= strtolower($options->shapeName) ?>"  alt="<?= $options->shapeName ?>" height="24" width="24">
+             </div>
+             <label><?= __($options->shapeName) ?></label>
+           </li>
+         <?php endforeach; ?>
+       </ul>
+     </div>
+   </div>
+ </div>
+<?php endif; ?>
+<?php endif; ?>
+</div>
+
+
+<?php if (isset($loadfilter['cutRange'])): ?>
+<div class="filter-options-item">
+    <?php $cutRange = (array) $loadfilter['cutRange']; ?>
+    <?php if (isset($cutRange)): ?>
+  <div class="accordian2">
+    <div class="filter-options-title"><?php echo __('Cut'); ?><div class="img-info"><img src="<?php echo $this->getViewFileUrl('images/information.svg'); ?>" alt="info"></div></div>
+  </div>
+  <div class="panel">
+    <div class="filter-options-content">
+      <div class="color-filter shape-bg" id="diamond_cut_filter">
+        <?php foreach ($cutRange as $options): ?>
+         <div class="cutsec"><div class="item diamond_cut_filter_selection"  data-value="<?= $options->cutId ?>"><?= $options->cutName ?></div></div>
+       <?php endforeach; ?>
+     </div>
+   </div>
+  </div>
+  <?php endif; ?>
+</div>
+<?php endif; ?>
+
+
+<div class="filter-options-item">
+<?php if (isset($loadfilter['caratRange'])): ?>
+    <?php $caratrange = $loadfilter['caratRange'][0]; ?>
+    <?php $mincarat = isset($caratrange->minCarat) ? $caratrange->minCarat : 0; ?>
+    <?php $maxcarat = isset($caratrange->maxCarat) ? $caratrange->maxCarat : 0; ?>
+  <div class="accordian2">
+    <div class="filter-options-title"><?php echo __('Carat'); ?><div class="img-info"><img src="<?php echo $this->getViewFileUrl('images/information.svg'); ?>" alt="info"></div></div>
+  </div>
+  <div class="panel">
+    <div class="filter-options-content">
+    <div class="color-filter shape-bg" id="diamond_carat_filter">
+      <div class="maininput">
+        <div class="input-field"><input type="text" id="ringstep2_carat_min" data-original="<?= $mincarat ?>" value="<?= $mincarat ?>"></div>
+        <div class="middle input-field"><?php echo __('to'); ?></div>
+        <div class="input-field"><input type="text" id="ringstep2_carat_max" data-original="<?= $maxcarat ?>" value="<?= $maxcarat ?>"></div>
+      </div>
+      </div>
+            </div>
+          </div>
+<?php endif; ?>
+</div>
+
+
+<div class="filter-options-item">
+ <?php if (isset($loadfilter['priceRange'])): ?>
+        <?php $pricerange = $loadfilter['priceRange'][0]; ?>
+        <?php $minprice = isset($pricerange->minPrice) ? $priceHelper->convertToBaseCurrency($pricerange->minPrice, 0) : 0; ?>
+        <?php $maxprice = isset($pricerange->maxPrice) ? $priceHelper->convertToBaseCurrency($pricerange->maxPrice, 0) : 0; ?>
+ <div class="accordian2">
+  <div class="filter-options-title"><?php echo __('Price'); ?><div class="img-info"><img src="<?php echo $this->getViewFileUrl('images/information.svg'); ?>" alt="info"></div></div>
+</div>
+<div class="panel">
+  <div class="filter-options-content">
+   <div class="color-filter shape-bg">
+     <div class="maininput">
+       <div class="input-field"><input type="text" id="ringstep2_price_min" data-original="<?= $minprice ?>" value="<?= $minprice ?>"></div>
+       <div class="middle input-field"><?php echo __('to'); ?></div>
+       <div class="input-field"><input type="text" id="ringstep2_price_max" data-original="<?= $maxprice ?>" value="<?= $maxprice ?>"></div>
+     </div>
+   </div>
+ </div>
+</div>
+<?php endif; ?>
+</div>
+
+
+<?php if ($activeFilter != "navfancycolored"): ?>
+<div class="filter-options-item">
+    <?php if (isset($loadfilter['colorRange'])): ?>
+        <?php $colorRange = (array) $loadfilter['colorRange']; ?>
+        <?php if (isset($colorRange)): ?>
+  <div class="accordian2">
+    <div class="filter-options-title"><?php echo __('Color'); ?><div class="img-info"><img src="<?php echo $this->getViewFileUrl('images/information.svg'); ?>" alt="info"></div></div>
+  </div>
+  <div class="panel">
+    <div class="filter-options-content">
+      <div class="color-filter shape-bg" id="diamond_color_filter">
+            <?php foreach ($colorRange as $options): ?>
+         <div class="cutsec"><div class="item diamond_color_filter_selection"  data-value="<?= $options->colorId ?>"><?= $options->colorName ?></div></div>
+       <?php endforeach; ?>
+     </div>
+   </div>
+ </div>
+<?php endif; ?>
+<?php endif; ?>
+</div>
+<?php else: ?>
+ <div class="filter-options-item">
+    <?php if (isset($loadfilter['diamondColorRange'])): ?>
+        <?php $diamondColorRange = (array) $loadfilter['diamondColorRange']; ?>
+        <?php if (isset($diamondColorRange)): ?>
+    <div class="accordian2">
+     <div class="filter-options-title"><?php echo __('Color'); ?><div class="img-info"><img src="<?php echo $this->getViewFileUrl('images/information.svg'); ?>" alt="info"></div></div>
+   </div>
+   <div class="panel">
+     <div class="filter-options-content">
+       <div class="color-filter shape-bg" id="diamond_color_rang_filter">
+         <ul>
+            <?php foreach ($diamondColorRange as $options): ?>
+             <li class="multirow">
+              <div class="collection-type">
+               <img src="<?= $options->diamondColorImagePath ?>" class="mobile_filter_color_rang_filter" data-value="<?= $options->diamondColorId ?>"  alt="<?= $options->diamondColorId ?>" height="24" width="24">
+             </div>
+             <label><?= __($options->diamondColorName) ?></label>
+           </li>
+         <?php endforeach; ?>
+       </ul>
+     </div>
+   </div>
+ </div>
+<?php endif; ?>
+<?php endif; ?>
+</div>
+<div class="filter-options-item">
+    <?php if (isset($loadfilter['intensity'])): ?>
+        <?php $intensity = (array) $loadfilter['intensity']; ?>
+        <?php if (isset($intensity)): ?>
+  <div class="accordian2">
+    <div class="filter-options-title"><?php echo __('Fancy Intensity'); ?></div>
+  </div>
+  <div class="panel">
+    <div class="filter-options-content">
+      <div class="color-filter shape-bg" id="diamond_intensity_filter">
+            <?php foreach ($intensity as $options): ?>
+         <div class="cutsec"><div class="item mobile_filter_intensity_filter"  data-value="<?= strtolower($options->intensityName) ?>"><?= $options->intensityName ?></div></div>
+       <?php endforeach; ?>
+     </div>
+   </div>
+ </div>
+<?php endif; ?>
+<?php endif; ?>
+</div>
+<?php endif; ?>
+
+
+<div class="filter-options-item">
+ <?php if (isset($loadfilter['clarityRange'])): ?>
+        <?php $clarityRange = (array) $loadfilter['clarityRange']; ?>
+        <?php if (isset($clarityRange)): ?>
+  <div class="accordian2">
+    <div class="filter-options-title"><?php echo __('Clarity'); ?><div class="img-info"><img src="<?php echo $this->getViewFileUrl('images/information.svg'); ?>" alt="info"></div></div>
+  </div>
+  <div class="panel">
+    <div class="filter-options-content">
+      <div class="color-filter shape-bg" id="diamond_clarity_filter">
+            <?php foreach ($clarityRange as $options): ?>
+         <div class="cutsec"><div class="item diamond_clarity_filter_selection"  data-value="<?= $options->clarityId ?>"><?= $options->clarityName ?></div></div>
+       <?php endforeach; ?>
+     </div>
+   </div>
+ </div>
+<?php endif; ?>
+<?php endif; ?>
+</div>
+
+
+<div class="advance-search">
+  <div class="container">
+    <div class="accordian2">
+     <div class="main-ad">
+      <div class="img"><img src="<?php echo $this->getViewFileUrl('images/ant-design_plus-square-filled.svg'); ?>" alt="design_plus"></div>
+      <div class="title"><?php echo __('Advanced Search'); ?></div>
+    </div>
+  </div>
+  <div class="panel">
+   <div class="filter-options-item">
+    <?php if (isset($loadfilter['depthRange'])): ?>
+        <?php $depthRange = $loadfilter['depthRange'][0]; ?>
+        <?php $minDepth = isset($depthRange->minDepth) ? $depthRange->minDepth : 0; ?>
+        <?php $maxDepth = isset($depthRange->maxDepth) ? $depthRange->maxDepth : 0; ?>
+    <div class="accordiannew">
+    <div class="filter-options-title"><?php echo __('Depth'); ?><div class="img-info"><img src="<?php echo $this->getViewFileUrl('images/information.svg'); ?>" alt="info"></div></div>
+    </div>
+     <div class="panel">
+    <div class="filter-options-content">
+      <div class="color-filter shape-bg">
+       <div class="maininput">
+        <div class="input-field"><input type="text" id="ringstep2_depth_min" data-original="<?= $minDepth ?>" value="<?= $minDepth ?>"></div>
+        <div class="middle input-field"><?php echo __('to'); ?></div>
+        <div class="input-field"><input type="text" id="ringstep2_depth_max" data-original="<?= $maxDepth ?>" value="<?= $maxDepth ?>"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  <?php endif; ?>
+  <?php if (isset($loadfilter['tableRange'])): ?>
+        <?php $tableRange = $loadfilter['tableRange'][0]; ?>
+        <?php $minTable = isset($tableRange->minTable) ? $tableRange->minTable : 0; ?>
+        <?php $maxTable = isset($tableRange->maxTable) ? $tableRange->maxTable : 0; ?>
+  <div class="accordiannew">
+  <div class="filter-options-title"><?php echo __('Table'); ?><div class="img-info"><img src="<?php echo $this->getViewFileUrl('images/information.svg'); ?>" alt="info"></div></div>
+ </div>
+ <div class="panel">
+  <div class="filter-options-content">
+    <div class="color-filter shape-bg">
+     <div class="maininput">
+      <div class="input-field"><input type="text" id="ringstep2_table_min" data-original="<?= $minTable ?>" value="<?= $minTable ?>"></div>
+      <div class="middle input-field"><?php echo __('to'); ?></div>
+      <div class="input-field"><input type="text" id="ringstep2_table_max" data-original="<?= $maxTable ?>" value="<?= $maxTable ?>"></div>
+    </div>
+  </div>
+</div>
+</div>
+<?php endif; ?>
+<?php if (isset($loadfilter['polishRange'])): ?>
+    <?php $polishRange = (array) $loadfilter['polishRange']; ?>
+    <?php if (isset($polishRange)): ?>
+  <div class="accordian2">
+    <div class="filter-options-title"><?php echo __('Polish'); ?><div class="img-info"><img src="<?php echo $this->getViewFileUrl('images/information.svg'); ?>" alt="info"></div></div>
+  </div>
+  <div class="panel">
+    <div class="filter-options-content">
+      <div class="color-filter shape-bg" id="diamond_polish_filter">
+        <?php foreach ($polishRange as $options): ?>
+         <div class="cutsec"><div class="item diamond_polish_filter_selection"  data-value="<?= $options->polishId ?>"><?= $options->polishName ?></div></div>
+       <?php endforeach; ?>
+     </div>
+   </div>
+ </div>
+<?php endif; ?>
+<?php endif; ?>
+<!-- <div class="filter-options-title"></div>
+<div class="filter-options-content">
+ <div class="color-filter shape-bg">
+  <div class="cutsec"><div class="item">Excellent</div></div>
+  <div class="cutsec"><div class="item">Very Good</div></div>
+  <div class="cutsec"><div class="item">Good</div></div>
+  <div class="cutsec"><div class="item">fair</div></div>
+</div>
+</div> -->
+                  <?php if (isset($loadfilter['fluorescenceRange'])): ?>
+                        <?php $fluorescenceRange = (array) $loadfilter['fluorescenceRange']; ?>
+                        <?php if (isset($fluorescenceRange)): ?>
+                      <div class="accordian2">
+                        <div class="filter-options-title"><?php echo __('Fluorescence'); ?><div class="img-info"><img src="<?php echo $this->getViewFileUrl('images/information.svg'); ?>" alt="info"></div>
+                        </div>
+                      </div>
+                      <div class="panel">
+                        <div class="filter-options-content">
+                          <div class="color-filter shape-bg" id="diamond_fluorescence_filter">
+                            <?php foreach ($fluorescenceRange as $options): ?>
+                              <div class="cutsec">
+                                <div class="item diamond_fluorescence_filter_selection" data-value="<?= $options->fluorescenceId ?>"><?= $options->fluorescenceName ?></div>
+                              </div>
+                            <?php endforeach; ?>
+                          </div>
+                        </div>
+                      </div>
+                    <?php endif; ?>
+                  <?php endif; ?>
+
+                  <!-- <div class="filter-options-title">*</div>
+<div class="filter-options-content">
+ <div class="color-filter shape-bg">
+  <div class="colorsec"><div class="item">N</div></div>
+  <div class="colorsec"><div class="item">FNT</div></div>
+  <div class="colorsec"><div class="item">MED</div></div>
+  <div class="colorsec"><div class="item">ST</div></div>
+  <div class="colorsec"><div class="item">VST</div></div>
+</div>
+</div> -->
+                  <?php if (isset($loadfilter['symmetryRange'])): ?>
+                        <?php $symmetryRange = (array) $loadfilter['symmetryRange']; ?>
+                        <?php if (isset($symmetryRange)): ?>
+                      <div class="accordian2">
+                        <div class="filter-options-title"><?php echo __('Symmetry'); ?><div class="img-info"><img src="<?php echo $this->getViewFileUrl('images/information.svg'); ?>" alt="info"></div>
+                        </div>
+                      </div>
+                      <div class="panel">
+                        <div class="filter-options-content">
+                          <div class="color-filter shape-bg" id="diamond_symmetry_filter">
+                            <?php foreach ($symmetryRange as $options): ?>
+                              <div class="cutsec">
+                                <div class="item diamond_symmetry_filter_selection" data-value="<?= $options->symmetryId ?>"><?= $options->symmteryName ?></div>
+                              </div>
+                            <?php endforeach; ?>
+                          </div>
+                        </div>
+                      </div>
+                    <?php endif; ?>
+                  <?php endif; ?>
+
+                  <!-- <div class="filter-options-title">*</div>
+<div class="filter-options-content">
+ <div class="color-filter shape-bg">
+  <div class="cutsec"><div class="item">Excellent</div></div>
+  <div class="cutsec"><div class="item">Very Good</div></div>
+  <div class="cutsec"><div class="item">Good</div></div>
+  <div class="cutsec"><div class="item">fair</div></div>
+</div>
+</div> -->
+
+                  <?php if (isset($loadfilter['certificateRange'])): ?>
+                        <?php $certificateRange = (array) $loadfilter['certificateRange']; ?>
+                        <?php if (isset($certificateRange)): ?>
+                      <div class="accordian2">
+                        <div class="filter-options-title"><?php echo __('Certificates'); ?><div class="img-info"><img src="<?php echo $this->getViewFileUrl('images/information.svg'); ?>" alt="info"></div>
+                        </div>
+                      </div>
+                      <div class="panel">
+                        <div class="filter-options-content">
+                          <div class="color-filter shape-bg" id="diamond_certificates_filter">
+                            <?php foreach ($certificateRange as $options): if (preg_match('/^Show All .+$/', $options->certificateName)) {
+                                    continue;
+                            } ?>
+                              <div class="cutsec">
+                                <div class="item diamond_certificates_filter_selection" data-value="<?= $options->certificateName ?>"><?= $options->certificateName ?></div>
+                              </div>
+                            <?php endforeach; ?>
+                          </div>
+                        </div>
+                      </div>
+                    <?php endif; ?>
+                  <?php endif; ?>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Responsive filter section end -->
+<script>
+  var acc = document.getElementsByClassName("accordian2");
+  var i;
+
+  for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var panel = this.nextElementSibling;
+      if (panel.style.display === "block") {
+        panel.style.display = "none";
+      } else {
+        panel.style.display = "block";
+      }
+    });
+  }
+
+  var acc = document.getElementsByClassName("accordiannew");
+  var i;
+
+  for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var panel = this.nextElementSibling;
+      if (panel.style.display === "block") {
+        panel.style.display = "none";
+      } else {
+        panel.style.display = "block";
+      }
+    });
+  }
+</script>

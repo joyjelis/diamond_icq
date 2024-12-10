@@ -1,0 +1,12 @@
+<?php
+    $item = $block->getSellitem();
+?>
+<div class="status-details notqualify">
+    <p class="status-desc"> 
+        <?= $block->escapeHtml(__("Sorry your item(s) is not qualified for online quotations. Please see our help section for more details.")); ?>
+    </p>
+    <?php if ($item->getReason()): ?>
+    <div class="title"><?= $block->escapeHtml(__("Reason")); ?>:</div>
+    <div class="description"><?= $item->getReason(); ?></div>
+    <?php endif; ?>
+</div>

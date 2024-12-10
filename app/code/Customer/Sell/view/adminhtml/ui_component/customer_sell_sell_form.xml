@@ -1,0 +1,2443 @@
+<?xml version="1.0"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+	<argument name="data" xsi:type="array">
+		<item name="js_config" xsi:type="array">
+			<item name="provider" xsi:type="string">
+				customer_sell_sell_form.sell_form_data_source
+			</item>
+		</item>
+		<item name="label" translate="true" xsi:type="string">
+			General Information
+		</item>
+		<item name="template" xsi:type="string">
+			templates/form/collapsible
+		</item>
+	</argument>
+	<settings>
+		<buttons>
+			<button class="Customer\Sell\Block\Adminhtml\Sell\Edit\BackButton" name="back" />
+			<button class="Customer\Sell\Block\Adminhtml\Sell\Edit\DeleteButton" name="delete" />
+			<button class="Customer\Sell\Block\Adminhtml\Sell\Edit\SaveButton" name="save" />
+			<button class="Customer\Sell\Block\Adminhtml\Sell\Edit\SaveAndContinueButton" name="save_and_continue" />
+		</buttons>
+		<namespace>
+			customer_sell_sell_form
+		</namespace>
+		<dataScope>
+			data
+		</dataScope>
+		<deps>
+			<dep>
+				customer_sell_sell_form.sell_form_data_source
+			</dep>
+		</deps>
+	</settings>
+	<dataSource name="sell_form_data_source">
+		<argument name="data" xsi:type="array">
+			<item name="js_config" xsi:type="array">
+				<item name="component" xsi:type="string">
+					Magento_Ui/js/form/provider
+				</item>
+			</item>
+		</argument>
+		<settings>
+			<submitUrl path="*/*/save" />
+		</settings>
+		<dataProvider class="Customer\Sell\Model\Sell\DataProvider" name="sell_form_data_source">
+			<settings>
+				<requestFieldName>
+					sell_id
+				</requestFieldName>
+				<primaryFieldName>
+					sell_id
+				</primaryFieldName>
+			</settings>
+		</dataProvider>
+	</dataSource>
+	<fieldset name="general">
+		<argument name="data" xsi:type="array">
+			<item name="config" xsi:type="array">
+				<item name="collapsible" xsi:type="boolean">
+					true
+				</item>
+				<item name="opened" xsi:type="boolean">
+					true
+				</item>
+				<item name="label" xsi:type="string" translate="true">
+					General
+				</item>
+			</item>
+		</argument>
+		<field formElement="input" name="quote" sortOrder="10">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">
+						sell
+					</item>
+				</item>
+			</argument>
+			<settings>
+				<disabled>
+					1
+				</disabled>
+				<dataType>
+					text
+				</dataType>
+				<label translate="true">
+					Quote
+				</label>
+				<dataScope>
+					quote
+				</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">
+						false
+					</rule>
+				</validation>
+			</settings>
+		</field>
+		<field name="trade" component="Magento_Ui/js/form/element/single-checkbox-toggle-notice" formElement="checkbox">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="default" xsi:type="number">
+						0
+					</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>
+					boolean
+				</dataType>
+				<label translate="true">
+					Trade-in
+				</label>
+			</settings>
+			<formElements>
+				<checkbox>
+					<settings>
+						<valueMap>
+							<map name="false" xsi:type="number">
+								0
+							</map>
+							<map name="true" xsi:type="number">
+								1
+							</map>
+						</valueMap>
+						<prefer>
+							toggle
+						</prefer>
+					</settings>
+				</checkbox>
+			</formElements>
+		</field>
+		<field name="certificate" component="Magento_Ui/js/form/element/single-checkbox-toggle-notice" formElement="checkbox">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="default" xsi:type="number">
+						0
+					</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>
+					boolean
+				</dataType>
+				<label translate="true">
+					Certificate
+				</label>
+			</settings>
+			<formElements>
+				<checkbox>
+					<settings>
+						<valueMap>
+							<map name="false" xsi:type="number">
+								0
+							</map>
+							<map name="true" xsi:type="number">
+								1
+							</map>
+						</valueMap>
+						<prefer>
+							toggle
+						</prefer>
+					</settings>
+				</checkbox>
+			</formElements>
+		</field>
+		<field name="image">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="dataType" xsi:type="string">
+						string
+					</item>
+					<item name="source" xsi:type="string">
+						sell
+					</item>
+					<item name="label" xsi:type="string" translate="true">
+						Images
+					</item>
+					<item name="visible" xsi:type="boolean">
+						true
+					</item>
+					<item name="formElement" xsi:type="string">
+						fileUploader
+					</item>
+					<item name="component" xsi:type="string">
+						Customer_Sell/js/fileUploader
+					</item>
+					<item name="template" xsi:type="string">
+						Customer_Sell/uploader
+					</item>
+					<item name="previewTmpl" xsi:type="string">
+						Customer_Sell/preview
+					</item>
+					<item name="required" xsi:type="boolean">
+						false
+					</item>
+					<item name="isMultipleFiles" xsi:type="boolean">
+						true
+					</item>
+					<item name="uploaderConfig" xsi:type="array">
+						<item name="url" xsi:type="url" path="*/sell/upload" />
+					</item>
+					<item name="sortOrder" xsi:type="number">
+						40
+					</item>
+				</item>
+			</argument>
+		</field>
+		<field formElement="input" name="name" sortOrder="50">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">
+						sell
+					</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>
+					text
+				</dataType>
+				<label translate="true">
+					Name
+				</label>
+				<dataScope>
+					name
+				</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">
+						false
+					</rule>
+				</validation>
+			</settings>
+		</field>
+		<field formElement="input" name="email" sortOrder="60">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">
+						sell
+					</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>
+					text
+				</dataType>
+				<label translate="true">
+					Email
+				</label>
+				<dataScope>
+					email
+				</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">
+						false
+					</rule>
+				</validation>
+			</settings>
+		</field>
+		<field formElement="input" name="mobile" sortOrder="70">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">
+						sell
+					</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>
+					text
+				</dataType>
+				<label translate="true">
+					Mobile
+				</label>
+				<dataScope>
+					mobile
+				</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">
+						false
+					</rule>
+				</validation>
+			</settings>
+		</field>
+		<field formElement="select" name="jtype" sortOrder="71">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">
+						sell
+					</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>
+					text
+				</dataType>
+				<label translate="true">
+					Jewellery Type
+				</label>
+				<dataScope>
+					jewellery_type
+				</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">
+						false
+					</rule>
+				</validation>
+			</settings>
+			<formElements>
+				<select>
+					<settings>
+						<options>
+							<option name="0" xsi:type="array">
+								<item name="value" xsi:type="string">
+									Loose Diamond
+								</item>
+								<item name="label" xsi:type="string">
+									Loose Diamond
+								</item>
+							</option>
+							<option name="1" xsi:type="array">
+								<item name="value" xsi:type="string">
+									Diamond Ring
+								</item>
+								<item name="label" xsi:type="string">
+									Diamond Ring
+								</item>
+							</option>
+							<option name="2" xsi:type="array">
+								<item name="value" xsi:type="string">
+									Diamond Earring
+								</item>
+								<item name="label" xsi:type="string">
+									Diamond Earring
+								</item>
+							</option>
+							<option name="3" xsi:type="array">
+								<item name="value" xsi:type="string">
+									Diamond Pendant
+								</item>
+								<item name="label" xsi:type="string">
+									Diamond Pendant
+								</item>
+							</option>
+							<option name="4" xsi:type="array">
+								<item name="value" xsi:type="string">
+									Diamond Bracelet
+								</item>
+								<item name="label" xsi:type="string">
+									Diamond Bracelet
+								</item>
+							</option>
+							<option name="5" xsi:type="array">
+								<item name="value" xsi:type="string">
+									Diamond Bangle
+								</item>
+								<item name="label" xsi:type="string">
+									Diamond Bangle
+								</item>
+							</option>
+							<option name="6" xsi:type="array">
+								<item name="value" xsi:type="string">
+									Others
+								</item>
+								<item name="label" xsi:type="string">
+									Others
+								</item>
+							</option>
+						</options>
+					</settings>
+				</select>
+			</formElements>
+		</field>
+		<field formElement="textarea" name="description" sortOrder="71">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">
+						sell
+					</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>
+					text
+				</dataType>
+				<label translate="true">
+					Description
+				</label>
+				<dataScope>
+					description
+				</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">
+						false
+					</rule>
+				</validation>
+			</settings>
+		</field>
+		<field formElement="textarea" name="certificate_remark" sortOrder="72">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">
+						sell
+					</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>
+					text
+				</dataType>
+				<label translate="true">
+					Certificate Remark
+				</label>
+				<dataScope>
+					certificate_remark
+				</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">
+						false
+					</rule>
+				</validation>
+			</settings>
+		</field>
+		<field name="status" formElement="select">
+			<settings>
+				<dataType>
+					text
+				</dataType>
+				<label translate="true">
+					Status
+				</label>
+				<dataScope>
+					status
+				</dataScope>
+				<switcherConfig>
+					<rules>
+						<rule name="0">
+							<value>
+								2
+							</value>
+							<actions>
+								<action name="0">
+									<target>
+										customer_sell_sell_form.customer_sell_sell_form.general.price
+									</target>
+									<callback>
+										show
+									</callback>
+								</action>
+								<action name="1">
+									<target>
+										customer_sell_sell_form.customer_sell_sell_form.general.reason
+									</target>
+									<callback>
+										hide
+									</callback>
+								</action>
+							</actions>
+						</rule>
+						<rule name="1">
+							<value>
+								4
+							</value>
+							<actions>
+								<action name="0">
+									<target>
+										customer_sell_sell_form.customer_sell_sell_form.general.price
+									</target>
+									<callback>
+										show
+									</callback>
+								</action>
+								<action name="1">
+									<target>
+										customer_sell_sell_form.customer_sell_sell_form.general.offer_price
+									</target>
+									<callback>
+										show
+									</callback>
+								</action>
+								<action name="2">
+									<target>
+										customer_sell_sell_form.customer_sell_sell_form.general.reason
+									</target>
+									<callback>
+										hide
+									</callback>
+								</action>
+							</actions>
+						</rule>
+						<rule name="2">
+							<value>
+								5
+							</value>
+							<actions>
+								<action name="0">
+									<target>
+										customer_sell_sell_form.customer_sell_sell_form.general.price
+									</target>
+									<callback>
+										hide
+									</callback>
+								</action>
+								<action name="1">
+									<target>
+										customer_sell_sell_form.customer_sell_sell_form.general.offer_price
+									</target>
+									<callback>
+										hide
+									</callback>
+								</action>
+								<action name="2">
+									<target>
+										customer_sell_sell_form.customer_sell_sell_form.icqbackoffice.offerconsignemnt
+									</target>
+									<callback>
+										show
+									</callback>
+								</action>
+							</actions>
+						</rule>
+						<rule name="3">
+							<value>
+								11
+							</value>
+							<actions>
+								<action name="0">
+									<target>
+										customer_sell_sell_form.customer_sell_sell_form.icqbackoffice.price
+									</target>
+									<callback>
+										show
+									</callback>
+								</action>
+							</actions>
+						</rule>
+						<rule name="4">
+							<value>
+								3
+							</value>
+							<actions>
+								<action name="0">
+									<target>
+										customer_sell_sell_form.customer_sell_sell_form.general.reason
+									</target>
+									<callback>
+										show
+									</callback>
+								</action>
+								<action name="1">
+									<target>
+										customer_sell_sell_form.customer_sell_sell_form.general.price
+									</target>
+									<callback>
+										hide
+									</callback>
+								</action>
+								<action name="2">
+									<target>
+										customer_sell_sell_form.customer_sell_sell_form.general.offer_price
+									</target>
+									<callback>
+										hide
+									</callback>
+								</action>
+							</actions>
+						</rule>
+						<rule name="5">
+							<value>
+								1
+							</value>
+							<actions>
+								<action name="0">
+									<target>
+										customer_sell_sell_form.customer_sell_sell_form.general.reason
+									</target>
+									<callback>
+										hide
+									</callback>
+								</action>
+								<action name="1">
+									<target>
+										customer_sell_sell_form.customer_sell_sell_form.general.price
+									</target>
+									<callback>
+										hide
+									</callback>
+								</action>
+								<action name="2">
+									<target>
+										customer_sell_sell_form.customer_sell_sell_form.general.offer_price
+									</target>
+									<callback>
+										hide
+									</callback>
+								</action>
+							</actions>
+						</rule>
+						<rule name="6">
+							<value>
+								6
+							</value>
+							<actions>
+								<action name="0">
+									<target>
+										customer_sell_sell_form.customer_sell_sell_form.general.price
+									</target>
+									<callback>
+										show
+									</callback>
+								</action>
+								<action name="1">
+									<target>
+										customer_sell_sell_form.customer_sell_sell_form.general.offer_price
+									</target>
+									<callback>
+										show
+									</callback>
+								</action>
+							</actions>
+						</rule>
+						<rule name="7">
+							<value>
+								20
+							</value>
+							<actions>
+								<action name="0">
+									<target>
+										customer_sell_sell_form.customer_sell_sell_form.general.pick_date
+									</target>
+									<callback>
+										hide
+									</callback>
+								</action>
+							</actions>
+						</rule>
+						<rule name="8">
+							<value>
+								22
+							</value>
+							<actions>
+								<action name="0">
+									<target>
+										customer_sell_sell_form.customer_sell_sell_form.general.pick_date
+									</target>
+									<callback>
+										show
+									</callback>
+								</action>
+							</actions>
+						</rule>
+						<rule name="9">
+							<value>
+								13
+							</value>
+							<actions>
+								<action name="0">
+									<target>
+										customer_sell_sell_form.customer_sell_sell_form.general.price
+									</target>
+									<callback>
+										show
+									</callback>
+								</action>
+								<action name="1">
+									<target>
+										customer_sell_sell_form.customer_sell_sell_form.general.offer_price
+									</target>
+									<callback>
+										show
+									</callback>
+								</action>
+							</actions>
+						</rule>
+						<rule name="10">
+							<value>
+								19
+							</value>
+							<actions>
+								<action name="0">
+									<target>
+										customer_sell_sell_form.customer_sell_sell_form.general.price
+									</target>
+									<callback>
+										show
+									</callback>
+								</action>
+								<action name="1">
+									<target>
+										customer_sell_sell_form.customer_sell_sell_form.general.offer_price
+									</target>
+									<callback>
+										show
+									</callback>
+								</action>
+							</actions>
+						</rule>
+						<rule name="11">
+							<value>
+								20
+							</value>
+							<actions>
+								<action name="0">
+									<target>
+										customer_sell_sell_form.customer_sell_sell_form.general.price
+									</target>
+									<callback>
+										show
+									</callback>
+								</action>
+								<action name="1">
+									<target>
+										customer_sell_sell_form.customer_sell_sell_form.general.offer_price
+									</target>
+									<callback>
+										show
+									</callback>
+								</action>
+							</actions>
+						</rule>
+						<rule name="12">
+							<value>
+								21
+							</value>
+							<actions>
+								<action name="0">
+									<target>
+										customer_sell_sell_form.customer_sell_sell_form.general.price
+									</target>
+									<callback>
+										show
+									</callback>
+								</action>
+								<action name="1">
+									<target>
+										customer_sell_sell_form.customer_sell_sell_form.general.offer_price
+									</target>
+									<callback>
+										show
+									</callback>
+								</action>
+							</actions>
+						</rule>
+						<rule name="13">
+							<value>
+								22
+							</value>
+							<actions>
+								<action name="0">
+									<target>
+										customer_sell_sell_form.customer_sell_sell_form.general.price
+									</target>
+									<callback>
+										show
+									</callback>
+								</action>
+								<action name="1">
+									<target>
+										customer_sell_sell_form.customer_sell_sell_form.general.offer_price
+									</target>
+									<callback>
+										show
+									</callback>
+								</action>
+							</actions>
+						</rule>
+					</rules>
+					<enabled>
+						true
+					</enabled>
+				</switcherConfig>
+			</settings>
+			<formElements>
+				<select>
+					<settings>
+						<options class="Customer\Sell\Ui\Component\Listing\Filter\Status" />
+						<caption translate="true">
+							-- Please Select --
+						</caption>
+					</settings>
+				</select>
+			</formElements>
+		</field>
+		<field formElement="date" name="pick_date" sortOrder="160">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">
+						sell
+					</item>
+					<item name="visible" xsi:type="boolean">
+						false
+					</item>
+					<item name="options" xsi:type="array">
+						<item name="dateFormat" xsi:type="string">
+							dd/MM/yyyy HH:mm
+						</item>
+						<item name="showsTime" xsi:type="boolean">
+							true
+						</item>
+					</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>
+					text
+				</dataType>
+				<label translate="true">
+					Pick Date
+				</label>
+				<dataScope>
+					pick_date
+				</dataScope>
+			</settings>
+		</field>
+		<field formElement="input" name="price" sortOrder="78">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">
+						sell
+					</item>
+					<item name="visible" xsi:type="boolean">
+						false
+					</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>
+					text
+				</dataType>
+				<label translate="true">
+					Price(HKD)
+				</label>
+				<dataScope>
+					price
+				</dataScope>
+				<tooltip>
+					<description translate="true">
+						You can set the range value like: 70000 to 75000
+					</description>
+				</tooltip>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">
+						false
+					</rule>
+				</validation>
+			</settings>
+		</field>
+		<field formElement="input" name="offer_price" sortOrder="79">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">
+						sell
+					</item>
+					<item name="visible" xsi:type="boolean">
+						false
+					</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>
+					text
+				</dataType>
+				<label translate="true">
+					New Offer Price
+				</label>
+				<dataScope>
+					offer_price
+				</dataScope>
+				<tooltip>
+					<description translate="true">
+						You can set the range value like: 70000 to 75000
+					</description>
+				</tooltip>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">
+						false
+					</rule>
+				</validation>
+			</settings>
+		</field>
+		<field formElement="textarea" name="reason" sortOrder="80">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">
+						sell
+					</item>
+					<item name="visible" xsi:type="boolean">
+						false
+					</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>
+					text
+				</dataType>
+				<label translate="true">
+					Reason For Not Qualify
+				</label>
+				<dataScope>
+					reason
+				</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">
+						false
+					</rule>
+				</validation>
+			</settings>
+		</field>
+		<field formElement="textarea" name="remarks" sortOrder="81">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">
+						sell
+					</item>
+					<item name="placeholder" xsi:type="string" translate="true">
+						Caution: Data entered in this field will be displayed to the user in the front end inside Product History page.
+					</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>
+					text
+				</dataType>
+				<label translate="true">
+					Remarks
+				</label>
+				<dataScope>
+					remarks
+				</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">
+						false
+					</rule>
+				</validation>
+			</settings>
+		</field>
+		<field formElement="textarea" name="internal" sortOrder="81">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">
+						sell
+					</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>
+					text
+				</dataType>
+				<label translate="true">
+					Internal Message
+				</label>
+				<dataScope>
+					internal
+				</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">
+						false
+					</rule>
+				</validation>
+			</settings>
+		</field>
+	</fieldset>
+	<fieldset name="history_content">
+		<argument name="data" xsi:type="array">
+			<item name="config" xsi:type="array">
+				<item name="collapsible" xsi:type="boolean">
+					true
+				</item>
+				<item name="label" xsi:type="string" translate="true">
+					History
+				</item>
+			</item>
+		</argument>
+		<htmlContent name="html_content">
+			<argument name="block" xsi:type="object">
+				Customer\Sell\Block\Adminhtml\Quote\History
+			</argument>
+		</htmlContent>
+	</fieldset>
+	<fieldset name="icqbackofficediamond">
+		<argument name="data" xsi:type="array">
+			<item name="config" xsi:type="array">
+				<item name="collapsible" xsi:type="boolean">
+					true
+				</item>
+				<item name="label" xsi:type="string" translate="true">
+					ICQ Diamond Info
+				</item>
+			</item>
+		</argument>
+		<field formElement="input" name="color" sortOrder="120">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">
+						sell
+					</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>
+					text
+				</dataType>
+				<label translate="true">
+					Color
+				</label>
+				<dataScope>
+					color
+				</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">
+						false
+					</rule>
+				</validation>
+			</settings>
+		</field>
+		<field formElement="input" name="clarity" sortOrder="130">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">
+						sell
+					</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>
+					text
+				</dataType>
+				<label translate="true">
+					Clarity
+				</label>
+				<dataScope>
+					clarity
+				</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">
+						false
+					</rule>
+				</validation>
+			</settings>
+		</field>
+		<field formElement="input" name="carat" sortOrder="140">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">
+						sell
+					</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>
+					text
+				</dataType>
+				<label translate="true">
+					Carat
+				</label>
+				<dataScope>
+					carat
+				</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">
+						false
+					</rule>
+				</validation>
+			</settings>
+		</field>
+		<field formElement="input" name="cut" sortOrder="150">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">
+						sell
+					</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>
+					text
+				</dataType>
+				<label translate="true">
+					Cut
+				</label>
+				<dataScope>
+					cut
+				</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">
+						false
+					</rule>
+				</validation>
+			</settings>
+		</field>
+		<field formElement="input" name="polish" sortOrder="160">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">
+						sell
+					</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>
+					text
+				</dataType>
+				<label translate="true">
+					Polish
+				</label>
+				<dataScope>
+					polish
+				</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">
+						false
+					</rule>
+				</validation>
+			</settings>
+		</field>
+		<field formElement="input" name="symmetry" sortOrder="170">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">
+						sell
+					</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>
+					text
+				</dataType>
+				<label translate="true">
+					Symmetry
+				</label>
+				<dataScope>
+					symmetry
+				</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">
+						false
+					</rule>
+				</validation>
+			</settings>
+		</field>
+		<field formElement="input" name="fluorescence" sortOrder="180">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">
+						sell
+					</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>
+					text
+				</dataType>
+				<label translate="true">
+					Fluorescence
+				</label>
+				<dataScope>
+					fluorescence
+				</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">
+						false
+					</rule>
+				</validation>
+			</settings>
+		</field>
+		<field formElement="input" name="lab" sortOrder="190">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">
+						sell
+					</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>
+					text
+				</dataType>
+				<label translate="true">
+					Lab
+				</label>
+				<dataScope>
+					lab
+				</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">
+						false
+					</rule>
+				</validation>
+			</settings>
+		</field>
+	</fieldset>
+	<fieldset name="icqbackoffice">
+		<argument name="data" xsi:type="array">
+			<item name="config" xsi:type="array">
+				<item name="collapsible" xsi:type="boolean">
+					true
+				</item>
+				<item name="label" xsi:type="string" translate="true">
+					ICQ Backoffice
+				</item>
+			</item>
+		</argument>
+		<field name="is_certify" formElement="select">
+			<settings>
+				<dataType>
+					number
+				</dataType>
+				<label translate="true">
+					GIA / IGI Certify
+				</label>
+				<dataScope>
+					is_certify
+				</dataScope>
+				<switcherConfig>
+					<rules>
+						<rule name="0">
+							<value>
+								0
+							</value>
+							<actions>
+								<action name="0">
+									<target>
+										customer_sell_sell_form.customer_sell_sell_form.icqbackoffice.certificate_no
+									</target>
+									<callback>
+										hide
+									</callback>
+								</action>
+							</actions>
+						</rule>
+						<rule name="1">
+							<value>
+								1
+							</value>
+							<actions>
+								<action name="0">
+									<target>
+										customer_sell_sell_form.customer_sell_sell_form.icqbackoffice.certificate_no
+									</target>
+									<callback>
+										show
+									</callback>
+								</action>
+							</actions>
+						</rule>
+					</rules>
+					<enabled>
+						true
+					</enabled>
+				</switcherConfig>
+			</settings>
+			<formElements>
+				<select>
+					<settings>
+						<options>
+							<option name="0" xsi:type="array">
+								<item name="value" xsi:type="string">
+									0
+								</item>
+								<item name="label" xsi:type="string">
+									No
+								</item>
+							</option>
+							<option name="1" xsi:type="array">
+								<item name="value" xsi:type="string">
+									1
+								</item>
+								<item name="label" xsi:type="string">
+									Yes
+								</item>
+							</option>
+						</options>
+						<caption translate="true">
+							-- Please Select --
+						</caption>
+					</settings>
+				</select>
+			</formElements>
+		</field>
+		<field formElement="input" name="certificate_no" sortOrder="220">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">
+						sell
+					</item>
+					<item name="visible" xsi:type="boolean">
+						false
+					</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>
+					text
+				</dataType>
+				<label translate="true">
+					Certificate No
+				</label>
+				<dataScope>
+					certificate_no
+				</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">
+						false
+					</rule>
+				</validation>
+			</settings>
+		</field>
+	</fieldset>
+	<fieldset name="icqcustomerresponce">
+		<argument name="data" xsi:type="array">
+			<item name="config" xsi:type="array">
+				<item name="collapsible" xsi:type="boolean">
+					true
+				</item>
+				<item name="label" xsi:type="string" translate="true">
+					Customer Response
+				</item>
+			</item>
+		</argument>
+		<field name="trade_type" formElement="select">
+			<settings>
+				<dataType>
+					text
+				</dataType>
+				<label translate="true">
+					Trade Type
+				</label>
+				<dataScope>
+					trade_type
+				</dataScope>
+				<switcherConfig>
+					<rules>
+						<rule name="0">
+							<value>
+								1
+							</value>
+							<actions>
+								<action name="0">
+									<target>
+										customer_sell_sell_form.customer_sell_sell_form.icqcustomerresponce.bank_name
+									</target>
+									<callback>
+										show
+									</callback>
+								</action>
+								<action name="1">
+									<target>
+										customer_sell_sell_form.customer_sell_sell_form.icqcustomerresponce.account_name
+									</target>
+									<callback>
+										show
+									</callback>
+								</action>
+								<action name="2">
+									<target>
+										customer_sell_sell_form.customer_sell_sell_form.icqcustomerresponce.account_no
+									</target>
+									<callback>
+										show
+									</callback>
+								</action>
+								<action name="3">
+									<target>
+										customer_sell_sell_form.customer_sell_sell_form.icqcustomerresponce.country
+									</target>
+									<callback>
+										show
+									</callback>
+								</action>
+								<action name="4">
+									<target>
+										customer_sell_sell_form.customer_sell_sell_form.icqcustomerresponce.swift_code
+									</target>
+									<callback>
+										show
+									</callback>
+								</action>
+								<action name="5">
+									<target>
+										customer_sell_sell_form.customer_sell_sell_form.icqcustomerresponce.schedule_date
+									</target>
+									<callback>
+										hide
+									</callback>
+								</action>
+								<action name="6">
+									<target>
+										customer_sell_sell_form.customer_sell_sell_form.icqcustomerresponce.schedule_accept
+									</target>
+									<callback>
+										hide
+									</callback>
+								</action>
+								<action name="7">
+									<target>
+										customer_sell_sell_form.customer_sell_sell_form.icqshippingdetails.ship_by
+									</target>
+									<callback>
+										show
+									</callback>
+								</action>
+								<action name="8">
+									<target>
+										customer_sell_sell_form.customer_sell_sell_form.icqshippingdetails.tracking
+									</target>
+									<callback>
+										show
+									</callback>
+								</action>
+								<action name="9">
+									<target>
+										customer_sell_sell_form.customer_sell_sell_form.icqcustomerresponce.pickup_country
+									</target>
+									<callback>
+										show
+									</callback>
+								</action>
+								<action name="10">
+									<target>
+										customer_sell_sell_form.customer_sell_sell_form.icqcustomerresponce.street
+									</target>
+									<callback>
+										show
+									</callback>
+								</action>
+								<action name="11">
+									<target>
+										customer_sell_sell_form.customer_sell_sell_form.icqcustomerresponce.postcode
+									</target>
+									<callback>
+										show
+									</callback>
+								</action>
+								<action name="12">
+									<target>
+										customer_sell_sell_form.customer_sell_sell_form.icqcustomerresponce.landmark
+									</target>
+									<callback>
+										show
+									</callback>
+								</action>
+								<action name="13">
+									<target>
+										customer_sell_sell_form.customer_sell_sell_form.icqcustomerresponce.city
+									</target>
+									<callback>
+										show
+									</callback>
+								</action>
+							</actions>
+						</rule>
+						<rule name="1">
+							<value>
+								2
+							</value>
+							<actions>
+								<action name="0">
+									<target>
+										customer_sell_sell_form.customer_sell_sell_form.icqcustomerresponce.bank_name
+									</target>
+									<callback>
+										hide
+									</callback>
+								</action>
+								<action name="1">
+									<target>
+										customer_sell_sell_form.customer_sell_sell_form.icqcustomerresponce.account_name
+									</target>
+									<callback>
+										hide
+									</callback>
+								</action>
+								<action name="2">
+									<target>
+										customer_sell_sell_form.customer_sell_sell_form.icqcustomerresponce.account_no
+									</target>
+									<callback>
+										hide
+									</callback>
+								</action>
+								<action name="3">
+									<target>
+										customer_sell_sell_form.customer_sell_sell_form.icqcustomerresponce.country
+									</target>
+									<callback>
+										hide
+									</callback>
+								</action>
+								<action name="4">
+									<target>
+										customer_sell_sell_form.customer_sell_sell_form.icqcustomerresponce.swift_code
+									</target>
+									<callback>
+										hide
+									</callback>
+								</action>
+								<action name="5">
+									<target>
+										customer_sell_sell_form.customer_sell_sell_form.icqcustomerresponce.schedule_date
+									</target>
+									<callback>
+										show
+									</callback>
+								</action>
+								<action name="6">
+									<target>
+										customer_sell_sell_form.customer_sell_sell_form.icqcustomerresponce.schedule_accept
+									</target>
+									<callback>
+										show
+									</callback>
+								</action>
+								<action name="7">
+									<target>
+										customer_sell_sell_form.customer_sell_sell_form.icqshippingdetails.ship_by
+									</target>
+									<callback>
+										hide
+									</callback>
+								</action>
+								<action name="8">
+									<target>
+										customer_sell_sell_form.customer_sell_sell_form.icqshippingdetails.tracking
+									</target>
+									<callback>
+										hide
+									</callback>
+								</action>
+								<action name="9">
+									<target>
+										customer_sell_sell_form.customer_sell_sell_form.icqcustomerresponce.pickup_country
+									</target>
+									<callback>
+										hide
+									</callback>
+								</action>
+								<action name="10">
+									<target>
+										customer_sell_sell_form.customer_sell_sell_form.icqcustomerresponce.street
+									</target>
+									<callback>
+										hide
+									</callback>
+								</action>
+								<action name="11">
+									<target>
+										customer_sell_sell_form.customer_sell_sell_form.icqcustomerresponce.postcode
+									</target>
+									<callback>
+										hide
+									</callback>
+								</action>
+								<action name="12">
+									<target>
+										customer_sell_sell_form.customer_sell_sell_form.icqcustomerresponce.landmark
+									</target>
+									<callback>
+										hide
+									</callback>
+								</action>
+								<action name="13">
+									<target>
+										customer_sell_sell_form.customer_sell_sell_form.icqcustomerresponce.city
+									</target>
+									<callback>
+										hide
+									</callback>
+								</action>
+							</actions>
+						</rule>
+					</rules>
+					<enabled>
+						true
+					</enabled>
+				</switcherConfig>
+			</settings>
+			<formElements>
+				<select>
+					<settings>
+						<options>
+							<option name="1" xsi:type="array">
+								<item name="value" xsi:type="string">
+									1
+								</item>
+								<item name="label" xsi:type="string">
+									Online
+								</item>
+							</option>
+							<option name="2" xsi:type="array">
+								<item name="value" xsi:type="string">
+									2
+								</item>
+								<item name="label" xsi:type="string">
+									In Person
+								</item>
+							</option>
+						</options>
+						<caption translate="true">
+							-- Please Select --
+						</caption>
+					</settings>
+				</select>
+			</formElements>
+		</field>
+		<field formElement="input" name="bank_name" sortOrder="110">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">
+						sell
+					</item>
+					<item name="visible" xsi:type="boolean">
+						false
+					</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>
+					text
+				</dataType>
+				<label translate="true">
+					Bank Name
+				</label>
+				<dataScope>
+					bank_name
+				</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">
+						false
+					</rule>
+				</validation>
+			</settings>
+		</field>
+		<field formElement="input" name="account_name" sortOrder="120">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">
+						sell
+					</item>
+					<item name="visible" xsi:type="boolean">
+						false
+					</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>
+					text
+				</dataType>
+				<label translate="true">
+					Account Name
+				</label>
+				<dataScope>
+					account_name
+				</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">
+						false
+					</rule>
+				</validation>
+			</settings>
+		</field>
+		<field formElement="input" name="account_no" sortOrder="130">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">
+						sell
+					</item>
+					<item name="visible" xsi:type="boolean">
+						false
+					</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>
+					text
+				</dataType>
+				<label translate="true">
+					Account No
+				</label>
+				<dataScope>
+					account_no
+				</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">
+						false
+					</rule>
+				</validation>
+			</settings>
+		</field>
+		<field formElement="select" name="country" sortOrder="140">
+			<argument name="data" xsi:type="array">
+				<item name="options" xsi:type="object">
+					Magento\Directory\Model\Config\Source\Country
+				</item>
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">
+						sell
+					</item>
+					<item name="visible" xsi:type="boolean">
+						false
+					</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>
+					text
+				</dataType>
+				<label translate="true">
+					Bank Country
+				</label>
+				<dataScope>
+					country
+				</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">
+						false
+					</rule>
+				</validation>
+			</settings>
+		</field>
+		<field formElement="input" name="swift_code" sortOrder="150">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">
+						sell
+					</item>
+					<item name="visible" xsi:type="boolean">
+						false
+					</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>
+					text
+				</dataType>
+				<label translate="true">
+					Swift Code
+				</label>
+				<dataScope>
+					swift_code
+				</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">
+						false
+					</rule>
+				</validation>
+			</settings>
+		</field>
+		<field formElement="input" name="street" sortOrder="150">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">
+						sell
+					</item>
+					<item name="visible" xsi:type="boolean">
+						false
+					</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>
+					text
+				</dataType>
+				<label translate="true">
+					Address Line 1
+				</label>
+				<dataScope>
+					street
+				</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">
+						false
+					</rule>
+				</validation>
+			</settings>
+		</field>
+		<field formElement="input" name="city" sortOrder="150">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">
+						sell
+					</item>
+					<item name="visible" xsi:type="boolean">
+						false
+					</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>
+					text
+				</dataType>
+				<label translate="true">
+					City
+				</label>
+				<dataScope>
+					city
+				</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">
+						false
+					</rule>
+				</validation>
+			</settings>
+		</field>
+		<field formElement="input" name="landmark" sortOrder="150">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">
+						sell
+					</item>
+					<item name="visible" xsi:type="boolean">
+						false
+					</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>
+					text
+				</dataType>
+				<label translate="true">
+					Landmark
+				</label>
+				<dataScope>
+					landmark
+				</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">
+						false
+					</rule>
+				</validation>
+			</settings>
+		</field>
+		<field formElement="input" name="postcode" sortOrder="150">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">
+						sell
+					</item>
+					<item name="visible" xsi:type="boolean">
+						false
+					</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>
+					text
+				</dataType>
+				<label translate="true">
+					Post Code
+				</label>
+				<dataScope>
+					postcode
+				</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">
+						false
+					</rule>
+				</validation>
+			</settings>
+		</field>
+		<field formElement="select" name="pickup_country" sortOrder="140">
+			<argument name="data" xsi:type="array">
+				<item name="options" xsi:type="object">
+					Magento\Directory\Model\Config\Source\Country
+				</item>
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">
+						sell
+					</item>
+					<item name="visible" xsi:type="boolean">
+						false
+					</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>
+					text
+				</dataType>
+				<label translate="true">
+					Sender Country
+				</label>
+				<dataScope>
+					pickup_country
+				</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">
+						false
+					</rule>
+				</validation>
+			</settings>
+		</field>
+		<field formElement="date" name="schedule_date" sortOrder="160">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">
+						sell
+					</item>
+					<item name="visible" xsi:type="boolean">
+						false
+					</item>
+					<item name="options" xsi:type="array">
+						<item name="dateFormat" xsi:type="string">
+							dd/MM/yyyy HH:mm
+						</item>
+						<item name="showsTime" xsi:type="boolean">
+							true
+						</item>
+					</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>
+					text
+				</dataType>
+				<label translate="true">
+					Schedule Date
+				</label>
+				<dataScope>
+					schedule_date
+				</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">
+						false
+					</rule>
+				</validation>
+			</settings>
+		</field>
+		<field name="schedule_accept" formElement="select">
+			<settings>
+				<dataType>
+					text
+				</dataType>
+				<label translate="true">
+					Schedule Time Accept
+				</label>
+				<dataScope>
+					schedule_accept
+				</dataScope>
+				<visible>
+					false
+				</visible>
+			</settings>
+			<formElements>
+				<select>
+					<settings>
+						<options>
+							<option name="1" xsi:type="array">
+								<item name="value" xsi:type="string">
+									1
+								</item>
+								<item name="label" xsi:type="string">
+									Yes
+								</item>
+							</option>
+							<option name="2" xsi:type="array">
+								<item name="value" xsi:type="string">
+									2
+								</item>
+								<item name="label" xsi:type="string">
+									No
+								</item>
+							</option>
+						</options>
+						<caption translate="true">
+							-- Please Select --
+						</caption>
+					</settings>
+				</select>
+			</formElements>
+		</field>
+	</fieldset>
+	<fieldset name="icqshippingdetails">
+		<argument name="data" xsi:type="array">
+			<item name="config" xsi:type="array">
+				<item name="collapsible" xsi:type="boolean">
+					true
+				</item>
+				<item name="label" xsi:type="string" translate="true">
+					Shipping Details
+				</item>
+			</item>
+		</argument>
+		<htmlContent name="html_content">
+			<argument name="block" xsi:type="object">
+				Customer\Sell\Block\Adminhtml\Sell\Address
+			</argument>
+		</htmlContent>
+		<field formElement="input" name="ship_by" sortOrder="100">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">
+						sell
+					</item>
+					<item name="visible" xsi:type="boolean">
+						false
+					</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>
+					text
+				</dataType>
+				<label translate="true">
+					Ship By
+				</label>
+				<dataScope>
+					ship_by
+				</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">
+						false
+					</rule>
+				</validation>
+			</settings>
+		</field>
+		<field formElement="input" name="tracking" sortOrder="120">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">
+						sell
+					</item>
+					<item name="visible" xsi:type="boolean">
+						false
+					</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>
+					text
+				</dataType>
+				<label translate="true">
+					Tracking ID
+				</label>
+				<dataScope>
+					tracking
+				</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">
+						false
+					</rule>
+				</validation>
+			</settings>
+		</field>
+		<field name="item_arrived" formElement="select">
+			<settings>
+				<dataType>
+					text
+				</dataType>
+				<label translate="true">
+					Item Arrived
+				</label>
+				<dataScope>
+					item_arrived
+				</dataScope>
+				<switcherConfig>
+					<rules>
+						<rule name="0">
+							<value>
+								1
+							</value>
+							<actions>
+								<action name="0">
+									<target>
+										customer_sell_sell_form.customer_sell_sell_form.icqshippingdetails.item_inspected
+									</target>
+									<callback>
+										show
+									</callback>
+								</action>
+								<action name="1">
+									<target>
+										customer_sell_sell_form.customer_sell_sell_form.icqshippingdetails.process_by
+									</target>
+									<callback>
+										show
+									</callback>
+								</action>
+								<action name="2">
+									<target>
+										customer_sell_sell_form.customer_sell_sell_form.icqshippingdetails.inspection_pass
+									</target>
+									<callback>
+										show
+									</callback>
+								</action>
+							</actions>
+						</rule>
+						<rule name="1">
+							<value>
+								2
+							</value>
+							<actions>
+								<action name="0">
+									<target>
+										customer_sell_sell_form.customer_sell_sell_form.icqshippingdetails.item_inspected
+									</target>
+									<callback>
+										hide
+									</callback>
+								</action>
+								<action name="1">
+									<target>
+										customer_sell_sell_form.customer_sell_sell_form.icqshippingdetails.process_by
+									</target>
+									<callback>
+										hide
+									</callback>
+								</action>
+								<action name="2">
+									<target>
+										customer_sell_sell_form.customer_sell_sell_form.icqshippingdetails.inspection_pass
+									</target>
+									<callback>
+										hide
+									</callback>
+								</action>
+								<action name="3">
+									<target>
+										customer_sell_sell_form.customer_sell_sell_form.icqshippingdetails.pay_shipping
+									</target>
+									<callback>
+										hide
+									</callback>
+								</action>
+								<action name="4">
+									<target>
+										customer_sell_sell_form.customer_sell_sell_form.icqshippingdetails.transaction
+									</target>
+									<callback>
+										hide
+									</callback>
+								</action>
+							</actions>
+						</rule>
+						<rule name="2">
+							<value>
+								0
+							</value>
+							<actions>
+								<action name="0">
+									<target>
+										customer_sell_sell_form.customer_sell_sell_form.icqshippingdetails.pay_shipping
+									</target>
+									<callback>
+										hide
+									</callback>
+								</action>
+								<action name="1">
+									<target>
+										customer_sell_sell_form.customer_sell_sell_form.icqshippingdetails.transaction
+									</target>
+									<callback>
+										hide
+									</callback>
+								</action>
+							</actions>
+						</rule>
+					</rules>
+					<enabled>
+						true
+					</enabled>
+				</switcherConfig>
+			</settings>
+			<formElements>
+				<select>
+					<settings>
+						<options>
+							<option name="1" xsi:type="array">
+								<item name="value" xsi:type="string">
+									1
+								</item>
+								<item name="label" xsi:type="string">
+									Yes
+								</item>
+							</option>
+							<option name="2" xsi:type="array">
+								<item name="value" xsi:type="string">
+									2
+								</item>
+								<item name="label" xsi:type="string">
+									No
+								</item>
+							</option>
+						</options>
+						<caption translate="true">
+							-- Please Select --
+						</caption>
+					</settings>
+				</select>
+			</formElements>
+		</field>
+		<field formElement="input" name="item_inspected" sortOrder="170">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">
+						sell
+					</item>
+					<item name="visible" xsi:type="boolean">
+						false
+					</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>
+					text
+				</dataType>
+				<label translate="true">
+					Item Inspected
+				</label>
+				<dataScope>
+					item_inspected
+				</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">
+						false
+					</rule>
+				</validation>
+			</settings>
+		</field>
+		<field formElement="input" name="process_by" sortOrder="170">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">
+						sell
+					</item>
+					<item name="visible" xsi:type="boolean">
+						false
+					</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>
+					text
+				</dataType>
+				<label translate="true">
+					Process By
+				</label>
+				<dataScope>
+					process_by
+				</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">
+						false
+					</rule>
+				</validation>
+			</settings>
+		</field>
+		<field name="inspection_pass" formElement="select">
+			<settings>
+				<dataType>
+					text
+				</dataType>
+				<label translate="true">
+					Inspection Pass
+				</label>
+				<dataScope>
+					inspection_pass
+				</dataScope>
+				<visible>
+					false
+				</visible>
+				<switcherConfig>
+					<rules>
+						<rule name="0">
+							<value>
+								2
+							</value>
+							<actions>
+								<action name="0">
+									<target>
+										customer_sell_sell_form.customer_sell_sell_form.icqshippingdetails.pay_shipping
+									</target>
+									<callback>
+										show
+									</callback>
+								</action>
+								<action name="1">
+									<target>
+										customer_sell_sell_form.customer_sell_sell_form.icqshippingdetails.transaction
+									</target>
+									<callback>
+										show
+									</callback>
+								</action>
+								<action name="2">
+									<target>
+										customer_sell_sell_form.customer_sell_sell_form.icqshippingdetails.transaction_customer
+									</target>
+									<callback>
+										hide
+									</callback>
+								</action>
+							</actions>
+						</rule>
+						<rule name="1">
+							<value>
+								1
+							</value>
+							<actions>
+								<action name="0">
+									<target>
+										customer_sell_sell_form.customer_sell_sell_form.icqshippingdetails.pay_shipping
+									</target>
+									<callback>
+										hide
+									</callback>
+								</action>
+								<action name="1">
+									<target>
+										customer_sell_sell_form.customer_sell_sell_form.icqshippingdetails.transaction
+									</target>
+									<callback>
+										hide
+									</callback>
+								</action>
+								<action name="2">
+									<target>
+										customer_sell_sell_form.customer_sell_sell_form.icqshippingdetails.transaction_customer
+									</target>
+									<callback>
+										show
+									</callback>
+								</action>
+							</actions>
+						</rule>
+					</rules>
+					<enabled>
+						true
+					</enabled>
+				</switcherConfig>
+			</settings>
+			<formElements>
+				<select>
+					<settings>
+						<options>
+							<option name="1" xsi:type="array">
+								<item name="value" xsi:type="string">
+									1
+								</item>
+								<item name="label" xsi:type="string">
+									Yes
+								</item>
+							</option>
+							<option name="0" xsi:type="array">
+								<item name="value" xsi:type="string">
+									2
+								</item>
+								<item name="label" xsi:type="string">
+									No
+								</item>
+							</option>
+						</options>
+						<caption translate="true">
+							-- Please Select --
+						</caption>
+					</settings>
+				</select>
+			</formElements>
+		</field>
+		<field formElement="input" name="pay_shipping" sortOrder="180">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">
+						sell
+					</item>
+					<item name="visible" xsi:type="boolean">
+						false
+					</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>
+					text
+				</dataType>
+				<label translate="true">
+					Pay Shipping Charge
+				</label>
+				<dataScope>
+					pay_shipping
+				</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">
+						false
+					</rule>
+				</validation>
+			</settings>
+		</field>
+		<field formElement="input" name="transaction" sortOrder="180">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">
+						sell
+					</item>
+					<item name="visible" xsi:type="boolean">
+						false
+					</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>
+					text
+				</dataType>
+				<label translate="true">
+					Customer Provided Transaction No
+				</label>
+				<dataScope>
+					transaction
+				</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">
+						false
+					</rule>
+				</validation>
+			</settings>
+		</field>
+		<field formElement="input" name="transaction_customer" sortOrder="190">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">
+						sell
+					</item>
+					<item name="visible" xsi:type="boolean">
+						false
+					</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>
+					text
+				</dataType>
+				<label translate="true">
+					Transaction No For Customer Payment
+				</label>
+				<dataScope>
+					transaction_customer
+				</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">
+						false
+					</rule>
+				</validation>
+			</settings>
+		</field>
+	</fieldset>
+</form>

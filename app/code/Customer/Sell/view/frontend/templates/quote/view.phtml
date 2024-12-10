@@ -1,0 +1,138 @@
+<?php
+use Customer\Sell\Model\Sell;
+
+$class = Customer\Sell\Block\Quote\View::class; ?>
+<?= $this->getLayout()->createBlock($class)
+->setTemplate("Customer_Sell::quote/status/main.phtml")->toHtml();?>
+<form class="form sell" action="<?= $block->escapeUrl($block->getFormAction()) ?>" id="sell-form" method="post" data-hasrequired="<?= $block->escapeHtml(__('* Required Fields')) ?>" data-mage-init='{"validation":{}}'>
+    <input type="hidden" value="<?= $block->getSellId(); ?>" name="id" />
+    <?= $block->getBlockHtml('formkey') ?>
+    <?php
+    switch ($block->getStatusId()) {
+        case Sell::PENDING_STATUS:
+            echo $this->getLayout()
+            ->createBlock($class)
+            ->setTemplate("Customer_Sell::quote/status/pending.phtml")->toHtml();
+            break;
+
+        case Sell::CUSTOMER_ACCEPTED_OFFER_STATUS:
+            echo $this->getLayout()
+            ->createBlock($class)
+            ->setTemplate("Customer_Sell::quote/status/customer_accepted_offer.phtml")->toHtml();
+            break;
+
+        case Sell::CUSTOMER_NOT_ACCEPTED_OFFER_STATUS:
+            echo $this->getLayout()
+            ->createBlock($class)
+            ->setTemplate("Customer_Sell::quote/status/offer_rejected.phtml")->toHtml();
+            break;
+
+        case Sell::QUALIFY_STATUS:
+            echo $this->getLayout()
+            ->createBlock($class)
+            ->setTemplate("Customer_Sell::quote/status/qualified.phtml")->toHtml();
+            break;
+
+        case Sell::NEW_OFFER_STATUS:
+            echo $this->getLayout()
+            ->createBlock($class)
+            ->setTemplate("Customer_Sell::quote/status/qualified.phtml")->toHtml();
+            break;
+
+        case Sell::NOT_QUALIFY_STATUS:
+            echo $this->getLayout()
+            ->createBlock($class)
+            ->setTemplate("Customer_Sell::quote/status/not_qualified.phtml")->toHtml();
+            break;
+
+        // case Sell::CUSTOMER_REQUESTED_PICK_UP_STATUS:
+        // echo $this->getLayout()
+        // ->createBlock($class)
+        // ->setTemplate("Customer_Sell::quote/status/request_pick_up.phtml")->toHtml();
+        // break;
+
+        case Sell::CUSTOMER_RESCHEDULED_APPOINTMENT_STATUS:
+            echo $this->getLayout()
+            ->createBlock($class)
+            ->setTemplate("Customer_Sell::quote/status/rescheduled_appointment.phtml")->toHtml();
+            break;
+
+        case Sell::CUSTOMER_BOOKED_AN_APPOINTMENT_STATUS:
+            echo $this->getLayout()
+            ->createBlock($class)
+            ->setTemplate("Customer_Sell::quote/status/appointment.phtml")->toHtml();
+            break;
+
+        case Sell::CUSTOMER_CANCELLED_APPOINTMENT_STATUS:
+            echo $this->getLayout()
+            ->createBlock($class)
+            ->setTemplate("Customer_Sell::quote/status/cancel_appointment.phtml")->toHtml();
+            break;
+
+        case Sell::ADMIN_OFFER_CONSIGNMENT_STATUS:
+            echo $this->getLayout()
+            ->createBlock($class)
+            ->setTemplate("Customer_Sell::quote/status/offer_consignment.phtml")->toHtml();
+            break;
+
+        // case Sell::CUSTOMER_NOT_ACCEPTED_CONSIGMENT_STATUS:
+        // echo $this->getLayout()
+        // ->createBlock($class)
+        // ->setTemplate("Customer_Sell::quote/status/rejected_offer_consignment.phtml")->toHtml();
+        // break;
+
+        // case Sell::CUSTOMER_ACCEPTED_CONSIGNMENT_STATUS:
+        // echo $this->getLayout()
+        // ->createBlock($class)
+        // ->setTemplate("Customer_Sell::quote/status/accepted_offer_consignment.phtml")->toHtml();
+        // break;
+
+        case Sell::INSPECTION_NOT_PASSED_STATUS:
+            echo $this->getLayout()
+            ->createBlock($class)
+            ->setTemplate("Customer_Sell::quote/status/inspection_not_pass.phtml")->toHtml();
+            break;
+
+        case Sell::PAID_STATUS:
+            echo $this->getLayout()
+            ->createBlock($class)
+            ->setTemplate("Customer_Sell::quote/status/paid.phtml")->toHtml();
+            break;
+
+        case Sell::CUSTOMER_ASKED_FOR_RETURN_SHIPPING_PAYMENT_LINK_STATUS:
+            echo $this->getLayout()
+            ->createBlock($class)
+            ->setTemplate("Customer_Sell::quote/status/requested_payment_link.phtml")->toHtml();
+            break;
+
+        case Sell::COMPLETED_STATUS:
+            echo $this->getLayout()
+            ->createBlock($class)
+            ->setTemplate("Customer_Sell::quote/status/completed.phtml")->toHtml();
+            break;
+
+        case Sell::CLOSED_STATUS:
+            echo $this->getLayout()
+            ->createBlock($class)
+            ->setTemplate("Customer_Sell::quote/status/closed.phtml")->toHtml();
+            break;
+
+        case Sell::CUSTOMER_PAID_FOR_SHIPPING_STATUS:
+            echo $this->getLayout()
+            ->createBlock($class)
+            ->setTemplate("Customer_Sell::quote/status/paid_for_shipping.phtml")->toHtml();
+            break;
+
+        default:
+        // echo __("Status content not found");
+            break;
+    }
+    ?>
+</form>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Customer_Sell/js/quote/status": <?php echo $block->getJsConfig(); ?>
+        }
+    }
+</script>

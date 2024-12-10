@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Magento\Framework\View\Page\Config" type="DiamondIcq\OpenGraph\Framework\View\Page\Config"/>
+
+    <type name="DiamondIcq\OpenGraph\Framework\View\Page\Config">
+        <plugin type="DiamondIcq\OpenGraph\Plugin\PageConfigPlugin"
+                name="page_config_plugin" sortOrder="100" disabled="false" />
+    </type>
+
+    <virtualType name="LocaleFormatter" type="DiamondIcq\OpenGraph\Service\Iso6391LocaleFormatter">
+    </virtualType>
+
+    <type name="DiamondIcq\OpenGraph\Plugin\PageConfigPlugin">
+        <arguments>
+            <argument name="localeFormatter" xsi:type="object">LocaleFormatter</argument>
+        </arguments>
+    </type>
+
+    <type name="DiamondIcq\OpenGraph\Block\General">
+        <arguments>
+            <argument name="localeFormatter" xsi:type="object">LocaleFormatter</argument>
+        </arguments>
+    </type>
+</config>

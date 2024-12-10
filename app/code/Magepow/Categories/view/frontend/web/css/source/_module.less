@@ -1,0 +1,256 @@
+& when (@media-common = true) {
+    .magepow-categories-grid, .magepow-categories-list {
+        clear: both;
+        display: block;
+        margin: 0;
+        padding: 0;
+        border: none;
+        box-sizing: content-box;
+        width: 100%;
+        list-style-type: none;
+        text-align: left;
+    }
+
+    .magepow-categories-grid {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .magepow-categories-heading {
+        margin: 16px 0;
+    }
+
+
+    /* Grid layout */
+
+    .magepow-categories-grid li {
+        display: inline-block;
+        text-align: left;
+        margin: 0;
+        padding: 0;
+        border: none;
+        box-sizing: content-box;
+        width: 25%;
+        vertical-align: top;
+    }
+
+    .magepow-categories-grid .magepow-categories-category {
+        display: block;
+        margin: 16px;
+    }
+
+    .magepow-categories-grid .magepow-categories-category-image img {
+        margin: 0;
+        padding: 0;
+        border: none;
+        width: 100%;
+    }
+
+    .magepow-categories-grid .magepow-categories-category-name {
+        text-align: center;
+    }
+
+    /* List layout */
+
+    .magepow-categories-list li {
+        display: block;
+        margin: 0;
+        padding: 0;
+        border: none;
+        box-sizing: content-box;
+        overflow: auto;
+    }
+
+    .magepow-categories-list .magepow-categories-category {
+        display: block;
+        overflow: auto;
+        margin: 16px;
+    }
+
+    .magepow-categories-list .magepow-categories-category-image {
+        float: left;
+        width: 20%; /* These percentages must match 1/3 */
+    }
+
+    .magepow-categories-list .magepow-categories-category-image img {
+        margin: 0;
+        padding: 0;
+        border: none;
+        width: 100%;
+    }
+
+    .magepow-categories-list .magepow-categories-category-name {
+        margin: 0 0 16px 20%; /* These percentages must match 2/3 */
+        padding: 0 0 0 32px;
+    }
+
+    .magepow-categories-list .magepow-categories-category-description {
+        margin: 0 0 16px 20%; /* These percentages must match 3/3 */
+        padding: 0 0 0 32px;
+    }
+
+    .magepow--category .block-title .sub-title {
+        font-size: 1.7rem;
+        margin: 1.5rem 0 4rem 0;
+        font-weight: 200;
+    }
+
+    .magepow-categories .category-item-details {
+        margin-top: 2rem;
+    }
+
+    /* shape-box - Video slider*/
+
+    .shapeSwiper {
+        .mx10 {
+            max-width: 1000px;
+            margin-top:20px;
+            margin: 0 auto;
+        }
+        .swiper-navigation {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 15px;
+            max-width: 500px;
+            height: 54px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            width: 90%;
+        }
+    }
+    .shape-box {
+        text-align: center;
+        transition: 400ms ease all;
+        transform: scale(0.6);
+        video {
+            width: 90%;
+            height: 90%;
+            transition: 400ms ease all;
+        }
+        .caption {
+            opacity: 0;
+            pointer-events: none;
+            transition: 400ms ease all;
+        }
+    }
+    .swiper-slide-active {
+        .shape-box {
+            transform: scale(1);
+            transition: 400ms ease all;
+            .caption {
+                opacity: 1;
+                pointer-events: all;
+                transition: 400ms ease all;
+            }
+        }
+    }
+
+
+
+    /* Media Queries */
+
+    @media only screen and (min-width: 320px) {
+        
+        .magepow-categories-grid li {
+            width: 100%;
+        }
+        
+    }
+
+    @media only screen and (min-width: 360px) {
+        
+        .magepow-categories-grid li {
+            width: 100%;
+        }
+        
+    }
+
+    @media only screen and (min-width: 400px) {
+        
+        .magepow-categories-grid li {
+            width: 100%;
+        }
+        
+    }
+
+    @media only screen and (min-width: 480px) {
+        
+        .magepow-categories-grid li {
+            width: 50%;
+        }
+        
+    }
+
+    @media only screen and (min-width: 540px) {
+        
+        .magepow-categories-grid li {
+            width: 50%;
+        }
+        
+    }
+
+    @media only screen and (min-width: 600px) {
+        
+        .magepow-categories-grid li {
+            width: 50%;
+        }
+        
+    }
+
+    @media only screen and (min-width: 640px) {
+        
+        .magepow-categories-grid li {
+            width: 50%;
+        }
+        
+    }
+
+    @media only screen and (min-width: 720px) {
+        
+        .magepow-categories-grid li {
+            width: 33.3%;
+        }
+        
+    }
+
+    @media only screen and (min-width: 768px) {
+        
+        .magepow-categories-grid li {
+            width: 33.3%;
+        }
+        
+    }
+
+    @media only screen and (min-width: 800px) {
+        
+        .magepow-categories-grid li {
+            width: 33.3%;
+        }
+        
+    }
+
+    @media only screen and (min-width: 960px) {
+        
+        .magepow-categories-grid li {
+            width: 33.3%;
+        }
+        
+    }
+
+    @media only screen and (min-width: 1024px) {
+        
+        .magepow-categories-grid li {
+            width: 25%;
+        }
+        
+    }
+
+    @media only screen and (min-width: 1280px) {
+        
+        .magepow-categories-grid li {
+            width: 25%;
+        }
+        
+    }
+}

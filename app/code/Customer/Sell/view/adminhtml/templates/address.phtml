@@ -1,0 +1,32 @@
+<?php
+$data = $block->getSellitemData();
+?> 
+
+<?php if ($data['status'] == 21): ?>
+<div class="admin__fieldset">
+    <div class="admin__field">
+        <div class="admin__field-label">
+            <label for="pickup_address">
+                <span><?= $block->escapeHtml(__("Return Shipping Address")) ?></span>                
+            </label>
+        </div>
+        <div class="admin__field-control">
+            <?= /* @noEscape */ $block->getAddress(); ?>
+        </div>
+    </div>
+</div>
+<?php endif;?>
+<?php if ($data['status'] == 20): ?>
+<div class="admin__fieldset">
+    <div class="admin__field">
+        <div class="admin__field-label">
+            <label for="pickup_address">
+                <span><?= $block->escapeHtml(__("PickUp Address")) ?></span>                
+            </label>
+        </div>
+        <div class="admin__field-control">
+            <?= /* @noEscape */ $block->getAddress(); ?>
+        </div>
+    </div>
+</div>
+<?php endif;?>

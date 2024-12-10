@@ -1,0 +1,494 @@
+.cms-home {
+	.page-main {
+		max-width: 100%;
+		padding: 0;
+		.container {
+			max-width: 1224px;
+			padding: 0;
+			margin: 0 auto;
+			box-sizing: border-box;
+		}
+		hr {
+			margin: 0;
+			border-color: @border_color_five;
+		}
+	}
+	.jewelry-sec {
+		.product-item-info {
+			position: relative;
+			.actions-secondary {
+			    position: absolute;
+			    top: 8px;
+			    right: 8px;
+			    z-index: 1;
+			    a.action.towishlist{
+				    &:before {
+				    	margin: 0;
+						background: url(../images/heart-outlined.svg);
+						content: '';
+						display: inline-block;
+						width: 24px;
+						height: 24px;
+						background-size: 24px;
+					    background-position-x: right;
+					    background-repeat: no-repeat;
+					    background-position-y: top;
+					}
+				}
+				a.action.towishlist.already-in-wishlist {
+					&:before {
+						background: url(../images/wishlist_heart_filled.svg);
+					}
+				}
+			}
+		}
+	}
+	.widget {
+		.section-head {
+			width: 100%;
+			display: inline-block;
+			margin: 72px 0 12px 0;
+			.section-title {
+				font-family: @title_secondary_fontfamily_bold;
+				font-weight: @primary_font_weight;
+				font-size: @secondary_font_size;
+				line-height: @primary_line_height + 1;
+				letter-spacing: @first_letterspacing;
+				color: @seventh_color_text;
+				float: left;
+				margin-bottom: 0;
+			}
+			.section-viewmore {
+				float: right;
+				a {
+					font-size: @fouth_font_size;
+					line-height: @secondary_line_height + 1;
+					letter-spacing: @first_letterspacing;
+					color: @primart_color_fortext;
+					border-bottom: 1px solid @primart_color_fortext;
+					&:hover {
+						text-decoration: initial;
+					}
+				}
+			}
+		}
+		.block-products-list {
+			.products-grid {
+				.product-items {
+					margin: 0 -12px;
+					.product-item {
+						width: calc(100% / 4);
+						padding: 0 12px;
+						margin-left: 0;
+						margin: 0;
+						.product-item-info {
+							border: 1px solid @border_color_five;
+							position: relative;
+							&:hover {
+								border: 1px solid @border_color_five;
+							}
+							.actions-secondary {
+							    position: absolute;
+							    top: 8px;
+							    right: 8px;
+							    z-index: 1;
+							    a.action.towishlist{
+								    &:before {
+								    	margin: 0;
+										background: url(../images/heart-outlined.svg);
+										content: '';
+										display: inline-block;
+										width: 24px;
+										height: 24px;
+										background-size: 24px;
+									    background-position-x: right;
+									    background-repeat: no-repeat;
+									    background-position-y: top;
+									}
+								}
+								a.action.towishlist.already-in-wishlist {
+									&:before {
+										background: url(../images/wishlist_heart_filled.svg);
+									}
+								}
+							}
+						}
+						.product-item-details {
+						    max-width: 256px;
+						    margin: 0 auto;
+						    text-align: center;
+						    .product-item-name {
+						    	margin: 4px 0;
+								min-height: 44px;
+								max-height: unset;
+							    overflow: hidden;
+							    text-overflow: ellipsis;
+							    display: -webkit-box;
+							    -webkit-line-clamp: 2;
+							    -webkit-box-orient: vertical;
+							    white-space: normal;
+								a {
+									color: @primart_color_fortext;
+									font-size: @fouth_font_size;
+									line-height: @secondary_line_height + 1;
+									text-align: center;
+									letter-spacing: @second_letterspacing;
+								}
+						    }
+						    .price-box {
+						    	display: flex;
+							    flex-wrap: nowrap;
+							    flex-direction: row;
+							    max-height: 22px;
+							    margin: 0 auto;
+							    padding-bottom: 8px;
+							    justify-content: center;
+						    	.price-container {
+						    		span.price {
+						    			text-align: center;
+										color: @primary_color_text;
+										font-size: @fith_font_size;
+										line-height: @third_line_height;
+										letter-spacing: @fourth_letterspacing;
+										font-weight: bold;
+						    		}
+						    	}
+						    	span.special-price {
+						    		order: 2;
+						    		span.price {
+										color: @primary_color_text;
+										font-size: @fith_font_size;
+										line-height: @third_line_height;
+										letter-spacing: @fourth_letterspacing;
+										font-weight: bold;
+						    		}
+						    	}
+						    	span.old-price {
+						    		margin: 0 8px 0 0;
+						    		span.price-label {
+						    			display: none;
+						    		}
+						    		span.price {
+						    			font-size: @sixth_font_size;
+										line-height: @sixth_line_height;
+										letter-spacing: @first_letterspacing;
+										text-decoration-line: line-through;
+										color: @sixth_color_text;
+						    		}
+						    	}
+						    }
+						    .static-text {
+						    	font-size: @sixth_font_size;
+						    	padding-bottom: 15px;
+								line-height: @sixth_line_height;
+								letter-spacing: @first_letterspacing;
+								color: @sixth_color_text;
+						    }
+						}
+					}
+				}
+			}
+		}
+	}
+	.colordiamond-prodsection, .uniquediamonds-prodsection {
+		background-color: @homepage_sec_bgcolor;
+		margin-top: 80px;
+		padding-bottom: 32px;
+		.block-products-list {
+			.products-grid {
+				.product-items {
+					.product-item {
+						.product-item-info {
+							border: 0;
+							background-color: #fff;
+							max-width: 286px;
+							&:hover {
+								border: 0;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	.setjewellery-prodsection, .marketplace-prodsection {
+		.block-products-list {
+			.products-grid {
+				.product-items {
+					.product-item {
+						.product-item-info {
+							max-width: 286px;
+						}
+					}
+				}
+			}
+		}
+	}
+	.our-strength-mobile {
+		display: none; 
+	}
+}
+
+
+/* @media screen and (max-width: 960px) and (min-width: 768px) {
+	.cms-home {
+		.widget {
+			.block-products-list {
+				.products-grid {
+					.product-items {
+						.product-item {
+							.product-item-details {
+								.product-item-name {
+									min-height: 64px;
+									max-height: 64px;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+} */
+
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+	.cms-home {
+		.page-main {
+			.container {
+				padding: 0 15px;
+			}
+		}
+		.home-jewellerysec {
+			.mainsec {
+				.rightsec {
+					.content-top {
+						.filtercategories {
+							display: flex;
+							.catname {
+								padding-right: 16px;
+							}
+						}
+					}
+				}
+			}
+		}
+		/* .widget {
+			.block-products-list {
+				.products-grid {
+					.product-items {
+						.product-item {
+							.product-item-details {
+								.price-box {
+									.price-container {
+										span.price {
+											font-size: @fith_font_size;
+										}
+									}
+									span.special-price {
+										span.price {
+											font-size: @fith_font_size;
+										}
+									}
+									span.old-price {
+										margin: 0px 4px 0px 0;
+										span.price {
+											font-size: @sixth_font_size - 2;
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		} */
+	}
+}
+
+
+@media screen and (max-width: 767px) and (min-width: 240px) {
+	.cms-home {
+		.page-main {
+			.container {
+				padding: 0 15px;
+			}
+			.container.forslider {
+			    padding: 0 0 0 15px !important;
+			}
+		}
+		.colordiamond-prodsection, .uniquediamonds-prodsection {
+			margin-top: 0;
+			padding-bottom: 2px;
+		}
+		.our-strength-mobile {
+			display: inline-block;
+			width: 100%;
+			.os-image {
+			    max-width: 100%;
+			    height: auto;
+			    margin-top: 32px;
+			    img {
+			    	width: 100%;
+			    }
+			}
+			.os-textblock {
+				.os-insidetext {
+					margin: -88px 24px 0 24px;
+				    border: 2px solid rgba(94, 77, 69, 0.25);
+				    box-sizing: border-box;
+				    /* top: -88px; */
+				    position: relative;
+				    padding: 108px 12px 40px 12px;
+				    z-index: 999;
+				    max-height: 280px;
+				    .txtblock-heading {
+				    	font-family: @title_secondary_fontfamily_bold;
+						font-size: @secondary_font_size;
+						font-weight: @primary_font_weight;
+						line-height: @primary_line_height + 1;
+						letter-spacing: @first_letterspacing;
+						color: @seventh_color_text;
+				    }
+				    .txtblock-desc {
+				    	font-size: @fouth_font_size;
+						line-height: @secondary_line_height;
+						letter-spacing: @second_letterspacing;
+						color: @sixth_color_text;
+				    }
+				}
+			}
+		}
+		.slick-slide {
+			display: inline-block;
+		}
+		.widget {
+			.section-head {
+				margin: 32px 0 0 0;
+			}
+			.block-products-list {
+				.products-grid {
+					.product-items {
+						margin: 0 0 0 -4px;
+						.product-item {
+							padding: 0 4px;
+							.product-item-details {
+								.product-item-name {
+									margin: 8px 4px;
+									/* min-height: 72px; */
+								}
+								.price-box {
+									padding-bottom: 12px;
+									.price-container {
+										span.price {
+											font-size: @fith_font_size;
+											line-height: @third_line_height;
+											letter-spacing: @fourth_letterspacing;
+											font-weight: bold;
+										}
+									}
+									span.special-price {
+										span.price {
+											font-size: @fith_font_size;
+											line-height: @third_line_height;
+											letter-spacing: @fourth_letterspacing;
+											font-weight: bold;
+										}
+									}
+									span.old-price {
+										margin: 0 8px 0 0;
+										span.price {
+											font-size: @sixth_font_size;
+											line-height: @sixth_line_height;
+											font-weight: normal;
+											letter-spacing: @first_letterspacing;
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	.cms-home {
+		.uniquediamonds-prodsection, .colordiamond-prodsection {
+			.block-products-list {
+				margin-bottom: 24px;
+				.products-grid {
+					.product-items {
+						.product-item {
+							.product-item-info {
+								border: 1px solid @border_color_five;
+								&:hover {
+									border: 1px solid @border_color_five;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 359px) and (min-width: 240px) {
+	.cms-home .widget .block-products-list .products-grid .product-items .product-item .product-item-details .price-box span.old-price {
+		margin: 0 4px 0 0;
+	}
+	.cms-home .widget .block-products-list .products-grid .product-items .product-item .product-item-details .price-box span.old-price span.price {
+		font-size: 8px;
+	}
+}
+
+@media screen and (max-width: 1254px) and (min-width: 1025px) {
+	.cms-home {
+		.container.forslider {
+			padding: 0 16px;
+		}
+		.page-main {
+			.marketplace-prodsection, .colordiamond-prodsection, .uniquediamonds-prodsection, .setjewellery-prodsection {
+				.container {
+					padding: 0 16px;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+	.home-jewellerysec {
+		.mainsec {
+			.leftsec {
+				.content {
+					.catname {
+						a {
+							width: 100%;
+						}
+						a.active {
+							width: 100%;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.home-jewellerysec .mainsec .rightsec .content-product .productsec li.product-item .product-image-photo {
+	max-width: 220px;
+}
+
+.home-jewellerysec .mainsec {
+	border-bottom: 1px solid #E5E5E5;
+	padding-bottom: 64px;
+}
+
+.home-jewellerysec.mobile .maincat-content {
+	border-bottom: 1px solid #E5E5E5;
+	padding-bottom: 24px;	
+}
+
+.mfp-content #social-login-popup .social-login.block-container.create .fieldset .field .label {
+	font-weight: normal;
+}

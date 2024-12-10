@@ -1,0 +1,156 @@
+/**
+ * Copyright © Magefan (support@magefan.com). All rights reserved.
+ * Please visit Magefan.com for license details (https://magefan.com/end-user-license-agreement).
+ *
+ * Glory to Ukraine! Glory to the heroes!
+ */
+.blog-page.blog-post-view .page-title-wrapper .page-title,
+h1 {
+    font-size: 33px;
+    font-weight: 600;
+    line-height: 1.1;
+    margin-bottom: 40px;
+    margin-top: 0;
+}
+
+h2 {
+    font-size: 2.6rem;
+    font-weight: 600;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+    margin-top: 2.5rem;
+}
+
+h3 {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+}
+
+h4 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+}
+
+h5 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+}
+
+h6 {
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+}
+
+.breadcrumbs,
+.page-main {
+
+    /* stylelint-disable-next-line declaration-no-important */
+    padding: 20px 15px 10px !important;
+}
+
+.widget.block-categories,
+.widget.block-recent-posts.block-list-posts {
+    background: #fcfbfb;
+    border: 1px solid #e8dbd3;
+    padding: 10px;
+}
+
+.post-item-link {
+    font-weight: 550;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+a,
+a:visited,
+.alink:visited {
+    color: #333;
+}
+
+.widget.block.block-archive {
+    display: none;
+}
+
+.accordion {
+    font-weight: 700;
+}
+
+strong {
+
+    /* stylelint-disable-next-line declaration-no-important */
+    font-weight: 700 !important;
+}
+
+.widget.blog-search input {
+    border: 1px solid #e8dbd3;
+    padding-right: 16px;
+    padding-left: 8px;
+
+    /* stylelint-disable-next-line declaration-no-important */
+    padding-bottom: 10px !important;
+}
+
+.page-title-wrapper {
+    margin-bottom: 40px;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.flex {
+    display: flex;
+}
+
+.widget.block-list-posts .block-content .item .post-image {
+    float: none;
+}
+
+.post-item-image-container {
+    float: none;
+    width: 80px;
+}
+
+.post-item-link-container {
+    float: none;
+    width: calc(100% - 80px);
+}
+
+@media (max-width: 1024px) {
+    .breadcrumbs {
+        display: block;
+    }
+}
+
+@media (min-width: 768px) {
+    .breadcrumbs {
+        display: block;
+    }
+}
+
+@media (max-width: 767px) {
+    .blog-page.blog-post-view .page-title-wrapper .page-title,
+    h1 {
+        font-size: 26px;
+        font-weight: 600;
+        line-height: 1.1;
+        margin-bottom: 40px;
+        margin-top: 0;
+    }
+}

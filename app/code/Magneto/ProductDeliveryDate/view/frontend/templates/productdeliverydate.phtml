@@ -1,0 +1,10 @@
+<?php
+$productDeliveryEstimatedDate = $block->getProductEstimateDeliveryDate();
+
+if (trim($productDeliveryEstimatedDate)!='') { ?>
+
+    <p><b><?= /* @noEscape */ __("Expected Delivery Date :");?> </b>
+        <?= /* @noEscape */ $productDeliveryEstimatedDate?>
+    </p>
+
+<?php } ?>

@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page layout="3columns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="default_head_blocks"/>
+    <body>
+        <referenceContainer name="before.body.end">
+            <block name="magefan.go.to.top" template="Magento_Theme::gototop.phtml" />
+        </referenceContainer>
+        <referenceContainer name="header.container">
+            <container name="header.panel.wrapper" htmlClass="panel wrapper" htmlTag="div" before="-">
+                <container name="header.panel" label="Page Header Panel" htmlTag="div" htmlClass="panel header">
+                    <block class="Magento\Framework\View\Element\Template" name="skip_to_content" template="Magento_Theme::html/skip.phtml">
+                        <arguments>
+                            <argument name="target" xsi:type="string">contentarea</argument>
+                            <argument name="label" translate="true" xsi:type="string">Skip to Content</argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Store\Block\Switcher" name="store_language" as="store_language" template="Magento_Store::switch/languages.phtml">
+                        <arguments>
+                            <argument name="view_model" xsi:type="object">Magento\Store\ViewModel\SwitcherUrlProvider</argument>
+                        </arguments>
+                    </block>
+                </container>
+            </container>
+        </referenceContainer>
+        <referenceBlock name="logo">
+        <arguments>
+            <argument name="logo_img_width" xsi:type="number">258</argument>
+            <argument name="logo_img_height" xsi:type="number">24</argument>
+        </arguments>
+    </referenceBlock>
+    <referenceContainer name="footer-container">
+        <block class="Magento\Cms\Block\Block" name="collaboration-and-newsletter-section">
+            <arguments>
+                <argument name="block_id" xsi:type="string">collaboration-and-newsletter-section</argument>
+            </arguments>
+        </block>
+        <block class="Magento\Cms\Block\Block" name="footer-section">
+            <arguments>
+                <argument name="block_id" xsi:type="string">footer-section</argument>
+            </arguments>
+        </block>
+    </referenceContainer>
+    <container name="custom.copyright" htmlTag="div" htmlClass="custom-copyright container">
+        <block class="Magento\Cms\Block\Block" name="copyright-section">
+            <arguments>
+                <argument name="block_id" xsi:type="string">copyright-section</argument>
+            </arguments>
+        </block>
+    </container>
+    <move element="header.top.state" destination="header.container" before="header.panel.wrapper" />
+    <block class="Magento\Framework\View\Element\Template" name="customlink" template="Magento_Theme::customlink.phtml" cacheable="true"/>
+    <block class="Magento\Framework\View\Element\Template" name="custom_megamenu" template="Magento_Theme::html/custom_megamenu.phtml"/>
+    <block class="Magento\Framework\View\Element\Template" name="rightside" template="Magento_Theme::wishlistlink.phtml" cacheable="true"/>
+    <container name="rightheader" htmlTag="div" htmlClass="header-right" />
+    <container name="leftheader" htmlTag="div" htmlClass="header-left" />
+    <container name="mobilesearch" htmlTag="div" htmlClass="mobile-search" >
+        <block class="Magento\Framework\View\Element\Template" name="ressearch" template="Magento_Search::form.minimobile.phtml" />
+    </container>
+    <move element="header.panel.wrapper" destination="leftheader" after="-"/>
+    <referenceBlock name="top.search" remove="true"/>
+    <referenceBlock name="mobilesearch" remove="true"/>
+    <referenceBlock name="compare-link-wrapper" remove="true"/>
+    <referenceBlock name="report.bugs" remove="true"/>
+    <referenceBlock name="footer_links" remove="true"/>
+    <referenceBlock name="copyright" remove="true"/>
+    <referenceBlock name="catalog.compare.sidebar" remove="true"/>
+    <referenceBlock name="wishlist_sidebar" remove="true" />
+    <referenceBlock name="sale.reorder.sidebar" remove="true"/>
+    <referenceBlock name="currency" remove="true"/>
+    <referenceBlock name="store.settings.currency" remove="true" />
+    <move element="custom_megamenu" destination="page.top" after="navigation.sections"/>
+    <move element="navigation.sections" destination="page.top" before="-" />
+    <move element="customlink" destination="rightheader" before="-"/>
+    <move element="minicart" destination="rightheader" after="-"/>
+    <move element="rightside" destination="rightheader" after="customlink"/>
+    <move element="rightheader" destination="header-wrapper" before="testdiv"/>
+    <move element="leftheader" destination="header-wrapper" before="logo"/>
+    <move element="mobilesearch" destination="header.container" after="header-wrapper"/>
+    <referenceBlock name="form.subscribe" remove="true"/>
+    <move element="copyright" destination="custom.copyright" before="-"/>
+    <referenceContainer name="page.top">
+        <referenceBlock name="store.links" remove="true" />
+    </referenceContainer>
+    <referenceBlock name="store.settings" remove="true" />
+    <referenceContainer name="after.body.start">
+        <block class="Magento\Framework\View\Element\Template" name="custom.components" as="customcomponents" template="Magento_Theme::customcomponents.phtml" />
+    </referenceContainer>
+    </body>
+</page>

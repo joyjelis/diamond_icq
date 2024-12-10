@@ -1,0 +1,77 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var $block \Magento\Catalog\Block\Product\View */
+?>
+<?php $_product = $block->getProduct(); 
+$isSimpleProductStock = 1; $productQty = 0;?>
+<?php if ($_product->getTypeId() != 'configurable') { 
+$customblock = $block->getLayout()->createBlock('Magneto\Custom\Block\Addtocart');
+    $salableStock = json_decode($customblock->getSalableQuantity($_product->getSku()));
+    if(isset($salableStock[0]->qty)){
+        $productQty = (int)$salableStock[0]->qty;
+    }   
+
+    if ($productQty <= 0) {
+        $isSimpleProductStock = 0;
+    } 
+} ?>
+<?php if ($_product->isSaleable() && $isSimpleProductStock) :?>
+<div class="box-tocart">
+    <div class="fieldset">
+        <?php if ($block->shouldRenderQuantity()) :?>
+        <div class="field qty">
+            <div id="qtyWrapper" class="qty_wrapper">
+                <div data-role="collapsible" >
+                    <div data-role="trigger" class="qty_title" >
+                        <span class="title"><?php echo __('Qty'); ?></span>
+                        <span class="addedQty"><?= $block->getProductDefaultQty() * 1 ?></span>
+                    </div>
+                </div>
+                <div data-role="content" class="control">
+                    <label class="label" for="qty"><span><?= $block->escapeHtml(__('Type Required Quantity')) ?></span></label>                
+                    <input type="number"
+                       name="qty"
+                       id="qty"
+                       min="0"
+                       value="<?= $block->getProductDefaultQty() * 1 ?>"
+                       title="<?= $block->escapeHtmlAttr(__('Qty')) ?>"
+                       class="input-text qty"
+                       data-validate="<?= $block->escapeHtml(json_encode($block->getQuantityValidators())) ?>"
+                       />
+                       <div class="message qty no-display">
+                           <span class="message error">
+                               <?php echo __('Minimum quantity 1 allow.'); ?>
+                           </span>
+                       </div>
+                       <div class="message scalabel no-display">
+                           <span class="message error">
+                               <?php echo __('The requested qty is not available.'); ?>
+                           </span>
+                       </div>
+                </div>
+            </div>          
+        </div>
+        <?php endif; ?>
+    </div>
+</div>
+<?php endif; ?>
+<script>
+require([
+    'jquery',
+    'accordion'
+], function ($) {
+    'use strict';
+
+    jQuery( document ).ready(function() {                      
+        jQuery("#qtyWrapper").accordion({
+            "openedState": "active",
+            "collapsible": true,
+            "active": [1]
+        });
+    });                 
+});
+</script>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 29 19.00017"
+   version="1.1"
+   id="svg28"
+   sodipodi:docname="cartes_bancaires.svg"
+   width="29"
+   height="19.00017"
+   inkscape:version="1.2 (dc2aedaf03, 2022-05-15)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs32">
+    <linearGradient
+       x1="27.062719"
+       y1="-0.69216001"
+       x2="6.5552001"
+       y2="32"
+       id="sail-svg-3a"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         stop-color="#002253"
+         offset="0%"
+         id="stop436" />
+      <stop
+         stop-color="#0082B1"
+         offset="54.255%"
+         id="stop438" />
+      <stop
+         stop-color="#0E9641"
+         offset="100%"
+         id="stop440" />
+    </linearGradient>
+  </defs>
+  <sodipodi:namedview
+     id="namedview30"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="26.737475"
+     inkscape:cx="21.542797"
+     inkscape:cy="10.659196"
+     inkscape:window-width="1920"
+     inkscape:window-height="1027"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg28" />
+  <g
+     fill="none"
+     fill-rule="evenodd"
+     transform="matrix(0.90433641,0,0,0.90433641,0.0709841,-5.3112232)"
+     id="g449">
+    <path
+       fill="url(#sail-svg-3a)"
+       d="M 0,0 H 32 V 32 H 0 Z"
+       id="path445"
+       style="fill:url(#sail-svg-3a)" />
+    <path
+       d="m 17.657,10.009 v 6.008 h 9.591 a 3.004,3.004 0 0 0 0,-6.008 h -9.59 z m -0.818,6.008 c -0.054,-1.182 -0.35,-2.242 -0.846,-3.142 A 5.963,5.963 0 0 0 13.635,10.518 C 12.634,9.965 11.435,9.662 10.089,9.662 H 8.818 c -1.345,0 -2.545,0.303 -3.546,0.856 a 5.963,5.963 0 0 0 -2.358,2.357 c -0.553,1.002 -0.856,2.201 -0.856,3.547 0,1.345 0.303,2.544 0.856,3.546 a 5.963,5.963 0 0 0 2.358,2.358 c 1.001,0.553 2.2,0.855 3.546,0.855 h 1.27 c 1.346,0 2.546,-0.302 3.547,-0.855 a 5.963,5.963 0 0 0 2.358,-2.358 c 0.497,-0.9 0.792,-1.96 0.846,-3.142 H 9.684 v -0.809 z m 0.818,0.809 v 6.009 h 9.591 a 3.0045,3.0045 0 0 0 0,-6.009 h -9.59 z"
+       fill="#ffffff"
+       id="path447" />
+  </g>
+</svg>

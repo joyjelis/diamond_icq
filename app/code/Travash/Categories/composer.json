@@ -1,0 +1,22 @@
+{
+    "name": "travash/module-categories",
+    "description": "Category custom fields",
+    "type": "magento2-module",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "chakravarthi chennu",
+            "email": "chakravarthi.6nnu@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Travash\\Categories\\": ""
+        }
+    }
+}

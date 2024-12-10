@@ -1,0 +1,65 @@
+<div class="control actions-toolbar">
+    <button id="add_address" class="add_address" type="button" data-bind="click: addAddress"><u data-bind="i18n: 'Add New Address'"></u></button>
+    <style>
+    #loader {
+        border: 12px solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 12px solid #444444;
+        width: 70px;
+        height: 70px;
+        animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    .center {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+</style>
+<div id="addaddress-content" style="display: none;">
+    <form id="sell-address-popup" method="post">
+        <div class="modal-inner-content">
+            <div class="field street_address" id="street_address">
+                <div class="control placeholder1">
+                    <input name="street[0]" id="street_address_1" title="street_address_1" value="" class="input-text" type="text" data-validate="{required:true}">
+                    <label class="label floating-label1" for="street_address"><span data-bind="i18n: 'Address Line 1*'"></span></label>
+                </div>
+            </div>
+            <div class="field city">
+                <div class="control placeholder1">
+                    <input name="city" id="city" title="city" class="input-text" type="text" data-validate="{required:true}">
+                    <label class="label floating-label1" for="city"><span data-bind="i18n: 'City'"></span></label>
+                </div>
+            </div>
+            <div class="field country">
+                <label class="label" for="country"><span data-bind="i18n: 'Country'"></span></label>
+                <div data-bind="html: country_html"></div>
+            </div>
+            <div class="field region" id="region">
+                <div class="control placeholder1">
+                    <input name="state" id="state_text" title="region" class="input-text" type="text" data-validate="{required:true}">
+                    <label class="label floating-label1" for="state"><span data-bind="i18n: 'Region'"></span></label>
+                </div>
+            </div>
+            <div class="field postcode">
+                <div class="control placeholder1">
+                    <input name="postcode" id="postcode" title="postcode" class="input-text" type="text" data-validate="{required:true}">
+                    <label class="label floating-label1" for="postcode"><span data-bind="i18n: 'Zip/Postal Code'"></span></label>
+                </div>
+            </div>
+            <div class="field actions-toolbar">
+                <button type="button" class="action primary" data-bind="click: saveaddress, i18n: 'Add Shipping Address'"></button>
+            </div>
+        </div>
+    </form>
+</div>
+</div>

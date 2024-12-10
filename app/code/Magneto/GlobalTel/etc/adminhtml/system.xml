@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * @author Magneto Team
+ * @copyright Copyright (c) 2021 Magneto (https://www.magnetoitsolutions.com)
+ * @package Magneto_GlobalTel
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+  <system>
+    <section id="m_utils" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1"
+       showInStore="1">
+       <class>separator-top</class>
+       <label>Global Utils</label>
+       <tab>mistab</tab>
+       <resource>Magneto_GlobalTel::utils_setting</resource>
+       <group id="general" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1"
+        showInStore="1">
+        <label>Configuration</label>
+        <field id="enabled" translate="label" type="select" sortOrder="3" showInDefault="1" showInStore="1" showInWebsite="1">
+           <label>Enable Global Tel</label>
+           <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+        </field>
+        <field id="lazy_load" translate="label" type="select" sortOrder="3" showInDefault="1" showInStore="1" showInWebsite="1">
+           <label>Enable Global Lazy Load</label>
+           <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+        </field>
+        <field id="exclude_img" translate="label comment" type="text" sortOrder="20"  showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+           <label>Exclude Image class</label>
+           <comment>Exclude Images exist class(comma separated)</comment>
+        </field>
+        <field id="lazy_ajax" translate="label comment" type="select" sortOrder="35"  showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+           <label>Lazyload Images Response Ajax</label>
+           <comment>Apply lazyload for Response Ajax</comment>
+           <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+        </field>
+        <field id="amasty_ajax" translate="label comment" type="select" sortOrder="35"  showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+           <label>Exclude Amasty LayerNavigation</label>
+           <comment>If Ajax Enabled then select Yes to resolve the issue related to Amasty LayerNavigation</comment>
+           <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+        </field>
+        <field id="enabled_fb_msg" translate="label" type="select" sortOrder="36" showInDefault="1" showInStore="1" showInWebsite="1" canRestore="1">
+           <label>Enable Facebook Messanger</label>
+           <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+        </field>
+        <field id="page_id" translate="label" type="text" sortOrder="37" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+            <label>Facebook Page ID</label>
+            <validate>required-entry</validate>
+            <comment><![CDATA[Generate Page Id : GoTo Page -> Setting -> Page info]]></comment>
+            <depends>
+                <field id="enabled_fb_msg">1</field>
+            </depends>
+        </field>
+        <field id="color_option" translate="label" type="text" sortOrder="38" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+            <label>Theme Color</label>
+            <frontend_model>Magneto\GlobalTel\Block\Color</frontend_model>
+            <validate>color</validate>
+            <comment><![CDATA[]]></comment>
+            <depends>
+                <field id="enabled_fb_msg">1</field>
+            </depends>
+        </field>
+        <!-- <field id="login_message" translate="label" type="text" sortOrder="39" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+            <label>Login Greeting Text</label>
+            <comment><![CDATA[]]></comment>
+            <depends>
+                <field id="enabled_fb_msg">1</field>
+            </depends>
+        </field>
+        <field id="logout_message" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+            <label>Logout Greeting Text</label>
+            <comment><![CDATA[]]></comment>
+            <depends>
+                <field id="enabled_fb_msg">1</field>
+            </depends>
+        </field> -->
+     </group>
+  </section>
+</system>
+</config>

@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+	<system>
+		<tab id="customer_sell_email" sortOrder="1000" translate="label">
+			<label>Customer Sell</label>
+		</tab>
+		<section id="sell_item_email" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label">
+			<label>Email Configuration</label>
+			<tab>customer_sell_email</tab>
+			<resource>Customer_Sell::customer_sell_config</resource>
+			<group id="general" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label">
+				<label>Sell Diamond Mails</label>
+				<field id="admin_email_address" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="1" translate="label" type="text">
+					<label>Admin Email</label>
+					<validate>required-entry</validate>
+				</field>
+				 <field id="sell_item_not_qualify" translate="label" type="select" sortOrder="3" showInDefault="1" showInStore="1" showInWebsite="1">
+				 <label>Sell Item Not Qualify</label>
+				    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+				</field>
+				<field id="sell_item_qualify" translate="label" type="select" sortOrder="3" showInDefault="1" showInStore="1" showInWebsite="1">
+				 <label>Sell Item Qualify</label>
+				    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+				</field>
+				<field id="sell_item_qualify_secound_valuation" translate="label" type="select" sortOrder="3" showInDefault="1" showInStore="1" showInWebsite="1">
+				 <label>Sell Item Qualify Secound Valuation</label>
+				    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+				</field>
+				<field id="sell_item_not_passed_inspection" translate="label" type="select" sortOrder="3" showInDefault="1" showInStore="1" showInWebsite="1">
+				 <label>Sell Item Not Passed Inspection</label>
+				    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+				</field>
+				<field id="sell_item_paid_to_customer" translate="label" type="select" sortOrder="3" showInDefault="1" showInStore="1" showInWebsite="1">
+				 <label>Diamond ICQ paid customer for trade in</label>
+				    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+				</field>
+				<field id="sell_item_consignment" translate="label" type="select" sortOrder="3" showInDefault="1" showInStore="1" showInWebsite="1">
+				 <label>Diamond ICQ Consignment</label>
+				    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+				</field>
+				<field id="sell_item_email" translate="label" type="select" sortOrder="3" showInDefault="1" showInStore="1" showInWebsite="1">
+				 <label>Diamond ICQ Email</label>
+				    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+				</field>
+				<field id="sell_item_email_appoinement_accept" translate="label" type="select" sortOrder="3" showInDefault="1" showInStore="1" showInWebsite="1">
+				 <label>Diamond ICQ Email Appointment Accept</label>
+				    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+				</field>
+				<field id="sell_item_email_appoinement_not_accept" translate="label" type="select" sortOrder="3" showInDefault="1" showInStore="1" showInWebsite="1">
+				 <label>Diamond ICQ Email Appointment not accept</label>
+				    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+				</field>
+				<field id="sell_item_email_appoinement_admin" translate="label" type="select" sortOrder="3" showInDefault="1" showInStore="1" showInWebsite="1">
+				 <label>Diamond ICQ Email Appointment(Admin)</label>
+				    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+				</field>
+				<field id="sell_item_email_admin" translate="label" type="select" sortOrder="3" showInDefault="1" showInStore="1" showInWebsite="1">
+				 <label>Diamond ICQ Email Notifiction(Admin)</label>
+				    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+				</field>
+				<field id="return_shipping_items" translate="label" type="select" sortOrder="3" showInDefault="1" showInStore="1" showInWebsite="1">
+				 <label>Request for return shipping</label>
+				    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+				</field>
+				<field id="pick_request_init" translate="label" type="select" sortOrder="3" showInDefault="1" showInStore="1" showInWebsite="1">
+				 <label>Pick Request received</label>
+				    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+				</field>
+				<field id="pick_request_generated" translate="label" type="select" sortOrder="3" showInDefault="1" showInStore="1" showInWebsite="1">
+				 <label>Pick Request Generated</label>
+				    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+				</field>
+			</group>
+		</section>
+
+		<section id="koalendar" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label">
+			<label>Configuration</label>
+			<tab>customer_sell_email</tab>
+			<resource>Customer_Sell::customer_sell_config</resource>
+			<group id="general" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label">
+				<label>Koalendar</label>
+				<field id="customer_login_book_an_appointment" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="text">
+					<label>My Account (Koalendar)</label>
+					<validate>required-entry</validate>
+					<comment>Customer Login require form</comment>
+				</field>
+				<field id="customer_login_quote_id_field" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="text">
+					<label>Quote ID Field</label>
+					<validate>required-entry</validate>
+					<comment>Quote Id Field Name</comment>
+				</field>
+				<field id="public_book_an_appointment" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="text">
+					<label>Public (Koalendar)</label>
+					<validate>required-entry</validate>
+					<comment>Customer Login not require</comment>
+				</field>
+			</group>
+		</section>
+	</system>
+</config>

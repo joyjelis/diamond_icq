@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <education>
+            <general>
+                <enable>1</enable>
+                <header_link>1</header_link>
+                <footer_link>1</footer_link>
+                <page_url>education</page_url>
+                <link_title>Educations</link_title>
+                <page_title>Education's</page_title>
+                <page_description>Education's</page_description>
+                <meta_title>Educations</meta_title>
+                <meta_keywords>Educations</meta_keywords>
+                <meta_description>Educations</meta_description>
+                <page_layout>2columns-left</page_layout>
+                <display_mode>category</display_mode>
+                <category_navigation_menu>1</category_navigation_menu>
+                <category_url_prefix>education-category</category_url_prefix>
+                <category_url_suffix></category_url_suffix>
+                <top_question_navigation_menu>0</top_question_navigation_menu>
+                <view>expanded</view>
+            </general>
+        </education>
+    </default>
+</config>

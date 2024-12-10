@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+	<type name="Magecomp\Extrafee\Helper\Data">
+		<plugin name="convertFeeAmount" type="Magneto\MagecompExtrafee\Plugin\ConvertFeeAmount" />
+	</type>
+	<type name="Magecomp\Extrafee\Helper\Data">
+		<plugin name="convertMinimumAmount" type="Magneto\MagecompExtrafee\Plugin\ConvertMinimumAmount" />
+	</type>
+
+	<preference for="Magecomp\Extrafee\Model\Quote\Total\Fee" type="Magneto\MagecompExtrafee\Model\Quote\Total\Fee" />
+
+	<preference for="Magecomp\Extrafee\Model\ExtrafeeConfigProvider" type="Magneto\MagecompExtrafee\Model\ExtrafeeConfigProvider" />
+
+	
+
+
+</config>

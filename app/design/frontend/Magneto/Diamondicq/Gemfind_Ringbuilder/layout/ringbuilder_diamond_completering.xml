@@ -1,0 +1,36 @@
+<?xml version="1.0" ?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <title>Complete Your Ring</title>
+        <css src="Gemfind_Ringbuilder::css/custom.css"/>
+        <link src="Gemfind_Ringbuilder::js/main.js"/>
+        <link src="Gemfind_Ringbuilder::js/ringview.js"/>
+        <css src="mage/gallery/gallery.css"/>
+        <css src="Gemfind_Ringbuilder::fancybox/jquery.fancybox.css"/>
+    </head>
+	<body>
+        <referenceBlock name="page.main.title" remove="true"/>
+        <referenceBlock name="head.additional">
+            <block class="Gemfind\Ringbuilder\Block\Diamond\Index" cacheable="false" ifconfig="gemfindringbuilder/general/enable_in_frontend" name="diamond.index.head"  template="Gemfind_Ringbuilder::diamond/head.phtml" after="-"/>
+        </referenceBlock>
+		 <referenceContainer name="content">
+            <block class="Gemfind\Ringbuilder\Block\Diamond\Completering" ifconfig="gemfindringbuilder/general/enable_in_frontend" name="completering.index"/>
+        </referenceContainer>
+         <referenceBlock name="breadcrumbs">
+            <action method="addCrumb">
+                <argument name="crumbName" xsi:type="string">Engagement Rings</argument>
+                <argument name="crumbInfo" xsi:type="array">
+                    <item name="title" xsi:type="string" translate="true">Engagement Rings</item>
+                    <item name="label" xsi:type="string" translate="true">Engagement Rings</item>
+                </argument>
+            </action>
+            <action method="addCrumb">
+                <argument name="crumbName" xsi:type="string">Start with Settings</argument>
+                <argument name="crumbInfo" xsi:type="array">
+                    <item name="title" xsi:type="string" translate="true">Start with Settings</item>
+                    <item name="label" xsi:type="string" translate="true">Start with Settings</item>
+                </argument>
+            </action>
+        </referenceBlock>
+	</body>
+</page>
